@@ -15,21 +15,6 @@ class AlternateLoginScreen extends StatelessWidget {
       body: Container(
         height: double.infinity,
         width: double.infinity,
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [
-              Colors.blue.withOpacity(0.7),
-              Colors.deepPurple.withOpacity(0.8),
-              Colors.deepOrange.withOpacity(0.8),
-            ],
-          ),
-          // image: const DecorationImage(
-          //   image: AssetImage("assets/images/tobetoBackground.png"),
-          //   fit: BoxFit.fill,
-          // ),
-        ),
         child: Stack(
           alignment: Alignment.center,
           fit: StackFit.loose,
