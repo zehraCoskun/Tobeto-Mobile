@@ -11,9 +11,6 @@ Bu depo, Tobeto adlı eğitim platformu için mobil uygulama geliştirmek amacı
 
 Bu mobil uygulama, Tobeto eğitim platformunun bir mobil versiyonunu sağlamak için geliştirilecektir. Kullanıcılar, çeşitli eğitimlere göz atabilir, video derslere katılabilir ve Tobeto'nun sunduğu diğer özellikleri kullanabilirler.
 
-## Başlangıç
+## Adım adım ilerlememizi takip etmek için ;
+<img width="160" alt="v1" src="https://github.com/zehraCoskun/tobeto-mobile/assets/110024096/018383e0-872d-4109-8f34-af608d734320">
 
-Projeyi yerel makinanıza klonlayın:
-
-```bash
-git clone https://github.com/kullaniciadiniz/tobeto-mobil-app.git
