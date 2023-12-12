@@ -1,20 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/colors/tobeto_colors.dart';
-import 'package:tobeto_mobil/screens/login_screens.dart';
+import 'package:tobeto_mobil/screens/alternate_login_screen.dart';
 
 void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
+  runApp(
+    MaterialApp(
       theme: ThemeData(
         useMaterial3: true,
-        colorScheme: myColors, // Varsayılan renk şeması (light) kullanılabilir
+        colorScheme: myColors,
       ),
-      home: LoginScreen(),
-    );
-  }
+      initialRoute: "/",
+      routes: {
+        "/": (context) => const AlternateLoginScreen(),
+      },
+    ),
+  );
 }

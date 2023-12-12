@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/colors/tobeto_colors.dart';
 import 'package:tobeto_mobil/consts/constants.dart';
 
+import 'form_widget.dart';
+
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
 
@@ -42,59 +44,29 @@ class LoginScreen extends StatelessWidget {
               ),
               isPassword: true,
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 TextButton(
-                    onPressed: () {},
-                    child: const Text(loginForgotText),
-                    style: ButtonStyle(foregroundColor: MaterialStatePropertyAll(MyColors.mainTextColor))),
+                  onPressed: () {},
+                  style: ButtonStyle(
+                    foregroundColor:
+                        MaterialStatePropertyAll(MyColors.mainTextColor),
+                  ),
+                  child: const Text(loginForgotText),
+                ),
                 ElevatedButton(
                   onPressed: () {},
-                  style: ElevatedButton.styleFrom(padding: EdgeInsets.symmetric(horizontal: 40), textStyle: TextStyle(fontSize: 20)),
+                  style: ElevatedButton.styleFrom(
+                      padding: const EdgeInsets.symmetric(horizontal: 40),
+                      textStyle: const TextStyle(fontSize: 20)),
                   child: const Text(loginButtonText),
                 )
               ],
             )
           ],
         ),
-      ),
-    );
-  }
-}
-
-class FormWidget extends StatelessWidget {
-  const FormWidget({
-    super.key,
-    required this.prefixIcon,
-    required this.labelText,
-    required this.hintText,
-    this.suffixIcon,
-    required this.isPassword,
-  });
-
-  final Icon prefixIcon;
-  final String labelText;
-  final String hintText;
-  final Widget? suffixIcon;
-  final bool isPassword;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: MyColors.secondaryColor,
-      child: TextField(
-        decoration: InputDecoration(
-          prefixIconColor: Theme.of(context).primaryColor,
-          prefixIcon: prefixIcon,
-          labelText: labelText, //placeholder
-          hintText: hintText,
-          border: const OutlineInputBorder(),
-          suffixIconColor: MyColors.mainTextColor,
-          suffixIcon: suffixIcon,
-        ),
-        obscureText: isPassword,
       ),
     );
   }
