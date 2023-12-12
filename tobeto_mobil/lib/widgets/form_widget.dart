@@ -19,19 +19,17 @@ class FormWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: MyColors.secondaryColor,
-      child: TextField(
-        decoration: InputDecoration(
-          prefixIconColor: Theme.of(context).primaryColor,
-          prefixIcon: prefixIcon,
-          labelText: labelText, //placeholder
-          hintText: hintText,
-          suffixIconColor: MyColors.mainTextColor,
-          suffixIcon: suffixIcon,
-        ),
-        obscureText: isPassword,
+    return TextField(
+      decoration: InputDecoration(
+        prefixIconColor: Theme.of(context).primaryColor,
+        prefixIcon: prefixIcon,
+        labelText: labelText, //placeholder
+        hintText: hintText,
+        suffixIconColor: MyColors.mainTextColor,
+        suffixIcon: suffixIcon,
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(16)),
       ),
+      obscureText: isPassword,
     );
   }
 }
