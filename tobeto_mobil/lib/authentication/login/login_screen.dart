@@ -3,7 +3,7 @@ import 'package:tobeto_mobil/authentication/login/login_form_widget.dart';
 import 'package:tobeto_mobil/colors/tobeto_colors.dart';
 import 'package:tobeto_mobil/consts/constants.dart';
 import 'package:tobeto_mobil/core/widgets/background_widget.dart';
-import 'package:tobeto_mobil/widgets/clipper_background_widdget.dart';
+import 'package:tobeto_mobil/widgets/clipper_widget.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({
