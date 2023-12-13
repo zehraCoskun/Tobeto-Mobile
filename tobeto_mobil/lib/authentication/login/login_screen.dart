@@ -17,7 +17,7 @@ class LoginScreen extends StatelessWidget {
       body: Stack(
         children: [
           BackgroundWidget(
-            clipper: MyCustomClipper(),
+            clipper: ClipperWidget(),
           ),
 
           //buradan Kullanici adi ve sifre text fieldlarini cagiriyorum LoginFormWidget icerisindende butonlari
