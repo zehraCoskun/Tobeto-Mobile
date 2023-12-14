@@ -12,10 +12,10 @@ Bu depo, Tobeto adlı eğitim platformu için mobil uygulama geliştirmek amacı
 Bu mobil uygulama, Tobeto eğitim platformunun bir mobil versiyonunu sağlamak için geliştirilecektir. Kullanıcılar, çeşitli eğitimlere göz atabilir, video derslere katılabilir ve Tobeto'nun sunduğu diğer özellikleri kullanabilirler.
 
 ## Adım adım ilerlememizi takip etmek için ;
-# 1 -
+# Stage 1 - İlk sayfa olan Login sayfası oluşturuldu
 <img width="160" alt="v1" src="https://github.com/zehraCoskun/tobeto-mobile/assets/110024096/018383e0-872d-4109-8f34-af608d734320">
 
-# 2 -
+# Stage 2 - Dark/Light modlarına göre renk temaları oluşturuldu. Anasayfa üzerine Drawer eklendi
 <img width="160" alt="login1" src="https://github.com/zehraCoskun/tobeto-mobile/assets/110024096/8476c010-239b-4e97-bec4-ac9929de21a4">
 
 <img width="160" alt="login2" src="https://github.com/zehraCoskun/tobeto-mobile/assets/110024096/6ddafe0a-a193-46f2-8427-e1b97513d70f">
