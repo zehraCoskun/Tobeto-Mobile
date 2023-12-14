@@ -17,7 +17,9 @@ class LoginButtonsWidget extends StatelessWidget {
           child: const Text(loginForgotText),
         ),
         ElevatedButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).pushNamed("/home");
+          },
           style: Theme.of(context).elevatedButtonTheme.style,
           child: const Text(loginButtonText),
         ),

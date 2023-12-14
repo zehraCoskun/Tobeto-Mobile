@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/consts/constants.dart';
 
@@ -16,23 +18,32 @@ class HomeScreen extends StatelessWidget {
                   UserAccountsDrawerHeader(
                     accountName: Text(
                       'Zehra Coşkun',
-                      style: TextStyle(color: Colors.black),
+                      style: TextStyle(color: Theme.of(context).colorScheme.surface),
                     ), // Kullanıcı adı
-                    accountEmail: Text('zehra@example.com'), // Kullanıcı e-posta adresi
+                    accountEmail: Text(
+                      'zehra@example.com',
+                      style: TextStyle(color: Theme.of(context).colorScheme.surface),
+                    ), // Kullanıcı e-posta adresi
                     currentAccountPicture: CircleAvatar(
-                      backgroundColor: Colors.white,
-                      child: Icon(Icons.person),
+                      backgroundColor: Theme.of(context).colorScheme.background,
+                      child: Icon(
+                        Icons.person_2_outlined,
+                        color: Theme.of(context).colorScheme.primary,
+                      ),
                     ),
                     decoration: BoxDecoration(
-                      color: Theme.of(context).colorScheme.primary,
+                      color: Theme.of(context).colorScheme.onSecondary,
                     ),
+                    onDetailsPressed: () {
+                      Navigator.of(context).pushNamed("/profile");
+                    },
                   ),
                   ListTile(
                     title: const Text('🏠 Anasayfa'),
                     onTap: () {},
                   ),
                   ListTile(
-                    title: Text('🖊️ Değerlendirmeler'),
+                    title: const Text('🖊️ Değerlendirmeler'),
                     onTap: () {},
                   ),
                   ListTile(
@@ -40,17 +51,36 @@ class HomeScreen extends StatelessWidget {
                     onTap: () {},
                   ),
                   ListTile(
-                    title: Text('📜 Katalog'),
+                    title: const Text('📜 Katalog'),
                     onTap: () {},
                   ),
+                  ListTile(
+                    title: const Text('🗓️ Takvim'),
+                    onTap: () {},
+                  ),
+                  const Divider(),
+                  ListTile(
+                    title: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+                      Image.asset(
+                        logoT,
+                        height: 22,
+                      ),
+                      const Text("  Tobeto")
+                    ]),
+                    onTap: () {},
+                  ),
+                  //ToggleButtons(children: [Icon(Icons.light_mode), Icon(Icons.dark_mode)], isSelected: [true, false]),
                 ],
               ),
             ),
             Align(
               alignment: Alignment.bottomCenter,
               child: Container(
-                child: Image.asset(logo),
-                padding: EdgeInsets.symmetric(horizontal: padding16, vertical: padding32),
+                padding: const EdgeInsets.symmetric(horizontal: padding16, vertical: padding32),
+                child: Image.asset(
+                  logo,
+                  height: padding32,
+                ),
               ),
             )
           ],

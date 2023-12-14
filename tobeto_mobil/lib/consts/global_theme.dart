@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 
 class _tobetoColors {
   static Color acikMavi = const Color.fromARGB(255, 175, 192, 204);
-  static Color koyuMavi = const Color.fromARGB(255, 86, 125, 153);
+  static Color koyuMavi = Colors.brown;
+  //const Color.fromARGB(255, 86, 125, 153);
   static Color krem = const Color.fromARGB(255, 245, 254, 253);
   static Color pembe = Color.fromARGB(255, 236, 110, 205);
   static Color kahve = const Color.fromARGB(255, 204, 176, 175);
   static Color mor = const Color.fromARGB(255, 137, 46, 221); //Colors.deepPurple;
   static Color kirmizi = Color.fromARGB(255, 253, 46, 0);
+  static Color siyah = Colors.black;
 }
 
 /*User
@@ -35,7 +37,7 @@ final lightTheme = ThemeData(
     onError: _tobetoColors.krem,
     onBackground: Colors.black,
     secondary: _tobetoColors.kirmizi,
-    surface: _tobetoColors.koyuMavi,
+    surface: _tobetoColors.siyah,
     background: _tobetoColors.krem,
     onPrimary: Colors.black,
     onSecondary: _tobetoColors.kahve,
@@ -44,8 +46,6 @@ final lightTheme = ThemeData(
 
   //AppBar Ayarları
   appBarTheme: AppBarTheme(color: _tobetoColors.krem),
-
-  //Drawer Ayarları
 
   //TextButton Ayarlari
   textButtonTheme: const TextButtonThemeData(
