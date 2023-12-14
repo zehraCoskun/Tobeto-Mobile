@@ -5,7 +5,7 @@ import 'package:tobeto_mobil/authentication/login/login_screen.dart';
 void main() {
   runApp(
     MaterialApp(
-      theme: theme,
+      theme: lightTheme,
       initialRoute: "/login",
       routes: {
         // "/": (context) => SplashScreen(),

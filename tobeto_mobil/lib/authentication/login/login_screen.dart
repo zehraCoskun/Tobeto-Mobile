@@ -24,6 +24,7 @@ class LoginScreen extends StatelessWidget {
           const LoginFormWidget(),
         ],
       ),
+      //! buranın değişmesi gerekiyor, ama nasıl?
       floatingActionButton: Image.asset(
         logo,
         color: Theme.of(context).colorScheme.background,

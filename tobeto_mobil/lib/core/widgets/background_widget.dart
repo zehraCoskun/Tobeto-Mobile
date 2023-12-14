@@ -16,7 +16,6 @@ class BackgroundWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-
       //asagidaki DeepPurple cok guzel oluyor diger renklerede biraz bakindim yalniz cok iyi oluyor
       //isterseniz Container icin de disaridan color zorunlu olarak alabiliriz farkli sayfalarda farkli
       //combinasyonlar kullanmak istersek diye  --oneri--
@@ -30,11 +29,12 @@ class BackgroundWidget extends StatelessWidget {
         child: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
-              begin: Alignment.bottomCenter,
-              end: Alignment.topCenter,
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
               colors: [
-                Theme.of(context).colorScheme.surface,
-                Theme.of(context).canvasColor,
+                Theme.of(context).colorScheme.primary, //.withOpacity(0.1).withAlpha(200)
+                Theme.of(context).colorScheme.background.withAlpha(200),
+                Theme.of(context).colorScheme.background
               ],
             ),
           ),
