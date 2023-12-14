@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_mobil/colors/tobeto_colors.dart';
 
 class BackgroundWidget extends StatelessWidget {
   const BackgroundWidget({
@@ -22,7 +21,9 @@ class BackgroundWidget extends StatelessWidget {
       //isterseniz Container icin de disaridan color zorunlu olarak alabiliriz farkli sayfalarda farkli
       //combinasyonlar kullanmak istersek diye  --oneri--
 
-      color: MyColors.otherColor.withOpacity(0.6),
+      //color: MyColors.otherColor.withOpacity(0.6),
+      color: Theme.of(context).colorScheme.primary,
+
       //color: Colors.deepPurple,
       child: ClipPath(
         clipper: clipper,
@@ -32,8 +33,8 @@ class BackgroundWidget extends StatelessWidget {
               begin: Alignment.bottomCenter,
               end: Alignment.topCenter,
               colors: [
-                MyColors.mainColor,
-                MyColors.otherColor.withAlpha(100),
+                Theme.of(context).colorScheme.surface,
+                Theme.of(context).canvasColor,
               ],
             ),
           ),

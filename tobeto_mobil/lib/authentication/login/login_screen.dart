@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/authentication/login/login_form_widget.dart';
-import 'package:tobeto_mobil/colors/tobeto_colors.dart';
 import 'package:tobeto_mobil/consts/constants.dart';
 import 'package:tobeto_mobil/core/widgets/background_widget.dart';
 import 'package:tobeto_mobil/widgets/clipper_widget.dart';
@@ -27,7 +26,7 @@ class LoginScreen extends StatelessWidget {
       ),
       floatingActionButton: Image.asset(
         logo,
-        color: MyColors.mainColor,
+        color: Theme.of(context).colorScheme.background,
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
     );

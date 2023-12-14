@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_mobil/colors/tobeto_colors.dart';
 
 class FormWidget extends StatelessWidget {
   const FormWidget({
@@ -26,14 +25,14 @@ class FormWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextField(
       decoration: InputDecoration(
-        //burayi degismemiz gerekebilir Theme.of kullanmiyoruz program genelinde MyColors ile halletmemiz lazim
-        prefixIconColor: Theme.of(context).primaryColor,
+        prefixIconColor: Theme.of(context).inputDecorationTheme.prefixIconColor,
         prefixIcon: prefixIcon,
         labelText: labelText, //placeholder
         hintText: hintText,
-        suffixIconColor: MyColors.mainTextColor,
+        suffixIconColor: Theme.of(context).inputDecorationTheme.suffixIconColor,
         suffixIcon: suffixIcon,
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(16)),
+        enabledBorder: Theme.of(context).inputDecorationTheme.enabledBorder,
+        focusedBorder: Theme.of(context).inputDecorationTheme.focusedBorder,
       ),
 
       //isPassword null degilse ObscureText = isPassword

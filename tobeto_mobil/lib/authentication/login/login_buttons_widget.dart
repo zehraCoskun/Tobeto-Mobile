@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_mobil/colors/tobeto_colors.dart';
 import 'package:tobeto_mobil/consts/constants.dart';
 
 class LoginButtonsWidget extends StatelessWidget {
@@ -14,16 +13,12 @@ class LoginButtonsWidget extends StatelessWidget {
       children: [
         TextButton(
           onPressed: () {},
-          style: ButtonStyle(
-            foregroundColor: MaterialStatePropertyAll(MyColors.mainTextColor),
-          ),
+          style: Theme.of(context).textButtonTheme.style,
           child: const Text(loginForgotText),
         ),
         ElevatedButton(
           onPressed: () {},
-          style: ElevatedButton.styleFrom(
-              padding: const EdgeInsets.symmetric(horizontal: 40),
-              textStyle: const TextStyle(fontSize: 20)),
+          style: Theme.of(context).elevatedButtonTheme.style,
           child: const Text(loginButtonText),
         ),
       ],
