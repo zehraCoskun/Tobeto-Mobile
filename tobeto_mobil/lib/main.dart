@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/consts/global_theme.dart';
 import 'package:tobeto_mobil/authentication/login/login_screen.dart';
+import 'package:tobeto_mobil/screens/home_screen.dart';
 
 void main() {
   runApp(
     MaterialApp(
       theme: lightTheme,
-      initialRoute: "/login",
+      initialRoute: "/home",
       routes: {
         // "/": (context) => SplashScreen(),
         "/login": (context) => const LoginScreen(),
         // "/register": (context) => RegisterScreen(),
         // "/recovery": (context) => RecoveryScreen(),
+        "/home": (context) => HomeScreen(),
       },
     ),
   );

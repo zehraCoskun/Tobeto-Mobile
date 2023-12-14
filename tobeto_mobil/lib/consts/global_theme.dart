@@ -38,9 +38,14 @@ final lightTheme = ThemeData(
     surface: _tobetoColors.koyuMavi,
     background: _tobetoColors.krem,
     onPrimary: Colors.black,
-    onSecondary: Colors.black,
+    onSecondary: _tobetoColors.kahve,
     onSurface: Colors.black87,
   ),
+
+  //AppBar Ayarları
+  appBarTheme: AppBarTheme(color: _tobetoColors.krem),
+
+  //Drawer Ayarları
 
   //TextButton Ayarlari
   textButtonTheme: const TextButtonThemeData(
