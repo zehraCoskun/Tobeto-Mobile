@@ -18,11 +18,9 @@ class HomeScreen extends StatelessWidget {
                   UserAccountsDrawerHeader(
                     accountName: Text(
                       'Zehra Coşkun',
-                      style: TextStyle(color: Theme.of(context).colorScheme.surface),
                     ), // Kullanıcı adı
                     accountEmail: Text(
                       'zehra@example.com',
-                      style: TextStyle(color: Theme.of(context).colorScheme.surface),
                     ), // Kullanıcı e-posta adresi
                     currentAccountPicture: CircleAvatar(
                       backgroundColor: Theme.of(context).colorScheme.background,

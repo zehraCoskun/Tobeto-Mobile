@@ -7,8 +7,11 @@ import 'package:tobeto_mobil/screens/profile_screen.dart';
 void main() {
   runApp(
     MaterialApp(
-      theme: lightTheme,
-      //darkTheme: ThemeData(brightness: Brightness.dark),
+      theme: ThemeData(brightness: Brightness.light),
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
+      ),
+      themeMode: ThemeMode.system,
       initialRoute: "/login",
       routes: {
         // "/": (context) => SplashScreen(),
