@@ -16,12 +16,14 @@ class HomeScreen extends StatelessWidget {
               child: ListView(
                 children: [
                   UserAccountsDrawerHeader(
-                    accountName: Text(
+                    accountName: const Text(
                       'Zehra Coşkun',
-                    ), // Kullanıcı adı
-                    accountEmail: Text(
+                      style: TextStyle(color: Colors.black87),
+                    ),
+                    accountEmail: const Text(
                       'zehra@example.com',
-                    ), // Kullanıcı e-posta adresi
+                      style: TextStyle(color: Colors.black87),
+                    ),
                     currentAccountPicture: CircleAvatar(
                       backgroundColor: Theme.of(context).colorScheme.background,
                       child: Icon(

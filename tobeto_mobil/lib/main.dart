@@ -7,10 +7,8 @@ import 'package:tobeto_mobil/screens/profile_screen.dart';
 void main() {
   runApp(
     MaterialApp(
-      theme: ThemeData(brightness: Brightness.light),
-      darkTheme: ThemeData(
-        brightness: Brightness.dark,
-      ),
+      theme: lightTheme,
+      darkTheme: darkTheme,
       themeMode: ThemeMode.system,
       initialRoute: "/login",
       routes: {
@@ -18,8 +16,8 @@ void main() {
         "/login": (context) => const LoginScreen(),
         // "/register": (context) => RegisterScreen(),
         // "/recovery": (context) => RecoveryScreen(),
-        "/home": (context) => HomeScreen(),
-        "/profile": (context) => ProfilScreen(),
+        "/home": (context) => const HomeScreen(),
+        "/profile": (context) => const ProfilScreen(),
       },
     ),
   );
