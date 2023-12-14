@@ -14,7 +14,10 @@ class HomeScreen extends StatelessWidget {
               child: ListView(
                 children: [
                   UserAccountsDrawerHeader(
-                    accountName: Text('Zehra Coşkun'), // Kullanıcı adı
+                    accountName: Text(
+                      'Zehra Coşkun',
+                      style: TextStyle(color: Colors.black),
+                    ), // Kullanıcı adı
                     accountEmail: Text('zehra@example.com'), // Kullanıcı e-posta adresi
                     currentAccountPicture: CircleAvatar(
                       backgroundColor: Colors.white,
@@ -25,19 +28,19 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                   ListTile(
-                    title: const Text('Anasayfa'),
+                    title: const Text('🏠 Anasayfa'),
                     onTap: () {},
                   ),
                   ListTile(
-                    title: Text('Değerlendirmeler'),
+                    title: Text('🖊️ Değerlendirmeler'),
                     onTap: () {},
                   ),
                   ListTile(
-                    title: const Text('Profilim'),
+                    title: const Text('😊 Profilim'),
                     onTap: () {},
                   ),
                   ListTile(
-                    title: Text('Katalog'),
+                    title: Text('📜 Katalog'),
                     onTap: () {},
                   ),
                 ],
