@@ -38,7 +38,7 @@ class LoginScreen extends StatelessWidget {
       //! buranın değişmesi gerekiyor, ama nasıl?
       floatingActionButton: Image.asset(
         logo,
-        color: Theme.of(context).colorScheme.background,
+        color: Theme.of(context).colorScheme.onError,
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
     );

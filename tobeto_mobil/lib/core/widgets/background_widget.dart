@@ -33,8 +33,8 @@ class BackgroundWidget extends StatelessWidget {
               end: Alignment.bottomRight,
               colors: [
                 Theme.of(context).colorScheme.primary, //.withOpacity(0.1).withAlpha(200)
-                Theme.of(context).colorScheme.background.withAlpha(200),
-                Theme.of(context).colorScheme.background
+                Theme.of(context).colorScheme.onSecondary.withAlpha(200),
+                Theme.of(context).colorScheme.onSecondary
               ],
             ),
           ),
