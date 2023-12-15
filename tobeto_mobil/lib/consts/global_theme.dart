@@ -6,7 +6,7 @@ class _tobetoLightColors {
   static Color beyaz = const Color(0xFFFFFBF5);
   static Color krem = const Color(0xFFF7EFE5);
   static Color pembe = const Color(0xFFC3ACD0);
-  static Color kahve = Color.fromARGB(112, 204, 176, 175);
+  static Color kahve = Color.fromARGB(255, 204, 176, 175);
   static Color kirmizi = Colors.red.shade900;
   static Color siyah = Colors.black;
   static Color acikSiyah = Colors.black54;
@@ -60,6 +60,10 @@ final lightTheme = ThemeData(
         )),
   ),
 
+  drawerTheme: DrawerThemeData(
+    backgroundColor: _tobetoLightColors.krem,
+  ),
+
   //ElevatedButton Ayarlari
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ButtonStyle(
@@ -72,6 +76,7 @@ final lightTheme = ThemeData(
         TextStyle(fontSize: 20),
       ),
       foregroundColor: MaterialStatePropertyAll(_tobetoLightColors.krem), //text color
+      backgroundColor: MaterialStatePropertyAll(_tobetoLightColors.mor),
     ),
   ),
 
@@ -142,6 +147,10 @@ final darkTheme = ThemeData(
         )),
   ),
 
+  drawerTheme: DrawerThemeData(
+    backgroundColor: _tobetoLightColors.kahve,
+  ),
+
   //ElevatedButton Ayarlari
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ButtonStyle(
@@ -154,6 +163,7 @@ final darkTheme = ThemeData(
         TextStyle(fontSize: 20),
       ),
       foregroundColor: MaterialStatePropertyAll(_tobetoLightColors.krem), //text color
+      backgroundColor: MaterialStatePropertyAll(_tobetoLightColors.mor),
     ),
   ),
 

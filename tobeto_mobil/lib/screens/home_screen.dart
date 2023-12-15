@@ -12,7 +12,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       drawer: HomeDrawer(),
       appBar: AppBar(),
-      body: Text("gfjhgkl"),
+      body: Text("dsadsadsadsads"),
     );
   }
 }

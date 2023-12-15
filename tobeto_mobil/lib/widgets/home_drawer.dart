@@ -15,13 +15,16 @@ class HomeDrawer extends StatelessWidget {
             child: ListView(
               children: [
                 UserAccountsDrawerHeader(
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).colorScheme.onSecondary,
+                  ),
                   accountName: const Text(
                     'Zehra Coşkun',
-                    style: TextStyle(color: Colors.black87),
+                    //style: TextStyle(color: Colors.black87),
                   ),
                   accountEmail: const Text(
                     'zehra@example.com',
-                    style: TextStyle(color: Colors.black87),
+                    //style: TextStyle(color: Colors.black87),
                   ),
                   currentAccountPicture: CircleAvatar(
                     backgroundColor: Theme.of(context).colorScheme.background,
@@ -29,9 +32,6 @@ class HomeDrawer extends StatelessWidget {
                       Icons.person_2_outlined,
                       color: Theme.of(context).colorScheme.primary,
                     ),
-                  ),
-                  decoration: BoxDecoration(
-                    color: Theme.of(context).colorScheme.onSecondary,
                   ),
                   onDetailsPressed: () {
                     Navigator.of(context).pushNamed("/profile");
