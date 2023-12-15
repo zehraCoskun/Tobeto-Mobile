@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 // ignore: camel_case_types
 class _tobetoLightColors {
   static Color mor = const Color(0xFF7743DB);
-  static Color beyaz = const Color(0xFFFFFBF5);
+  //static Color beyaz = const Color(0xFFFFFBF5);
   static Color krem = const Color(0xFFF7EFE5);
-  static Color pembe = const Color(0xFFC3ACD0);
-  static Color kahve = Color.fromARGB(255, 204, 176, 175);
+  //static Color pembe = const Color(0xFFC3ACD0);
+  static Color kahve = const Color.fromARGB(255, 204, 176, 175);
   static Color kirmizi = Colors.red.shade900;
   static Color siyah = Colors.black;
   static Color acikSiyah = Colors.black54;
