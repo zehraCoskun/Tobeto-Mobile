@@ -17,9 +17,9 @@ Bu mobil uygulama, Tobeto eğitim platformunun bir mobil versiyonunu sağlamak i
 
 ### Stage 2 - Dark/Light modlarına göre renk temaları oluşturduk. Anasayfa üzerine Drawer ve Login sayfasına animasyon ekledik 🎉
 
-<img width="346" alt="5" src="https://github.com/zehraCoskun/tobeto-mobile/assets/110024096/0cd09293-fa40-43e8-8724-8f9478556bef">
+<img width="160" alt="5" src="https://github.com/zehraCoskun/tobeto-mobile/assets/110024096/0cd09293-fa40-43e8-8724-8f9478556bef">
 
-<img width="346" alt="7" src="https://github.com/zehraCoskun/tobeto-mobile/assets/110024096/eaf1c0fe-1ce4-4a78-a7e2-2e5061e14685">
+<img width="160" alt="7" src="https://github.com/zehraCoskun/tobeto-mobile/assets/110024096/eaf1c0fe-1ce4-4a78-a7e2-2e5061e14685">
 
 <img width="160" alt="drawer1" src="https://github.com/zehraCoskun/tobeto-mobile/assets/110024096/ecb47a73-5160-4f30-8004-b7c22c02edd5">
 
