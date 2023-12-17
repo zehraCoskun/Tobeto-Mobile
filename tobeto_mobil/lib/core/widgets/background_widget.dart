@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+// bu widgetin biraz daha oynanmaya ihtiyaci var hala yeterince guzel kod
+// yazilmis gibi hissettirmiyor
 class BackgroundWidget extends StatelessWidget {
   const BackgroundWidget({
     super.key,
@@ -16,10 +18,6 @@ class BackgroundWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      //asagidaki DeepPurple cok guzel oluyor diger renklerede biraz bakindim yalniz cok iyi oluyor
-      //isterseniz Container icin de disaridan color zorunlu olarak alabiliriz farkli sayfalarda farkli
-      //combinasyonlar kullanmak istersek diye  --oneri--
-
       //color: MyColors.otherColor.withOpacity(0.6),
       color: Theme.of(context).colorScheme.primary,
 
@@ -34,7 +32,9 @@ class BackgroundWidget extends StatelessWidget {
               colors: [
                 Theme.of(context).colorScheme.primary, //.withOpacity(0.1).withAlpha(200)
                 Theme.of(context).colorScheme.onSecondary.withAlpha(200),
-                Theme.of(context).colorScheme.onSecondary
+                
+                // 12/15/2023 6PM - added Alpha of 100
+                Theme.of(context).colorScheme.onSecondary.withAlpha(100),
               ],
             ),
           ),

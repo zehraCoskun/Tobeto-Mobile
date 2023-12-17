@@ -12,6 +12,10 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //username ve passwordlarin uzerinde islem yapabilmemiz icin gerekli
+    final usernameController = TextEditingController();
+    final passwordController = TextEditingController();
+
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
@@ -21,26 +25,39 @@ class LoginScreen extends StatelessWidget {
           BackgroundWidget(
             clipper: ClipperWidget(),
           ),
-
-          //buradan Kullanici adi ve sifre text fieldlarini cagiriyorum LoginFormWidget icerisindende butonlari
-          //cagiriyorum
-          const LoginFormWidget(),
-
-          Align(
-            alignment: Alignment.topCenter,
-            child: Lottie.network(
-              "https://lottie.host/a20e84e5-14bf-427b-b18a-79b409fbe1b6/C7azsyk4R7.json",
-              height: size.height * 0.4,
-            ),
+          LoginFormWidget(
+            usernameController: usernameController,
+            passwordController: passwordController,
           ),
+          buildHeaderAnimation(size),
+
+          //BackgroundWidget'dan sonra olmak zorunda yoksa stack altinda kalir
+          buildFooterLogo(context),
         ],
       ),
-      //! buranın değişmesi gerekiyor, ama nasıl?
-      floatingActionButton: Image.asset(
-        logo,
-        color: Theme.of(context).colorScheme.onError,
+    );
+  }
+
+  Widget buildHeaderAnimation(Size size) {
+    return Align(
+      alignment: Alignment.topCenter,
+      child: Lottie.network(
+        "https://lottie.host/a20e84e5-14bf-427b-b18a-79b409fbe1b6/C7azsyk4R7.json",
+        height: size.height * 0.4,
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
+    );
+  }
+
+  Widget buildFooterLogo(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(padding16),
+      child: Align(
+        alignment: Alignment.bottomLeft,
+        child: Image(
+          image: const AssetImage(logo),
+          color: Theme.of(context).colorScheme.onError,
+        ),
+      ),
     );
   }
 }

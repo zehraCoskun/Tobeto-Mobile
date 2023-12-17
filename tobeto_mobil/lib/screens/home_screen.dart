@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_mobil/widgets/home_drawer.dart';
+import 'package:tobeto_mobil/core/widgets/background_widget.dart';
+import 'package:tobeto_mobil/widgets/drawer_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -7,8 +8,10 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const HomeDrawer(),
+      extendBodyBehindAppBar: true,
+      drawer: const DrawerWidget(),
       appBar: AppBar(),
+      body: const BackgroundWidget(),
     );
   }
 }
