@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/consts/global_theme.dart';
 import 'package:tobeto_mobil/authentication/login/login_screen.dart';
+import 'package:tobeto_mobil/models/enums/drawer_item.dart';
 import 'package:tobeto_mobil/screens/home_screen.dart';
 import 'package:tobeto_mobil/screens/profile_screen.dart';
 
@@ -16,8 +17,14 @@ void main() {
         "/login": (context) => const LoginScreen(),
         // "/register": (context) => RegisterScreen(),
         // "/recovery": (context) => RecoveryScreen(),
-        "/home": (context) => const HomeScreen(),
-        "/profile": (context) => const ProfilScreen(),
+
+        //bunu daha guzel bir sekilde ayarlayabiliriz belki 20 tane eleman olsa boyle ugrasilmaz
+        //bir kac satirlik kod ile DrawerItem larin tamaminin map ini cikarmamiz lazim
+        DrawerItem.home.getRouteName(): (context) => const HomeScreen(),
+        DrawerItem.profile.getRouteName(): (context) => const ProfilScreen(),
+        DrawerItem.ratings.getRouteName(): (context) => const ProfilScreen(),
+        DrawerItem.catalog.getRouteName(): (context) => const ProfilScreen(),
+        DrawerItem.calendar.getRouteName(): (context) => const ProfilScreen(),
       },
     ),
   );

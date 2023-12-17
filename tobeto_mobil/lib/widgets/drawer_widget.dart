@@ -37,9 +37,19 @@ class DrawerWidget extends StatelessWidget {
           sonra bakabiliriz */
           return ListTile(
             onTap: () {
-              Navigator.of(context).pushNamed(
-                drawerItems[index].getRoute(),
-              );
+              final currentRoute = ModalRoute.of(context)?.settings.name;
+
+              //bulundugumuz sayfa anasayfa ise anasayfaya tiklandiginda route islemi
+              //gerceklestirmez
+              if (currentRoute != null &&
+                  currentRoute != drawerItems[index].getRouteName()) {
+                Navigator.of(context).pushNamed(
+                  drawerItems[index].getRouteName(),
+                );
+              } else {
+                //tiklanan sayfa bulundugumuz sayfa ise draweri kapatir
+                Navigator.of(context).pop();
+              }
             },
             title: Text(drawerItems[index].getString()),
           );

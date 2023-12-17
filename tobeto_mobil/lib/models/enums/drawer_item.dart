@@ -20,18 +20,23 @@ enum DrawerItem {
     }
   }
 
-  String getRoute() {
-    switch (this) {
-      case DrawerItem.home:
-        return "/home";
-      case DrawerItem.ratings:
-        return "/ratings";
-      case DrawerItem.profile:
-        return "/profile";
-      case DrawerItem.catalog:
-        return "/catalog";
-      case DrawerItem.calendar:
-        return "/calendar";
-    }
+  String getRouteName() {
+    return "/$name";
+
+    //alternatif yol olurda herbir drawer item baska bir sayfaya yoneltmiycekse
+    //ona gore bir yol bulmamiz gerekebilir
+
+    // switch (this) {
+    //   case DrawerItem.home:
+    //     return "/home";
+    //   case DrawerItem.ratings:
+    //     return "/ratings";
+    //   case DrawerItem.profile:
+    //     return "/profile";
+    //   case DrawerItem.catalog:
+    //     return "/catalog";
+    //   case DrawerItem.calendar:
+    //     return "/calendar";
+    // }
   }
 }
