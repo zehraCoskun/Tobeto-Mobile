@@ -35,7 +35,7 @@ class DrawerWidget extends StatelessWidget {
           //     onTap: () {},
           //   ),
           // ),
-          buildFooterLogo(),
+          buildFooterLogo(context),
           const Text("© 2022 Tobeto"),
         ],
       ),
@@ -48,6 +48,8 @@ class DrawerWidget extends StatelessWidget {
     }
     return Expanded(
       child: ListView.builder(
+        padding: EdgeInsets.zero,
+        shrinkWrap: true,
         itemCount: drawerItems.length,
         itemBuilder: (context, index) {
           /* herbir listtile DrawerItem enumindaki toString()
@@ -63,8 +65,7 @@ class DrawerWidget extends StatelessWidget {
 
               //bulundugumuz sayfa anasayfa ise anasayfaya tiklandiginda route islemi
               //gerceklestirmez
-              if (currentRoute != null &&
-                  currentRoute != drawerItems[index].getRouteName()) {
+              if (currentRoute != null && currentRoute != drawerItems[index].getRouteName()) {
                 Navigator.of(context).pop();
                 Navigator.of(context).pushNamed(
                   drawerItems[index].getRouteName(),
@@ -81,7 +82,7 @@ class DrawerWidget extends StatelessWidget {
     );
   }
 
-  Widget buildFooterLogo() {
+  Widget buildFooterLogo(BuildContext context) {
     // Tobeto logosu
     return Align(
       alignment: Alignment.bottomCenter,
@@ -95,6 +96,7 @@ class DrawerWidget extends StatelessWidget {
           child: Image.asset(
             logo,
             height: padding32,
+            color: Theme.of(context).colorScheme.onSecondary,
           ),
         ),
       ),

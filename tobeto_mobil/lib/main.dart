@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/consts/android_theme.dart';
 import 'package:tobeto_mobil/authentication/login/login_screen.dart';
+import 'package:tobeto_mobil/consts/ios_theme.dart';
 import 'package:tobeto_mobil/models/enums/drawer_item.dart';
 import 'package:tobeto_mobil/screens/home_screen.dart';
 import 'package:tobeto_mobil/screens/profile_screen.dart';
@@ -40,7 +41,10 @@ List<ThemeData> getPlatformColor() {
       androidDarkTheme,
     ];
   } else if (Platform.isIOS) {
-    return [];
+    return [
+      iosLightTheme,
+      iosDarkTheme,
+    ];
   }
   return [];
 }

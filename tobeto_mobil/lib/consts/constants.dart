@@ -1,6 +1,8 @@
 //Global
 const padding16 = 16.0;
 const padding32 = 32.0;
+const font20 = 20.0;
+const border16 = 16.0;
 
 //LoginScreen Texts
 const loginUsernameLabel = "Kullanıcı Adınızı Giriniz";
