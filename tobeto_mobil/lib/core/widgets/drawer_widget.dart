@@ -5,36 +5,43 @@ import 'package:tobeto_mobil/models/enums/drawer_item.dart';
 class DrawerWidget extends StatelessWidget {
   const DrawerWidget({
     super.key,
+    this.items,
+    //this.user,
   });
+
+  final List<DrawerItem>? items;
+  //final User user;
 
   @override
   Widget build(BuildContext context) {
-    const drawerItems = DrawerItem.values;
-
     return Drawer(
       child: Column(
         children: [
           /* burayi fonksiyonlara ayirdim build fonksiyonu daha guzel oldu boyle
             ayrica drawerin istedigimiz parcasini bulmamiz daha kolay */
           buildDrawerHeader(context),
-          buildDrawerItems(drawerItems),
+          buildDrawerItems(items),
           buildFooterLogo(),
         ],
       ),
     );
   }
 
-  Expanded buildDrawerItems(List<DrawerItem> drawerItems) {
+  Widget buildDrawerItems(List<DrawerItem>? drawerItems) {
+    if (drawerItems == null) {
+      return const SizedBox();
+    }
     return Expanded(
       child: ListView.builder(
         itemCount: drawerItems.length,
         itemBuilder: (context, index) {
           /* herbir listtile DrawerItem enumindaki toString()
-          fonksiyonundan donen title parametresini aliyor vede on tap toRoute()
+          fonksiyonundan donen veriyi title parametresine aliyor vede on tap toRoute()
           fonksiyonundaki navigation stringini aliyor stringleri
-          main fonksiyonunda ekledigimizde sayfalara kolaylikla gecis ayarlarli bu sekilde
-          dahalik string maindeki ile uygun degilken exception atiyor nasil cozucegimize
-          sonra bakabiliriz */
+          main fonksiyonunda ekledigimizde sayfalara kolaylikla gecis ayarlar bu sekilde,
+          
+          suan icin string maindeki var olan routelar icerisinde degilken exception atiyor 
+          nasil cozucegimize sonra bakabiliriz */
           return ListTile(
             onTap: () {
               final currentRoute = ModalRoute.of(context)?.settings.name;
@@ -43,6 +50,7 @@ class DrawerWidget extends StatelessWidget {
               //gerceklestirmez
               if (currentRoute != null &&
                   currentRoute != drawerItems[index].getRouteName()) {
+                Navigator.of(context).pop();
                 Navigator.of(context).pushNamed(
                   drawerItems[index].getRouteName(),
                 );
@@ -81,14 +89,20 @@ class DrawerWidget extends StatelessWidget {
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.onSecondary,
       ),
+
+      // user.name,
       accountName: const Text(
         'Zehra Coşkun',
         //style: TextStyle(color: Colors.black87),
       ),
+
+      // user.email,
       accountEmail: const Text(
         'zehra@example.com',
         //style: TextStyle(color: Colors.black87),
       ),
+
+      // user.photo?
       currentAccountPicture: CircleAvatar(
         backgroundColor: Theme.of(context).colorScheme.background,
         child: Icon(

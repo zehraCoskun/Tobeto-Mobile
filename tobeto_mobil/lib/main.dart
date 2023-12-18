@@ -18,8 +18,9 @@ void main() {
         // "/register": (context) => RegisterScreen(),
         // "/recovery": (context) => RecoveryScreen(),
 
-        //bunu daha guzel bir sekilde ayarlayabiliriz belki 20 tane eleman olsa boyle ugrasilmaz
-        //bir kac satirlik kod ile DrawerItem larin tamaminin map ini cikarmamiz lazim
+        //bunu daha guzel bir sekilde ayarlayabiliriz belki, 20 tane eleman olsa boyle ugrasilmaz
+        //bir kac satirlik kod ile DrawerItem larin tamaminin map ini cikarmamiz lazim tabiki
+        //bunu drawerItem icerisindeki herbir enumin route olarak karsiligi olucagina karar kilarsak
         DrawerItem.home.getRouteName(): (context) => const HomeScreen(),
         DrawerItem.profile.getRouteName(): (context) => const ProfilScreen(),
         DrawerItem.ratings.getRouteName(): (context) => const ProfilScreen(),

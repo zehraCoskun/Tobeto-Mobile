@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-// bu widgetin biraz daha oynanmaya ihtiyaci var hala yeterince guzel kod
-// yazilmis gibi hissettirmiyor
+/* bu widgetin biraz daha oynanmaya ihtiyaci var 
+hala yeterince guzel kod yazilmis gibi hissettirmiyor */
 class BackgroundWidget extends StatelessWidget {
   const BackgroundWidget({
     super.key,

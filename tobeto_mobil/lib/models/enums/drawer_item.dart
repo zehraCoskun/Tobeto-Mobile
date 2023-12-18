@@ -6,6 +6,8 @@ enum DrawerItem {
   calendar;
 
   String getString() {
+    // DrawerItem.home.getString() olarak cagirdiginizda home kisminin ne olduguna bagli olarak
+    //geriye istedigimiz stringi donduruyor
     switch (this) {
       case DrawerItem.home:
         return "🏠 Anasayfa";
@@ -21,6 +23,8 @@ enum DrawerItem {
   }
 
   String getRouteName() {
+    // $name (home, catalog, profile, vs) yerine DrawerItem.home yazdiysaniz $name home olur
+    // bizede "/home" dondurur
     return "/$name";
 
     //alternatif yol olurda herbir drawer item baska bir sayfaya yoneltmiycekse

@@ -30,7 +30,7 @@ class LoginScreen extends StatelessWidget {
             passwordController: passwordController,
           ),
           buildHeaderAnimation(size),
-
+          
           //BackgroundWidget'dan sonra olmak zorunda yoksa stack altinda kalir
           buildFooterLogo(context),
         ],
