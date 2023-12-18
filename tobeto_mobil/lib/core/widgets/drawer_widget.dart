@@ -21,7 +21,22 @@ class DrawerWidget extends StatelessWidget {
             ayrica drawerin istedigimiz parcasini bulmamiz daha kolay */
           buildDrawerHeader(context),
           buildDrawerItems(items),
+          // const Divider(),
+          // Expanded(
+          //   flex: 4,
+          //   child: ListTile(
+          //     title: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+          //       Image.asset(
+          //         logoT,
+          //         height: 22,
+          //       ),
+          //       const Text("  Tobeto")
+          //     ]),
+          //     onTap: () {},
+          //   ),
+          // ),
           buildFooterLogo(),
+          const Text("© 2022 Tobeto"),
         ],
       ),
     );
@@ -66,7 +81,7 @@ class DrawerWidget extends StatelessWidget {
     );
   }
 
-  Align buildFooterLogo() {
+  Widget buildFooterLogo() {
     // Tobeto logosu
     return Align(
       alignment: Alignment.bottomCenter,
@@ -75,9 +90,12 @@ class DrawerWidget extends StatelessWidget {
           horizontal: padding16,
           vertical: padding32,
         ),
-        child: Image.asset(
-          logo,
-          height: padding32,
+        child: MaterialButton(
+          onPressed: () {},
+          child: Image.asset(
+            logo,
+            height: padding32,
+          ),
         ),
       ),
     );
@@ -93,13 +111,13 @@ class DrawerWidget extends StatelessWidget {
       // user.name,
       accountName: const Text(
         'Zehra Coşkun',
-        //style: TextStyle(color: Colors.black87),
+        style: TextStyle(color: Colors.black87),
       ),
 
       // user.email,
       accountEmail: const Text(
         'zehra@example.com',
-        //style: TextStyle(color: Colors.black87),
+        style: TextStyle(color: Colors.black87),
       ),
 
       // user.photo?
@@ -110,9 +128,6 @@ class DrawerWidget extends StatelessWidget {
           color: Theme.of(context).colorScheme.primary,
         ),
       ),
-      onDetailsPressed: () {
-        Navigator.of(context).pushNamed("/profile");
-      },
     );
   }
 }

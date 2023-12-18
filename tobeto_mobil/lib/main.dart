@@ -1,5 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
-import 'package:tobeto_mobil/consts/global_theme.dart';
+import 'package:tobeto_mobil/consts/android_theme.dart';
 import 'package:tobeto_mobil/authentication/login/login_screen.dart';
 import 'package:tobeto_mobil/models/enums/drawer_item.dart';
 import 'package:tobeto_mobil/screens/home_screen.dart';
@@ -8,8 +10,8 @@ import 'package:tobeto_mobil/screens/profile_screen.dart';
 void main() {
   runApp(
     MaterialApp(
-      theme: lightTheme,
-      darkTheme: darkTheme,
+      theme: getPlatformColor().first,
+      darkTheme: getPlatformColor().last,
       themeMode: ThemeMode.system,
       initialRoute: "/login",
       routes: {
@@ -29,6 +31,18 @@ void main() {
       },
     ),
   );
+}
+
+List<ThemeData> getPlatformColor() {
+  if (Platform.isAndroid) {
+    return [
+      androidLightTheme,
+      androidDarkTheme,
+    ];
+  } else if (Platform.isIOS) {
+    return [];
+  }
+  return [];
 }
 
 // ekstradan ekledigim routelar daha sonradan yapicagimiz kayit olma sayfasi ve parola unuttum sayfasina

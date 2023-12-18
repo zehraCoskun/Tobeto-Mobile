@@ -27,7 +27,7 @@ ColorScheme myColors = ColorScheme(
   onSecondary: MyColors.mainTextColor,   // İkincil elemanlar üzerindeki metin rengi
   onSurface: MyColors.mainColor,          // Yüzey üzerindeki metin rengi
 );*/
-final lightTheme = ThemeData(
+final androidLightTheme = ThemeData(
   //useMaterial3: true,
 
   //ColorScheme Ayarlari
@@ -117,7 +117,7 @@ final lightTheme = ThemeData(
 );
 
 //! DARK THEME
-final darkTheme = ThemeData(
+final androidDarkTheme = ThemeData(
   //useMaterial3: true,
 
   //ColorScheme Ayarlari
