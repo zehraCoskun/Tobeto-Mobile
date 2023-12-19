@@ -1,38 +1,43 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:tobeto_mobil/consts/android_theme.dart';
 import 'package:tobeto_mobil/authentication/login/login_screen.dart';
 import 'package:tobeto_mobil/consts/ios_theme.dart';
 import 'package:tobeto_mobil/models/enums/drawer_item.dart';
-import 'package:tobeto_mobil/screens/home_screen.dart';
-import 'package:tobeto_mobil/screens/profile_screen.dart';
+import 'package:tobeto_mobil/widgets/get_page_transition.dart';
 
 void main() {
   runApp(
-    MaterialApp(
+    GetMaterialApp(
       theme: getPlatformColor().first,
       darkTheme: getPlatformColor().last,
       themeMode: ThemeMode.system,
-      initialRoute: "/login",
-      routes: {
-        // "/": (context) => SplashScreen(),
-        "/login": (context) => const LoginScreen(),
-        // "/register": (context) => RegisterScreen(),
-        // "/recovery": (context) => RecoveryScreen(),
+      home: const LoginScreen(),
+      getPages: [
+        ...GetPageTransition.getPages(DrawerItem.values),
+      ],
+      // routes: {
+      //   // "/": (context) => SplashScreen(),
+      //   "/login": (context) => const LoginScreen(),
+      //   // "/register": (context) => RegisterScreen(),
+      //   // "/recovery": (context) => RecoveryScreen(),
 
-        //bunu daha guzel bir sekilde ayarlayabiliriz belki, 20 tane eleman olsa boyle ugrasilmaz
-        //bir kac satirlik kod ile DrawerItem larin tamaminin map ini cikarmamiz lazim tabiki
-        //bunu drawerItem icerisindeki herbir enumin route olarak karsiligi olucagina karar kilarsak
-        DrawerItem.home.getRouteName(): (context) => const HomeScreen(),
-        DrawerItem.profile.getRouteName(): (context) => const ProfilScreen(),
-        DrawerItem.ratings.getRouteName(): (context) => const ProfilScreen(),
-        DrawerItem.catalog.getRouteName(): (context) => const ProfilScreen(),
-        DrawerItem.calendar.getRouteName(): (context) => const ProfilScreen(),
-      },
+      //   //bunu daha guzel bir sekilde ayarlayabiliriz belki, 20 tane eleman olsa boyle ugrasilmaz
+      //   //bir kac satirlik kod ile DrawerItem larin tamaminin map ini cikarmamiz lazim tabiki
+      //   //bunu drawerItem icerisindeki herbir enumin route olarak karsiligi olucagina karar kilarsak
+      //   DrawerItem.home.getRouteName(): (context) => const HomeScreen(),
+      //   DrawerItem.profile.getRouteName(): (context) => const ProfilScreen(),
+      //   DrawerItem.ratings.getRouteName(): (context) => const ProfilScreen(),
+      //   DrawerItem.catalog.getRouteName(): (context) => const ProfilScreen(),
+      //   DrawerItem.calendar.getRouteName(): (context) => const ProfilScreen(),
+      // },
     ),
   );
 }
+
+
 
 List<ThemeData> getPlatformColor() {
   if (Platform.isAndroid) {

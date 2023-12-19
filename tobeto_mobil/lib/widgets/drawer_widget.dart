@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:tobeto_mobil/consts/constants.dart';
 import 'package:tobeto_mobil/models/enums/drawer_item.dart';
 
@@ -65,11 +66,19 @@ class DrawerWidget extends StatelessWidget {
 
               //bulundugumuz sayfa anasayfa ise anasayfaya tiklandiginda route islemi
               //gerceklestirmez
-              if (currentRoute != null && currentRoute != drawerItems[index].getRouteName()) {
-                Navigator.of(context).pop();
-                Navigator.of(context).pushNamed(
-                  drawerItems[index].getRouteName(),
-                );
+              if (currentRoute != null &&
+                  currentRoute != drawerItems[index].getRouteName()) {
+
+                //Navigator.of(context).pop();
+                Get.back();
+
+                // Navigator.of(context).pushNamed(
+                //   drawerItems[index].getRouteName(),
+                // );
+
+                Get.toNamed(drawerItems[index].getRouteName());
+                //Navigator.of(context).pushNamed(drawerItems[index].getRouteName()),
+
               } else {
                 //tiklanan sayfa bulundugumuz sayfa ise draweri kapatir
                 Navigator.of(context).pop();
