@@ -1,23 +1,25 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:tobeto_mobil/consts/android_theme.dart';
 import 'package:tobeto_mobil/authentication/login/login_screen.dart';
 import 'package:tobeto_mobil/consts/ios_theme.dart';
-import 'package:tobeto_mobil/models/enums/drawer_item.dart';
-import 'package:tobeto_mobil/widgets/get_page_transition.dart';
+import 'package:tobeto_mobil/screens/home_screen.dart';
+import 'package:tobeto_mobil/widgets/route_transition.dart';
 
 void main() {
   runApp(
-    GetMaterialApp(
+    MaterialApp(
       theme: getPlatformColor().first,
       darkTheme: getPlatformColor().last,
       themeMode: ThemeMode.system,
       home: const LoginScreen(),
-      getPages: [
-        ...GetPageTransition.getPages(DrawerItem.values),
-      ],
+      initialRoute: "/login",
+      onGenerateRoute: (route) => onGenerateRoute(route),
+      // getPages: [
+      //   ...GetRouting.getPages(DrawerItem.values),
+      // ],
+
       // routes: {
       //   // "/": (context) => SplashScreen(),
       //   "/login": (context) => const LoginScreen(),
@@ -37,7 +39,23 @@ void main() {
   );
 }
 
-
+Route onGenerateRoute(RouteSettings settings) {
+  switch (settings.name) {
+    case "/login":
+      return RouteTransition.scaleTransitionBuilder(
+        child: const LoginScreen(),
+      );
+    case "/home":
+      return RouteTransition.scaleTransitionBuilder(
+        child: const HomeScreen(),
+      );
+    default:
+      return MaterialPageRoute(
+        builder: (context) => const LoginScreen(),
+        settings: settings,
+      );
+  }
+}
 
 List<ThemeData> getPlatformColor() {
   if (Platform.isAndroid) {
