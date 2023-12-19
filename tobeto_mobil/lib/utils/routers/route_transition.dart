@@ -4,6 +4,25 @@ import 'package:flutter/material.dart';
 class RouteTransition {
   RouteTransition._();
 
+  static PageRouteBuilder customTransitionBuilder({required Widget child}) {
+    return PageRouteBuilder(
+      pageBuilder: (context, animation, secondaryAnimation) => child,
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        final opacity = animation.drive(
+          Tween<double>(begin: 0.0, end: 1.0).chain(
+            CurveTween(curve: Curves.easeInOutQuart),
+          ),
+        );
+
+        return FadeTransition(
+          opacity: opacity,
+          child: child,
+        );
+      },
+      transitionDuration: const Duration(milliseconds: 800),
+    );
+  }
+
   static PageRouteBuilder fadeTransitionBuilder({required Widget child}) {
     return PageRouteBuilder(
         pageBuilder: (context, animation, secondaryAnimation) => child,
@@ -13,7 +32,6 @@ class RouteTransition {
           return FadeTransition(opacity: opacity, child: child);
         });
   }
-
 
   static PageRouteBuilder rotationTransitionBuilder({required Widget child}) {
     return PageRouteBuilder(
@@ -55,8 +73,8 @@ class RouteTransition {
     return PageRouteBuilder(
         pageBuilder: (context, animation, secondaryAnimation) => child,
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
-          final position = animation.drive(
-              Tween<Offset>(begin: const Offset(-1, 1), end: const Offset(0, 0)));
+          final position = animation.drive(Tween<Offset>(
+              begin: const Offset(-1, 1), end: const Offset(0, 0)));
 
           return SlideTransition(position: position, child: child);
         });

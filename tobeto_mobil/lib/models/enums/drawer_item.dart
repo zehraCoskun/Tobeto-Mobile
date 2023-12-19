@@ -1,7 +1,3 @@
-import 'package:flutter/material.dart';
-import 'package:tobeto_mobil/screens/home_screen.dart';
-import 'package:tobeto_mobil/screens/profile_screen.dart';
-
 enum DrawerItem {
   home,
   ratings,
@@ -23,21 +19,6 @@ enum DrawerItem {
         return "📜 Katalog";
       case DrawerItem.calendar:
         return "🗓️ Takvim";
-    }
-  }
-
-  Widget getRoute() {
-    switch (this) {
-      case DrawerItem.home:
-        return const HomeScreen();
-      case DrawerItem.ratings:
-        return const ProfileScreen();
-      case DrawerItem.profile:
-        return const ProfileScreen();
-      case DrawerItem.catalog:
-        return const ProfileScreen();
-      case DrawerItem.calendar:
-        return const ProfileScreen();
     }
   }
 

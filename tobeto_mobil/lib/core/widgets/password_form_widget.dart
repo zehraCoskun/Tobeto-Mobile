@@ -39,8 +39,8 @@ class _PasswordFormWidgetState extends State<PasswordFormWidget> {
       suffixIcon: IconButton(
         onPressed: handleInvisible,
         icon: isInvisible
-            ? const Icon(Icons.remove_red_eye_outlined)
-            : const Icon(Icons.remove_circle_outline),
+            ? const Icon(Icons.visibility_outlined)
+            : const Icon(Icons.visibility_off_outlined),
       ),
       isPassword: isInvisible,
     );

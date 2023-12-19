@@ -61,25 +61,31 @@ class DrawerWidget extends StatelessWidget {
           nasil cozucegimize sonra bakabiliriz */
           return ListTile(
             onTap: () {
-              final currentRoute = ModalRoute.of(context)?.settings.name;
+              Navigator.of(context).pop();
+              Navigator.of(context).pushNamed(
+                drawerItems[index].getRouteName(),
+              );
+              // final currentRoute = ModalRoute.of(context)?.settings.name;
 
-              //bulundugumuz sayfa anasayfa ise anasayfaya tiklandiginda route islemi
-              //gerceklestirmez
-              if (currentRoute != null &&
-                  currentRoute != drawerItems[index].getRouteName()) {
+              // print(currentRoute);
 
-                Navigator.of(context).pop();
+              // //bulundugumuz sayfa anasayfa ise anasayfaya tiklandiginda route islemi
+              // //gerceklestirmez
+              // if (currentRoute != null &&
+              //     currentRoute != drawerItems[index].getRouteName()) {
 
-                // Navigator.of(context).pushNamed(
-                //   drawerItems[index].getRouteName(),
-                // );
+              //   Navigator.of(context).pop();
 
-                Navigator.of(context).pushNamed(drawerItems[index].getRouteName());
+              //   // Navigator.of(context).pushNamed(
+              //   //   drawerItems[index].getRouteName(),
+              //   // );
 
-              } else {
-                //tiklanan sayfa bulundugumuz sayfa ise draweri kapatir
-                Navigator.of(context).pop();
-              }
+              //   Navigator.of(context).pushNamed(drawerItems[index].getRouteName());
+
+              // } else {
+              //   //tiklanan sayfa bulundugumuz sayfa ise draweri kapatir
+              //   Navigator.of(context).pop();
+              // }
             },
             title: Text(drawerItems[index].getString()),
           );
