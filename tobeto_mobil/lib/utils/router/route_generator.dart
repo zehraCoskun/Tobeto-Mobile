@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/authentication/login/login_screen.dart';
 import 'package:tobeto_mobil/screens/home_screen.dart';
 import 'package:tobeto_mobil/screens/profile_screen.dart';
-import 'package:tobeto_mobil/utils/routers/route_transition.dart';
+import 'package:tobeto_mobil/utils/router/route_transition.dart';
 
 class RouteGenerator {
   const RouteGenerator._();

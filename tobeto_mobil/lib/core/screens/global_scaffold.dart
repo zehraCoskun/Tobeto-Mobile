@@ -23,6 +23,7 @@ class GlobalScaffold extends StatelessWidget {
         items: DrawerItem.values,
       ),
       appBar: appBar ?? AppBar(
+        actionsIconTheme: Theme.of(context).iconTheme,
         iconTheme: Theme.of(context).iconTheme,
         backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
       ),
