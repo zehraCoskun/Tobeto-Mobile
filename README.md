@@ -5,7 +5,7 @@ Bu depo, Tobeto adlı eğitim platformu için mobil uygulama geliştirmek amacı
 ## Ekip Üyeleri
 - [Zehra Coşkun](https://github.com/zehraCoskun)
 - [Cem Güven](https://github.com/cemguven4108)
-- [Burak Can Özgüç]()
+- [Burak Can Özgüç](https://github.com/BurakCanOzguc)
 
 ## Proje Açıklaması
 
