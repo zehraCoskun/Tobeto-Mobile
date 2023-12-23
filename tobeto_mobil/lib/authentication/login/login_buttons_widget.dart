@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/consts/constants.dart';
+import 'package:tobeto_mobil/screens/forgat_password_screen.dart';
 
 class LoginButtonsWidget extends StatelessWidget {
   const LoginButtonsWidget({
@@ -12,7 +13,13 @@ class LoginButtonsWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         TextButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) =>
+                        const ForgatPasswordScreen())); //parola unuttum Sayfasına geçiş eklendi.
+          },
           style: Theme.of(context).textButtonTheme.style,
           child: const Text(loginForgotText),
         ),
