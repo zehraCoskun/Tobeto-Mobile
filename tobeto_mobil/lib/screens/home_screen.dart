@@ -5,7 +5,7 @@ import 'package:tobeto_mobil/utils/responsive/responsive_layout.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
-
+//393 width
   @override
   Widget build(BuildContext context) {
     return GlobalScaffold(
@@ -65,10 +65,34 @@ class HomeBodyWidget extends StatelessWidget {
           ),
           Container(
             margin: EdgeInsets.only(top: 16),
-            child: Text(slogan2),
-          )
+            width: MediaQuery.of(context).size.width * 0.55,
+            child: Column(
+              children: [
+                const Text(
+                  slogan2,
+                  style: TextStyle(fontSize: 18),
+                  textAlign: TextAlign.center,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 16.0),
+                  child: Text.rich(
+                    TextSpan(text: "Aradığın ", style: Theme.of(context).textTheme.titleLarge, children: [
+                      TextSpan(text: "“", style: TextStyle(color: Colors.green)),
+                      TextSpan(text: "İş", style: TextStyle(color: Colors.black)),
+                      TextSpan(text: "“", style: TextStyle(color: Colors.green)),
+                      TextSpan(text: " Burada !", style: TextStyle(color: Colors.black)),
+                    ]),
+                  ),
+                ),
+              ],
+            ),
+          ),
         ]),
       ),
     );
   }
 }
+/*Center(child: Text('Başvurularım içeriği')),
+                Center(child: Text('Eğitimlerim içeriği')),
+                Center(child: Text('Duyuru ve Haberlerim içeriği')),
+                Center(child: Text('Anketlerim içeriği')),*/

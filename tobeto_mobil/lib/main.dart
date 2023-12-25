@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tobeto_mobil/screens/deneme.dart';
 import 'package:tobeto_mobil/utils/router/route_generator.dart';
 import 'package:tobeto_mobil/utils/theme/theme_generator.dart';
 
