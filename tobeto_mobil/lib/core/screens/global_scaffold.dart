@@ -22,11 +22,23 @@ class GlobalScaffold extends StatelessWidget {
       drawer: const DrawerWidget(
         items: DrawerItem.values,
       ),
-      appBar: appBar ?? AppBar(
-        actionsIconTheme: Theme.of(context).iconTheme,
-        iconTheme: Theme.of(context).iconTheme,
-        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
-      ),
+      appBar: appBar ??
+          AppBar(
+            automaticallyImplyLeading: false,
+            actionsIconTheme: Theme.of(context).iconTheme,
+            iconTheme: Theme.of(context).iconTheme,
+            backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
+            actions: [
+              Builder(
+                builder: (context) {
+                  return IconButton(
+                    onPressed: () => Scaffold.of(context).openDrawer(),
+                    icon: const Icon(Icons.menu),
+                  );
+                }
+              ),
+            ],
+          ),
       body: BackgroundWidget(
         child: child,
       ),

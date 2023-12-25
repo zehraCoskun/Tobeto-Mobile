@@ -6,6 +6,7 @@ import 'package:tobeto_mobil/utils/theme/theme_generator.dart';
 void main() {
   runApp(
     MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeGenerator.lightTheme(),
       darkTheme: ThemeGenerator.darkTheme(),
       themeMode: ThemeMode.system,
