@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/consts/constants.dart';
-import 'package:tobeto_mobil/core/screens/global_scaffold.dart';
 
 class ForgotPasswordScreen extends StatefulWidget {
   const ForgotPasswordScreen({super.key});
