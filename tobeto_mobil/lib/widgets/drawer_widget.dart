@@ -17,24 +17,8 @@ class DrawerWidget extends StatelessWidget {
     return Drawer(
       child: Column(
         children: [
-          /* burayi fonksiyonlara ayirdim build fonksiyonu daha guzel oldu boyle
-            ayrica drawerin istedigimiz parcasini bulmamiz daha kolay */
           buildDrawerHeader(context),
           buildDrawerItems(items),
-          // const Divider(),
-          // Expanded(
-          //   flex: 4,
-          //   child: ListTile(
-          //     title: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-          //       Image.asset(
-          //         logoT,
-          //         height: 22,
-          //       ),
-          //       const Text("  Tobeto")
-          //     ]),
-          //     onTap: () {},
-          //   ),
-          // ),
           buildFooterLogo(context),
           const Text("© 2022 Tobeto"),
         ],
@@ -52,40 +36,12 @@ class DrawerWidget extends StatelessWidget {
         shrinkWrap: true,
         itemCount: drawerItems.length,
         itemBuilder: (context, index) {
-          /* herbir listtile DrawerItem enumindaki toString()
-          fonksiyonundan donen veriyi title parametresine aliyor vede on tap toRoute()
-          fonksiyonundaki navigation stringini aliyor stringleri
-          main fonksiyonunda ekledigimizde sayfalara kolaylikla gecis ayarlar bu sekilde,
-          
-          suan icin string maindeki var olan routelar icerisinde degilken exception atiyor 
-          nasil cozucegimize sonra bakabiliriz */
           return ListTile(
             onTap: () {
               Navigator.of(context).pop();
               Navigator.of(context).pushNamed(
                 drawerItems[index].getRouteName(),
               );
-              // final currentRoute = ModalRoute.of(context)?.settings.name;
-
-              // print(currentRoute);
-
-              // //bulundugumuz sayfa anasayfa ise anasayfaya tiklandiginda route islemi
-              // //gerceklestirmez
-              // if (currentRoute != null &&
-              //     currentRoute != drawerItems[index].getRouteName()) {
-
-              //   Navigator.of(context).pop();
-
-              //   // Navigator.of(context).pushNamed(
-              //   //   drawerItems[index].getRouteName(),
-              //   // );
-
-              //   Navigator.of(context).pushNamed(drawerItems[index].getRouteName());
-
-              // } else {
-              //   //tiklanan sayfa bulundugumuz sayfa ise draweri kapatir
-              //   Navigator.of(context).pop();
-              // }
             },
             title: Text(drawerItems[index].getString()),
           );

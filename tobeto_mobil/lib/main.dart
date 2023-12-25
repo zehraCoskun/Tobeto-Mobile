@@ -6,8 +6,8 @@ import 'package:tobeto_mobil/utils/theme/theme_generator.dart';
 void main() {
   runApp(
     MaterialApp(
-      theme: ThemeGenerator.generateTheme().first,
-      darkTheme: ThemeGenerator.generateTheme().last,
+      theme: ThemeGenerator.lightTheme(),
+      darkTheme: ThemeGenerator.darkTheme(),
       themeMode: ThemeMode.system,
       home: const LoginScreen(),
       initialRoute: "/login",

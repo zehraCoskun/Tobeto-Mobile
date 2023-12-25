@@ -5,6 +5,7 @@ import 'package:tobeto_mobil/consts/constants.dart';
 import 'package:tobeto_mobil/core/widgets/background_widget.dart';
 import 'package:tobeto_mobil/core/widgets/form_widget.dart';
 import 'package:tobeto_mobil/core/widgets/password_form_widget.dart';
+import 'package:tobeto_mobil/utils/responsive/responsive_layout.dart';
 import 'package:tobeto_mobil/widgets/clipper_widget.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -30,7 +31,10 @@ class _LoginScreenState extends State<LoginScreen> {
           BackgroundWidget(
             clipper: ClipperWidget(),
           ),
-          buildLoginForms(),
+          ResponsiveLayout(
+            mobileBody: buildMobileLoginForm(),
+            desktopBody: buildDesktopLoginForm(),
+          ),
           buildHeaderAnimation(size),
 
           //BackgroundWidget'dan sonra olmak zorunda yoksa stack altinda kalir
@@ -40,7 +44,16 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  Widget buildLoginForms() {
+  Widget buildDesktopLoginForm() {
+    return Center(
+      child: AspectRatio(
+        aspectRatio: 2 / 3,
+        child: buildMobileLoginForm(),
+      ),
+    );
+  }
+
+  Widget buildMobileLoginForm() {
     return Padding(
       padding: const EdgeInsets.all(padding16),
       child: Column(

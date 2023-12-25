@@ -39,7 +39,7 @@ class FormWidget extends StatelessWidget {
         enabledBorder: Theme.of(context).inputDecorationTheme.enabledBorder,
         focusedBorder: Theme.of(context).inputDecorationTheme.focusedBorder,
       ),
-
+    
       //isPassword null degilse ObscureText = isPassword
       //isPassword null ise ObscureText = false
       obscureText: isPassword ?? false,
