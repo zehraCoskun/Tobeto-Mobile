@@ -4,11 +4,12 @@ class ResponsiveLayout extends StatelessWidget {
   const ResponsiveLayout({
     Key? key,
     required this.mobileBody,
-    required this.desktopBody,
+    required this.desktopBody, required this.tabletBody,
   }) : super(key: key);
 
   final Widget mobileBody;
   final Widget desktopBody;
+  final Widget tabletBody;
 
   @override
   Widget build(BuildContext context) {
@@ -16,6 +17,8 @@ class ResponsiveLayout extends StatelessWidget {
       builder: (context, constraints) {
         if (constraints.maxWidth < 700) {
           return mobileBody;
+        } else if (constraints.maxWidth < 1000) {
+          return tabletBody;
         } else {
           return desktopBody;
         }

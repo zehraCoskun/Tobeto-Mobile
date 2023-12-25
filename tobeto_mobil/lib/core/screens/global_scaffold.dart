@@ -10,11 +10,11 @@ class GlobalScaffold extends StatelessWidget {
   const GlobalScaffold({
     Key? key,
     this.appBar,
-    this.child,
+    this.body,
   }) : super(key: key);
 
   final PreferredSizeWidget? appBar;
-  final Widget? child;
+  final Widget? body;
 
   @override
   Widget build(BuildContext context) {
@@ -29,19 +29,15 @@ class GlobalScaffold extends StatelessWidget {
             iconTheme: Theme.of(context).iconTheme,
             backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
             actions: [
-              Builder(
-                builder: (context) {
-                  return IconButton(
-                    onPressed: () => Scaffold.of(context).openDrawer(),
-                    icon: const Icon(Icons.menu),
-                  );
-                }
-              ),
+              Builder(builder: (context) {
+                return IconButton(
+                  onPressed: () => Scaffold.of(context).openDrawer(),
+                  icon: const Icon(Icons.menu),
+                );
+              }),
             ],
           ),
-      body: BackgroundWidget(
-        child: child,
-      ),
+      body: body,
     );
   }
 }

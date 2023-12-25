@@ -10,7 +10,7 @@ class ThemeGenerator {
 
   static ThemeData lightTheme() {
     if (kIsWeb) {
-      return androidLightTheme;
+      return iosLightTheme;
     }
 
     if (Platform.isAndroid || Platform.isWindows) {
@@ -21,7 +21,7 @@ class ThemeGenerator {
 
   static ThemeData darkTheme() {
     if (kIsWeb) {
-      return androidDarkTheme;
+      return iosDarkTheme;
     }
 
     if (Platform.isAndroid || Platform.isWindows) {

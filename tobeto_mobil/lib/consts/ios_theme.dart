@@ -36,6 +36,15 @@ final iosLightTheme = ThemeData(
     color: _tobetoLightColors.krem,
   ),
 
+  //TextTheme Ayarları
+  textTheme: TextTheme(
+      headlineSmall: TextStyle(color: _tobetoLightColors.acikSiyah, letterSpacing: 1.0, fontWeight: FontWeight.w700),
+      headlineMedium: TextStyle(color: _tobetoLightColors.mor, fontSize: 30, fontWeight: FontWeight.w700),
+      bodyLarge: TextStyle(
+        color: _tobetoLightColors.siyah,
+        fontSize: 16.0,
+      )),
+
   //TextButton Ayarlari
   textButtonTheme: const TextButtonThemeData(
     style: ButtonStyle(
@@ -107,6 +116,10 @@ final iosDarkTheme = ThemeData(
   //AppBar Ayarları
   appBarTheme: AppBarTheme(color: _tobetoLightColors.kahve),
 
+  textTheme: TextTheme(
+    headlineSmall: TextStyle(color: _tobetoLightColors.beyaz, letterSpacing: 1.0),
+    headlineMedium: TextStyle(color: _tobetoLightColors.mor, fontSize: 30),
+  ),
   //TextButton Ayarlari
   textButtonTheme: const TextButtonThemeData(
     style: ButtonStyle(

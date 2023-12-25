@@ -33,6 +33,7 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
           ResponsiveLayout(
             mobileBody: buildMobileLoginForm(),
+            tabletBody: buildMobileLoginForm(),
             desktopBody: buildDesktopLoginForm(),
           ),
           buildHeaderAnimation(size),
