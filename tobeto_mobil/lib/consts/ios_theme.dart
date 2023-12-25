@@ -40,8 +40,10 @@ final iosLightTheme = ThemeData(
   textTheme: TextTheme(
       headlineSmall: TextStyle(color: _tobetoLightColors.acikSiyah, letterSpacing: 1.0, fontWeight: FontWeight.w700),
       headlineMedium: TextStyle(color: _tobetoLightColors.mor, fontSize: 30, fontWeight: FontWeight.w700),
-      bodyLarge: TextStyle(color: _tobetoLightColors.siyah, fontSize: 16.0),
-      titleLarge: TextStyle(color: _tobetoLightColors.siyah, letterSpacing: 1.0, fontWeight: FontWeight.bold)),
+      bodyLarge: TextStyle(
+        color: _tobetoLightColors.siyah,
+        fontSize: 16.0,
+      )),
 
   //TextButton Ayarlari
   textButtonTheme: const TextButtonThemeData(
