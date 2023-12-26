@@ -64,7 +64,8 @@ class DrawerWidget extends StatelessWidget {
           child: Image.asset(
             logo,
             height: padding32,
-            color: Theme.of(context).colorScheme.onSecondary,
+            color:
+                Theme.of(context).brightness == Brightness.dark ? Theme.of(context).colorScheme.onSecondary : Theme.of(context).colorScheme.primary,
           ),
         ),
       ),

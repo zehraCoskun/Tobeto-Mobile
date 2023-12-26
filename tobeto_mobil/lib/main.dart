@@ -10,8 +10,8 @@ void main() {
       theme: ThemeGenerator.lightTheme(),
       darkTheme: ThemeGenerator.darkTheme(),
       themeMode: ThemeMode.system,
-      //initialRoute: "/login",
-      //onGenerateRoute: (route) => RouteGenerator.onGenerateRoute(route),
+      initialRoute: "/login",
+      onGenerateRoute: (route) => RouteGenerator.onGenerateRoute(route),
       home: HomeScreen(),
     ),
   );

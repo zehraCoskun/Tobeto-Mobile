@@ -64,11 +64,10 @@ class HomeTabbarView extends StatelessWidget {
       children: [
         Center(
           child: ElevatedButton(
-            onPressed: () {
-              //başvurularım sayfası
-            },
-            child: Text('Başvurularım'),
-          ),
+              onPressed: () {
+                //başvurularım sayfası
+              },
+              child: Text("başvurular")),
         ),
         Center(
           child: ElevatedButton(
@@ -79,12 +78,21 @@ class HomeTabbarView extends StatelessWidget {
         ),
         Center(
           child: ElevatedButton(
-            onPressed: () {
-              // Duyuru ve Haberlerim sayfası
-            },
-            child: AnnouncementItemWidget(
-                type: "Duyuru", organisation: "İstanbul Kodluyor", title: "Yeni Grupların Discord'a Katılımı", publicationDate: "2023-12-26"),
-          ),
+              onPressed: () {
+                // Duyuru ve Haberlerim sayfası
+              },
+              child: ListView(
+                children: const [
+                  AnnouncementItemWidget(
+                      type: "Duyuru", organisation: "İstanbul Kodluyor", title: "Yeni Grupların Discord'a Katılımı", publicationDate: "2023-12-26"),
+                  AnnouncementItemWidget(
+                      type: "Duyuru", organisation: "İstanbul Kodluyor", title: "Yeni Grupların Discord'a Katılımı", publicationDate: "2023-12-26"),
+                  AnnouncementItemWidget(
+                      type: "Duyuru", organisation: "İstanbul Kodluyor", title: "Yeni Grupların Discord'a Katılımı", publicationDate: "2023-12-26"),
+                  AnnouncementItemWidget(
+                      type: "Duyuru", organisation: "İstanbul Kodluyor", title: "Yeni Grupların Discord'a Katılımı", publicationDate: "2023-12-26"),
+                ],
+              )),
         ),
         Center(
           child: ElevatedButton(
