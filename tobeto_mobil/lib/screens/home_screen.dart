@@ -23,7 +23,6 @@ class HomeScreen extends StatelessWidget {
                 desktopBody: HomeBodyWidget()),
             //ResponsiveLayout(mobileBody: mobileBody, tabletBody: , desktopBody: desktopBody),
             const TabBarWidget(),
-
             //en alt kısım
           ],
         ),
