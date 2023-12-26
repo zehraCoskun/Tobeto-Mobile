@@ -63,11 +63,7 @@ class HomeTabbarView extends StatelessWidget {
       controller: _tabController,
       children: [
         Center(
-          child: ElevatedButton(
-              onPressed: () {
-                //başvurularım sayfası
-              },
-              child: Text("başvurular")),
+          child: Text("başvurular"),
         ),
         Center(
           child: ElevatedButton(
@@ -77,22 +73,18 @@ class HomeTabbarView extends StatelessWidget {
               child: EducationItemWidget(title: "Mobil 1B", time: "21 Eylül 2023 15:20")),
         ),
         Center(
-          child: ElevatedButton(
-              onPressed: () {
-                // Duyuru ve Haberlerim sayfası
-              },
-              child: ListView(
-                children: const [
-                  AnnouncementItemWidget(
-                      type: "Duyuru", organisation: "İstanbul Kodluyor", title: "Yeni Grupların Discord'a Katılımı", publicationDate: "2023-12-26"),
-                  AnnouncementItemWidget(
-                      type: "Duyuru", organisation: "İstanbul Kodluyor", title: "Yeni Grupların Discord'a Katılımı", publicationDate: "2023-12-26"),
-                  AnnouncementItemWidget(
-                      type: "Duyuru", organisation: "İstanbul Kodluyor", title: "Yeni Grupların Discord'a Katılımı", publicationDate: "2023-12-26"),
-                  AnnouncementItemWidget(
-                      type: "Duyuru", organisation: "İstanbul Kodluyor", title: "Yeni Grupların Discord'a Katılımı", publicationDate: "2023-12-26"),
-                ],
-              )),
+          child: ListView(
+            children: const [
+              AnnouncementItemWidget(
+                  type: "Duyuru", organisation: "İstanbul Kodluyor", title: "Yeni Grupların Discord'a Katılımı", publicationDate: "2023-12-26"),
+              AnnouncementItemWidget(
+                  type: "Duyuru", organisation: "İstanbul Kodluyor", title: "Yeni Grupların Discord'a Katılımı", publicationDate: "2023-12-26"),
+              AnnouncementItemWidget(
+                  type: "Duyuru", organisation: "İstanbul Kodluyor", title: "Yeni Grupların Discord'a Katılımı", publicationDate: "2023-12-26"),
+              AnnouncementItemWidget(
+                  type: "Duyuru", organisation: "İstanbul Kodluyor", title: "Yeni Grupların Discord'a Katılımı", publicationDate: "2023-12-26"),
+            ],
+          ),
         ),
         Center(
           child: ElevatedButton(

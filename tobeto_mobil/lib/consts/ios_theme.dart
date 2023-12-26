@@ -103,7 +103,7 @@ class _tobetoDarkColors {
   static Color beyaz = const Color(0xFFFFFBF5);
   static Color krem = const Color.fromARGB(170, 247, 239, 229);
   //static Color pembe = const Color(0xFFC3ACD0);
-  static Color kahve = Color.fromARGB(124, 99, 86, 85).withOpacity(0.2);
+  static Color kahve = const Color.fromARGB(124, 99, 86, 85).withOpacity(0.2);
   static Color kirmizi = Colors.red.shade900;
   static Color yesil = const Color.fromARGB(255, 0, 210, 155);
   static Color siyah = Colors.black;
