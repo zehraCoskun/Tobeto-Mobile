@@ -1,119 +1,100 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_mobil/consts/constants.dart';
 import 'package:tobeto_mobil/core/screens/global_scaffold.dart';
-import 'package:tobeto_mobil/utils/responsive/responsive_layout.dart';
-import 'package:tobeto_mobil/widgets/tab_bar_widget.dart';
+import 'package:tobeto_mobil/widgets/announcement_item_widget.dart';
+import 'package:tobeto_mobil/widgets/education_item_widget.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _DenemeSayfasiState();
+}
+
+class _DenemeSayfasiState extends State<HomeScreen> with SingleTickerProviderStateMixin {
+  late TabController _tabController;
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(length: 4, vsync: this);
+  }
 
   @override
   Widget build(BuildContext context) {
     return GlobalScaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            ResponsiveLayout(
-                mobileBody: HomeHeaderWidget(),
-                tabletBody: HomeHeaderWidget(),
-                desktopBody: HomeHeaderWidget()),
-            ResponsiveLayout(
-                mobileBody: HomeBodyWidget(),
-                tabletBody: HomeBodyWidget(),
-                desktopBody: HomeBodyWidget()),
-            //ResponsiveLayout(mobileBody: mobileBody, tabletBody: , desktopBody: desktopBody),
-            const TabBarWidget(),
-            //en alt kısım
+      appBar: AppBar(
+        title: SizedBox(
+          height: AppBar().preferredSize.height, // Appbar yüksekliği kadar yükseklik belirleme
+          child: Image.asset(
+            Theme.of(context).brightness == Brightness.dark ? "assets/images/ik-logo-light.png" : "assets/images/ik-logo-dark.png",
+          ),
+        ),
+        bottom: TabBar(
+          indicatorColor: Theme.of(context).tabBarTheme.indicatorColor,
+          dividerColor: Theme.of(context).tabBarTheme.dividerColor,
+          unselectedLabelColor: Theme.of(context).tabBarTheme.unselectedLabelColor,
+          labelColor: Theme.of(context).tabBarTheme.labelColor,
+          controller: _tabController,
+          isScrollable: true,
+          tabs: const [
+            Tab(text: 'Başvurularım'),
+            Tab(text: 'Eğitimlerim'),
+            Tab(text: 'Duyuru ve Haberlerim'),
+            Tab(text: 'Anketlerim'),
           ],
         ),
       ),
+      body: HomeTabbarView(tabController: _tabController),
     );
   }
 }
 
-class HomeHeaderWidget extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 30.0),
-      child: Column(
-        children: [
-          Text.rich(
-            TextSpan(
-                text: headerTobeto,
-                style: Theme.of(context).textTheme.headlineMedium,
-                children: [
-                  TextSpan(
-                      text: headerTitle,
-                      style: Theme.of(context).textTheme.headlineSmall),
-                ]),
-          ),
-          Text(
-            "Zehra",
-            style: Theme.of(context).textTheme.bodyLarge,
-          ),
-          Container(
-            margin:
-                const EdgeInsets.only(top: 32, bottom: 24, left: 16, right: 16),
-            alignment: Alignment.center,
-            child: const Text(
-              tobetoSlogan,
-              textAlign: TextAlign.center,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
+class HomeTabbarView extends StatelessWidget {
+  const HomeTabbarView({
+    super.key,
+    required TabController tabController,
+  }) : _tabController = tabController;
 
-class HomeBodyWidget extends StatelessWidget {
+  final TabController _tabController;
+
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.all(3),
-      child: Container(
-        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          Image.asset(
-            "assets/images/ik-logo-dark.7938c0de.png",
-            width: 200, //320 x 160
-            height: 80,
+    return TabBarView(
+      controller: _tabController,
+      children: [
+        Center(
+          child: ElevatedButton(
+            onPressed: () {
+              //başvurularım sayfası
+            },
+            child: Text('Başvurularım'),
           ),
-          Container(
-            margin: EdgeInsets.only(top: 16),
-            width: MediaQuery.of(context).size.width * 0.55,
-            child: Column(
-              children: [
-                const Text(
-                  slogan2,
-                  style: TextStyle(fontSize: 18),
-                  textAlign: TextAlign.center,
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 16.0),
-                  child: Text.rich(
-                    TextSpan(
-                        text: "Aradığın ",
-                        style: Theme.of(context).textTheme.titleLarge,
-                        children: [
-                          TextSpan(
-                              text: "“", style: TextStyle(color: Colors.green)),
-                          TextSpan(
-                              text: "İş",
-                              style: TextStyle(color: Colors.black)),
-                          TextSpan(
-                              text: "“", style: TextStyle(color: Colors.green)),
-                          TextSpan(
-                              text: " Burada !",
-                              style: TextStyle(color: Colors.black)),
-                        ]),
-                  ),
-                ),
-              ],
-            ),
+        ),
+        Center(
+          child: ElevatedButton(
+              onPressed: () {
+                //Eğitimlerim sayfası
+              },
+              child: EducationItemWidget(title: "Mobil 1B", time: "21 Eylül 2023 15:20")),
+        ),
+        Center(
+          child: ElevatedButton(
+            onPressed: () {
+              // Duyuru ve Haberlerim sayfası
+            },
+            child: AnnouncementItemWidget(
+                type: "Duyuru", organisation: "İstanbul Kodluyor", title: "Yeni Grupların Discord'a Katılımı", publicationDate: "2023-12-26"),
           ),
-        ]),
-      ),
+        ),
+        Center(
+          child: ElevatedButton(
+            onPressed: () {
+              //Anketlerim sayfası
+            },
+            child: Text('Buton 4'),
+          ),
+        ),
+      ],
     );
   }
 }

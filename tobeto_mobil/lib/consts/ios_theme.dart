@@ -9,6 +9,7 @@ class _tobetoLightColors {
   //static Color pembe = const Color(0xFFC3ACD0);
   static Color kahve = const Color.fromARGB(126, 204, 176, 175).withOpacity(0.2);
   static Color kirmizi = Colors.red.shade900;
+  static Color yesil = const Color.fromARGB(255, 0, 210, 155);
   static Color siyah = Colors.black;
   static Color acikSiyah = Colors.black54;
 }
@@ -35,27 +36,28 @@ final iosLightTheme = ThemeData(
   appBarTheme: AppBarTheme(
     color: _tobetoLightColors.krem,
   ),
-
+  //TabBar Theme Ayarları
+  tabBarTheme: TabBarTheme(
+    dividerColor: _tobetoLightColors.siyah,
+    labelColor: _tobetoLightColors.mor, // Seçili tabın yazı rengi
+    indicatorColor: _tobetoLightColors.yesil, //_tobetoLightColors.mor, // Tab'ın altındaki gösterge rengi
+    unselectedLabelColor: _tobetoLightColors.acikSiyah,
+    // Seçili olmayan tabların yazı rengi
+  ),
   //TextTheme Ayarları
   textTheme: TextTheme(
       headlineSmall: TextStyle(color: _tobetoLightColors.acikSiyah, letterSpacing: 1.0, fontWeight: FontWeight.w700),
       headlineMedium: TextStyle(color: _tobetoLightColors.mor, fontSize: 30, fontWeight: FontWeight.w700),
-      bodyLarge: TextStyle(
-        color: _tobetoLightColors.siyah,
-        fontSize: 16.0,
-      )),
+      bodyLarge: TextStyle(color: _tobetoLightColors.siyah, fontSize: 16.0)),
 
   //TextButton Ayarlari
   textButtonTheme: const TextButtonThemeData(
     style: ButtonStyle(
-        backgroundColor: MaterialStatePropertyAll(Colors.transparent),
-        textStyle: MaterialStatePropertyAll(
-          TextStyle(fontWeight: FontWeight.bold),
-        )),
+        backgroundColor: MaterialStatePropertyAll(Colors.transparent), textStyle: MaterialStatePropertyAll(TextStyle(fontWeight: FontWeight.bold))),
   ),
-
+  //Drawer Ayarları
   drawerTheme: DrawerThemeData(
-    backgroundColor: _tobetoLightColors.krem,
+    backgroundColor: _tobetoLightColors.krem.withAlpha(255),
   ),
 
   //ElevatedButton Ayarlari
@@ -116,6 +118,16 @@ final iosDarkTheme = ThemeData(
   //AppBar Ayarları
   appBarTheme: AppBarTheme(color: _tobetoLightColors.kahve),
 
+  //TabBar Theme Ayarları
+  tabBarTheme: TabBarTheme(
+    dividerColor: _tobetoLightColors.siyah,
+    labelColor: _tobetoLightColors.beyaz, // Seçili tabın yazı rengi
+    indicatorColor: _tobetoLightColors.yesil, //_tobetoLightColors.mor, // Tab'ın altındaki gösterge rengi
+    unselectedLabelColor: _tobetoLightColors.krem,
+    // Seçili olmayan tabların yazı rengi
+  ),
+
+  //TextTheme Ayarları
   textTheme: TextTheme(
     headlineSmall: TextStyle(color: _tobetoLightColors.beyaz, letterSpacing: 1.0),
     headlineMedium: TextStyle(color: _tobetoLightColors.mor, fontSize: 30),
@@ -130,9 +142,9 @@ final iosDarkTheme = ThemeData(
           ),
         )),
   ),
-
+  //Drawer ayarları
   drawerTheme: DrawerThemeData(
-    backgroundColor: _tobetoLightColors.kahve,
+    backgroundColor: _tobetoLightColors.kahve.withAlpha(255),
   ),
 
   //ElevatedButton Ayarlari
