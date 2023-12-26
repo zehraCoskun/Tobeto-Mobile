@@ -2,8 +2,8 @@ import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:tobeto_mobil/consts/android_theme.dart';
-import 'package:tobeto_mobil/consts/ios_theme.dart';
+import 'package:tobeto_mobil/consts/theme_android.dart';
+import 'package:tobeto_mobil/consts/theme_ios.dart';
 
 class ThemeGenerator {
   const ThemeGenerator._();

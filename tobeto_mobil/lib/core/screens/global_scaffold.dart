@@ -23,18 +23,18 @@ class GlobalScaffold extends StatelessWidget {
       ),
       appBar: appBar ??
           AppBar(
-            automaticallyImplyLeading: false,
+            //automaticallyImplyLeading: false,
             actionsIconTheme: Theme.of(context).iconTheme,
             iconTheme: Theme.of(context).iconTheme,
             backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
-            actions: [
-              Builder(builder: (context) {
-                return IconButton(
-                  onPressed: () => Scaffold.of(context).openDrawer(),
-                  icon: const Icon(Icons.menu),
-                );
-              }),
-            ],
+            // actions: [
+            //   Builder(builder: (context) {
+            //     return IconButton(
+            //       onPressed: () => Scaffold.of(context).openDrawer(),
+            //       icon: const Icon(Icons.menu),
+            //     );
+            //   }),
+            // ],
           ),
       body: body,
     );

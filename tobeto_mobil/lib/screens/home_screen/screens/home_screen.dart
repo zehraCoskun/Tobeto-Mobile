@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/core/screens/global_scaffold.dart';
-import 'package:tobeto_mobil/widgets/announcement_item_widget.dart';
-import 'package:tobeto_mobil/widgets/education_item_widget.dart';
+import 'package:tobeto_mobil/screens/home_screen/screens/announcement_screen_widget.dart';
+import 'package:tobeto_mobil/screens/home_screen/screens/application_screen_widget.dart';
+import 'package:tobeto_mobil/screens/home_screen/screens/education_screen_widget.dart';
+import 'package:tobeto_mobil/screens/home_screen/screens/exams_screen_widget.dart';
+import 'package:tobeto_mobil/screens/home_screen/screens/survey_screen_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -16,7 +19,7 @@ class _DenemeSayfasiState extends State<HomeScreen> with SingleTickerProviderSta
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 4, vsync: this);
+    _tabController = TabController(length: 5, vsync: this);
   }
 
   @override
@@ -41,6 +44,9 @@ class _DenemeSayfasiState extends State<HomeScreen> with SingleTickerProviderSta
             Tab(text: 'Eğitimlerim'),
             Tab(text: 'Duyuru ve Haberlerim'),
             Tab(text: 'Anketlerim'),
+            Tab(
+              text: 'Sınavlarım',
+            )
           ],
         ),
       ),
@@ -61,40 +67,7 @@ class HomeTabbarView extends StatelessWidget {
   Widget build(BuildContext context) {
     return TabBarView(
       controller: _tabController,
-      children: [
-        Center(
-          child: Text("başvurular"),
-        ),
-        Center(
-          child: ElevatedButton(
-              onPressed: () {
-                //Eğitimlerim sayfası
-              },
-              child: EducationItemWidget(title: "Mobil 1B", time: "21 Eylül 2023 15:20")),
-        ),
-        Center(
-          child: ListView(
-            children: const [
-              AnnouncementItemWidget(
-                  type: "Duyuru", organisation: "İstanbul Kodluyor", title: "Yeni Grupların Discord'a Katılımı", publicationDate: "2023-12-26"),
-              AnnouncementItemWidget(
-                  type: "Duyuru", organisation: "İstanbul Kodluyor", title: "Yeni Grupların Discord'a Katılımı", publicationDate: "2023-12-26"),
-              AnnouncementItemWidget(
-                  type: "Duyuru", organisation: "İstanbul Kodluyor", title: "Yeni Grupların Discord'a Katılımı", publicationDate: "2023-12-26"),
-              AnnouncementItemWidget(
-                  type: "Duyuru", organisation: "İstanbul Kodluyor", title: "Yeni Grupların Discord'a Katılımı", publicationDate: "2023-12-26"),
-            ],
-          ),
-        ),
-        Center(
-          child: ElevatedButton(
-            onPressed: () {
-              //Anketlerim sayfası
-            },
-            child: Text('Buton 4'),
-          ),
-        ),
-      ],
+      children: const [ApplicationWidget(), EducationWidget(), AnnouncementWidget(), SurveyWidget(), ExamsWidget()],
     );
   }
 }

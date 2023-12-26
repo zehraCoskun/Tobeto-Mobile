@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:tobeto_mobil/consts/constants.dart';
 
 class AnnouncementItemWidget extends StatelessWidget {
   const AnnouncementItemWidget({
@@ -25,8 +26,8 @@ class AnnouncementItemWidget extends StatelessWidget {
     return Card(
       elevation: 4, // Kartın gölge efekti
       child: Container(
-        height: 150,
-        padding: EdgeInsets.all(16),
+        height: 130,
+        padding: const EdgeInsets.all(padding16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -37,10 +38,10 @@ class AnnouncementItemWidget extends StatelessWidget {
                 Text(organisation),
               ],
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Text(
               title,
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              style: const TextStyle(fontSize: font18, fontWeight: FontWeight.bold),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
