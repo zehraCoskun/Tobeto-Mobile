@@ -44,6 +44,19 @@ final androidLightTheme = ThemeData(
     unselectedLabelColor: _tobetoLightColors.acikSiyah,
     // Seçili olmayan tabların yazı rengi
   ),
+
+  //TextTheme Ayarları
+  textTheme: TextTheme(
+      headlineSmall: TextStyle(color: _tobetoLightColors.acikSiyah, letterSpacing: 1.0, fontWeight: FontWeight.w700),
+      headlineMedium: TextStyle(color: _tobetoLightColors.mor, fontSize: 30, fontWeight: FontWeight.w700),
+      bodyLarge: TextStyle(
+        color: _tobetoLightColors.siyah,
+        fontSize: 16.0,
+      ),
+      titleLarge: TextStyle(
+        color: _tobetoDarkColors.yesil,
+      )),
+
   //TextButton Ayarları
   textButtonTheme: const TextButtonThemeData(
     style: ButtonStyle(
@@ -152,6 +165,14 @@ final androidDarkTheme = ThemeData(
     unselectedLabelColor: _tobetoDarkColors.krem,
     // Seçili olmayan tabların yazı rengi
   ),
+
+  //TextTheme Ayarları
+  textTheme: TextTheme(
+    headlineSmall: TextStyle(color: _tobetoDarkColors.beyaz, letterSpacing: 1.0),
+    headlineMedium: TextStyle(color: _tobetoDarkColors.mor, fontSize: 30),
+    titleLarge: TextStyle(color: _tobetoDarkColors.yesil),
+  ),
+
   //TextButton Ayarlari
   textButtonTheme: const TextButtonThemeData(
     style: ButtonStyle(

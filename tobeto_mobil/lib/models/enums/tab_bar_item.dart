@@ -1,9 +1,9 @@
 enum TabBarItem {
-  application,
   education,
   announcement,
+  exam,
   survey,
-  exam;
+  application;
 
   @override
   String toString() {

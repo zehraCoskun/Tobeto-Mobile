@@ -19,7 +19,7 @@ class EducationCard extends StatelessWidget {
         margin: const EdgeInsets.only(top: 20, left: 30, right: 30),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(30),
-          color: Colors.white,
+          color: Theme.of(context).cardColor,
         ),
         child: ListView(
           primary: false,
@@ -38,12 +38,11 @@ class EducationCard extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(3.0),
         child: ClipRRect(
-          borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(30),
-            topRight: Radius.circular(30),
-          ),
-          child: Image.asset(education.thumbnail)
-        ),
+            borderRadius: const BorderRadius.only(
+              topLeft: Radius.circular(30),
+              topRight: Radius.circular(30),
+            ),
+            child: Image.asset(education.thumbnail)),
       ),
     );
   }
@@ -60,7 +59,7 @@ class EducationCard extends StatelessWidget {
           Text(
             education.title,
             style: const TextStyle(
-              color: Colors.black,
+              color: Colors.white,
               fontSize: 18,
               fontWeight: FontWeight.w400,
               fontStyle: FontStyle.italic,
@@ -69,7 +68,7 @@ class EducationCard extends StatelessWidget {
           Text(
             education.time,
             style: const TextStyle(
-              color: Colors.black54,
+              color: Colors.white,
               fontSize: 16,
               fontStyle: FontStyle.italic,
             ),
