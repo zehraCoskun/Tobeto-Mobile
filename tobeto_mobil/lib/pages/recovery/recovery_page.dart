@@ -13,6 +13,7 @@ class _RecoveryPageState extends State<RecoveryPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        resizeToAvoidBottomInset: false,
         backgroundColor: Colors.purple,
         appBar:
             AppBar(backgroundColor: Color.fromARGB(255, 31, 14, 60), actions: [
