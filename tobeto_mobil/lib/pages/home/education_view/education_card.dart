@@ -38,11 +38,16 @@ class EducationCard extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(3.0),
         child: ClipRRect(
-            borderRadius: const BorderRadius.only(
-              topLeft: Radius.circular(30),
-              topRight: Radius.circular(30),
-            ),
-            child: Image.asset("assets/images/ders1.jpg")),
+          borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(30),
+            topRight: Radius.circular(30),
+          ),
+          child: Image.asset(
+            education.thumbnail,
+            //"assets/images/ders1.jpg",
+            fit: BoxFit.fitWidth,
+          ),
+        ),
       ),
     );
   }

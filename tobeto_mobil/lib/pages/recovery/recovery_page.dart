@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/constants/image_text.dart';
+import 'package:lottie/lottie.dart';
 
 class RecoveryPage extends StatefulWidget {
   const RecoveryPage({super.key});
@@ -12,40 +13,33 @@ class _RecoveryPageState extends State<RecoveryPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.white70,
+        backgroundColor: Colors.purple,
+        appBar:
+            AppBar(backgroundColor: Color.fromARGB(255, 31, 14, 60), actions: [
+          Container(
+            margin: EdgeInsets.only(right: 110),
+            child: Image(
+              image: AssetImage(logo),
+              height: 90,
+              width: 110,
+              alignment: Alignment.centerLeft,
+            ),
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text("Başvur"),
+          ),
+        ]),
         body: Column(
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Container(
-              //En Üstteki ilk kutucuk
+            /*Container(
+              // İkinci Kutucuk
+
               decoration: BoxDecoration(
                   border: Border.all(color: Colors.black),
                   color: Color.fromARGB(255, 31, 14, 60)),
-              padding: EdgeInsets.only(top: 25),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  SizedBox(height: 75, width: 75, child: Image.asset(logo)),
-                  ElevatedButton(
-                    onPressed: () {},
-                    child: Text("Başvur"),
-                    style: ElevatedButton.styleFrom(
-                      onPrimary: Colors.black,
-                      primary: Colors.green,
-                      onSurface: Colors.black,
-                      elevation: 30,
-                      minimumSize: Size(75, 50),
-                      shadowColor: Colors.black,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              // İkinci Kutucuk
-              decoration: BoxDecoration(
-                  border: Border.all(color: Colors.black), color: Colors.black),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
@@ -53,6 +47,11 @@ class _RecoveryPageState extends State<RecoveryPage> {
                   ElevatedButton(onPressed: () {}, child: Text("Başvur")),
                 ],
               ),
+            ),*/
+            SizedBox(
+              height: 200,
+              child: Lottie.network(
+                  "https://lottie.host/e9be6368-9465-4b43-8fc4-02314f5ec942/sZlkgQnieS.json"),
             ),
             SizedBox(
               height: 300,
@@ -60,7 +59,7 @@ class _RecoveryPageState extends State<RecoveryPage> {
                 //3. kutucuk
                 padding: EdgeInsets.only(left: 30, right: 30),
                 margin: EdgeInsets.only(left: 20, right: 20),
-                decoration: BoxDecoration(color: Colors.white),
+                decoration: BoxDecoration(color: Colors.purple),
                 child: Column(
                   children: [
                     const Text(
