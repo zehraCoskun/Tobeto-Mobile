@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/constants/image_text.dart';
 import 'package:tobeto_mobil/models/announcement_model.dart';
+import 'package:tobeto_mobil/models/application_model.dart';
 import 'package:tobeto_mobil/models/education_model.dart';
 import 'package:tobeto_mobil/pages/home/announcement_view.dart/announcement_list.dart';
-import 'package:tobeto_mobil/pages/home/application_view.dart/application_card.dart';
+import 'package:tobeto_mobil/pages/home/application_view.dart/application_list.dart';
 import 'package:tobeto_mobil/pages/home/education_view/education_list.dart';
 
 class HomeBody extends StatelessWidget {
@@ -81,7 +82,22 @@ class HomeBody extends StatelessWidget {
         ]),
         Container(),
         Container(),
-        ApplicationCard(),
+        ApplicationList(
+          applicationList: [
+            ApplicationModel(
+                id: "1",
+                state: "Kabul Edildi",
+                title: "İstanbul Kodluyor Bilgilendirme",
+                text1: "İstanbul Kodluyor başvuru formu onaylandı.",
+                text2: "İstanbul Kodluyor belge yükleme formu onaylandı."),
+            ApplicationModel(
+                id: "1",
+                state: "Kabul Edildi",
+                title: "İstanbul Kodluyor Bilgilendirme",
+                text1: "İstanbul Kodluyor başvuru formu onaylandı.",
+                text2: "İstanbul Kodluyor belge yükleme formu onaylandı.")
+          ],
+        ),
       ],
     );
   }

@@ -49,13 +49,9 @@ final androidLightTheme = ThemeData(
   textTheme: TextTheme(
       headlineSmall: TextStyle(color: _tobetoLightColors.acikSiyah, letterSpacing: 1.0, fontWeight: FontWeight.w700),
       headlineMedium: TextStyle(color: _tobetoLightColors.mor, fontSize: 30, fontWeight: FontWeight.w700),
-      bodyLarge: TextStyle(
-        color: _tobetoLightColors.siyah,
-        fontSize: 16.0,
-      ),
-      titleLarge: TextStyle(
-        color: _tobetoDarkColors.yesil,
-      )),
+      bodyLarge: TextStyle(color: _tobetoLightColors.siyah, fontSize: 16.0),
+      bodyMedium: TextStyle(color: _tobetoLightColors.siyah, fontSize: 14),
+      titleLarge: TextStyle(color: _tobetoDarkColors.yesil, fontSize: 22)),
 
   //TextButton Ayarları
   textButtonTheme: const TextButtonThemeData(
@@ -84,7 +80,7 @@ final androidLightTheme = ThemeData(
       textStyle: const MaterialStatePropertyAll(
         TextStyle(fontSize: font20),
       ),
-      foregroundColor: MaterialStatePropertyAll(_tobetoLightColors.krem), //text color
+      foregroundColor: MaterialStatePropertyAll(_tobetoLightColors.beyaz), //text color
       backgroundColor: MaterialStatePropertyAll(_tobetoLightColors.mor),
     ),
   ),
@@ -199,7 +195,7 @@ final androidDarkTheme = ThemeData(
         ),
       ),
       textStyle: const MaterialStatePropertyAll(TextStyle(fontSize: font20)),
-      foregroundColor: MaterialStatePropertyAll(_tobetoDarkColors.krem), //text color
+      foregroundColor: MaterialStatePropertyAll(_tobetoDarkColors.beyaz), //text color
       backgroundColor: MaterialStatePropertyAll(_tobetoDarkColors.mor),
     ),
   ),

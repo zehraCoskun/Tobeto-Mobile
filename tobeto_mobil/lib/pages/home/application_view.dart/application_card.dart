@@ -1,87 +1,117 @@
 import 'package:flutter/material.dart';
+import 'package:tobeto_mobil/constants/sizes.dart';
+import 'package:tobeto_mobil/models/application_model.dart';
 
 class ApplicationCard extends StatelessWidget {
   const ApplicationCard({
     Key? key,
+    required this.application,
   }) : super(key: key);
 
+  final ApplicationModel application;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        //kutucuk*******
-        width: 375,
-        height: 180,
-        margin: const EdgeInsets.only(
-          top: 15,
-          left: 10,
-        ),
-
-        padding: const EdgeInsets.only(
-          top: 10,
-        ),
-
+    return AspectRatio(
+      aspectRatio: 1.5 / 1,
+      child: Container(
+        margin: const EdgeInsets.symmetric(horizontal: padding16, vertical: padding16 / 2),
+        padding: const EdgeInsets.symmetric(horizontal: padding16, vertical: padding16 / 2),
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            color: Theme.of(context).cardColor),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            Row(
-              children: [
-                const Text(
-                  " İstanbul Kodluyor Bilgilendirme",
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 15),
-                  textAlign: TextAlign.start,
-                ),
-                Stack(
-                  //Stack*********
-                  children: <Widget>[
-                    Container(
-                      alignment: Alignment.centerLeft,
-                      margin: EdgeInsets.only(left: 70),
-                      padding: EdgeInsets.all(10),
-                      decoration: BoxDecoration(
-                        color: Colors.green.withOpacity(0.7),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: const Text(
-                        textAlign: TextAlign.end,
-                        'Kabul Edildi',
-                        style: TextStyle(
-                            fontSize: 10, fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                  ],
-                ) //Stack*********
-              ],
-            ),
-            const Row(
-              children: [
-                Icon(Icons.check, color: Colors.green),
-                Text("İstanbul Kodluyor Başvuru Formu onaylandı.",
-                    style: TextStyle(color: Colors.white),
-                    textAlign: TextAlign.start),
-              ],
-            ),
-            const Row(
-              children: [
-                Icon(
-                  Icons.check,
-                  color: Colors.green,
-                ),
-                Text(
-                  "İstanbul Kodluyor Belge Yükleme Formu onaylandı.",
-                  style: TextStyle(color: Colors.white),
-                  textAlign: TextAlign.start,
-                ),
-              ],
+          borderRadius: BorderRadius.circular(16),
+          color: Theme.of(context).cardColor,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.5),
+              spreadRadius: 2,
+              blurRadius: 5,
+              offset: const Offset(4, 4), // Sol üst köşeden ışık vurmuş gibi efekt için negatif değerler kullanılır.
             ),
           ],
         ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            buildHeader(context),
+            buildBody(),
+            buildFooter(context),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget buildHeader(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(
+          application.title,
+          style: Theme.of(context).textTheme.titleLarge,
+        ),
+      ],
+    );
+  }
+
+  Widget buildBody() {
+    return Column(
+      children: [
+        InfoLine(infoText: application.text1),
+        InfoLine(infoText: application.text2),
+      ],
+    );
+  }
+
+  Widget buildFooter(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        Text(
+          application.state,
+          style: Theme.of(context).textTheme.titleLarge,
+        ),
+      ],
+    );
+  }
+}
+
+class InfoLine extends StatelessWidget {
+  const InfoLine({
+    super.key,
+    required this.infoText,
+  });
+
+  final String infoText;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const CheckIcon(),
+        Expanded(
+          child: Text(
+            infoText,
+            style: const TextStyle(fontSize: 18),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class CheckIcon extends StatelessWidget {
+  const CheckIcon({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return const Padding(
+      padding: EdgeInsets.all(4),
+      child: Icon(
+        Icons.check,
+        color: Colors.green,
       ),
     );
   }

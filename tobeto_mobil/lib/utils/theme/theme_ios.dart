@@ -48,13 +48,8 @@ final iosLightTheme = ThemeData(
   textTheme: TextTheme(
       headlineSmall: TextStyle(color: _tobetoLightColors.acikSiyah, letterSpacing: 1.0, fontWeight: FontWeight.w700),
       headlineMedium: TextStyle(color: _tobetoLightColors.mor, fontSize: 30, fontWeight: FontWeight.w700),
-      bodyLarge: TextStyle(
-        color: _tobetoLightColors.siyah,
-        fontSize: 16.0,
-      ),
-      titleLarge: TextStyle(
-        color: _tobetoDarkColors.yesil,
-      )),
+      bodyLarge: TextStyle(color: _tobetoLightColors.siyah, fontSize: 16.0),
+      titleLarge: TextStyle(color: _tobetoDarkColors.yesil)),
 
   //TextButton Ayarlari
   textButtonTheme: const TextButtonThemeData(
@@ -75,7 +70,7 @@ final iosLightTheme = ThemeData(
         ),
       ),
       textStyle: const MaterialStatePropertyAll(TextStyle(fontSize: font20)),
-      foregroundColor: MaterialStatePropertyAll(_tobetoLightColors.krem),
+      foregroundColor: MaterialStatePropertyAll(_tobetoLightColors.beyaz),
       backgroundColor: MaterialStatePropertyAll(_tobetoLightColors.mor),
     ),
   ),
@@ -176,7 +171,7 @@ final iosDarkTheme = ThemeData(
         ),
       ),
       textStyle: const MaterialStatePropertyAll(TextStyle(fontSize: font20)),
-      foregroundColor: MaterialStatePropertyAll(_tobetoDarkColors.krem),
+      foregroundColor: MaterialStatePropertyAll(_tobetoDarkColors.beyaz),
       backgroundColor: MaterialStatePropertyAll(_tobetoDarkColors.mor),
     ),
   ),
