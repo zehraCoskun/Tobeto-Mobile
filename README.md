@@ -29,7 +29,8 @@ Bu mobil uygulama, Tobeto eğitim platformunun bir mobil versiyonunu sağlamak i
 
 <img width="160" alt="Ekran Resmi 2023-12-27 14 52 37" src="https://github.com/zehraCoskun/tobeto-mobile/assets/110024096/d2e39ca4-5a99-4747-877a-2ef3234659b7">
 
-<img width="370" alt="Ekran Resmi 2023-12-27 14 52 37" src="https://github.com/zehraCoskun/tobeto-mobile/assets/110024096/9fae9770-d98a-4df9-afe2-8119967d7138">
+
+<img width="160" alt="Ekran Resmi 2023-12-27 14 57 52" src="https://github.com/zehraCoskun/tobeto-mobile/assets/110024096/ba545aef-f4ae-41dc-8e35-06c4be11f1a7">
 
 
 
