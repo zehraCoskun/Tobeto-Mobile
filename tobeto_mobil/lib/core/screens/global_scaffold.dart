@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/models/enums/drawer_item.dart';
-import 'package:tobeto_mobil/widgets/drawer_widget.dart';
+import 'package:tobeto_mobil/pages/drawer/drawer_page.dart';
 
 //login screen disinda suan icin Scaffold yerine her sayfada kullanilacak
 //persistent drawer icin appbar suan icin optional ancak bize appbar verilmesse
@@ -18,7 +18,7 @@ class GlobalScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const DrawerWidget(
+      drawer: const DrawerPage(
         items: DrawerItem.values,
       ),
       appBar: appBar ??

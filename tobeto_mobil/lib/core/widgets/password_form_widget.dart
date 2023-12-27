@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_mobil/consts/constants.dart';
 import 'package:tobeto_mobil/core/widgets/form_widget.dart';
 
 class PasswordFormWidget extends StatefulWidget {
   const PasswordFormWidget({
     Key? key,
     this.controller,
+    required this.labelText,
+    required this.hintText,
   }) : super(key: key);
+
+  final String labelText;
+  final String hintText;
 
   final TextEditingController? controller;
 
@@ -34,8 +38,8 @@ class _PasswordFormWidgetState extends State<PasswordFormWidget> {
     return FormWidget(
       controller: widget.controller,
       prefixIcon: const Icon(Icons.lock_outline),
-      labelText: loginPasswordLabel,
-      hintText: loginPasswordHint,
+      labelText: widget.labelText,
+      hintText: widget.hintText,
       suffixIcon: IconButton(
         onPressed: handleInvisible,
         icon: isInvisible

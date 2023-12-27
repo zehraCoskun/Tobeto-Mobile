@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_mobil/screens/home_screen/screens/home_screen.dart';
 import 'package:tobeto_mobil/utils/router/route_generator.dart';
 import 'package:tobeto_mobil/utils/theme/theme_generator.dart';
 
@@ -12,7 +11,6 @@ void main() {
       themeMode: ThemeMode.system,
       initialRoute: "/login",
       onGenerateRoute: (route) => RouteGenerator.onGenerateRoute(route),
-      home: HomeScreen(),
     ),
   );
 }

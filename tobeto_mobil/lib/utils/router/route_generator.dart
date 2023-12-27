@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_mobil/authentication/login/login_screen.dart';
-import 'package:tobeto_mobil/screens/home_screen/screens/home_screen.dart';
-import 'package:tobeto_mobil/screens/profile_screen/screens/profile_screen.dart';
+import 'package:tobeto_mobil/pages/login/login_page.dart';
+import 'package:tobeto_mobil/pages/home/home_page.dart';
+import 'package:tobeto_mobil/pages/profile/profile_screen.dart';
 import 'package:tobeto_mobil/utils/router/route_transition.dart';
 
 class RouteGenerator {
@@ -10,13 +10,13 @@ class RouteGenerator {
   static Route onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
       case "/login":
-        return defaultRouteTransition(const LoginScreen());
+        return defaultRouteTransition(const LoginPage());
       case "/home":
-        return defaultRouteTransition(const HomeScreen());
+        return defaultRouteTransition(const HomePage());
       case "/profile":
         return defaultRouteTransition(const ProfileScreen());
       default:
-        return defaultRouteTransition(const HomeScreen());
+        return defaultRouteTransition(const HomePage());
     }
   }
 
