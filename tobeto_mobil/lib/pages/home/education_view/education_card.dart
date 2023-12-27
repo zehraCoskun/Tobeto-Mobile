@@ -42,7 +42,7 @@ class EducationCard extends StatelessWidget {
               topLeft: Radius.circular(30),
               topRight: Radius.circular(30),
             ),
-            child: Image.asset(education.thumbnail)),
+            child: Image.asset("assets/images/ders1.jpg")),
       ),
     );
   }
