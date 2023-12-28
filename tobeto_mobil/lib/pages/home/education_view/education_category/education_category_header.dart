@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/core/widgets/container_widget.dart';
+import 'package:tobeto_mobil/pages/profile/profile_screen.dart';
 
 class EducationCategoryHeader extends StatelessWidget {
   const EducationCategoryHeader({
     Key? key,
     required this.title,
+    this.isDown = true,
   }) : super(key: key);
 
   final String title;
+  final bool isDown;
 
   @override
   Widget build(BuildContext context) {
@@ -16,6 +19,10 @@ class EducationCategoryHeader extends StatelessWidget {
       child: ContainerWidget(
         padding: EdgeInsets.zero,
         child: ListTile(
+          leading: Icon(
+            isDown ? Icons.keyboard_arrow_down_outlined : Icons.keyboard_arrow_right_outlined,
+            color: Theme.of(context).iconTheme.color,
+          ),
           title: Text(
             title,
             style: Theme.of(context).textTheme.titleMedium,
@@ -23,50 +30,19 @@ class EducationCategoryHeader extends StatelessWidget {
           trailing: InkWell(
             splashColor: Colors.transparent,
             onTap: () {
-              // Navigator.of(context).push(
-              //   MaterialPageRoute(
-              //     builder: (context) => const ProfileScreen(),
-              //   ),
-              // );
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const ProfileScreen(),
+                ),
+              );
             },
-            child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "See All",
-                    style: Theme.of(context).textTheme.bodySmall,
-                  ),
-                  Icon(
-                    Icons.keyboard_double_arrow_right_outlined,
-                    color: Theme.of(context).iconTheme.color,
-                  ),
-                ]),
+            child: Icon(
+              Icons.keyboard_double_arrow_right_outlined,
+              color: Theme.of(context).iconTheme.color,
+            ),
           ),
         ),
       ),
-      // child: Card(
-      //   child: ListTile(
-      //     title: Text(title),
-      //     trailing: InkWell(
-      //       splashColor: Colors.transparent,
-      //       onTap: () {
-      //         // Navigator.of(context).push(
-      //         //   MaterialPageRoute(
-      //         //     builder: (context) => const ProfileScreen(),
-      //         //   ),
-      //         // );
-      //       },
-      //       child: const Column(
-      //           mainAxisAlignment: MainAxisAlignment.center,
-      //           children: [
-      //             Text("See All"),
-      //             Icon(
-      //               Icons.keyboard_double_arrow_right_outlined,
-      //             ),
-      //           ]),
-      //     ),
-      //   ),
-      // ),
     );
   }
 }

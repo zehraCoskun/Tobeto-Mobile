@@ -11,8 +11,6 @@ class EducationCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //final size = MediaQuery.of(context).size;
-
     return AspectRatio(
       aspectRatio: 1 / 1,
       child: Container(
@@ -41,7 +39,6 @@ class EducationCard extends StatelessWidget {
           ),
           child: Image.asset(
             education.thumbnail,
-            //"assets/images/ders1.jpg",
             fit: BoxFit.fitWidth,
           ),
         ),

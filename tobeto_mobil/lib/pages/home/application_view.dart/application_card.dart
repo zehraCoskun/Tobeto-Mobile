@@ -93,7 +93,7 @@ class InfoLine extends StatelessWidget {
         Expanded(
           child: Text(
             infoText,
-            style: const TextStyle(fontSize: 18),
+            style: Theme.of(context).textTheme.bodyLarge,
           ),
         ),
       ],

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_mobil/models/education_model.dart';
+import 'package:tobeto_mobil/dummy_data.dart';
 import 'package:tobeto_mobil/pages/home/education_view/education_card.dart';
 
 class EducationCategoryBody extends StatelessWidget {
@@ -9,20 +9,19 @@ class EducationCategoryBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
+    final size = MediaQuery.of(context).size.height;
+
+    return SizedBox(
+      height: size * 0.4,
       child: ListView.builder(
+        shrinkWrap: true,
         scrollDirection: Axis.horizontal,
-        itemCount: 5,
+        itemCount: educationModelData.length,
         itemBuilder: (context, index) {
           return Padding(
             padding: const EdgeInsets.all(8.0),
             child: EducationCard(
-              education: EducationModel(
-                id: "1",
-                title: "Something",
-                time: "Some Time",
-                thumbnail: "assets/images/ders1.jpg",
-              ),
+              education: educationModelData[index],
             ),
           );
         },

@@ -38,18 +38,28 @@ final androidLightTheme = ThemeData(
   tabBarTheme: TabBarTheme(
     dividerColor: _tobetoLightColors.siyah,
     labelColor: _tobetoLightColors.mor, // Seçili tabın yazı rengi
-    indicatorColor: _tobetoLightColors.yesil, //_tobetoLightColors.mor, // Tab'ın altındaki gösterge rengi
+    indicatorColor: _tobetoLightColors
+        .yesil, //_tobetoLightColors.mor, // Tab'ın altındaki gösterge rengi
     unselectedLabelColor: _tobetoLightColors.acikSiyah,
     // Seçili olmayan tabların yazı rengi
   ),
 
   //TextTheme Ayarları
   textTheme: TextTheme(
-      headlineSmall: TextStyle(color: _tobetoLightColors.acikSiyah, letterSpacing: 1.0, fontWeight: FontWeight.w700),
-      headlineMedium: TextStyle(color: _tobetoLightColors.mor, fontSize: 30, fontWeight: FontWeight.w700),
+      headlineSmall: TextStyle(
+          color: _tobetoLightColors.acikSiyah,
+          letterSpacing: 1.0,
+          fontWeight: FontWeight.w700),
+      headlineMedium: TextStyle(
+          color: _tobetoLightColors.mor,
+          fontSize: 30,
+          fontWeight: FontWeight.w700),
       bodyLarge: TextStyle(color: _tobetoLightColors.siyah, fontSize: 16.0),
       titleLarge: TextStyle(color: _tobetoDarkColors.yesil),
-      bodySmall: TextStyle(color: _tobetoLightColors.acikSiyah, fontStyle: FontStyle.italic, fontSize: 16)),
+      bodySmall: TextStyle(
+          color: _tobetoLightColors.acikSiyah,
+          fontStyle: FontStyle.italic,
+          fontSize: 16)),
 
   //TextButton Ayarları
   textButtonTheme: const TextButtonThemeData(
@@ -78,7 +88,8 @@ final androidLightTheme = ThemeData(
       textStyle: const MaterialStatePropertyAll(
         TextStyle(fontSize: font20),
       ),
-      foregroundColor: MaterialStatePropertyAll(_tobetoLightColors.beyaz), //text color
+      foregroundColor:
+          MaterialStatePropertyAll(_tobetoLightColors.beyaz), //text color
       backgroundColor: MaterialStatePropertyAll(_tobetoLightColors.mor),
     ),
   ),
@@ -155,19 +166,27 @@ final androidDarkTheme = ThemeData(
   tabBarTheme: TabBarTheme(
     dividerColor: _tobetoDarkColors.siyah,
     labelColor: _tobetoDarkColors.beyaz, // Seçili tabın yazı rengi
-    indicatorColor: _tobetoDarkColors.yesil, //_tobetoLightColors.mor, // Tab'ın altındaki gösterge rengi
+    indicatorColor: _tobetoDarkColors
+        .yesil, //_tobetoLightColors.mor, // Tab'ın altındaki gösterge rengi
     unselectedLabelColor: _tobetoDarkColors.krem,
     // Seçili olmayan tabların yazı rengi
   ),
 
   //TextTheme Ayarları
   textTheme: TextTheme(
-      headlineSmall: TextStyle(color: _tobetoDarkColors.beyaz, letterSpacing: 1.0),
-      headlineMedium: TextStyle(color: _tobetoDarkColors.mor, fontSize: 30),
-      titleLarge: TextStyle(color: _tobetoDarkColors.yesil),
-      titleMedium: TextStyle(color: _tobetoDarkColors.beyaz),
-      titleSmall: TextStyle(color: _tobetoDarkColors.beyaz),
-      bodySmall: TextStyle(color: _tobetoLightColors.krem, fontStyle: FontStyle.italic, fontSize: 16)),
+    headlineSmall:
+        TextStyle(color: _tobetoDarkColors.beyaz, letterSpacing: 1.0),
+    headlineMedium: TextStyle(color: _tobetoDarkColors.mor, fontSize: 30),
+    titleLarge: TextStyle(color: _tobetoDarkColors.yesil),
+    titleMedium: TextStyle(color: _tobetoDarkColors.beyaz),
+    titleSmall: TextStyle(color: _tobetoDarkColors.beyaz),
+    bodyLarge: TextStyle(color: _tobetoDarkColors.beyaz),
+    bodySmall: TextStyle(
+      color: _tobetoLightColors.krem,
+      fontStyle: FontStyle.italic,
+      fontSize: 16,
+    ),
+  ),
 
   //TextButton Ayarlari
   textButtonTheme: const TextButtonThemeData(
@@ -195,7 +214,8 @@ final androidDarkTheme = ThemeData(
         ),
       ),
       textStyle: const MaterialStatePropertyAll(TextStyle(fontSize: font20)),
-      foregroundColor: MaterialStatePropertyAll(_tobetoDarkColors.beyaz), //text color
+      foregroundColor:
+          MaterialStatePropertyAll(_tobetoDarkColors.beyaz), //text color
       backgroundColor: MaterialStatePropertyAll(_tobetoDarkColors.mor),
     ),
   ),
