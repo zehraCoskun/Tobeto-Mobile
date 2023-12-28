@@ -6,8 +6,6 @@ class _tobetoLightColors {
   static Color mor = const Color(0xFF7743DB);
   static Color beyaz = const Color(0xFFFFFBF5);
   static Color krem = const Color.fromARGB(255, 227, 220, 242);
-  //static Color pembe = const Color(0xFFC3ACD0);
-  static Color kahve = const Color.fromARGB(126, 204, 176, 175).withOpacity(0.2);
   static Color kirmizi = Colors.red.shade900;
   static Color yesil = const Color.fromARGB(255, 0, 210, 155);
   static Color siyah = Colors.black;
@@ -26,7 +24,7 @@ final iosLightTheme = ThemeData(
     onBackground: _tobetoLightColors.siyah,
     secondary: _tobetoLightColors.kirmizi,
     surface: _tobetoLightColors.siyah,
-    background: _tobetoLightColors.kahve,
+    background: _tobetoLightColors.krem,
     onPrimary: _tobetoLightColors.siyah,
     onSecondary: _tobetoLightColors.beyaz, //! drawer üst kısım rengi buradan alıyor
     onSurface: _tobetoLightColors.siyah,
