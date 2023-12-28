@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/constants/pages/home_text.dart';
-import 'package:tobeto_mobil/constants/sizes.dart';
+import 'package:tobeto_mobil/core/widgets/container_widget.dart';
 import 'package:tobeto_mobil/models/announcement_model.dart';
 
 class AnnouncementCard extends StatelessWidget {
@@ -14,27 +14,13 @@ class AnnouncementCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return AspectRatio(
       aspectRatio: 3 / 1,
-      child: Container(
-        margin: const EdgeInsets.symmetric(horizontal: padding16, vertical: padding16 / 2),
-        padding: const EdgeInsets.symmetric(horizontal: padding16, vertical: padding16 / 2),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(16),
-          color: Theme.of(context).drawerTheme.backgroundColor,
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.5),
-              spreadRadius: 2,
-              blurRadius: 5,
-              offset: Offset(4, 4), // Sol üst köşeden ışık vurmuş gibi efekt için negatif değerler kullanılır.
-            ),
-          ],
-        ),
+      child: ContainerWidget(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             buildHeader(context),
-            buildBody(),
+            buildBody(context),
             buildFooter(context),
           ],
         ),
@@ -52,15 +38,16 @@ class AnnouncementCard extends StatelessWidget {
         ),
         Text(
           announcement.organisation,
+          style: Theme.of(context).textTheme.titleSmall,
         )
       ],
     );
   }
 
-  Widget buildBody() {
+  Widget buildBody(BuildContext context) {
     return Text(
       announcement.title,
-      style: const TextStyle(fontSize: 18),
+      style: Theme.of(context).textTheme.titleMedium,
     );
   }
 
@@ -68,7 +55,10 @@ class AnnouncementCard extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(announcement.date),
+        Text(
+          announcement.date,
+          style: Theme.of(context).textTheme.titleSmall,
+        ),
         TextButton(
           onPressed: () {},
           child: Text(
