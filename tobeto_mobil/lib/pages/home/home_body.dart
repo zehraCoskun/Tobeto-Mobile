@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_mobil/constants/image_text.dart';
 import 'package:tobeto_mobil/models/announcement_model.dart';
 import 'package:tobeto_mobil/models/application_model.dart';
 import 'package:tobeto_mobil/models/education_model.dart';

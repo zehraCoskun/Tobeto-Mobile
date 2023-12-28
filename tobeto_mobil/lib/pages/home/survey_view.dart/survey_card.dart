@@ -15,7 +15,7 @@ class SurveyCard extends StatelessWidget {
         Align(
           alignment: Alignment.topCenter,
           child: Lottie.network(
-            "https://lottie.host/a20e84e5-14bf-427b-b18a-79b409fbe1b6/C7azsyk4R7.json",
+            "https://lottie.host/3b94c043-6b27-4098-9411-90ef9651273c/C6Tz8FZWci.json",
             height: size.height * 0.4,
           ),
         ),

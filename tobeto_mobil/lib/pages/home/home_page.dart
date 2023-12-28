@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/core/screens/global_scaffold.dart';
+import 'package:tobeto_mobil/core/widgets/background_widget.dart';
 import 'package:tobeto_mobil/pages/home/home_body.dart';
 import 'package:tobeto_mobil/pages/home/home_header.dart';
 
@@ -26,8 +27,10 @@ class _HomePageState extends State<HomePage>
       appBar: HomeHeader(
         tabController: _tabController,
       ),
-      body: HomeBody(
-        controller: _tabController,
+      body: BackgroundWidget(
+        child: HomeBody(
+          controller: _tabController,
+        ),
       ),
     );
   }

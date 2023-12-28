@@ -3,6 +3,7 @@ import 'package:tobeto_mobil/constants/image_text.dart';
 import 'package:lottie/lottie.dart';
 import 'package:tobeto_mobil/constants/pages/login_text.dart';
 import 'package:tobeto_mobil/constants/sizes.dart';
+import 'package:tobeto_mobil/core/widgets/background_widget.dart';
 
 class RecoveryPage extends StatefulWidget {
   const RecoveryPage({super.key});
@@ -14,6 +15,7 @@ class RecoveryPage extends StatefulWidget {
 class _RecoveryPageState extends State<RecoveryPage> {
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
         resizeToAvoidBottomInset: false,
         appBar: AppBar(
@@ -23,47 +25,49 @@ class _RecoveryPageState extends State<RecoveryPage> {
             width: kToolbarHeight * 2,
           ),
         ),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            SizedBox(
-              height: (MediaQuery.of(context).size.width / 2),
-              child: Lottie.network("https://lottie.host/e9be6368-9465-4b43-8fc4-02314f5ec942/sZlkgQnieS.json"),
-            ),
-            const Text(
-              forgetPasswordTitle,
-              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-            ),
-            const Padding(padding: EdgeInsets.only(top: 10, bottom: 30)),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: padding16),
-              child: TextField(
-                obscureText: false,
-                decoration: InputDecoration(
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.pinkAccent, width: 3.0),
+        body: BackgroundWidget(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              SizedBox(
+                height: (MediaQuery.of(context).size.width / 2),
+                child: Lottie.network("https://lottie.host/e9be6368-9465-4b43-8fc4-02314f5ec942/sZlkgQnieS.json"),
+              ),
+              const Text(
+                forgetPasswordTitle,
+                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+              ),
+              const Padding(padding: EdgeInsets.only(top: 10, bottom: 30)),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: padding16),
+                child: TextField(
+                  obscureText: false,
+                  decoration: InputDecoration(
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.pinkAccent, width: 3.0),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.black, width: 1.0),
+                    ),
+                    hintText: "e-posta adresinizi giriniz",
                   ),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.black, width: 1.0),
-                  ),
-                  hintText: "e-posta adresinizi giriniz",
                 ),
               ),
-            ),
-            const Padding(padding: EdgeInsets.only(bottom: 30)),
-            ElevatedButton(
-              onPressed: () {},
-              child: const Text(send),
-            ),
-            const SizedBox(
-              height: 32,
-            ),
-            const Text(signUpText),
-            TextButton(
-              onPressed: () {},
-              child: const Text(signUp),
-            ),
-          ],
+              const Padding(padding: EdgeInsets.only(bottom: 30)),
+              ElevatedButton(
+                onPressed: () {},
+                child: const Text(send),
+              ),
+              const SizedBox(
+                height: 32,
+              ),
+              const Text(signUpText),
+              TextButton(
+                onPressed: () {},
+                child: const Text(signUp),
+              ),
+            ],
+          ),
         ));
   }
 }
