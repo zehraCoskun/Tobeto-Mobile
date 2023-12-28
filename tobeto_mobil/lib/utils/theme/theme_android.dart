@@ -55,7 +55,7 @@ final androidLightTheme = ThemeData(
           fontSize: 30,
           fontWeight: FontWeight.w700),
       bodyLarge: TextStyle(color: _tobetoLightColors.siyah, fontSize: 16.0),
-      titleLarge: TextStyle(color: _tobetoDarkColors.yesil),
+      titleLarge: TextStyle(color: _tobetoLightColors.yesil),
       bodySmall: TextStyle(
           color: _tobetoLightColors.acikSiyah,
           fontStyle: FontStyle.italic,
@@ -182,7 +182,7 @@ final androidDarkTheme = ThemeData(
     titleSmall: TextStyle(color: _tobetoDarkColors.beyaz),
     bodyLarge: TextStyle(color: _tobetoDarkColors.beyaz),
     bodySmall: TextStyle(
-      color: _tobetoLightColors.krem,
+      color: _tobetoDarkColors.krem,
       fontStyle: FontStyle.italic,
       fontSize: 16,
     ),

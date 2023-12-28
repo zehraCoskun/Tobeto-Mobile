@@ -14,19 +14,35 @@ class EducationCategory extends StatefulWidget {
   State<EducationCategory> createState() => _EducationCategoryState();
 }
 
-class _EducationCategoryState extends State<EducationCategory> {
+class _EducationCategoryState extends State<EducationCategory>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
   bool isVisible = false;
 
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 300),
+    );
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
   void handleVisibility() {
-    if (isVisible) {
-      setState(() {
-        isVisible = false;
-      });
-    } else {
-      setState(() {
-        isVisible = true;
-      });
-    }
+    setState(() {
+      isVisible = !isVisible;
+      if (isVisible) {
+        _controller.forward();
+      } else {
+        _controller.reverse();
+      }
+    });
   }
 
   @override
@@ -44,9 +60,13 @@ class _EducationCategoryState extends State<EducationCategory> {
               isDown: !isVisible,
             ),
           ),
-          Visibility(
-            visible: isVisible,
-            child: const EducationCategoryBody(),
+          AnimatedSize(
+            duration: const Duration(milliseconds: 100),
+            curve: Curves.decelerate,
+            child: Visibility(
+              visible: isVisible,
+              child: const EducationCategoryBody(),
+            ),
           ),
         ],
       ),

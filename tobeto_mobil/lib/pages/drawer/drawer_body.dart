@@ -24,7 +24,10 @@ class DrawerBody extends StatelessWidget {
                 drawerItems[index].getRouteName(),
               );
             },
-            title: Text(drawerItems[index].getString()),
+            title: Text(
+              drawerItems[index].getString(),
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
           );
         },
       ),

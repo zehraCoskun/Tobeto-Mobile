@@ -20,7 +20,7 @@ class EducationCategoryHeader extends StatelessWidget {
         padding: EdgeInsets.zero,
         child: ListTile(
           leading: Icon(
-            isDown ? Icons.keyboard_arrow_down_outlined : Icons.keyboard_arrow_right_outlined,
+            isDown ? Icons.keyboard_arrow_right_outlined : Icons.keyboard_arrow_down_outlined,
             color: Theme.of(context).iconTheme.color,
           ),
           title: Text(

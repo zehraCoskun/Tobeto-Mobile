@@ -7,13 +7,13 @@ final List<EducationModel> educationModelData = [
   EducationModel(
     id: "1",
     title: "Something",
-    time: "Some Time",
+    time: "12/28/2023",
     thumbnail: "assets/images/ders1.jpg",
   ),
     EducationModel(
     id: "2",
     title: "SomeOther",
-    time: "Some Time",
+    time: "12/28/2023",
     thumbnail: "assets/images/ders2.png",
   ),
 ];
