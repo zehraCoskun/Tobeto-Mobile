@@ -26,7 +26,7 @@ class TabBarWidget extends StatelessWidget implements PreferredSizeWidget {
       labelColor: Theme.of(context).tabBarTheme.labelColor,
       isScrollable: isScrollable,
       controller: controller,
-      tabs: tabs,
+      tabs: tabs
     );
   }
 }

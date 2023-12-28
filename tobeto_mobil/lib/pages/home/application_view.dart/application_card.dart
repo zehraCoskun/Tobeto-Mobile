@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tobeto_mobil/constants/pages/home_text.dart';
 import 'package:tobeto_mobil/constants/sizes.dart';
 import 'package:tobeto_mobil/models/application_model.dart';
 
@@ -18,7 +19,7 @@ class ApplicationCard extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: padding16, vertical: padding16 / 2),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
-          color: Theme.of(context).cardColor,
+          color: Theme.of(context).drawerTheme.backgroundColor,
           boxShadow: [
             BoxShadow(
               color: Colors.grey.withOpacity(0.5),
@@ -111,7 +112,7 @@ class CheckIcon extends StatelessWidget {
       padding: EdgeInsets.all(4),
       child: Icon(
         Icons.check,
-        color: Colors.green,
+        color: logoYesil,
       ),
     );
   }

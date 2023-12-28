@@ -17,15 +17,12 @@ class EducationCard extends StatelessWidget {
       aspectRatio: 1 / 1,
       child: Container(
         margin: const EdgeInsets.only(top: 20, left: 30, right: 30),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(30),
-          color: Theme.of(context).cardColor,
-        ),
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(30), color: Theme.of(context).drawerTheme.backgroundColor),
         child: ListView(
           primary: false,
           children: <Widget>[
             buildHeader(),
-            buildFooter(),
+            buildFooter(context),
           ],
         ),
       ),
@@ -52,7 +49,7 @@ class EducationCard extends StatelessWidget {
     );
   }
 
-  Widget buildFooter() {
+  Widget buildFooter(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(
         horizontal: 16,
@@ -63,20 +60,11 @@ class EducationCard extends StatelessWidget {
         children: <Widget>[
           Text(
             education.title,
-            style: const TextStyle(
-              color: Colors.white,
-              fontSize: 18,
-              fontWeight: FontWeight.w400,
-              fontStyle: FontStyle.italic,
-            ),
+            style: Theme.of(context).textTheme.titleLarge,
           ),
           Text(
             education.time,
-            style: const TextStyle(
-              color: Colors.white,
-              fontSize: 16,
-              fontStyle: FontStyle.italic,
-            ),
+            style: Theme.of(context).textTheme.bodySmall,
           ),
         ],
       ),

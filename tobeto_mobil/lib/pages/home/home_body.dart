@@ -3,9 +3,12 @@ import 'package:tobeto_mobil/constants/image_text.dart';
 import 'package:tobeto_mobil/models/announcement_model.dart';
 import 'package:tobeto_mobil/models/application_model.dart';
 import 'package:tobeto_mobil/models/education_model.dart';
+import 'package:tobeto_mobil/models/exam_model.dart';
 import 'package:tobeto_mobil/pages/home/announcement_view.dart/announcement_list.dart';
 import 'package:tobeto_mobil/pages/home/application_view.dart/application_list.dart';
 import 'package:tobeto_mobil/pages/home/education_view/education_list.dart';
+import 'package:tobeto_mobil/pages/home/exam_view.dart/exam_list.dart';
+import 'package:tobeto_mobil/pages/home/survey_view.dart/survey_card.dart';
 
 class HomeBody extends StatelessWidget {
   const HomeBody({
@@ -24,15 +27,15 @@ class HomeBody extends StatelessWidget {
           educationList: [
             EducationModel(
               id: "1",
-              title: "something lovely",
-              time: "some time",
-              thumbnail: logo,
+              title: "Dr. Ecmel Ayral'dan Hoşgeldin Mesaj",
+              time: "21 Eylül 2023",
+              thumbnail: "assets/images/ders1.jpg",
             ),
             EducationModel(
               id: "2",
-              title: "something lovely2",
-              time: "some time ago",
-              thumbnail: logoT,
+              title: "Eğitimlere Nasıl Katılırım?",
+              time: "8 Eylül 2023",
+              thumbnail: "assets/images/ders2.png",
             ),
           ],
         ),
@@ -80,8 +83,8 @@ class HomeBody extends StatelessWidget {
             type: "Duyuru",
           ),
         ]),
-        Container(),
-        Container(),
+        ExamList(examList: [ExamModel("Herkes için Kodlama 1C Değerlendirme Sınavı", "Herkes için Kodlama - 1C", "45 dakika", id: "1")]),
+        const SurveyCard(),
         ApplicationList(
           applicationList: [
             ApplicationModel(

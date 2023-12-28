@@ -19,7 +19,7 @@ class AnnouncementCard extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: padding16, vertical: padding16 / 2),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
-          color: Theme.of(context).cardColor,
+          color: Theme.of(context).drawerTheme.backgroundColor,
           boxShadow: [
             BoxShadow(
               color: Colors.grey.withOpacity(0.5),
@@ -35,7 +35,7 @@ class AnnouncementCard extends StatelessWidget {
           children: [
             buildHeader(context),
             buildBody(),
-            buildFooter(),
+            buildFooter(context),
           ],
         ),
       ),
@@ -64,15 +64,16 @@ class AnnouncementCard extends StatelessWidget {
     );
   }
 
-  Widget buildFooter() {
+  Widget buildFooter(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(announcement.date),
-        const Text(
-          readMore,
-          style: TextStyle(
-            fontStyle: FontStyle.italic,
+        TextButton(
+          onPressed: () {},
+          child: Text(
+            readMore,
+            style: Theme.of(context).textTheme.bodySmall,
           ),
         )
       ],

@@ -22,13 +22,13 @@ final androidLightTheme = ThemeData(
     brightness: Brightness.light,
     primary: _tobetoLightColors.mor,
     error: _tobetoLightColors.kirmizi,
-    onError: _tobetoLightColors.beyaz,
+    onError: _tobetoLightColors.krem,
     onBackground: _tobetoLightColors.siyah,
     secondary: _tobetoLightColors.kirmizi,
     surface: _tobetoLightColors.siyah,
     background: _tobetoLightColors.kahve,
     onPrimary: _tobetoLightColors.siyah,
-    onSecondary: _tobetoLightColors.krem,
+    onSecondary: _tobetoLightColors.beyaz,
     onSurface: _tobetoLightColors.siyah,
   ),
 
@@ -50,8 +50,8 @@ final androidLightTheme = ThemeData(
       headlineSmall: TextStyle(color: _tobetoLightColors.acikSiyah, letterSpacing: 1.0, fontWeight: FontWeight.w700),
       headlineMedium: TextStyle(color: _tobetoLightColors.mor, fontSize: 30, fontWeight: FontWeight.w700),
       bodyLarge: TextStyle(color: _tobetoLightColors.siyah, fontSize: 16.0),
-      bodyMedium: TextStyle(color: _tobetoLightColors.siyah, fontSize: 14),
-      titleLarge: TextStyle(color: _tobetoDarkColors.yesil, fontSize: 22)),
+      titleLarge: TextStyle(color: _tobetoDarkColors.siyah),
+      bodySmall: TextStyle(color: _tobetoLightColors.acikSiyah, fontStyle: FontStyle.italic, fontSize: 16)),
 
   //TextButton Ayarları
   textButtonTheme: const TextButtonThemeData(
@@ -164,10 +164,10 @@ final androidDarkTheme = ThemeData(
 
   //TextTheme Ayarları
   textTheme: TextTheme(
-    headlineSmall: TextStyle(color: _tobetoDarkColors.beyaz, letterSpacing: 1.0),
-    headlineMedium: TextStyle(color: _tobetoDarkColors.mor, fontSize: 30),
-    titleLarge: TextStyle(color: _tobetoDarkColors.yesil),
-  ),
+      headlineSmall: TextStyle(color: _tobetoDarkColors.beyaz, letterSpacing: 1.0),
+      headlineMedium: TextStyle(color: _tobetoDarkColors.mor, fontSize: 30),
+      titleLarge: TextStyle(color: _tobetoDarkColors.beyaz),
+      bodySmall: TextStyle(color: _tobetoLightColors.krem, fontStyle: FontStyle.italic, fontSize: 16)),
 
   //TextButton Ayarlari
   textButtonTheme: const TextButtonThemeData(

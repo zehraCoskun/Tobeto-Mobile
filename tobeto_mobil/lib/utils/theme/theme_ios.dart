@@ -36,6 +36,7 @@ final iosLightTheme = ThemeData(
   appBarTheme: AppBarTheme(
     color: _tobetoLightColors.krem,
   ),
+
   //TabBar Theme Ayarları
   tabBarTheme: TabBarTheme(
     dividerColor: _tobetoLightColors.siyah,
@@ -49,7 +50,8 @@ final iosLightTheme = ThemeData(
       headlineSmall: TextStyle(color: _tobetoLightColors.acikSiyah, letterSpacing: 1.0, fontWeight: FontWeight.w700),
       headlineMedium: TextStyle(color: _tobetoLightColors.mor, fontSize: 30, fontWeight: FontWeight.w700),
       bodyLarge: TextStyle(color: _tobetoLightColors.siyah, fontSize: 16.0),
-      titleLarge: TextStyle(color: _tobetoDarkColors.yesil)),
+      titleLarge: TextStyle(color: _tobetoDarkColors.siyah),
+      bodySmall: TextStyle(color: _tobetoLightColors.acikSiyah, fontStyle: FontStyle.italic, fontSize: 16)),
 
   //TextButton Ayarlari
   textButtonTheme: const TextButtonThemeData(
@@ -143,10 +145,10 @@ final iosDarkTheme = ThemeData(
 
   //TextTheme Ayarları
   textTheme: TextTheme(
-    headlineSmall: TextStyle(color: _tobetoDarkColors.beyaz, letterSpacing: 1.0),
-    headlineMedium: TextStyle(color: _tobetoDarkColors.mor, fontSize: 30),
-    titleLarge: TextStyle(color: _tobetoDarkColors.yesil),
-  ),
+      headlineSmall: TextStyle(color: _tobetoDarkColors.beyaz, letterSpacing: 1.0),
+      headlineMedium: TextStyle(color: _tobetoDarkColors.mor, fontSize: 30),
+      titleLarge: TextStyle(color: _tobetoDarkColors.beyaz),
+      bodySmall: TextStyle(color: _tobetoLightColors.krem, fontStyle: FontStyle.italic, fontSize: 16)),
   //TextButton Ayarlari
   textButtonTheme: const TextButtonThemeData(
     style: ButtonStyle(
