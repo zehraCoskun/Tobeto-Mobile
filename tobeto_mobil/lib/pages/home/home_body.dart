@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/models/announcement_model.dart';
 import 'package:tobeto_mobil/models/application_model.dart';
-import 'package:tobeto_mobil/models/education_model.dart';
+import 'package:tobeto_mobil/models/enums/education_category.dart';
 import 'package:tobeto_mobil/models/exam_model.dart';
 import 'package:tobeto_mobil/pages/home/announcement_view.dart/announcement_list.dart';
 import 'package:tobeto_mobil/pages/home/application_view.dart/application_list.dart';
-import 'package:tobeto_mobil/pages/home/education_view/education_list.dart';
+import 'package:tobeto_mobil/pages/home/education_view/education_category/education_category_card.dart';
 import 'package:tobeto_mobil/pages/home/exam_view.dart/exam_list.dart';
 import 'package:tobeto_mobil/pages/home/survey_view.dart/survey_card.dart';
 
@@ -22,20 +22,14 @@ class HomeBody extends StatelessWidget {
     return TabBarView(
       controller: controller,
       children: <Widget>[
-        EducationList(
-          educationList: [
-            EducationModel(
-              id: "1",
-              title: "Dr. Ecmel Ayral'dan Hoşgeldin Mesaj",
-              time: "21 Eylül 2023",
-              thumbnail: "assets/images/ders1.jpg",
-            ),
-            EducationModel(
-              id: "2",
-              title: "Eğitimlere Nasıl Katılırım?",
-              time: "8 Eylül 2023",
-              thumbnail: "assets/images/ders2.png",
-            ),
+        ListView(
+          shrinkWrap: true,
+          children: [
+            ...EducationCategory.values.map((category) {
+              return EducationCategoryCard(
+                title: category.toString(),
+              );
+            }),
           ],
         ),
         AnnouncementList(announcementList: [
@@ -82,7 +76,11 @@ class HomeBody extends StatelessWidget {
             type: "Duyuru",
           ),
         ]),
-        ExamList(examList: [ExamModel("Herkes için Kodlama 1C Değerlendirme Sınavı", "Herkes için Kodlama - 1C", "45 dakika", id: "1")]),
+        ExamList(examList: [
+          ExamModel("Herkes için Kodlama 1C Değerlendirme Sınavı",
+              "Herkes için Kodlama - 1C", "45 dakika",
+              id: "1")
+        ]),
         const SurveyCard(),
         ApplicationList(
           applicationList: [
