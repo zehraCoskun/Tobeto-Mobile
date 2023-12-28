@@ -11,30 +11,28 @@ class EducationCategoryHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: Card(
-                child: ListTile(
-                  title: Text(title),
-                  trailing: InkWell(
-                    splashColor: Colors.transparent,
-                    onTap: () {
-                      // Navigator.of(context).push(
-                      //   MaterialPageRoute(
-                      //     builder: (context) => const ProfileScreen(),
-                      //   ),
-                      // );
-                    },
-                    child: const Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text("See All"),
-                          Icon(
-                            Icons.keyboard_double_arrow_right_outlined,
-                          ),
-                        ]),
-                  ),
-                ),
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: Card(
+        child: ListTile(
+          title: Text(title),
+          trailing: InkWell(
+            splashColor: Colors.transparent,
+            onTap: () {
+              // Navigator.of(context).push(
+              //   MaterialPageRoute(
+              //     builder: (context) => const ProfileScreen(),
+              //   ),
+              // );
+            },
+            child: const Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+              Text("See All"),
+              Icon(
+                Icons.keyboard_double_arrow_right_outlined,
               ),
-            );
+            ]),
+          ),
+        ),
+      ),
+    );
   }
 }

@@ -5,7 +5,7 @@ import 'package:tobeto_mobil/constants/sizes.dart';
 class _tobetoLightColors {
   static Color mor = const Color(0xFF7743DB);
   static Color beyaz = const Color(0xFFFFFBF5);
-  static Color krem = const Color.fromARGB(170, 247, 239, 229);
+  static Color krem = const Color.fromARGB(255, 227, 220, 242);
   //static Color pembe = const Color(0xFFC3ACD0);
   static Color kahve = const Color.fromARGB(126, 204, 176, 175).withOpacity(0.2);
   static Color kirmizi = Colors.red.shade900;
@@ -50,7 +50,7 @@ final iosLightTheme = ThemeData(
       headlineSmall: TextStyle(color: _tobetoLightColors.acikSiyah, letterSpacing: 1.0, fontWeight: FontWeight.w700),
       headlineMedium: TextStyle(color: _tobetoLightColors.mor, fontSize: 30, fontWeight: FontWeight.w700),
       bodyLarge: TextStyle(color: _tobetoLightColors.siyah, fontSize: 16.0),
-      titleLarge: TextStyle(color: _tobetoDarkColors.siyah),
+      titleLarge: TextStyle(color: _tobetoDarkColors.yesil),
       bodySmall: TextStyle(color: _tobetoLightColors.acikSiyah, fontStyle: FontStyle.italic, fontSize: 16)),
 
   //TextButton Ayarlari
@@ -60,7 +60,7 @@ final iosLightTheme = ThemeData(
   ),
   //Drawer Ayarları
   drawerTheme: DrawerThemeData(
-    backgroundColor: _tobetoLightColors.krem.withAlpha(255),
+    backgroundColor: _tobetoLightColors.krem,
   ),
 
   //ElevatedButton Ayarlari
@@ -105,12 +105,11 @@ class _tobetoDarkColors {
   static Color mor = const Color(0xFF7743DB);
   static Color beyaz = const Color(0xFFFFFBF5);
   static Color krem = const Color.fromARGB(170, 247, 239, 229);
-  //static Color pembe = const Color(0xFFC3ACD0);
-  static Color kahve = const Color.fromARGB(124, 99, 86, 85).withOpacity(0.2);
   static Color kirmizi = Colors.red.shade900;
   static Color yesil = const Color.fromARGB(255, 0, 210, 155);
   static Color siyah = Colors.black;
   static Color acikSiyah = Colors.black54;
+  static Color lacivert = const Color.fromARGB(255, 28, 28, 64);
 }
 
 final iosDarkTheme = ThemeData(
@@ -132,7 +131,7 @@ final iosDarkTheme = ThemeData(
   ),
 
   //AppBar Ayarları
-  appBarTheme: AppBarTheme(color: _tobetoDarkColors.kahve),
+  appBarTheme: AppBarTheme(color: _tobetoDarkColors.lacivert),
 
   //TabBar Theme Ayarları
   tabBarTheme: TabBarTheme(
@@ -147,7 +146,7 @@ final iosDarkTheme = ThemeData(
   textTheme: TextTheme(
       headlineSmall: TextStyle(color: _tobetoDarkColors.beyaz, letterSpacing: 1.0),
       headlineMedium: TextStyle(color: _tobetoDarkColors.mor, fontSize: 30),
-      titleLarge: TextStyle(color: _tobetoDarkColors.beyaz),
+      titleLarge: TextStyle(color: _tobetoDarkColors.yesil),
       bodySmall: TextStyle(color: _tobetoLightColors.krem, fontStyle: FontStyle.italic, fontSize: 16)),
   //TextButton Ayarlari
   textButtonTheme: const TextButtonThemeData(
@@ -161,7 +160,7 @@ final iosDarkTheme = ThemeData(
   ),
   //Drawer ayarları
   drawerTheme: DrawerThemeData(
-    backgroundColor: _tobetoDarkColors.kahve.withAlpha(255),
+    backgroundColor: _tobetoDarkColors.lacivert,
   ),
 
   //ElevatedButton Ayarlari
