@@ -35,26 +35,26 @@ Bu mobil uygulama, Tobeto eğitim platformunun bir mobil versiyonunu sağlamak i
 
 ### Stage 4 - Küçük dokunuşların görünümü ne kadar değiştirdiğini tecrübe ettik, işte yeni yüzüyle Tobeto uygulamamız. Üstelik artık androidde ve iosta, darkta ve lightta aynı şıklıkta 🥳 
 
-<img width="160" alt="Ekran Resmi 2023-12-28 20 07 32" src="https://github.com/zehraCoskun/tobeto-mobile/assets/110024096/65644f6f-62eb-4420-a6e6-b688236966e0">
+<img width="100" alt="Ekran Resmi 2023-12-28 20 07 32" src="https://github.com/zehraCoskun/tobeto-mobile/assets/110024096/65644f6f-62eb-4420-a6e6-b688236966e0">
 
-<img width="160" alt="Ekran Resmi 2023-12-28 20 07 42" src="https://github.com/zehraCoskun/tobeto-mobile/assets/110024096/26b70088-22f9-4305-8686-f864a6ac685f">
+<img width="100" alt="Ekran Resmi 2023-12-28 20 07 42" src="https://github.com/zehraCoskun/tobeto-mobile/assets/110024096/26b70088-22f9-4305-8686-f864a6ac685f">
 
-<img width="160" alt="Ekran Resmi 2023-12-28 20 06 04" src="https://github.com/zehraCoskun/tobeto-mobile/assets/110024096/3fb669ef-d3eb-4199-83b7-69573f2d7957">
+<img width="100" alt="Ekran Resmi 2023-12-28 20 06 04" src="https://github.com/zehraCoskun/tobeto-mobile/assets/110024096/3fb669ef-d3eb-4199-83b7-69573f2d7957">
 
-<img width="160" alt="Ekran Resmi 2023-12-28 20 12 09" src="https://github.com/zehraCoskun/tobeto-mobile/assets/110024096/90e7f58b-e2ce-44c4-a90c-2d1dd54c5ee2">
-
-
-<img width="160" alt="Ekran Resmi 2023-12-28 20 05 56" src="https://github.com/zehraCoskun/tobeto-mobile/assets/110024096/dba46c61-f26b-4714-8fee-68309d7b1079">
+<img width="100" alt="Ekran Resmi 2023-12-28 20 12 09" src="https://github.com/zehraCoskun/tobeto-mobile/assets/110024096/90e7f58b-e2ce-44c4-a90c-2d1dd54c5ee2">
 
 
-<img width="160" alt="Ekran Resmi 2023-12-28 20 06 19" src="https://github.com/zehraCoskun/tobeto-mobile/assets/110024096/c3a1a1b9-c313-4ab3-a87c-d29a95dc5fc0">
-
-<img width="160" alt="Ekran Resmi 2023-12-28 20 12 42" src="https://github.com/zehraCoskun/tobeto-mobile/assets/110024096/f37ee7ea-0f5d-49d0-a02d-c72c858c2aa7">
+<img width="100" alt="Ekran Resmi 2023-12-28 20 05 56" src="https://github.com/zehraCoskun/tobeto-mobile/assets/110024096/dba46c61-f26b-4714-8fee-68309d7b1079">
 
 
-<img width="160" alt="Ekran Resmi 2023-12-28 20 06 29" src="https://github.com/zehraCoskun/tobeto-mobile/assets/110024096/f04a4337-3612-41db-b6b5-08780575e652">
+<img width="100" alt="Ekran Resmi 2023-12-28 20 06 19" src="https://github.com/zehraCoskun/tobeto-mobile/assets/110024096/c3a1a1b9-c313-4ab3-a87c-d29a95dc5fc0">
 
-<img width="160" alt="Ekran Resmi 2023-12-28 20 06 37" src="https://github.com/zehraCoskun/tobeto-mobile/assets/110024096/5c67540b-843b-4331-87b3-40face1d7ce5">
+<img width="100" alt="Ekran Resmi 2023-12-28 20 12 42" src="https://github.com/zehraCoskun/tobeto-mobile/assets/110024096/f37ee7ea-0f5d-49d0-a02d-c72c858c2aa7">
+
+
+<img width="100" alt="Ekran Resmi 2023-12-28 20 06 29" src="https://github.com/zehraCoskun/tobeto-mobile/assets/110024096/f04a4337-3612-41db-b6b5-08780575e652">
+
+<img width="100" alt="Ekran Resmi 2023-12-28 20 06 37" src="https://github.com/zehraCoskun/tobeto-mobile/assets/110024096/5c67540b-843b-4331-87b3-40face1d7ce5">
 
 
 
