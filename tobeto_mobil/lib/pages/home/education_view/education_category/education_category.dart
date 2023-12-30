@@ -17,7 +17,7 @@ class EducationCategory extends StatefulWidget {
 class _EducationCategoryState extends State<EducationCategory>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
-  bool isVisible = false;
+  bool isVisible = true;
 
   @override
   void initState() {

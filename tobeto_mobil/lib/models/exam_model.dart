@@ -4,7 +4,10 @@ class ExamModel {
   final String detail;
   final String duration;
 
-  ExamModel(this.title, this.detail, this.duration, {
+  ExamModel({
     required this.id,
+    required this.title,
+    required this.detail,
+    required this.duration,
   });
 }
