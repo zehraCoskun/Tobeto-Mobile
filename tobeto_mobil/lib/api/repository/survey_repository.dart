@@ -24,6 +24,6 @@ class SurveyRepository {
 
 
   Future<List<SurveyModel>> getAllSurveys() {
-    return Future(() => surveyModelData);
+    return Future(() => []);
   }
 }
