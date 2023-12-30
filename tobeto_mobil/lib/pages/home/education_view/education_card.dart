@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/models/education_model.dart';
+import 'package:tobeto_mobil/pages/detail/education_detail_page/education_detail_page.dart';
 
 class EducationCard extends StatelessWidget {
   const EducationCard({
@@ -15,12 +16,14 @@ class EducationCard extends StatelessWidget {
       aspectRatio: 1 / 1,
       child: Container(
         margin: const EdgeInsets.only(top: 20, left: 30, right: 30),
-        decoration: BoxDecoration(borderRadius: BorderRadius.circular(30), color: Theme.of(context).drawerTheme.backgroundColor),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(30),
+            color: Theme.of(context).drawerTheme.backgroundColor),
         child: ListView(
           primary: false,
           children: <Widget>[
             buildHeader(),
-            buildFooter(context),
+            buildBody(context),
           ],
         ),
       ),
@@ -46,24 +49,33 @@ class EducationCard extends StatelessWidget {
     );
   }
 
-  Widget buildFooter(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: 16,
-        vertical: 8,
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Text(
-            education.title,
-            style: Theme.of(context).textTheme.titleLarge,
+  Widget buildBody(BuildContext context) {
+    return InkWell(
+      onTap: () {
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => EducationDetailPage(id: education.id),
           ),
-          Text(
-            education.time,
-            style: Theme.of(context).textTheme.bodySmall,
-          ),
-        ],
+        );
+      },
+      child: Padding(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 16,
+          vertical: 8,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text(
+              education.title,
+              style: Theme.of(context).textTheme.titleLarge,
+            ),
+            Text(
+              education.time,
+              style: Theme.of(context).textTheme.bodySmall,
+            ),
+          ],
+        ),
       ),
     );
   }
