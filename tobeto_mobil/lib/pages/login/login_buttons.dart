@@ -12,7 +12,8 @@ class LoginButtons extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        SizedBox(
+        //sizedbox flexible widget ile degistirildi
+        Flexible(
           child: TextButton(
             onPressed: () {
               Navigator.push(
@@ -23,15 +24,31 @@ class LoginButtons extends StatelessWidget {
               ); //parola unuttum Sayfasına geçiş eklendi.
             },
             style: Theme.of(context).textButtonTheme.style,
-            child: const Text(loginForgotText),
+
+            //overflow ve maxline eklendi
+            child: const Text(
+              loginForgotText,
+              overflow: TextOverflow.visible,
+              maxLines: 1,
+            ),
           ),
         ),
-        ElevatedButton(
-          onPressed: () {
-            Navigator.of(context).pushNamed("/home");
-          },
-          style: Theme.of(context).elevatedButtonTheme.style,
-          child: const Text(loginButtonText),
+
+        // ElevatedButton flexible ile sarildi
+        Flexible(
+          child: ElevatedButton(
+            onPressed: () {
+              Navigator.of(context).pushNamed("/home");
+            },
+            style: Theme.of(context).elevatedButtonTheme.style,
+
+            //overflow ve maxlines eklendi
+            child: const Text(
+              loginButtonText,
+              overflow: TextOverflow.visible,
+              maxLines: 1,
+            ),
+          ),
         ),
       ],
     );
