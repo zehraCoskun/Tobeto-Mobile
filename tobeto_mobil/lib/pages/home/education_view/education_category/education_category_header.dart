@@ -14,6 +14,8 @@ class EducationCategoryHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //belirli miktarda kucultme uygulandiginda leading ve trailing ust uste geliyor
+    //ve trailing kullanilamaz hale geliyor
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: ContainerWidget(
@@ -25,6 +27,10 @@ class EducationCategoryHeader extends StatelessWidget {
           ),
           title: Text(
             title,
+
+            //overflow ve maxlines eklendi
+            overflow: TextOverflow.fade,
+            maxLines: 1,
             style: Theme.of(context).textTheme.titleMedium,
           ),
           trailing: InkWell(
