@@ -4,6 +4,7 @@ import 'package:lottie/lottie.dart';
 import 'package:tobeto_mobil/constants/pages/login_text.dart';
 import 'package:tobeto_mobil/constants/sizes.dart';
 import 'package:tobeto_mobil/core/widgets/background_widget.dart';
+import 'package:tobeto_mobil/pages/sign_up/sign_up_page.dart';
 
 class RecoveryPage extends StatefulWidget {
   const RecoveryPage({super.key});
@@ -15,7 +16,6 @@ class RecoveryPage extends StatefulWidget {
 class _RecoveryPageState extends State<RecoveryPage> {
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
         resizeToAvoidBottomInset: false,
         appBar: AppBar(
@@ -31,7 +31,8 @@ class _RecoveryPageState extends State<RecoveryPage> {
             children: [
               SizedBox(
                 height: (MediaQuery.of(context).size.width / 2),
-                child: Lottie.network("https://lottie.host/e9be6368-9465-4b43-8fc4-02314f5ec942/sZlkgQnieS.json"),
+                child: Lottie.network(
+                    "https://lottie.host/e9be6368-9465-4b43-8fc4-02314f5ec942/sZlkgQnieS.json"),
               ),
               const Text(
                 forgetPasswordTitle,
@@ -44,7 +45,8 @@ class _RecoveryPageState extends State<RecoveryPage> {
                   obscureText: false,
                   decoration: InputDecoration(
                     focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.pinkAccent, width: 3.0),
+                      borderSide:
+                          BorderSide(color: Colors.pinkAccent, width: 3.0),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.black, width: 1.0),
@@ -63,7 +65,15 @@ class _RecoveryPageState extends State<RecoveryPage> {
               ),
               const Text(signUpText),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          const SignUpPage(), // signuppage sayfasına navigator eklendi.
+                    ),
+                  );
+                },
                 child: const Text(signUp),
               ),
             ],
