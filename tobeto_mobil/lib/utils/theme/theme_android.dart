@@ -168,11 +168,7 @@ final androidDarkTheme = ThemeData(
     titleMedium: TextStyle(color: _tobetoDarkColors.beyaz),
     titleSmall: TextStyle(color: _tobetoDarkColors.beyaz),
     bodyLarge: TextStyle(color: _tobetoDarkColors.beyaz),
-    bodySmall: TextStyle(
-      color: _tobetoLightColors.krem,
-      fontStyle: FontStyle.italic,
-      fontSize: 16,
-    ),
+    bodySmall: TextStyle(color: _tobetoLightColors.krem, fontStyle: FontStyle.italic, fontSize: 16),
   ),
 
   //TextButton Ayarlari

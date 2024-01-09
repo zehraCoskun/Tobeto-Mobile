@@ -52,7 +52,7 @@ class ExamCard extends StatelessWidget {
   }
 
   Widget buildBody(BuildContext context) {
-    return Text(exam.detail, style: Theme.of(context).textTheme.bodyLarge);
+    return Text(exam.detail, style: Theme.of(context).textTheme.titleMedium);
   }
 
   Widget buildFooter(BuildContext context) {
