@@ -15,6 +15,7 @@ import 'package:tobeto_mobil/api/repository/application_repository.dart';
 import 'package:tobeto_mobil/api/repository/education_repository.dart';
 import 'package:tobeto_mobil/api/repository/exam_repository.dart';
 import 'package:tobeto_mobil/api/repository/survey_repository.dart';
+import 'package:tobeto_mobil/pages/catalog/catalog_page.dart';
 import 'package:tobeto_mobil/utils/router/route_generator.dart';
 import 'package:tobeto_mobil/utils/theme/theme_generator.dart';
 
@@ -78,7 +79,8 @@ void main() {
         theme: ThemeGenerator.lightTheme(),
         darkTheme: ThemeGenerator.darkTheme(),
         themeMode: ThemeMode.system,
-        initialRoute: "/login",
+        home: const CatalogPage(),
+        //initialRoute: "/login",
         onGenerateRoute: (route) => RouteGenerator.onGenerateRoute(route),
       ),
     ),
