@@ -1,5 +1,7 @@
+import 'package:tobeto_mobil/constants/image_text.dart';
 import 'package:tobeto_mobil/models/announcement_model.dart';
 import 'package:tobeto_mobil/models/application_model.dart';
+import 'package:tobeto_mobil/models/catalog_model.dart';
 import 'package:tobeto_mobil/models/education_model.dart';
 import 'package:tobeto_mobil/models/exam_model.dart';
 import 'package:tobeto_mobil/models/survey_model.dart';
@@ -9,31 +11,31 @@ final List<EducationModel> educationModelData = [
     id: "1",
     title: "Something",
     time: "12/28/2023",
-    thumbnail: "assets/images/ders1.jpg",
+    thumbnail: ders1,
   ),
   EducationModel(
     id: "2",
     title: "SomeOther1",
     time: "12/28/2023",
-    thumbnail: "assets/images/ders2.png",
+    thumbnail: ders2,
   ),
   EducationModel(
     id: "3",
     title: "SomeOther2",
     time: "12/28/2023",
-    thumbnail: "assets/images/ders1.jpg",
+    thumbnail: ders1,
   ),
   EducationModel(
     id: "4",
     title: "SomeOther3",
     time: "12/28/2023",
-    thumbnail: "assets/images/ders1.jpg",
+    thumbnail: ders1,
   ),
   EducationModel(
     id: "5",
     title: "SomeOther4",
     time: "12/28/2023",
-    thumbnail: "assets/images/ders2.png",
+    thumbnail: ders2,
   ),
 ];
 
@@ -158,5 +160,43 @@ final List<AnnouncementModel> announcementModelData = [
     organisation: "İstanbul Kodluyor",
     title: "3. Gruplar için Bilgilendirme",
     type: "Duyuru",
+  ),
+];
+
+final List<CatalogModel> catalogModelData = [
+  CatalogModel(
+    id: "1",
+    title: "Dinle, Anla, İfade Et: Etkili İletişim Gelişim Yolculuğu",
+    totalDuration: "4s 14dk",
+    trainer: "Gürkan İlişen",
+    thumbnail: catalog1,
+  ),
+  CatalogModel(
+    id: "2",
+    title: "Sürdürülebilir Bir Dünya için Bireysel Farkındalık",
+    totalDuration: "40dk",
+    trainer: "Gürkan İlişen",
+    thumbnail: catalog2,
+  ),
+  CatalogModel(
+    id: "3",
+    title: "Hibrit Yaşamda Duyguyu Düzenleme",
+    totalDuration: "53dk",
+    trainer: "Gürkan İlişen",
+    thumbnail: catalog1,
+  ),
+  CatalogModel(
+    id: "4",
+    title: "Web Sayfası Tasarımı Nasıl Oluşturulur? - HTML ",
+    totalDuration: "2s 14dk",
+    trainer: "Gürkan İlişen",
+    thumbnail: catalog2,
+  ),
+  CatalogModel(
+    id: "5",
+    title: "Programlamanın Tarihçesi ve Gelişimi",
+    totalDuration: "1s",
+    trainer: "Gürkan İlişen",
+    thumbnail: catalog2,
   ),
 ];

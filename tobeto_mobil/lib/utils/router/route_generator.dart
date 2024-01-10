@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:tobeto_mobil/dummy_data.dart';
+import 'package:tobeto_mobil/models/enums/catalog_category_item.dart';
 import 'package:tobeto_mobil/pages/catalog/catalog_page.dart';
 import 'package:tobeto_mobil/pages/login/login_page.dart';
 import 'package:tobeto_mobil/pages/home/home_page.dart';
@@ -17,7 +19,10 @@ class RouteGenerator {
       case "/profile":
         return defaultRouteTransition(const ProfileScreen());
       case "/catalog":
-        return defaultRouteTransition(const CatalogPage());
+        return defaultRouteTransition(CatalogPage(
+          catalogList: catalogModelData,
+          catalogItems: CatalogCategoryItem.values,
+        ));
       default:
         return defaultRouteTransition(const HomePage());
     }
