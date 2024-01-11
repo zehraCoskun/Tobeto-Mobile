@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/constants/sizes.dart';
 
-// ignore: camel_case_types
-class _tobetoLightColors {
+class TobetoLightColors {
   static Color mor = const Color(0xFF7743DB);
   static Color beyaz = const Color(0xFFFFFBF5);
   static Color krem = const Color.fromARGB(255, 227, 220, 242);
@@ -14,46 +13,44 @@ class _tobetoLightColors {
 }
 
 final iosLightTheme = ThemeData(
-  //useMaterial3: true,
-
   //ColorScheme Ayarlari
   colorScheme: ColorScheme(
-      brightness: Brightness.light,
-      primary: _tobetoLightColors.mor,
-      error: _tobetoLightColors.kirmizi,
-      onError: _tobetoLightColors.krem,
-      onBackground: _tobetoLightColors.siyah,
-      secondary: _tobetoLightColors.kirmizi,
-      surface: _tobetoLightColors.siyah,
-      background: _tobetoLightColors.krem,
-      onPrimary: _tobetoLightColors.siyah,
-      onSecondary: _tobetoLightColors.beyaz, //! drawer üst kısım rengi buradan alıyor
-      onSurface: _tobetoLightColors.siyah,
-      outline: _tobetoLightColors.lacivert),
+    brightness: Brightness.light,
+    primary: TobetoLightColors.mor,
+    error: TobetoLightColors.kirmizi,
+    onError: TobetoLightColors.krem,
+    onBackground: TobetoLightColors.siyah,
+    secondary: TobetoLightColors.kirmizi,
+    surface: TobetoLightColors.siyah,
+    background: TobetoLightColors.krem,
+    onPrimary: TobetoLightColors.siyah,
+    onSecondary: TobetoLightColors.beyaz, //! drawer üst kısım rengi buradan alıyor
+    onSurface: TobetoLightColors.siyah,
+    outline: TobetoLightColors.lacivert,
+  ),
 
   //AppBar Ayarları
   appBarTheme: AppBarTheme(
-    color: _tobetoLightColors.krem,
+    color: TobetoLightColors.krem,
   ),
 
   //TabBar Theme Ayarları
   tabBarTheme: TabBarTheme(
-    dividerColor: _tobetoLightColors.siyah,
-    labelColor: _tobetoLightColors.mor, // Seçili tabın yazı rengi
-    indicatorColor: _tobetoLightColors.yesil, //_tobetoLightColors.mor, // Tab'ın altındaki gösterge rengi
-    unselectedLabelColor: _tobetoLightColors.acikSiyah,
-    // Seçili olmayan tabların yazı rengi
+    dividerColor: TobetoLightColors.siyah,
+    labelColor: TobetoLightColors.mor,
+    indicatorColor: TobetoLightColors.yesil,
+    unselectedLabelColor: TobetoLightColors.acikSiyah,
   ),
   //TextTheme Ayarları
   textTheme: TextTheme(
-    headlineSmall: TextStyle(color: _tobetoLightColors.acikSiyah, letterSpacing: 1.0, fontWeight: FontWeight.w700),
-    headlineMedium: TextStyle(color: _tobetoLightColors.mor, fontSize: 30, fontWeight: FontWeight.w700),
-    bodyLarge: TextStyle(color: _tobetoLightColors.siyah, fontSize: 16.0, fontWeight: FontWeight.w400),
-    bodyMedium: TextStyle(color: _tobetoLightColors.beyaz, fontSize: 20.0), //!
-    bodySmall: TextStyle(color: _tobetoLightColors.acikSiyah, fontStyle: FontStyle.italic, fontSize: 16),
-    titleLarge: TextStyle(color: _tobetoLightColors.yesil),
-    titleMedium: TextStyle(color: _tobetoLightColors.beyaz),
-    titleSmall: TextStyle(color: _tobetoLightColors.krem),
+    headlineSmall: TextStyle(color: TobetoLightColors.acikSiyah, letterSpacing: 1.0, fontWeight: FontWeight.w700),
+    headlineMedium: TextStyle(color: TobetoLightColors.mor, fontSize: 30, fontWeight: FontWeight.w700),
+    titleSmall: TextStyle(color: TobetoLightColors.lacivert), //!
+    titleMedium: TextStyle(color: TobetoLightColors.lacivert), //!
+    titleLarge: TextStyle(color: TobetoLightColors.yesil),
+    bodySmall: TextStyle(color: TobetoLightColors.acikSiyah, fontStyle: FontStyle.italic, fontSize: 16),
+    bodyMedium: TextStyle(color: TobetoLightColors.beyaz, fontSize: 20.0), //!
+    bodyLarge: TextStyle(color: TobetoLightColors.siyah, fontSize: 16.0, fontWeight: FontWeight.w400),
   ),
 
   //TextButton Ayarlari
@@ -63,7 +60,7 @@ final iosLightTheme = ThemeData(
   ),
   //Drawer Ayarları
   drawerTheme: DrawerThemeData(
-    backgroundColor: _tobetoLightColors.krem,
+    backgroundColor: TobetoLightColors.krem,
   ),
 
   //ElevatedButton Ayarlari
@@ -75,36 +72,35 @@ final iosLightTheme = ThemeData(
         ),
       ),
       textStyle: const MaterialStatePropertyAll(TextStyle(fontSize: font20)),
-      foregroundColor: MaterialStatePropertyAll(_tobetoLightColors.beyaz),
-      backgroundColor: MaterialStatePropertyAll(_tobetoLightColors.mor),
+      foregroundColor: MaterialStatePropertyAll(TobetoLightColors.beyaz),
+      backgroundColor: MaterialStatePropertyAll(TobetoLightColors.mor),
     ),
   ),
 
   //InputDecoration Ayarlari
   inputDecorationTheme: InputDecorationTheme(
-    prefixIconColor: _tobetoLightColors.siyah,
-    iconColor: _tobetoLightColors.siyah,
+    prefixIconColor: TobetoLightColors.siyah,
+    iconColor: TobetoLightColors.siyah,
     focusedBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(border16),
       borderSide: BorderSide(
-        color: _tobetoLightColors.siyah,
+        color: TobetoLightColors.siyah,
         width: 2,
       ),
     ),
     enabledBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(border16),
-      borderSide: BorderSide(color: _tobetoLightColors.acikSiyah, width: 1.5),
+      borderSide: BorderSide(color: TobetoLightColors.acikSiyah, width: 1.5),
     ),
     errorBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(border16),
-      borderSide: BorderSide(color: _tobetoLightColors.kirmizi, width: 2),
+      borderSide: BorderSide(color: TobetoLightColors.kirmizi, width: 2),
     ),
   ),
 );
 
 //! DARK THEME
-// ignore: camel_case_types
-class _tobetoDarkColors {
+class TobetoDarkColors {
   static Color mor = const Color(0xFF7743DB);
   static Color beyaz = const Color(0xFFFFFBF5);
   static Color krem = const Color.fromARGB(170, 247, 239, 229);
@@ -120,41 +116,42 @@ final iosDarkTheme = ThemeData(
 
   //ColorScheme Ayarlari
   colorScheme: ColorScheme(
-      brightness: Brightness.dark,
-      primary: _tobetoDarkColors.mor,
-      error: _tobetoDarkColors.kirmizi,
-      onError: _tobetoDarkColors.krem,
-      onBackground: _tobetoDarkColors.siyah,
-      secondary: _tobetoDarkColors.kirmizi,
-      surface: _tobetoDarkColors.siyah,
-      background: _tobetoDarkColors.krem,
-      onPrimary: _tobetoDarkColors.siyah,
-      onSecondary: _tobetoDarkColors.krem, //!
-      onSurface: _tobetoDarkColors.siyah,
-      outline: _tobetoLightColors.lacivert),
+    brightness: Brightness.dark,
+    primary: TobetoDarkColors.mor,
+    error: TobetoDarkColors.kirmizi,
+    onError: TobetoDarkColors.krem,
+    onBackground: TobetoDarkColors.siyah,
+    secondary: TobetoDarkColors.kirmizi,
+    surface: TobetoDarkColors.siyah,
+    background: TobetoDarkColors.krem,
+    onPrimary: TobetoDarkColors.siyah,
+    onSecondary: TobetoDarkColors.krem, //!
+    onSurface: TobetoDarkColors.siyah,
+    outline: TobetoLightColors.lacivert,
+  ),
 
   //AppBar Ayarları
-  appBarTheme: AppBarTheme(color: _tobetoDarkColors.lacivert),
+  appBarTheme: AppBarTheme(color: TobetoDarkColors.lacivert),
 
   //TabBar Theme Ayarları
   tabBarTheme: TabBarTheme(
-    dividerColor: _tobetoDarkColors.siyah,
-    labelColor: _tobetoDarkColors.beyaz, // Seçili tabın yazı rengi
-    indicatorColor: _tobetoDarkColors.yesil, //_tobetoLightColors.mor, // Tab'ın altındaki gösterge rengi
-    unselectedLabelColor: _tobetoDarkColors.krem,
-    // Seçili olmayan tabların yazı rengi
+    dividerColor: TobetoDarkColors.siyah,
+    labelColor: TobetoDarkColors.beyaz,
+    indicatorColor: TobetoDarkColors.yesil,
+    unselectedLabelColor: TobetoDarkColors.krem,
   ),
 
   //TextTheme Ayarları
   textTheme: TextTheme(
-      headlineSmall: TextStyle(color: _tobetoDarkColors.beyaz, letterSpacing: 1.0),
-      headlineMedium: TextStyle(color: _tobetoDarkColors.mor, fontSize: 30),
-      titleLarge: TextStyle(color: _tobetoDarkColors.yesil),
-      titleMedium: TextStyle(color: _tobetoDarkColors.beyaz),
-      titleSmall: TextStyle(color: _tobetoDarkColors.krem),
-      bodyLarge: TextStyle(color: _tobetoDarkColors.siyah, fontSize: 16.0, fontWeight: FontWeight.w400),
-      bodyMedium: TextStyle(color: _tobetoDarkColors.krem, fontSize: 20.0), //!
-      bodySmall: TextStyle(color: _tobetoLightColors.krem, fontStyle: FontStyle.italic, fontSize: 16)),
+    headlineSmall: TextStyle(color: TobetoDarkColors.beyaz, letterSpacing: 1.0),
+    headlineMedium: TextStyle(color: TobetoDarkColors.mor, fontSize: 30),
+    titleSmall: TextStyle(color: TobetoDarkColors.krem),
+    titleMedium: TextStyle(color: TobetoDarkColors.beyaz),
+    titleLarge: TextStyle(color: TobetoDarkColors.yesil),
+    bodySmall: TextStyle(color: TobetoLightColors.krem, fontStyle: FontStyle.italic, fontSize: 16),
+    bodyMedium: TextStyle(color: TobetoDarkColors.krem, fontSize: 20.0), //!
+    bodyLarge: TextStyle(color: TobetoDarkColors.siyah, fontSize: 16.0, fontWeight: FontWeight.w400),
+  ),
   //TextButton Ayarlari
   textButtonTheme: const TextButtonThemeData(
     style: ButtonStyle(
@@ -167,7 +164,7 @@ final iosDarkTheme = ThemeData(
   ),
   //Drawer ayarları
   drawerTheme: DrawerThemeData(
-    backgroundColor: _tobetoDarkColors.lacivert,
+    backgroundColor: TobetoDarkColors.lacivert,
   ),
 
   //ElevatedButton Ayarlari
@@ -179,31 +176,31 @@ final iosDarkTheme = ThemeData(
         ),
       ),
       textStyle: const MaterialStatePropertyAll(TextStyle(fontSize: font20)),
-      foregroundColor: MaterialStatePropertyAll(_tobetoDarkColors.beyaz),
-      backgroundColor: MaterialStatePropertyAll(_tobetoDarkColors.mor),
+      foregroundColor: MaterialStatePropertyAll(TobetoDarkColors.beyaz),
+      backgroundColor: MaterialStatePropertyAll(TobetoDarkColors.mor),
     ),
   ),
 
   //InputDecoration Ayarlari
   inputDecorationTheme: InputDecorationTheme(
-    prefixIconColor: _tobetoDarkColors.siyah,
-    labelStyle: TextStyle(color: _tobetoDarkColors.siyah),
-    iconColor: _tobetoDarkColors.siyah,
-    hintStyle: TextStyle(color: _tobetoDarkColors.acikSiyah),
+    prefixIconColor: TobetoDarkColors.siyah,
+    labelStyle: TextStyle(color: TobetoDarkColors.siyah),
+    iconColor: TobetoDarkColors.siyah,
+    hintStyle: TextStyle(color: TobetoDarkColors.acikSiyah),
     focusedBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(border16),
       borderSide: BorderSide(
-        color: _tobetoDarkColors.siyah,
+        color: TobetoDarkColors.siyah,
         width: 2,
       ),
     ),
     enabledBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(border16),
-      borderSide: BorderSide(color: _tobetoDarkColors.acikSiyah, width: 1.5),
+      borderSide: BorderSide(color: TobetoDarkColors.acikSiyah, width: 1.5),
     ),
     errorBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(border16),
-      borderSide: BorderSide(color: _tobetoDarkColors.kirmizi, width: 2),
+      borderSide: BorderSide(color: TobetoDarkColors.kirmizi, width: 2),
     ),
   ),
 );
