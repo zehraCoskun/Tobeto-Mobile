@@ -16,7 +16,7 @@ class CatalogFilterBody extends StatelessWidget {
           child: Row(
             children: <Widget>[
               ...CatalogFilterItem.values.map((item) {
-                return buildFilterItem(item);
+                return buildFilterItem(item, context);
               }),
             ],
           ),
@@ -25,7 +25,7 @@ class CatalogFilterBody extends StatelessWidget {
     );
   }
 
-  Widget buildFilterItem(CatalogFilterItem catalogFilterItem) {
+  Widget buildFilterItem(CatalogFilterItem catalogFilterItem, BuildContext context) {
     return IntrinsicWidth(
       stepHeight: 8,
       child: Container(
@@ -50,11 +50,7 @@ class CatalogFilterBody extends StatelessWidget {
         ),
         child: Text(
           catalogFilterItem.toString(),
-          style: const TextStyle(
-            color: Colors.black87,
-            fontSize: 14,
-            fontWeight: FontWeight.w500,
-          ),
+          style: Theme.of(context).textTheme.bodyLarge,
         ),
       ),
     );

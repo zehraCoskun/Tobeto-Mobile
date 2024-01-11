@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/models/catalog_model.dart';
-import 'package:tobeto_mobil/pages/detail/education_detail_page/education_detail_page.dart';
 
 class CatalogCard extends StatelessWidget {
   const CatalogCard({
@@ -12,69 +11,84 @@ class CatalogCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AspectRatio(
-      aspectRatio: 1 / 1,
-      child: Container(
-        margin: const EdgeInsets.only(top: 20, left: 30, right: 30),
-        decoration: BoxDecoration(borderRadius: BorderRadius.circular(30), color: Theme.of(context).drawerTheme.backgroundColor),
-        child: ListView(
-          primary: false,
-          children: <Widget>[
-            buildHeader(),
-            buildBody(context),
-          ],
+    return SizedBox(
+      width: MediaQuery.of(context).size.width / 3 * 2,
+      child: Card(
+        color: Theme.of(context).cardColor, //!
+        elevation: 4,
+        margin: const EdgeInsets.all(8),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(4),
+        ),
+        child: Container(
+          decoration: const BoxDecoration(
+            boxShadow: [
+              BoxShadow(
+                blurStyle: BlurStyle.solid,
+                color: Colors.black45,
+                spreadRadius: 4,
+                blurRadius: 4,
+                offset: Offset(4, 4),
+              ),
+            ],
+          ),
+          child: CardContent(catalog: catalog),
         ),
       ),
     );
   }
+}
 
-  Widget buildHeader() {
-    return AspectRatio(
-      aspectRatio: 3 / 2,
-      child: Padding(
-        padding: const EdgeInsets.all(3.0),
-        child: ClipRRect(
-          borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(30),
-            topRight: Radius.circular(30),
-          ),
-          child: Image.asset(
-            catalog.thumbnail,
-            fit: BoxFit.fitWidth,
-          ),
-        ),
-      ),
-    );
-  }
+class CardContent extends StatelessWidget {
+  const CardContent({
+    super.key,
+    required this.catalog,
+  });
 
-  Widget buildBody(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        Navigator.of(context).push(
-          MaterialPageRoute(
-            builder: (context) => EducationDetailPage(id: catalog.id),
+  final CatalogModel catalog;
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      alignment: Alignment.center,
+      children: [
+        ClipRRect(
+          borderRadius: const BorderRadius.all(Radius.circular(4)),
+          child: Opacity(
+            opacity: 0.7,
+            child: Image.asset(
+              catalog.thumbnail,
+              width: double.infinity,
+              fit: BoxFit.cover,
+            ),
           ),
-        );
-      },
-      child: Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 16,
-          vertical: 8,
         ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Text(
-              catalog.title,
-              style: Theme.of(context).textTheme.titleLarge,
-            ),
-            Text(
-              catalog.trainer,
-              style: Theme.of(context).textTheme.bodySmall,
-            ),
-          ],
+        Container(
+          color: Theme.of(context).colorScheme.outline.withOpacity(0.4),
         ),
-      ),
+        Text(
+          catalog.title,
+          style: Theme.of(context).textTheme.titleMedium?.copyWith(
+            shadows: [
+              BoxShadow(
+                color: Theme.of(context).colorScheme.outline,
+                spreadRadius: 2,
+                blurRadius: 5,
+              ),
+              BoxShadow(
+                color: Theme.of(context).colorScheme.outline,
+                spreadRadius: 2,
+                blurRadius: 5,
+              ),
+              BoxShadow(
+                color: Theme.of(context).colorScheme.outline,
+                spreadRadius: 2,
+                blurRadius: 10,
+              ),
+            ],
+          ),
+          textAlign: TextAlign.center,
+        ),
+      ],
     );
   }
 }

@@ -19,7 +19,10 @@ class NoSurveysCard extends StatelessWidget {
             height: size.height * 0.4,
           ),
         ),
-        const Text("Atanmış herhangi bir anketiniz bulunmamaktadır")
+        const Text(
+          "Atanmış herhangi bir anketiniz bulunmamaktadır",
+          textAlign: TextAlign.center,
+        )
       ],
     );
   }

@@ -9,28 +9,22 @@ class CatalogHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = TextEditingController();
 
-    return Padding(
-      padding: const EdgeInsets.all(12.0),
-      child: SearchBar(
-        backgroundColor: const MaterialStatePropertyAll(Colors.white),
-        leading: const Padding(
-          padding: EdgeInsets.all(8.0),
-          child: Icon(Icons.search),
-        ),
-        hintText: "Search",
-        controller: controller,
-        trailing: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                Icons.keyboard_voice_outlined,
-              ),
-            ),
-          )
-        ],
+    return SearchBar(
+      backgroundColor: const MaterialStatePropertyAll(Colors.white),
+      leading: const Padding(
+        padding: EdgeInsets.all(8.0),
+        child: Icon(Icons.search),
       ),
+      hintText: "Search",
+      controller: controller,
+      trailing: [
+        IconButton(
+          onPressed: () {},
+          icon: const Icon(
+            Icons.keyboard_voice_outlined,
+          ),
+        )
+      ],
     );
   }
 }

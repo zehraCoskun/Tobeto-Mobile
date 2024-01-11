@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:tobeto_mobil/core/screens/global_scaffold.dart';
+import 'package:tobeto_mobil/core/widgets/background_widget.dart';
 import 'package:tobeto_mobil/dummy_data.dart';
 import 'package:tobeto_mobil/pages/catalog/catalog_body.dart';
 import 'package:tobeto_mobil/pages/catalog/catalog_category/catalog_header.dart';
@@ -12,12 +14,15 @@ class CatalogPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: Colors.white.withAlpha(230),
-        body: Column(
+    return GlobalScaffold(
+      appBar: AppBar(
+        title: const CatalogHeader(),
+        toolbarHeight: 80,
+      ),
+      body: BackgroundWidget(
+        child: Column(
           children: <Widget>[
-            const CatalogHeader(),
+            const SizedBox(height: 8),
             const CatalogFilterHeader(),
             const SizedBox(height: 5),
             const CatalogFilterBody(),

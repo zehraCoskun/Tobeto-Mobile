@@ -10,6 +10,7 @@ class _tobetoLightColors {
   static Color yesil = const Color.fromARGB(255, 0, 210, 155);
   static Color siyah = Colors.black;
   static Color acikSiyah = Colors.black54;
+  static Color lacivert = const Color.fromARGB(255, 28, 28, 64);
 }
 
 final iosLightTheme = ThemeData(
@@ -17,18 +18,18 @@ final iosLightTheme = ThemeData(
 
   //ColorScheme Ayarlari
   colorScheme: ColorScheme(
-    brightness: Brightness.light,
-    primary: _tobetoLightColors.mor,
-    error: _tobetoLightColors.kirmizi,
-    onError: _tobetoLightColors.krem,
-    onBackground: _tobetoLightColors.siyah,
-    secondary: _tobetoLightColors.kirmizi,
-    surface: _tobetoLightColors.siyah,
-    background: _tobetoLightColors.krem,
-    onPrimary: _tobetoLightColors.siyah,
-    onSecondary: _tobetoLightColors.beyaz, //! drawer üst kısım rengi buradan alıyor
-    onSurface: _tobetoLightColors.siyah,
-  ),
+      brightness: Brightness.light,
+      primary: _tobetoLightColors.mor,
+      error: _tobetoLightColors.kirmizi,
+      onError: _tobetoLightColors.krem,
+      onBackground: _tobetoLightColors.siyah,
+      secondary: _tobetoLightColors.kirmizi,
+      surface: _tobetoLightColors.siyah,
+      background: _tobetoLightColors.krem,
+      onPrimary: _tobetoLightColors.siyah,
+      onSecondary: _tobetoLightColors.beyaz, //! drawer üst kısım rengi buradan alıyor
+      onSurface: _tobetoLightColors.siyah,
+      outline: _tobetoLightColors.lacivert),
 
   //AppBar Ayarları
   appBarTheme: AppBarTheme(
@@ -45,12 +46,15 @@ final iosLightTheme = ThemeData(
   ),
   //TextTheme Ayarları
   textTheme: TextTheme(
-      headlineSmall: TextStyle(color: _tobetoLightColors.acikSiyah, letterSpacing: 1.0, fontWeight: FontWeight.w700),
-      headlineMedium: TextStyle(color: _tobetoLightColors.mor, fontSize: 30, fontWeight: FontWeight.w700),
-      bodyLarge: TextStyle(color: _tobetoDarkColors.siyah, fontSize: 16.0, fontWeight: FontWeight.w300),
-      bodyMedium: TextStyle(color: _tobetoLightColors.beyaz, fontSize: 20.0), //!
-      titleLarge: TextStyle(color: _tobetoDarkColors.yesil),
-      bodySmall: TextStyle(color: _tobetoLightColors.acikSiyah, fontStyle: FontStyle.italic, fontSize: 16)),
+    headlineSmall: TextStyle(color: _tobetoLightColors.acikSiyah, letterSpacing: 1.0, fontWeight: FontWeight.w700),
+    headlineMedium: TextStyle(color: _tobetoLightColors.mor, fontSize: 30, fontWeight: FontWeight.w700),
+    bodyLarge: TextStyle(color: _tobetoLightColors.siyah, fontSize: 16.0, fontWeight: FontWeight.w400),
+    bodyMedium: TextStyle(color: _tobetoLightColors.beyaz, fontSize: 20.0), //!
+    bodySmall: TextStyle(color: _tobetoLightColors.acikSiyah, fontStyle: FontStyle.italic, fontSize: 16),
+    titleLarge: TextStyle(color: _tobetoLightColors.yesil),
+    titleMedium: TextStyle(color: _tobetoLightColors.beyaz),
+    titleSmall: TextStyle(color: _tobetoLightColors.krem),
+  ),
 
   //TextButton Ayarlari
   textButtonTheme: const TextButtonThemeData(
@@ -116,18 +120,18 @@ final iosDarkTheme = ThemeData(
 
   //ColorScheme Ayarlari
   colorScheme: ColorScheme(
-    brightness: Brightness.dark,
-    primary: _tobetoDarkColors.mor,
-    error: _tobetoDarkColors.kirmizi,
-    onError: _tobetoDarkColors.krem,
-    onBackground: _tobetoDarkColors.siyah,
-    secondary: _tobetoDarkColors.kirmizi,
-    surface: _tobetoDarkColors.siyah,
-    background: _tobetoDarkColors.krem,
-    onPrimary: _tobetoDarkColors.siyah,
-    onSecondary: _tobetoDarkColors.krem, //!
-    onSurface: _tobetoDarkColors.siyah,
-  ),
+      brightness: Brightness.dark,
+      primary: _tobetoDarkColors.mor,
+      error: _tobetoDarkColors.kirmizi,
+      onError: _tobetoDarkColors.krem,
+      onBackground: _tobetoDarkColors.siyah,
+      secondary: _tobetoDarkColors.kirmizi,
+      surface: _tobetoDarkColors.siyah,
+      background: _tobetoDarkColors.krem,
+      onPrimary: _tobetoDarkColors.siyah,
+      onSecondary: _tobetoDarkColors.krem, //!
+      onSurface: _tobetoDarkColors.siyah,
+      outline: _tobetoLightColors.lacivert),
 
   //AppBar Ayarları
   appBarTheme: AppBarTheme(color: _tobetoDarkColors.lacivert),
@@ -148,6 +152,7 @@ final iosDarkTheme = ThemeData(
       titleLarge: TextStyle(color: _tobetoDarkColors.yesil),
       titleMedium: TextStyle(color: _tobetoDarkColors.beyaz),
       titleSmall: TextStyle(color: _tobetoDarkColors.krem),
+      bodyLarge: TextStyle(color: _tobetoDarkColors.siyah, fontSize: 16.0, fontWeight: FontWeight.w400),
       bodyMedium: TextStyle(color: _tobetoDarkColors.krem, fontSize: 20.0), //!
       bodySmall: TextStyle(color: _tobetoLightColors.krem, fontStyle: FontStyle.italic, fontSize: 16)),
   //TextButton Ayarlari

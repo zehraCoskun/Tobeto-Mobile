@@ -6,22 +6,21 @@ enum CatalogFilterItem {
   language,
   educator,
   status;
-
-  @override
+ @override
   String toString() {
     switch (this) {
       case CatalogFilterItem.category:
         return "Kategori";
       case CatalogFilterItem.education:
-        return "Egitimler";
+        return "Eğitimler";
       case CatalogFilterItem.level:
         return "Seviye";
       case CatalogFilterItem.subject:
         return "Konu";
       case CatalogFilterItem.language:
-        return "Yazilim Dili";
+        return "Yazılım Dili";
       case CatalogFilterItem.educator:
-        return "Egitmen";
+        return "Eğitmen";
       case CatalogFilterItem.status:
         return "Durum";
     }

@@ -12,66 +12,70 @@ class CatalogFilterHeader extends StatelessWidget {
         padding: const EdgeInsets.all(2),
         margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 2),
         decoration: BoxDecoration(
+          color: Colors.white,
           borderRadius: BorderRadius.circular(5),
           border: Border.all(
-            color: Colors.black26,
+            color: Theme.of(context).colorScheme.outline, //Colors.black26,
           ),
         ),
         child: Row(
           children: <Widget>[
-            buildShareSection(),
-            buildDivider(),
-            buildOrderBySection(),
-            buildDivider(),
-            buildFilterSection(),
+            buildShareSection(context),
+            buildDivider(context),
+            buildOrderBySection(context),
+            buildDivider(context),
+            buildFilterSection(context),
           ],
         ),
       ),
     );
   }
 
-  Widget buildDivider() {
-    return const VerticalDivider(
-      color: Colors.black54,
+  Widget buildDivider(BuildContext context) {
+    return VerticalDivider(
+      color: Theme.of(context).colorScheme.outline, //Colors.black54,
       thickness: 0.8,
     );
   }
 
-  Widget buildShareSection() {
+  Widget buildShareSection(BuildContext context) {
     return Expanded(
       child: InkWell(
         child: Container(
           alignment: Alignment.center,
-          child: const Icon(
+          child: Icon(
             Icons.ios_share_outlined,
             size: 20,
-            color: Colors.black87,
+            color: Theme.of(context).colorScheme.outline,
           ),
         ),
       ),
     );
   }
 
-  Widget buildOrderBySection() {
-    return const Expanded(
+  Widget buildOrderBySection(BuildContext context) {
+    return Expanded(
       flex: 3,
       child: InkWell(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            Spacer(
+            const Spacer(
               flex: 3,
             ),
             Icon(
               Icons.thumbs_up_down_outlined,
               size: 20,
-              color: Colors.black87,
+              color: Theme.of(context).colorScheme.outline,
             ),
-            Spacer(
+            const Spacer(
               flex: 1,
             ),
-            Text("Sirala"),
-            Spacer(
+            Text(
+              "Sirala",
+              style: Theme.of(context).textTheme.bodyLarge,
+            ),
+            const Spacer(
               flex: 3,
             ),
           ],
@@ -80,26 +84,29 @@ class CatalogFilterHeader extends StatelessWidget {
     );
   }
 
-  Widget buildFilterSection() {
+  Widget buildFilterSection(BuildContext context) {
     return Expanded(
       flex: 3,
       child: InkWell(
-        child: const Row(
+        child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Spacer(
+            const Spacer(
               flex: 3,
             ),
             Icon(
               Icons.filter_alt_outlined,
               size: 20,
-              color: Colors.black87,
+              color: Theme.of(context).colorScheme.outline,
             ),
-            Spacer(
+            const Spacer(
               flex: 1,
             ),
-            Text("Filtrele"),
-            Spacer(
+            Text(
+              "Filtrele",
+              style: Theme.of(context).textTheme.bodyLarge,
+            ),
+            const Spacer(
               flex: 3,
             ),
           ],

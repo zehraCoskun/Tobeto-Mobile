@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/models/catalog_model.dart';
 import 'package:tobeto_mobil/pages/catalog/catalog_category/catalog_card.dart';
 
+
 class CatalogBody extends StatelessWidget {
   const CatalogBody({
     Key? key,
@@ -15,17 +16,19 @@ class CatalogBody extends StatelessWidget {
     return Expanded(
       flex: 15,
       child: GridView.builder(
-        gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-          maxCrossAxisExtent: 200,
-          childAspectRatio: 2 / 1,
-          mainAxisSpacing: 10,
-          crossAxisSpacing: 10,
+        gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+          maxCrossAxisExtent: MediaQuery.of(context).size.width / 2,
+          childAspectRatio: 3 / 2,
         ),
         itemCount: catelogModels.length,
         itemBuilder: (context, index) {
-          return Container(
-            //color: Colors.red,
+          return InkWell(
             child: CatalogCard(catalog: catelogModels[index]),
+            onTap: () {
+              //Navigator.of(context).pushNamed("/detail", arguments: catalogList[index]);
+              //TODO: detay sayfası yapmadık hiç :(((
+              print(catelogModels[index].id);
+            },
           );
         },
       ),
