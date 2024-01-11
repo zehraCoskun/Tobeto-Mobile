@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/models/catalog_model.dart';
 import 'package:tobeto_mobil/pages/catalog/catalog_category/catalog_card.dart';
 
-
 class CatalogBody extends StatelessWidget {
   const CatalogBody({
     Key? key,
@@ -17,7 +16,7 @@ class CatalogBody extends StatelessWidget {
       flex: 15,
       child: GridView.builder(
         gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-          maxCrossAxisExtent: MediaQuery.of(context).size.width / 2,
+          maxCrossAxisExtent: 250,
           childAspectRatio: 3 / 2,
         ),
         itemCount: catelogModels.length,
