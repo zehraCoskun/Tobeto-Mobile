@@ -10,7 +10,6 @@ class _tobetoLightColors {
   static Color yesil = const Color.fromARGB(255, 0, 210, 155);
   static Color siyah = Colors.black;
   static Color acikSiyah = Colors.black54;
-  static Color lacivert = const Color.fromARGB(255, 28, 28, 64);
 }
 
 final androidLightTheme = ThemeData(
@@ -18,18 +17,18 @@ final androidLightTheme = ThemeData(
 
   //ColorScheme Ayarlari
   colorScheme: ColorScheme(
-      brightness: Brightness.light,
-      primary: _tobetoLightColors.mor,
-      error: _tobetoLightColors.kirmizi,
-      onError: _tobetoLightColors.krem,
-      onBackground: _tobetoLightColors.siyah,
-      secondary: _tobetoLightColors.kirmizi,
-      surface: _tobetoLightColors.siyah,
-      background: _tobetoLightColors.krem,
-      onPrimary: _tobetoLightColors.siyah,
-      onSecondary: _tobetoLightColors.beyaz,
-      onSurface: _tobetoLightColors.siyah,
-      outline: _tobetoLightColors.lacivert),
+    brightness: Brightness.light,
+    primary: _tobetoLightColors.mor,
+    error: _tobetoLightColors.kirmizi,
+    onError: _tobetoLightColors.krem,
+    onBackground: _tobetoLightColors.siyah,
+    secondary: _tobetoLightColors.kirmizi,
+    surface: _tobetoLightColors.siyah,
+    background: _tobetoLightColors.krem,
+    onPrimary: _tobetoLightColors.siyah,
+    onSecondary: _tobetoLightColors.beyaz,
+    onSurface: _tobetoLightColors.siyah,
+  ),
 
   //AppBar Ayarları
   appBarTheme: AppBarTheme(
@@ -46,15 +45,11 @@ final androidLightTheme = ThemeData(
 
   //TextTheme Ayarları
   textTheme: TextTheme(
-    headlineSmall: TextStyle(color: _tobetoLightColors.acikSiyah, letterSpacing: 1.0, fontWeight: FontWeight.w700),
-    headlineMedium: TextStyle(color: _tobetoLightColors.mor, fontSize: 30, fontWeight: FontWeight.w700),
-    bodySmall: TextStyle(color: _tobetoLightColors.acikSiyah, fontStyle: FontStyle.italic, fontSize: 16),
-    bodyMedium: TextStyle(color: _tobetoLightColors.beyaz, fontSize: 20.0), //!
-    bodyLarge: TextStyle(color: _tobetoLightColors.siyah, fontSize: 16.0),
-    titleSmall: TextStyle(color: _tobetoLightColors.krem),
-    titleMedium: TextStyle(color: _tobetoLightColors.beyaz),
-    titleLarge: TextStyle(color: _tobetoDarkColors.yesil),
-  ),
+      headlineSmall: TextStyle(color: _tobetoLightColors.acikSiyah, letterSpacing: 1.0, fontWeight: FontWeight.w700),
+      headlineMedium: TextStyle(color: _tobetoLightColors.mor, fontSize: 30, fontWeight: FontWeight.w700),
+      bodyLarge: TextStyle(color: _tobetoLightColors.siyah, fontSize: 16.0),
+      titleLarge: TextStyle(color: _tobetoDarkColors.yesil),
+      bodySmall: TextStyle(color: _tobetoLightColors.acikSiyah, fontStyle: FontStyle.italic, fontSize: 16)),
 
   //TextButton Ayarları
   textButtonTheme: const TextButtonThemeData(
@@ -151,7 +146,6 @@ final androidDarkTheme = ThemeData(
     onPrimary: _tobetoDarkColors.siyah,
     onSecondary: _tobetoDarkColors.krem,
     onSurface: _tobetoDarkColors.siyah,
-    outline: _tobetoLightColors.lacivert,
   ),
 
   //AppBar Ayarları
@@ -170,12 +164,11 @@ final androidDarkTheme = ThemeData(
   textTheme: TextTheme(
     headlineSmall: TextStyle(color: _tobetoDarkColors.beyaz, letterSpacing: 1.0),
     headlineMedium: TextStyle(color: _tobetoDarkColors.mor, fontSize: 30),
-    titleSmall: TextStyle(color: _tobetoDarkColors.beyaz),
-    titleMedium: TextStyle(color: _tobetoDarkColors.beyaz),
     titleLarge: TextStyle(color: _tobetoDarkColors.yesil),
+    titleMedium: TextStyle(color: _tobetoDarkColors.beyaz),
+    titleSmall: TextStyle(color: _tobetoDarkColors.beyaz),
+    bodyLarge: TextStyle(color: _tobetoDarkColors.beyaz),
     bodySmall: TextStyle(color: _tobetoLightColors.krem, fontStyle: FontStyle.italic, fontSize: 16),
-    bodyMedium: TextStyle(color: _tobetoDarkColors.krem, fontSize: 20.0), //!
-    bodyLarge: TextStyle(color: _tobetoDarkColors.beyaz, fontSize: 16.0, fontWeight: FontWeight.w400),
   ),
 
   //TextButton Ayarlari
