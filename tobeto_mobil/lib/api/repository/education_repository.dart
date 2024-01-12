@@ -1,5 +1,5 @@
 import 'package:tobeto_mobil/dummy_data.dart';
-import 'package:tobeto_mobil/models/education_model.dart';
+import 'package:tobeto_mobil/models/education/education_model.dart';
 //import 'package:http/http.dart' as http;
 
 class EducationRepository {

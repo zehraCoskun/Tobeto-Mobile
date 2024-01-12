@@ -17,7 +17,7 @@ class CatalogBody extends StatelessWidget {
       flex: 15,
       child: GridView.builder(
         gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-          maxCrossAxisExtent: MediaQuery.of(context).size.width / 2,
+          maxCrossAxisExtent: 250,
           childAspectRatio: 3 / 2,
         ),
         itemCount: catelogModels.length,

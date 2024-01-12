@@ -1,41 +1,64 @@
 import 'package:tobeto_mobil/constants/image_text.dart';
+import 'package:tobeto_mobil/dummy_education_data.dart';
 import 'package:tobeto_mobil/models/announcement_model.dart';
 import 'package:tobeto_mobil/models/application_model.dart';
 import 'package:tobeto_mobil/models/catalog_model.dart';
-import 'package:tobeto_mobil/models/education_model.dart';
+import 'package:tobeto_mobil/models/education/education_model.dart';
+import 'package:tobeto_mobil/models/education/enums/education_status.dart';
 import 'package:tobeto_mobil/models/exam_model.dart';
 import 'package:tobeto_mobil/models/survey_model.dart';
 
 final List<EducationModel> educationModelData = [
   EducationModel(
     id: "1",
+    userId: "1",
     title: "Something",
-    time: "12/28/2023",
+    category: "Genel",
     thumbnail: ders1,
+    startDate: "1/1/1",
+    endDate: "1/1/1",
+    creator: "Enocta",
+    status: EducationStatus.started,
+    content: [
+      module1Data,
+      softSkill1Data,
+      virtualClass3Data,
+      ...dummyEducationData,
+    ],
   ),
   EducationModel(
     id: "2",
-    title: "SomeOther1",
-    time: "12/28/2023",
-    thumbnail: ders2,
+    userId: "2",
+    title: "Something",
+    category: "Genel",
+    thumbnail: ders1,
+    startDate: "1/1/1",
+    endDate: "1/1/1",
+    creator: "Enocta",
+    status: EducationStatus.started,
+    content: [
+      module1Data,
+      softSkill1Data,
+      virtualClass3Data,
+      ...dummyEducationData,
+    ],
   ),
   EducationModel(
     id: "3",
-    title: "SomeOther2",
-    time: "12/28/2023",
+    userId: "3",
+    title: "Something",
+    category: "Genel",
     thumbnail: ders1,
-  ),
-  EducationModel(
-    id: "4",
-    title: "SomeOther3",
-    time: "12/28/2023",
-    thumbnail: ders1,
-  ),
-  EducationModel(
-    id: "5",
-    title: "SomeOther4",
-    time: "12/28/2023",
-    thumbnail: ders2,
+    startDate: "1/1/1",
+    endDate: "1/1/1",
+    creator: "Enocta",
+    status: EducationStatus.started,
+    content: [
+      module1Data,
+      softSkill1Data,
+      virtualClass3Data,
+      ...dummyEducationData,
+    ],
   ),
 ];
 

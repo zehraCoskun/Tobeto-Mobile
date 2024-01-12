@@ -25,7 +25,8 @@ class CatalogFilterBody extends StatelessWidget {
     );
   }
 
-  Widget buildFilterItem(CatalogFilterItem catalogFilterItem, BuildContext context) {
+  Widget buildFilterItem(
+      CatalogFilterItem catalogFilterItem, BuildContext context) {
     return IntrinsicWidth(
       stepHeight: 8,
       child: Container(
@@ -34,17 +35,21 @@ class CatalogFilterBody extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(5),
-          border: const Border(
-              top: BorderSide(
-                width: 0.1,
-              ),
-              left: BorderSide(
-                width: 0.1,
-              ),
-              right: BorderSide(width: 0.3),
-              bottom: BorderSide(
-                width: 0.3,
-              )),
+          // border: const Border(
+          //   top: BorderSide(
+          //     width: 0.1,
+          //   ),
+          //   left: BorderSide(
+          //     width: 0.1,
+          //   ),
+          //   right: BorderSide(width: 0.3),
+          //   bottom: BorderSide(
+          //     width: 0.3,
+          //   ),
+          // ),
+          border: Border.all(
+            color: Theme.of(context).colorScheme.outline,
+          ),
           boxShadow: kElevationToShadow[1],
           color: Colors.white,
         ),
