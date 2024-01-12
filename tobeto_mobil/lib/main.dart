@@ -15,74 +15,77 @@ import 'package:tobeto_mobil/api/repository/application_repository.dart';
 import 'package:tobeto_mobil/api/repository/education_repository.dart';
 import 'package:tobeto_mobil/api/repository/exam_repository.dart';
 import 'package:tobeto_mobil/api/repository/survey_repository.dart';
-import 'package:tobeto_mobil/pages/catalog/catalog_page.dart';
+import 'package:tobeto_mobil/pages/home/home_page.dart';
+import 'package:tobeto_mobil/pages/login/login_page.dart';
 import 'package:tobeto_mobil/utils/router/route_generator.dart';
 import 'package:tobeto_mobil/utils/theme/theme_generator.dart';
 
 void main() {
   runApp(
     MultiBlocProvider(
-      providers: [
-        BlocProvider(
-          create: (context) => SurveyBloc(
-            surveyRepository: SurveyRepository(),
-          ),
-        ),
-        BlocProvider(
-          create: (context) => SurveysBloc(
-            surveyRepository: SurveyRepository(),
-          ),
-        ),
-        BlocProvider(
-          create: (context) => EducationBloc(
-            educationRepository: EducationRepository(),
-          ),
-        ),
-        BlocProvider(
-          create: (context) => EducationsBloc(
-            educationRepository: EducationRepository(),
-          ),
-        ),
-        BlocProvider(
-          create: (context) => AnnouncementBloc(
-            announcementRepository: AnnouncementRepository(),
-          ),
-        ),
-        BlocProvider(
-          create: (context) => AnnouncementsBloc(
-            announcementRepository: AnnouncementRepository(),
-          ),
-        ),
-        BlocProvider(
-          create: (context) => ApplicationBloc(
-            applicationRepository: ApplicationRepository(),
-          ),
-        ),
-        BlocProvider(
-          create: (context) => ApplicationsBloc(
-            applicationRepository: ApplicationRepository(),
-          ),
-        ),
-        BlocProvider(
-          create: (context) => ExamBloc(
-            examRepository: ExamRepository(),
-          ),
-        ),
-        BlocProvider(
-          create: (context) => ExamsBloc(
-            examRepository: ExamRepository(),
-          ),
-        ),
-      ],
+      providers: providers,
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeGenerator.lightTheme(),
         darkTheme: ThemeGenerator.darkTheme(),
         themeMode: ThemeMode.system,
-        home: const CatalogPage(),
+        home: const HomePage(),
         //initialRoute: "/login",
         onGenerateRoute: (route) => RouteGenerator.onGenerateRoute(route),
       ),
     ),
   );
 }
+
+final dynamic providers = [
+  BlocProvider(
+    create: (context) => SurveyBloc(
+      surveyRepository: SurveyRepository(),
+    ),
+  ),
+  BlocProvider(
+    create: (context) => SurveysBloc(
+      surveyRepository: SurveyRepository(),
+    ),
+  ),
+  BlocProvider(
+    create: (context) => EducationBloc(
+      educationRepository: EducationRepository(),
+    ),
+  ),
+  BlocProvider(
+    create: (context) => EducationsBloc(
+      educationRepository: EducationRepository(),
+    ),
+  ),
+  BlocProvider(
+    create: (context) => AnnouncementBloc(
+      announcementRepository: AnnouncementRepository(),
+    ),
+  ),
+  BlocProvider(
+    create: (context) => AnnouncementsBloc(
+      announcementRepository: AnnouncementRepository(),
+    ),
+  ),
+  BlocProvider(
+    create: (context) => ApplicationBloc(
+      applicationRepository: ApplicationRepository(),
+    ),
+  ),
+  BlocProvider(
+    create: (context) => ApplicationsBloc(
+      applicationRepository: ApplicationRepository(),
+    ),
+  ),
+  BlocProvider(
+    create: (context) => ExamBloc(
+      examRepository: ExamRepository(),
+    ),
+  ),
+  BlocProvider(
+    create: (context) => ExamsBloc(
+      examRepository: ExamRepository(),
+    ),
+  ),
+];

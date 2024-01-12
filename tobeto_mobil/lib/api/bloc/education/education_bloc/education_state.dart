@@ -1,4 +1,4 @@
-import 'package:tobeto_mobil/models/education_model.dart';
+import 'package:tobeto_mobil/models/education/education_model.dart';
 
 abstract class EducationState {}
 
