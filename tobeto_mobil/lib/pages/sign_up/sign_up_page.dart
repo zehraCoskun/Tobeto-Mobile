@@ -13,10 +13,10 @@ class SignUpPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final nameController = TextEditingController();
-    final surnameController = TextEditingController();
-    final emailController = TextEditingController();
-    final passwordController = TextEditingController();
+    //final nameController = TextEditingController();
+    //final surnameController = TextEditingController();
+    //final emailController = TextEditingController();
+    //final passwordController = TextEditingController();
 
     return Scaffold(
       resizeToAvoidBottomInset: false,

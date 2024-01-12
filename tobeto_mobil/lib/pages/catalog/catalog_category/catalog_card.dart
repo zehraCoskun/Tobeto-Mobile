@@ -12,7 +12,6 @@ class CatalogCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: MediaQuery.of(context).size.width / 3 * 2,
       child: Card(
         color: Theme.of(context).cardColor, //!
         elevation: 4,
