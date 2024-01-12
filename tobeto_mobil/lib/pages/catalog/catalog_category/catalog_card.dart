@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/models/catalog_model.dart';
+import 'package:tobeto_mobil/utils/theme/theme_ios.dart';
 
 class CatalogCard extends StatelessWidget {
   const CatalogCard({
@@ -66,7 +67,8 @@ class CardContent extends StatelessWidget {
         ),
         Text(
           catalog.title,
-          style: Theme.of(context).textTheme.titleMedium?.copyWith(
+          style: Theme.of(context).textTheme.titleSmall?.copyWith(
+            color: TobetoLightColors.beyaz,
             shadows: [
               BoxShadow(
                 color: Theme.of(context).colorScheme.outline,

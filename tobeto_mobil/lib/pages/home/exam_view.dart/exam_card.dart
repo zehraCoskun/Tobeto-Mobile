@@ -44,10 +44,7 @@ class ExamCard extends StatelessWidget {
 
   Widget buildHeader(BuildContext context) {
     return Expanded(
-      child: Text(
-        exam.title,
-        style: Theme.of(context).textTheme.titleLarge,
-      ),
+      child: Text(exam.title, style: Theme.of(context).textTheme.titleLarge?.copyWith(fontSize: 18)),
     );
   }
 
