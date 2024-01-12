@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_mobil/models/education_model.dart';
+import 'package:tobeto_mobil/models/education/education_model.dart';
 import 'package:tobeto_mobil/pages/detail/education_detail_page/education_detail_page.dart';
 
 class EducationCard extends StatelessWidget {
@@ -71,7 +71,7 @@ class EducationCard extends StatelessWidget {
               style: Theme.of(context).textTheme.titleLarge,
             ),
             Text(
-              education.kickOffDate,
+              "",
               style: Theme.of(context).textTheme.bodySmall,
             ),
           ],

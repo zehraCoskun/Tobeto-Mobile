@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_mobil/models/education_model.dart';
+import 'package:tobeto_mobil/models/education/education_model.dart';
 
 class EducationDetailPage extends StatelessWidget {
   const EducationDetailPage({
@@ -11,7 +11,7 @@ class EducationDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
+    //final size = MediaQuery.of(context).size;
 
     return Scaffold(
       appBar: AppBar(
@@ -22,13 +22,12 @@ class EducationDetailPage extends StatelessWidget {
         ),
         title: Text(education.title),
         actions: <Widget>[
-
           //begenen kisilerin listesini gosteren bir sayfaya gidilicek
           InkWell(
             onTap: () {},
-            child: Text(
-              education.likes.toString(),
-              style: const TextStyle(
+            child: const Text(
+              "200",
+              style: TextStyle(
                 fontSize: 16,
                 color: Colors.white54,
               ),
@@ -52,31 +51,38 @@ class EducationDetailPage extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          Flexible(
-            child: Container(
-              alignment: Alignment.topCenter,
-              margin: const EdgeInsets.all(20),
-              height: size.height * 0.3,
-              width: size.width * 0.9,
-              color: Colors.black,
-              child: Column(
-                children: <Widget>[
-                ],
-              ),
+          const Flexible(
+            flex: 5,
+            child: Column(
+              children: <Widget>[],
             ),
           ),
+          const Spacer(),
+          const Divider(
+            indent: 10,
+            endIndent: 10,
+            thickness: 0.8,
+          ),
           Expanded(
+            flex: 5,
             child: ListView.builder(
-              itemCount: 20,
+              itemCount: education.content.length,
               shrinkWrap: true,
               itemBuilder: (context, index) {
                 return Container(
+                  alignment: Alignment.center,
                   margin: const EdgeInsets.symmetric(
                     horizontal: 15,
                     vertical: 5,
                   ),
                   height: 50,
                   color: Colors.black,
+                  child: Text(
+                    education.content[index].title,
+                    style: const TextStyle(
+                      fontSize: 16,
+                    ),
+                  ),
                 );
               },
             ),
