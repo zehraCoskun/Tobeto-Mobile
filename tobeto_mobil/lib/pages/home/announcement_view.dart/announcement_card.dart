@@ -60,7 +60,31 @@ class AnnouncementCard extends StatelessWidget {
           style: Theme.of(context).textTheme.titleSmall,
         ),
         TextButton(
-          onPressed: () {},
+          onPressed: () {
+            // AlertDialog göstermek için showDialog fonksiyonunu kullanın
+            showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return AlertDialog(
+                  title: Text(announcement.title),
+                  content: SingleChildScrollView(
+                    child: Text(
+                      announcement.content,
+                      style: TextStyle(fontSize: 16),
+                    ),
+                  ),
+                  actions: [
+                    TextButton(
+                      child: Text("Tamam"),
+                      onPressed: () {
+                        Navigator.of(context).pop(); // AlertDialog'u kapat
+                      },
+                    ),
+                  ],
+                );
+              },
+            );
+          },
           child: Text(
             readMore,
             style: Theme.of(context).textTheme.bodySmall,
