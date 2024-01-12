@@ -16,6 +16,7 @@ import 'package:tobeto_mobil/api/repository/education_repository.dart';
 import 'package:tobeto_mobil/api/repository/exam_repository.dart';
 import 'package:tobeto_mobil/api/repository/survey_repository.dart';
 import 'package:tobeto_mobil/pages/home/home_page.dart';
+import 'package:tobeto_mobil/pages/login/login_page.dart';
 import 'package:tobeto_mobil/utils/router/route_generator.dart';
 import 'package:tobeto_mobil/utils/theme/theme_generator.dart';
 
