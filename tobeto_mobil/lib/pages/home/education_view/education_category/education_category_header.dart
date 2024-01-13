@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/core/widgets/container_widget.dart';
-import 'package:tobeto_mobil/pages/profile/profile_screen.dart';
 
 class EducationCategoryHeader extends StatelessWidget {
   const EducationCategoryHeader({
@@ -36,11 +35,11 @@ class EducationCategoryHeader extends StatelessWidget {
           trailing: InkWell(
             splashColor: Colors.transparent,
             onTap: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) => const ProfileScreen(),
-                ),
-              );
+              // Navigator.of(context).push(
+              // MaterialPageRoute(
+              // builder: (context) => const ProfileScreen(),
+              // ),
+              // );
             },
             child: Icon(
               Icons.keyboard_double_arrow_right_outlined,
