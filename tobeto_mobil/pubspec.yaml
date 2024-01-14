@@ -41,6 +41,7 @@ dependencies:
   bloc: ^8.1.2
   http: ^1.1.2
   video_player: ^2.8.2
+  syncfusion_flutter_calendar: ^21.2.3
 
 dev_dependencies:
   flutter_test:
