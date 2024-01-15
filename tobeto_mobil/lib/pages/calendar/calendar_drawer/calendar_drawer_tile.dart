@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 
-class CalendarDrawerViewTile extends StatelessWidget {
-  const CalendarDrawerViewTile({
+class CalendarDrawerTile extends StatelessWidget {
+  const CalendarDrawerTile({
     Key? key,
     required this.iconData,
+    this.color,
     required this.title,
   }) : super(key: key);
 
   final IconData iconData;
+  final Color? color;
   final String title;
 
   @override
@@ -16,7 +18,7 @@ class CalendarDrawerViewTile extends StatelessWidget {
       style: ListTileStyle.drawer,
       leading: Icon(
         iconData,
-        color: Colors.white,
+        color: color ?? Colors.white,
       ),
       title: Text(
         title,
