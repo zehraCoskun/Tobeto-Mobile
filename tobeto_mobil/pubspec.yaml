@@ -41,6 +41,8 @@ dependencies:
   bloc: ^8.1.2
   http: ^1.1.2
   video_player: ^2.8.2
+  syncfusion_flutter_calendar: ^21.2.3
+  url_launcher:
 
 dev_dependencies:
   flutter_test:
@@ -67,6 +69,8 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/
+    - assets/images/calendar/
+    - assets/images/profile/
     - assets/animations/
     #- assets/images/tobeto-logo.png
     #- assets/images/tobeto-logo-t.png

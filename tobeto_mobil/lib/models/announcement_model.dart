@@ -3,6 +3,7 @@ class AnnouncementModel {
   final String type;
   final String organisation;
   final String title;
+  final String content;
   final String date;
 
   AnnouncementModel({
@@ -10,6 +11,7 @@ class AnnouncementModel {
     required this.type,
     required this.organisation,
     required this.title,
+    required this.content,
     required this.date,
   });
 }

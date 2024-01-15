@@ -23,3 +23,6 @@ const SignUpEmailHint = "Lütden E-mail'inizi Giriniz";
 
 const SignUpSifreLabel = "Şifre";
 const SignUpSifreHint = "Lütfen Şifre Oluşturun";
+
+const SignUpSifreTekrarLabel = "Şifre Tekrar";
+const SignUpSifreTekrarHint = "Lütfen Şifreyi Tekrar Edin";
