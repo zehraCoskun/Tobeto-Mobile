@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/constants/pages/home_text.dart';
 import 'package:tobeto_mobil/core/widgets/container_widget.dart';
 import 'package:tobeto_mobil/models/announcement_model.dart';
+import 'package:tobeto_mobil/utils/theme/theme_ios.dart';
 
 class AnnouncementCard extends StatelessWidget {
   const AnnouncementCard({
@@ -66,11 +67,17 @@ class AnnouncementCard extends StatelessWidget {
               context: context,
               builder: (BuildContext context) {
                 return AlertDialog(
-                  title: Text(announcement.title),
+                  backgroundColor: TobetoDarkColors.lacivert,
+                  title: Text(
+                    announcement.title,
+                    style: Theme.of(context).textTheme.titleLarge,
+                  ),
                   content: SingleChildScrollView(
                     child: Text(
                       announcement.content,
-                      style: TextStyle(fontSize: 16),
+                      style: Theme.of(context).textTheme.bodyMedium,
+                      /* style: TextStyle(
+                          fontSize: 16, color: TobetoLightColors.beyaz),*/
                     ),
                   ),
                   actions: [
