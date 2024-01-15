@@ -68,6 +68,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/
+    - assets/images/calendar/
     - assets/animations/
     #- assets/images/tobeto-logo.png
     #- assets/images/tobeto-logo-t.png
