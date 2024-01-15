@@ -1,9 +1,6 @@
 const logoT = "assets/images/tobeto-logo-t.png";
 const logo = "assets/images/tobeto-logo.png";
 
-//profile icons
-const flutterIcon = "assets/images/profileIcons/flutter.png";
-
 //dummydata images
 
 const ders1 = "assets/images/ders1.jpg";
@@ -12,6 +9,7 @@ const ders2 = "assets/images/ders2.png";
 const catalog1 = "assets/images/catalog1.jpg";
 const catalog2 = "assets/images/catalog2.jpg";
 
+//calendar page
 const calendarJanuary = "assets/images/catalog1.jpg";
 const calendarFebruary = "assets/images/calendar/calendar_february.jpg";
 const calendarMarch = "assets/images/calendar/calendar_march.jpg";
@@ -39,3 +37,19 @@ const Map<int, String> monthMap = {
   11: calendarNovember,
   12: calendarDecember,
 };
+
+//profile page -social media icons
+const facebook = "assets/images/profile/facebook.png";
+const github = "assets/images/profile/github.png";
+const instagram = "assets/images/profile/instagram.png";
+const linkedin = "assets/images/profile/linkedin.png";
+const twitter = "assets/images/profile/twitter.png";
+//profile page -badges
+const badge1 = "tobeto_mobil/assets/images/profile/badge1.jpeg";
+const badge2 = "tobeto_mobil/assets/images/profile/badge2.jpeg";
+const badge3 = "tobeto_mobil/assets/images/profile/badge3.jpeg";
+const badge4 = "tobeto_mobil/assets/images/profile/badge4.jpeg";
+const badge5 = "tobeto_mobil/assets/images/profile/badge5.jpeg";
+const badge6 = "tobeto_mobil/assets/images/profile/badge6.jpeg";
+const badge7 = "tobeto_mobil/assets/images/profile/badge7.jpeg";
+const badge8 = "tobeto_mobil/assets/images/profile/badge8.jpeg";
