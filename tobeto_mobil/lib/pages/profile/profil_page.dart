@@ -63,12 +63,6 @@ class ProfilPage extends StatelessWidget {
                     borderRadius: BorderRadius.circular(16),
                   ),
                   child: const ContributionsGrid(),
-                  //
-                  //
-                  //
-                  //
-                  //
-                  //
                 )
               ],
             ),
