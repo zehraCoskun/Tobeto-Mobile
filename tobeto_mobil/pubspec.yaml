@@ -43,6 +43,7 @@ dependencies:
   video_player: ^2.8.2
   syncfusion_flutter_calendar: ^21.2.3
   url_launcher:
+  share:
 
 dev_dependencies:
   flutter_test:
@@ -71,7 +72,6 @@ flutter:
     - assets/images/
     - assets/images/calendar/
     - assets/images/profile/
-    #- assets/images/profile/socialMediaICons
     - assets/animations/
     #- assets/images/tobeto-logo.png
     #- assets/images/tobeto-logo-t.png
