@@ -45,11 +45,12 @@ class _RecoveryPageState extends State<RecoveryPage> {
                   obscureText: false,
                   decoration: InputDecoration(
                     focusedBorder: OutlineInputBorder(
-                      borderSide:
-                          BorderSide(color: Colors.pinkAccent, width: 3.0),
+                      borderSide: BorderSide(color: Colors.purple, width: 3.0),
+                      borderRadius: BorderRadius.all(Radius.circular(55)),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.black, width: 1.0),
+                      borderRadius: BorderRadius.all(Radius.circular(25)),
                     ),
                     hintText: "e-posta adresinizi giriniz",
                   ),

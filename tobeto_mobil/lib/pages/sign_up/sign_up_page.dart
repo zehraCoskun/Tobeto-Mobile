@@ -3,6 +3,7 @@ import 'package:tobeto_mobil/constants/image_text.dart';
 import 'package:tobeto_mobil/constants/pages/login_text.dart';
 import 'package:tobeto_mobil/constants/sizes.dart';
 import 'package:tobeto_mobil/core/widgets/background_widget.dart';
+import 'package:tobeto_mobil/utils/theme/theme_ios.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
@@ -12,6 +13,22 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
+  var snackBar = SnackBar(
+    backgroundColor: TobetoDarkColors.mor,
+    duration: const Duration(seconds: 3),
+    content: const Row(
+      children: [
+        Text(
+          "Kayıt olundu.",
+        ),
+        Icon(
+          Icons.check_circle_outline_rounded,
+          color: Colors.green,
+        ),
+      ],
+    ),
+  );
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,72 +54,80 @@ class _SignUpPageState extends State<SignUpPage> {
               Form(
                 child: Expanded(
                   child: ListView(
-                    children: const [
+                    children: [
                       SizedBox(height: padding16),
-                      TextField(
+                      const TextField(
                         obscureText: false,
                         decoration: InputDecoration(
                           prefixIcon: Icon(Icons.person),
                           labelText: SignUpNameLabel,
                           focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                                color: Colors.pinkAccent, width: 3.0),
+                            borderRadius: BorderRadius.all(Radius.circular(55)),
+                            borderSide:
+                                BorderSide(color: Colors.purple, width: 3.0),
                           ),
                           enabledBorder: OutlineInputBorder(
                             borderSide:
                                 BorderSide(color: Colors.black, width: 1.0),
+                            borderRadius: BorderRadius.all(Radius.circular(15)),
                           ),
                           hintText: SignUpNameHint,
                         ),
                       ),
                       //**************************AD
                       SizedBox(height: padding16),
-                      TextField(
+                      const TextField(
                         obscureText: false,
                         decoration: InputDecoration(
                           prefixIcon: Icon(Icons.person),
                           labelText: SignUpSurnameLabel,
                           focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                                color: Colors.pinkAccent, width: 3.0),
+                            borderRadius: BorderRadius.all(Radius.circular(55)),
+                            borderSide:
+                                BorderSide(color: Colors.purple, width: 3.0),
                           ),
                           enabledBorder: OutlineInputBorder(
                             borderSide:
                                 BorderSide(color: Colors.black, width: 1.0),
+                            borderRadius: BorderRadius.all(Radius.circular(15)),
                           ),
                           hintText: SignUpSurnameSurname,
                         ),
                       ),
                       //***************************SOYAD
-                      SizedBox(height: padding16),
-                      TextField(
+                      const SizedBox(height: padding16),
+                      const TextField(
                         obscureText: false,
                         decoration: InputDecoration(
                           prefixIcon: Icon(Icons.email),
                           labelText: SignUpEmailLabel,
                           focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                                color: Colors.pinkAccent, width: 3.0),
+                            borderRadius: BorderRadius.all(Radius.circular(55)),
+                            borderSide:
+                                BorderSide(color: Colors.purple, width: 3.0),
                           ),
                           enabledBorder: OutlineInputBorder(
                             borderSide:
                                 BorderSide(color: Colors.black, width: 1.0),
+                            borderRadius: BorderRadius.all(Radius.circular(15)),
                           ),
                           hintText: SignUpEmailHint,
                         ),
                       ),
                       //************** E-MAİL
-                      SizedBox(height: padding16),
-                      TextField(
-                        obscureText: false,
+                      const SizedBox(height: padding16),
+                      const TextField(
+                        obscureText: true,
                         decoration: InputDecoration(
                           prefixIcon: Icon(Icons.lock),
                           labelText: SignUpSifreLabel,
                           focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                                color: Colors.pinkAccent, width: 3.0),
+                            borderRadius: BorderRadius.all(Radius.circular(55)),
+                            borderSide:
+                                BorderSide(color: Colors.purple, width: 3.0),
                           ),
                           enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(15)),
                             borderSide:
                                 BorderSide(color: Colors.black, width: 1.0),
                           ),
@@ -110,17 +135,19 @@ class _SignUpPageState extends State<SignUpPage> {
                         ),
                       ),
                       //**************** SIFRE
-                      SizedBox(height: padding16),
-                      TextField(
-                        obscureText: false,
+                      const SizedBox(height: padding16),
+                      const TextField(
+                        obscureText: true,
                         decoration: InputDecoration(
                           prefixIcon: Icon(Icons.lock_reset_outlined),
                           labelText: SignUpSifreTekrarLabel,
                           focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                                color: Colors.pinkAccent, width: 3.0),
+                            borderRadius: BorderRadius.all(Radius.circular(55)),
+                            borderSide:
+                                BorderSide(color: Colors.purple, width: 3.0),
                           ),
                           enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(15)),
                             borderSide:
                                 BorderSide(color: Colors.black, width: 1.0),
                           ),
@@ -128,15 +155,17 @@ class _SignUpPageState extends State<SignUpPage> {
                         ),
                       ),
                       //**************** SIFRE Tekrar
-                      SizedBox(height: padding16),
+                      const SizedBox(height: padding16),
+                      ElevatedButton(
+                        onPressed: () {
+                          ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                        },
+                        child: const Text(signUp),
+                      )
                     ],
                   ),
                 ),
               ),
-              ElevatedButton(
-                onPressed: () {},
-                child: const Text(signUp),
-              )
             ],
           ),
         ),
