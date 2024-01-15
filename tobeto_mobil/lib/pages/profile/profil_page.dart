@@ -25,42 +25,140 @@ class ProfilPage extends StatelessWidget {
             ),
           ],
         ),
-        body: const BackgroundWidget(
+        body: BackgroundWidget(
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                ProfilePicture(),
-                ProfileContainer(child: PersonalInfo()),
-                ProfileContainer(
+                const ProfilePicture(),
+                const ProfileContainer(child: PersonalInfoColumnWidget()),
+                const ProfileContainer(
                   child: ProfileBodyContainer(
                     title: "Yetkinliklerim",
-                    body: Competence(),
+                    body: CompetenceRowWidget(),
                   ),
                 ),
-                ProfileContainer(
+                const ProfileContainer(
                   child: ProfileBodyContainer(
                     title: "Sertifikalarım",
-                    body: Certificates(),
+                    body: CertificatesRowWidget(),
                   ),
                 ),
-                ProfileContainer(
+                const ProfileContainer(
                   child: ProfileBodyContainer(
                     title: "Sosyal Medya Hesaplarım",
                     body: SocialMedia(),
                   ),
                 ),
-                ProfileContainer(
-                    child: ProfileBodyContainer(
-                  title: "Yetkinlik Rozetlerim",
-                  body: Row(
-                    children: [],
+                const ProfileContainer(
+                  child: ProfileBodyContainer(
+                    title: "Yetkinlik Rozetlerim",
+                    body: BadgesRowWidget(),
                   ),
-                ))
+                ),
+                Container(
+                  margin: const EdgeInsets.all(16),
+                  decoration: BoxDecoration(
+                    border: Border.all(),
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  child: const ContributionsGrid(),
+                )
               ],
             ),
           ),
         ));
+  }
+}
+
+class ContributionsGrid extends StatelessWidget {
+  const ContributionsGrid({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 300,
+      padding: const EdgeInsets.all(16.0),
+      child: GridView.builder(
+        scrollDirection: Axis.horizontal,
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 7,
+          mainAxisSpacing: 4.0,
+          crossAxisSpacing: 1.0,
+        ),
+        itemCount: 365,
+        itemBuilder: (context, index) {
+          var colorIsDark = false;
+          Color color = TobetoDarkColors.mor;
+          if (index % 11 == 0) {
+            colorIsDark = true;
+          }
+          if (colorIsDark) {
+            color = TobetoDarkColors.yesil.withAlpha(230);
+          } else if (index % 5 == 0) {
+            color = TobetoDarkColors.yesil.withAlpha(150);
+          } else {
+            color = TobetoDarkColors.yesil.withAlpha(50);
+          }
+
+          return Container(
+            decoration: BoxDecoration(
+              color: color,
+              shape: BoxShape.rectangle,
+              borderRadius: BorderRadius.circular(4.0),
+            ),
+            child: Center(
+                child: Text(
+              (index + 1).toString(),
+              style: Theme.of(context).textTheme.bodyLarge,
+            )),
+          );
+        },
+      ),
+    );
+  }
+}
+
+//rozetlerim
+class BadgesRowWidget extends StatelessWidget {
+  const BadgesRowWidget({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return const Row(
+      children: [
+        BadgeWidget(badge: badge1),
+        BadgeWidget(badge: badge2),
+        BadgeWidget(badge: badge3),
+        BadgeWidget(badge: badge4),
+        BadgeWidget(badge: badge5),
+        BadgeWidget(badge: badge6),
+        BadgeWidget(badge: badge7),
+        BadgeWidget(badge: badge8),
+      ],
+    );
+  }
+}
+
+//rozet image
+class BadgeWidget extends StatelessWidget {
+  const BadgeWidget({
+    super.key,
+    required this.badge,
+  });
+  final String badge;
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+      child: Image.asset(
+        badge,
+        height: 80,
+        width: 80,
+      ),
+    );
   }
 }
 
@@ -161,8 +259,8 @@ class SocialMediaButton extends StatelessWidget {
 }
 
 //sertifikalarım içeriği
-class Certificates extends StatelessWidget {
-  const Certificates({
+class CertificatesRowWidget extends StatelessWidget {
+  const CertificatesRowWidget({
     super.key,
   });
 
@@ -170,7 +268,7 @@ class Certificates extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Row(
       children: [
-        Contents(
+        ContentsWidget(
           competence: "Tobeto - Flutter ile Mobil Geliştirme",
         ),
       ],
@@ -179,8 +277,8 @@ class Certificates extends StatelessWidget {
 }
 
 //yetkinliklerim içeriği
-class Competence extends StatelessWidget {
-  const Competence({
+class CompetenceRowWidget extends StatelessWidget {
+  const CompetenceRowWidget({
     super.key,
   });
 
@@ -188,19 +286,19 @@ class Competence extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Row(
       children: [
-        Contents(
+        ContentsWidget(
           competence: "Flutter",
         ),
-        Contents(
+        ContentsWidget(
           competence: "Firebase",
         ),
-        Contents(
+        ContentsWidget(
           competence: "Sqlite",
         ),
-        Contents(
+        ContentsWidget(
           competence: "Mobile Developer",
         ),
-        Contents(
+        ContentsWidget(
           competence: "Dart",
         ),
       ],
@@ -209,8 +307,8 @@ class Competence extends StatelessWidget {
 }
 
 //container içeriklerindeki küçük containerlar
-class Contents extends StatelessWidget {
-  const Contents({
+class ContentsWidget extends StatelessWidget {
+  const ContentsWidget({
     super.key,
     required this.competence,
   });
@@ -238,30 +336,30 @@ class Contents extends StatelessWidget {
 }
 
 //kişşisel bilgiler içerik
-class PersonalInfo extends StatelessWidget {
-  const PersonalInfo({
+class PersonalInfoColumnWidget extends StatelessWidget {
+  const PersonalInfoColumnWidget({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
     return const Column(children: [
-      PersonalInfoRow(
+      PersonalInfoRowWidget(
         title: "Ad Soyad",
         content: "Ecmel Aydın",
         contentIcon: Icons.person_2_outlined,
       ),
-      PersonalInfoRow(
+      PersonalInfoRowWidget(
         title: "Doğum Tarihi",
         content: "05/09/1970",
         contentIcon: Icons.calendar_month_outlined,
       ),
-      PersonalInfoRow(
+      PersonalInfoRowWidget(
         title: "E-Posta adresi",
         content: "ecmelaydin@mail.com",
         contentIcon: Icons.mail_outline_rounded,
       ),
-      PersonalInfoRow(
+      PersonalInfoRowWidget(
         title: "Telefon Numarası",
         content: "+905055050000",
         contentIcon: Icons.phone_iphone_outlined,
@@ -271,8 +369,8 @@ class PersonalInfo extends StatelessWidget {
 }
 
 //kişisel bilgiler satırı
-class PersonalInfoRow extends StatelessWidget {
-  const PersonalInfoRow({
+class PersonalInfoRowWidget extends StatelessWidget {
+  const PersonalInfoRowWidget({
     super.key,
     required this.title,
     required this.content,
