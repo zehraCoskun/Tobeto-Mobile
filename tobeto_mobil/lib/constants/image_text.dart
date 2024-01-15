@@ -10,7 +10,7 @@ const catalog1 = "assets/images/catalog1.jpg";
 const catalog2 = "assets/images/catalog2.jpg";
 
 //calendar page
-const calendarJanuary = "assets/images/catalog1.jpg";
+const calendarJanuary = "assets/images/calendar/calendar_january.jpg";
 const calendarFebruary = "assets/images/calendar/calendar_february.jpg";
 const calendarMarch = "assets/images/calendar/calendar_march.jpg";
 const calendarApril = "assets/images/calendar/calendar_april.jpg";
@@ -21,7 +21,7 @@ const calendarAugust = "assets/images/calendar/calendar_august.jpg";
 const calendarSeptember = "assets/images/calendar/calendar_september.jpg";
 const calendarOctober = "assets/images/calendar/calendar_october.jpg";
 const calendarNovember = "assets/images/calendar/calendar_november.jpg";
-const calendarDecember = "assets/images/catalog2.jpg";
+const calendarDecember = "assets/images/calendar/calendar_december.jpg";
 
 const Map<int, String> monthMap = {
   1: calendarJanuary,
