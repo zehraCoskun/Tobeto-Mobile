@@ -28,9 +28,14 @@ class ProfilPage extends StatelessWidget {
           actions: [
             IconButton(
               onPressed: () {
-                Share.share("https://tobeto.com/platform");
+                Share.share("https://tobeto.com/profiller/82f494f8-64ba-4bac-b85b-acee74012fdd");
               },
               icon: const Icon(Icons.share),
+              style: Theme.of(context).iconButtonTheme.style,
+            ),
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.edit_outlined),
               style: Theme.of(context).iconButtonTheme.style,
             ),
           ],
@@ -93,4 +98,3 @@ class ProfilPage extends StatelessWidget {
         ));
   }
 }
-
