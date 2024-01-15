@@ -1,6 +1,9 @@
 const logoT = "assets/images/tobeto-logo-t.png";
 const logo = "assets/images/tobeto-logo.png";
 
+//profile icons
+const flutterIcon = "assets/images/profileIcons/flutter.png";
+
 //dummydata images
 
 const ders1 = "assets/images/ders1.jpg";
