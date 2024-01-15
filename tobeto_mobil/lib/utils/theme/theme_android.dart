@@ -55,6 +55,12 @@ final androidLightTheme = ThemeData(
               ),
         )),
   ),
+  //IconButton Ayarları
+  iconButtonTheme: IconButtonThemeData(
+    style: ButtonStyle(
+      iconColor: MaterialStatePropertyAll(TobetoLightColors.mor),
+    ),
+  ),
 //Drawer Ayarları
   drawerTheme: DrawerThemeData(
     backgroundColor: TobetoLightColors.krem,
@@ -163,6 +169,8 @@ final androidDarkTheme = ThemeData(
           ),
         )),
   ),
+  //IconButton Ayarları
+  iconButtonTheme: IconButtonThemeData(style: ButtonStyle(iconColor: MaterialStatePropertyAll(TobetoDarkColors.krem))),
 //Drawer ayarları
   drawerTheme: DrawerThemeData(
     backgroundColor: TobetoDarkColors.lacivert,
