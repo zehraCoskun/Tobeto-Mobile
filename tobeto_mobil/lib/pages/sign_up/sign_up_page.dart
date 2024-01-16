@@ -13,6 +13,7 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
+  bool passwordVisible = false;
   var snackBar = SnackBar(
     backgroundColor: TobetoDarkColors.mor,
     duration: const Duration(seconds: 3),
@@ -28,6 +29,8 @@ class _SignUpPageState extends State<SignUpPage> {
       ],
     ),
   );
+
+  var _formDenetleme = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -56,6 +59,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   child: ListView(
                     children: [
                       SizedBox(height: padding16),
+                      //AD************************************AD
                       const TextField(
                         obscureText: false,
                         decoration: InputDecoration(
@@ -74,10 +78,10 @@ class _SignUpPageState extends State<SignUpPage> {
                           hintText: SignUpNameHint,
                         ),
                       ),
-                      //**************************AD
+                      //**************************SOYAD
                       SizedBox(height: padding16),
                       const TextField(
-                        obscureText: false,
+                        obscureText: true,
                         decoration: InputDecoration(
                           prefixIcon: Icon(Icons.person),
                           labelText: SignUpSurnameLabel,
@@ -94,10 +98,10 @@ class _SignUpPageState extends State<SignUpPage> {
                           hintText: SignUpSurnameSurname,
                         ),
                       ),
-                      //***************************SOYAD
+                      //***************************E-MAİL
                       const SizedBox(height: padding16),
                       const TextField(
-                        obscureText: false,
+                        obscureText: true,
                         decoration: InputDecoration(
                           prefixIcon: Icon(Icons.email),
                           labelText: SignUpEmailLabel,
@@ -114,19 +118,29 @@ class _SignUpPageState extends State<SignUpPage> {
                           hintText: SignUpEmailHint,
                         ),
                       ),
-                      //************** E-MAİL
+                      //******************* ŞİFRE
                       const SizedBox(height: padding16),
-                      const TextField(
-                        obscureText: true,
+                      TextField(
+                        obscureText: !passwordVisible,
                         decoration: InputDecoration(
                           prefixIcon: Icon(Icons.lock),
+                          suffixIcon: IconButton(
+                            onPressed: () {
+                              setState(() {
+                                passwordVisible = !passwordVisible;
+                              });
+                            },
+                            icon: Icon(passwordVisible
+                                ? Icons.visibility
+                                : Icons.visibility_off),
+                          ),
                           labelText: SignUpSifreLabel,
-                          focusedBorder: OutlineInputBorder(
+                          focusedBorder: const OutlineInputBorder(
                             borderRadius: BorderRadius.all(Radius.circular(55)),
                             borderSide:
                                 BorderSide(color: Colors.purple, width: 3.0),
                           ),
-                          enabledBorder: OutlineInputBorder(
+                          enabledBorder: const OutlineInputBorder(
                             borderRadius: BorderRadius.all(Radius.circular(15)),
                             borderSide:
                                 BorderSide(color: Colors.black, width: 1.0),
@@ -134,19 +148,29 @@ class _SignUpPageState extends State<SignUpPage> {
                           hintText: SignUpSifreHint,
                         ),
                       ),
-                      //**************** SIFRE
+                      //************************* SIFRE TEKRAR
                       const SizedBox(height: padding16),
-                      const TextField(
-                        obscureText: true,
+                      TextField(
+                        obscureText: !passwordVisible,
                         decoration: InputDecoration(
                           prefixIcon: Icon(Icons.lock_reset_outlined),
+                          suffixIcon: IconButton(
+                            onPressed: () {
+                              setState(() {
+                                passwordVisible = !passwordVisible;
+                              });
+                            },
+                            icon: Icon(passwordVisible
+                                ? Icons.visibility
+                                : Icons.visibility_off),
+                          ),
                           labelText: SignUpSifreTekrarLabel,
-                          focusedBorder: OutlineInputBorder(
+                          focusedBorder: const OutlineInputBorder(
                             borderRadius: BorderRadius.all(Radius.circular(55)),
                             borderSide:
                                 BorderSide(color: Colors.purple, width: 3.0),
                           ),
-                          enabledBorder: OutlineInputBorder(
+                          enabledBorder: const OutlineInputBorder(
                             borderRadius: BorderRadius.all(Radius.circular(15)),
                             borderSide:
                                 BorderSide(color: Colors.black, width: 1.0),
@@ -154,7 +178,7 @@ class _SignUpPageState extends State<SignUpPage> {
                           hintText: SignUpSifreTekrarHint,
                         ),
                       ),
-                      //**************** SIFRE Tekrar
+                      //**************************************
                       const SizedBox(height: padding16),
                       ElevatedButton(
                         onPressed: () {
