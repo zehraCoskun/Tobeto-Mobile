@@ -1,22 +1,41 @@
 //rozet image
 import 'package:flutter/material.dart';
 
-class BadgeWidget extends StatelessWidget {
+class BadgeWidget extends StatefulWidget {
   const BadgeWidget({
     super.key,
     required this.badge,
   });
   final String badge;
+
+  @override
+  State<BadgeWidget> createState() => _BadgeWidgetState();
+}
+
+class _BadgeWidgetState extends State<BadgeWidget> {
+  bool isPress = false;
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-      child: Image.asset(
-        badge,
-        height: 80,
-        width: 80,
+    return GestureDetector(
+      onTapDown: (details) {
+        setState(() {
+          isPress = true;
+        });
+      },
+      onTapUp: (details) {
+        setState(() {
+          isPress = false;
+        });
+      },
+      child: AnimatedSize(
+        duration: Duration(milliseconds: 200),
+        curve: Curves.easeInOut,
+        child: Image.asset(
+          widget.badge,
+          width: isPress ? 200.0 : 100.0,
+          height: isPress ? 200.0 : 100.0,
+        ),
       ),
     );
   }
 }
-
