@@ -14,26 +14,30 @@ class SocialMediaWidget extends StatelessWidget {
       children: [
         SocialMediaButton(
           logo: github,
-          url: "https://github.com/zehraCoskun/tobeto-mobile",
+          color: githubColor,
+          url: githubUrl,
         ),
         SocialMediaButton(
           logo: linkedin,
-          url: "https://www.linkedin.com/in/zehracoskun/",
+          color: linkedinColor,
+          url: linkedinUrl,
         ),
         SocialMediaButton(
           logo: facebook,
-          url: "https://www.facebook.com/",
+          color: facebookColor,
+          url: facebookUrl,
         ),
         SocialMediaButton(
-          logo: twitter,
-          url: "https://twitter.com/home",
+          logo: twitterX,
+          color: twitterXColor,
+          url: twitterUrl,
         ),
         SocialMediaButton(
           logo: instagram,
-          url: "https://www.instagram.com",
+          color: instagramColor,
+          url: instagramUrl,
         ),
       ],
     );
   }
 }
-

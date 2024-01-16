@@ -29,7 +29,7 @@
 - ## profile screen ## 
  - profil resmi arkası animasyonu eklenecek
  - modelleme yapılacak(ağlayarak )
- - icon renkleri kendi renklerinde olacak 
+ - ~~icon renkleri kendi renklerinde olacak~~ 
  - yetkinlik rozetleri büyütülebilir olacak 
  -  ~~aktivite haritası gelişecek, adı da düzelecek~~
  - edit sayfası yapılacak, ağlayarak 
