@@ -7,7 +7,6 @@ import 'package:tobeto_mobil/pages/profile/activity_map_widget.dart';
 import 'package:tobeto_mobil/pages/profile/badges_row_widget.dart';
 import 'package:tobeto_mobil/pages/profile/certificates_row_widget.dart';
 import 'package:tobeto_mobil/pages/profile/competence_row_widget.dart';
-import 'package:tobeto_mobil/pages/profile/contributions_grid_widget.dart';
 import 'package:tobeto_mobil/pages/profile/personal_info_column_widget.dart';
 import 'package:tobeto_mobil/pages/profile/profile_body_container.dart';
 import 'package:tobeto_mobil/pages/profile/profile_container.dart';
@@ -32,42 +31,42 @@ class ProfilPage extends StatelessWidget {
               onPressed: () {
                 Share.share("https://tobeto.com");
               },
-              icon: Icon(Icons.share),
+              icon: const Icon(Icons.share),
             ),
             IconButton(
               onPressed: () {
                 Navigator.of(context).pushNamed("/profileEdit");
               },
-              icon: Icon(Icons.edit_outlined),
+              icon: const Icon(Icons.edit_outlined),
             )
           ],
         ),
-        body: BackgroundWidget(
+        body: const BackgroundWidget(
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const ProfilePicture(),
-                const ProfileContainer(child: PersonalInfoColumnWidget()),
-                const ProfileContainer(
+                ProfilePicture(),
+                ProfileContainer(child: PersonalInfoColumnWidget()),
+                ProfileContainer(
                   child: ProfileBodyContainer(
                     title: "Yetkinliklerim",
                     body: CompetenceRowWidget(),
                   ),
                 ),
-                const ProfileContainer(
+                ProfileContainer(
                   child: ProfileBodyContainer(
                     title: "Sertifikalarım",
                     body: CertificatesRowWidget(),
                   ),
                 ),
-                const ProfileContainer(
+                ProfileContainer(
                   child: ProfileBodyContainer(
                     title: "Sosyal Medya Hesaplarım",
                     body: SocialMediaWidget(),
                   ),
                 ),
-                const ProfileContainer(
+                ProfileContainer(
                   child: ProfileBodyContainer(
                     title: "Yetkinlik Rozetlerim",
                     body: BadgesRowWidget(),

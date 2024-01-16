@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tobeto_mobil/constants/pages/profile_text.dart';
 
 final List<String> months = [
   "Jan",
@@ -34,10 +35,7 @@ class ActivityMapWidget extends StatelessWidget {
         children: [
           Text(
             "Aktivite Haritam",
-            style: Theme.of(context)
-                .textTheme
-                .bodyLarge!
-                .copyWith(fontWeight: FontWeight.bold),
+            style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontWeight: FontWeight.bold),
           ),
           const Divider(),
           AspectRatio(
@@ -87,7 +85,7 @@ class ActivityMapWidget extends StatelessWidget {
                                     margin: const EdgeInsets.all(1),
                                     height: 11,
                                     width: 11,
-                                    color: Colors.red,
+                                    color: rate0Color,
                                     child: Center(
                                       child: Text(
                                         j.toString(),
@@ -105,48 +103,53 @@ class ActivityMapWidget extends StatelessWidget {
               ),
             ),
           ),
-          Row(
+          const Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
               Text(
                 "Less",
                 style: TextStyle(fontSize: 14),
               ),
-              Container(
-                margin: const EdgeInsets.only(left: 5),
-                width: 11,
-                height: 11,
-                color: Colors.black87,
+              RateBox(
+                color: rate0Color,
               ),
-              Container(
-                width: 11,
-                height: 11,
-                color: Colors.green.shade200,
+              RateBox(
+                color: rate1Color,
               ),
-              Container(
-                width: 11,
-                height: 11,
-                color: Colors.green.shade400,
+              RateBox(
+                color: rate2Color,
               ),
-              Container(
-                width: 11,
-                height: 11,
-                color: Colors.green.shade600,
+              RateBox(
+                color: rate3Color,
               ),
-              Container(
-                margin: const EdgeInsets.only(right: 5),
-                width: 11,
-                height: 11,
-                color: Colors.green.shade900,
+              RateBox(
+                color: rate4Color,
               ),
               Text(
-                "More",
+                " More",
                 style: TextStyle(fontSize: 14),
               ),
             ],
           ),
         ],
       ),
+    );
+  }
+}
+
+class RateBox extends StatelessWidget {
+  const RateBox({
+    super.key,
+    required this.color,
+  });
+  final Color color;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.only(left: 5),
+      width: 11,
+      height: 11,
+      color: color,
     );
   }
 }

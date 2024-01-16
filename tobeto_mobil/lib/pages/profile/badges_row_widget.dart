@@ -1,6 +1,6 @@
 //rozetlerim
 import 'package:flutter/material.dart';
-import 'package:tobeto_mobil/constants/image_text.dart';
+import 'package:tobeto_mobil/constants/pages/profile_text.dart';
 import 'package:tobeto_mobil/pages/profile/badge_widget.dart';
 
 class BadgesRowWidget extends StatelessWidget {
