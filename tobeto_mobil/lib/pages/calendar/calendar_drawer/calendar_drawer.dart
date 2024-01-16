@@ -53,9 +53,18 @@ class CalendarDrawer extends StatelessWidget {
             iconData: Icons.settings_outlined,
             title: "Settings",
           ),
-          const CalendarDrawerTile(
-            iconData: Icons.help_outline_outlined,
-            title: "Help & feedback",
+          InkWell(
+            onTap: () {
+              Scaffold.of(context).closeDrawer();
+              Future.delayed(
+                const Duration(milliseconds: 300),
+                Navigator.of(context).pop,
+              );
+            },
+            child: const CalendarDrawerTile(
+              iconData: Icons.exit_to_app_outlined,
+              title: "Back",
+            ),
           ),
         ],
       ),
