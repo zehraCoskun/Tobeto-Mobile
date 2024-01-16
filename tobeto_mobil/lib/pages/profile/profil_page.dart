@@ -18,7 +18,6 @@ class ProfilPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    int count = 1;
     return GlobalScaffold(
         appBar: AppBar(
           centerTitle: true,

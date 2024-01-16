@@ -32,7 +32,7 @@
  - ~~icon renkleri kendi renklerinde olacak~~ 
  - yetkinlik rozetleri büyütülebilir olacak 
  -  ~~aktivite haritası gelişecek, adı da düzelecek~~
- - edit sayfası yapılacak, ağlayarak 
+ - edit sayfası  ~~yapılacak~~ bitirilecek
 
 - ## catalog screen ##   
  - klavye açıldığında filtreler patates 
