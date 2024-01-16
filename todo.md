@@ -2,7 +2,7 @@
 - ## font ##
  - bulunacak ve eklenecek, 3 boyutta ayrı fontlar
 
-## read.me ##
+ - ## read.me ##
  - taslak oluşturulacak
  - içerik düzenlenecek
 

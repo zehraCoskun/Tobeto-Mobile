@@ -4,6 +4,7 @@ import 'package:tobeto_mobil/pages/catalog/catalog_page.dart';
 import 'package:tobeto_mobil/pages/login/login_page.dart';
 import 'package:tobeto_mobil/pages/home/home_page.dart';
 import 'package:tobeto_mobil/pages/profile/profil_page.dart';
+import 'package:tobeto_mobil/pages/profile/profile_edit_page/profile_edit_page.dart';
 import 'package:tobeto_mobil/utils/router/route_transition.dart';
 
 class RouteGenerator {
@@ -21,6 +22,8 @@ class RouteGenerator {
         return defaultRouteTransition(const CatalogPage());
       case "/calendar":
         return defaultRouteTransition(const CalendarPage());
+      case "/profileEdit":
+        return defaultRouteTransition(const ProfileEditPage());
       default:
         return defaultRouteTransition(const HomePage());
     }
