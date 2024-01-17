@@ -3,7 +3,7 @@ import 'package:tobeto_mobil/constants/image_text.dart';
 import 'package:lottie/lottie.dart';
 import 'package:tobeto_mobil/constants/pages/login_text.dart';
 import 'package:tobeto_mobil/constants/sizes.dart';
-import 'package:tobeto_mobil/core/widgets/background_widget.dart';
+import 'package:tobeto_mobil/core/widgets/primary_background.dart';
 import 'package:tobeto_mobil/pages/sign_up/sign_up_page.dart';
 
 class RecoveryPage extends StatefulWidget {
@@ -25,14 +25,13 @@ class _RecoveryPageState extends State<RecoveryPage> {
             width: kToolbarHeight * 2,
           ),
         ),
-        body: BackgroundWidget(
+        body: PrimaryBackgroundWidget(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               SizedBox(
                 height: (MediaQuery.of(context).size.width / 2),
-                child: Lottie.network(
-                    "https://lottie.host/e9be6368-9465-4b43-8fc4-02314f5ec942/sZlkgQnieS.json"),
+                child: Lottie.network("https://lottie.host/e9be6368-9465-4b43-8fc4-02314f5ec942/sZlkgQnieS.json"),
               ),
               const Text(
                 forgetPasswordTitle,
@@ -70,8 +69,7 @@ class _RecoveryPageState extends State<RecoveryPage> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) =>
-                          const SignUpPage(), // signuppage sayfasına navigator eklendi.
+                      builder: (context) => const SignUpPage(), // signuppage sayfasına navigator eklendi.
                     ),
                   );
                 },

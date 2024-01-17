@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_mobil/core/widgets/background_widget.dart';
+import 'package:tobeto_mobil/core/clippers/rectangle_clipper.dart';
+import 'package:tobeto_mobil/core/widgets/primary_background.dart';
+import 'package:tobeto_mobil/core/clippers/login_clipper.dart';
 import 'package:tobeto_mobil/pages/login/login_buttons.dart';
 import 'package:tobeto_mobil/pages/login/login_form.dart';
 import 'package:tobeto_mobil/pages/login/login_footer.dart';
 import 'package:tobeto_mobil/pages/login/login_header.dart';
-import 'package:tobeto_mobil/core/widgets/clipper_widget.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({
@@ -20,8 +21,8 @@ class LoginPage extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       body: Stack(
         children: [
-          BackgroundWidget(
-            clipper: ClipperWidget(),
+          PrimaryBackgroundWidget(
+            clipper: LoginClipper(),
           ),
 
           const LoginHeader(),

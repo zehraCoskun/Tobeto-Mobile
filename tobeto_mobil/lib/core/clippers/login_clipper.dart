@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class ClipperWidget extends CustomClipper<Path> {
+class LoginClipper extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
     Path path = Path();
@@ -16,7 +16,6 @@ class ClipperWidget extends CustomClipper<Path> {
 
   @override
   bool shouldReclip(covariant CustomClipper<Path> oldClipper) {
-    //bu sanirim animasyon yapicak olursak true olmasi lazim o yuzden false ayarliyorum suan icin
     return false;
   }
 }

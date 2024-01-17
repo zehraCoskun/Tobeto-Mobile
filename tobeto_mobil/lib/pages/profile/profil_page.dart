@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:share/share.dart';
 import 'package:tobeto_mobil/constants/image_text.dart';
-import 'package:tobeto_mobil/core/screens/global_scaffold.dart';
-import 'package:tobeto_mobil/core/widgets/background_widget.dart';
+import 'package:tobeto_mobil/core/widgets/secondary_background.dart';
 import 'package:tobeto_mobil/pages/profile/activity_map_widget.dart';
 import 'package:tobeto_mobil/pages/profile/badges_row_widget.dart';
 import 'package:tobeto_mobil/pages/profile/certificates_row_widget.dart';
@@ -18,7 +17,7 @@ class ProfilPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GlobalScaffold(
+    return Scaffold(
         appBar: AppBar(
           centerTitle: true,
           title: Image.asset(
@@ -40,7 +39,7 @@ class ProfilPage extends StatelessWidget {
             )
           ],
         ),
-        body: const BackgroundWidget(
+        body: const SecondaryBackgroundWidget(
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,

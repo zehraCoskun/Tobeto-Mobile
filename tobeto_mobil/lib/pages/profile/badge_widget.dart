@@ -28,12 +28,15 @@ class _BadgeWidgetState extends State<BadgeWidget> {
         });
       },
       child: AnimatedSize(
-        duration: Duration(milliseconds: 200),
+        duration: const Duration(milliseconds: 200),
         curve: Curves.easeInOut,
-        child: Image.asset(
-          widget.badge,
-          width: isPress ? 200.0 : 100.0,
-          height: isPress ? 200.0 : 100.0,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Image.asset(
+            widget.badge,
+            width: isPress ? 200.0 : 100.0,
+            height: isPress ? 200.0 : 100.0,
+          ),
         ),
       ),
     );

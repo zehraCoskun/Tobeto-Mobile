@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/constants/image_text.dart';
 import 'package:tobeto_mobil/constants/pages/login_text.dart';
 import 'package:tobeto_mobil/constants/sizes.dart';
-import 'package:tobeto_mobil/core/widgets/background_widget.dart';
+import 'package:tobeto_mobil/core/widgets/primary_background.dart';
 import 'package:tobeto_mobil/utils/theme/theme_ios.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -43,7 +43,7 @@ class _SignUpPageState extends State<SignUpPage> {
           width: kToolbarHeight * 2,
         ),
       ),
-      body: BackgroundWidget(
+      body: PrimaryBackgroundWidget(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: padding32),
           child: Column(
@@ -67,12 +67,10 @@ class _SignUpPageState extends State<SignUpPage> {
                           labelText: SignUpNameLabel,
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.all(Radius.circular(55)),
-                            borderSide:
-                                BorderSide(color: Colors.purple, width: 3.0),
+                            borderSide: BorderSide(color: Colors.purple, width: 3.0),
                           ),
                           enabledBorder: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Colors.black, width: 1.0),
+                            borderSide: BorderSide(color: Colors.black, width: 1.0),
                             borderRadius: BorderRadius.all(Radius.circular(15)),
                           ),
                           hintText: SignUpNameHint,
@@ -87,12 +85,10 @@ class _SignUpPageState extends State<SignUpPage> {
                           labelText: SignUpSurnameLabel,
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.all(Radius.circular(55)),
-                            borderSide:
-                                BorderSide(color: Colors.purple, width: 3.0),
+                            borderSide: BorderSide(color: Colors.purple, width: 3.0),
                           ),
                           enabledBorder: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Colors.black, width: 1.0),
+                            borderSide: BorderSide(color: Colors.black, width: 1.0),
                             borderRadius: BorderRadius.all(Radius.circular(15)),
                           ),
                           hintText: SignUpSurnameSurname,
@@ -107,12 +103,10 @@ class _SignUpPageState extends State<SignUpPage> {
                           labelText: SignUpEmailLabel,
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.all(Radius.circular(55)),
-                            borderSide:
-                                BorderSide(color: Colors.purple, width: 3.0),
+                            borderSide: BorderSide(color: Colors.purple, width: 3.0),
                           ),
                           enabledBorder: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Colors.black, width: 1.0),
+                            borderSide: BorderSide(color: Colors.black, width: 1.0),
                             borderRadius: BorderRadius.all(Radius.circular(15)),
                           ),
                           hintText: SignUpEmailHint,
@@ -130,20 +124,16 @@ class _SignUpPageState extends State<SignUpPage> {
                                 passwordVisible = !passwordVisible;
                               });
                             },
-                            icon: Icon(passwordVisible
-                                ? Icons.visibility
-                                : Icons.visibility_off),
+                            icon: Icon(passwordVisible ? Icons.visibility : Icons.visibility_off),
                           ),
                           labelText: SignUpSifreLabel,
                           focusedBorder: const OutlineInputBorder(
                             borderRadius: BorderRadius.all(Radius.circular(55)),
-                            borderSide:
-                                BorderSide(color: Colors.purple, width: 3.0),
+                            borderSide: BorderSide(color: Colors.purple, width: 3.0),
                           ),
                           enabledBorder: const OutlineInputBorder(
                             borderRadius: BorderRadius.all(Radius.circular(15)),
-                            borderSide:
-                                BorderSide(color: Colors.black, width: 1.0),
+                            borderSide: BorderSide(color: Colors.black, width: 1.0),
                           ),
                           hintText: SignUpSifreHint,
                         ),
@@ -160,20 +150,16 @@ class _SignUpPageState extends State<SignUpPage> {
                                 passwordVisible = !passwordVisible;
                               });
                             },
-                            icon: Icon(passwordVisible
-                                ? Icons.visibility
-                                : Icons.visibility_off),
+                            icon: Icon(passwordVisible ? Icons.visibility : Icons.visibility_off),
                           ),
                           labelText: SignUpSifreTekrarLabel,
                           focusedBorder: const OutlineInputBorder(
                             borderRadius: BorderRadius.all(Radius.circular(55)),
-                            borderSide:
-                                BorderSide(color: Colors.purple, width: 3.0),
+                            borderSide: BorderSide(color: Colors.purple, width: 3.0),
                           ),
                           enabledBorder: const OutlineInputBorder(
                             borderRadius: BorderRadius.all(Radius.circular(15)),
-                            borderSide:
-                                BorderSide(color: Colors.black, width: 1.0),
+                            borderSide: BorderSide(color: Colors.black, width: 1.0),
                           ),
                           hintText: SignUpSifreTekrarHint,
                         ),

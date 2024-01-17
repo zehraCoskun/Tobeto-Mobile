@@ -22,7 +22,7 @@ class _ProfilePictureState extends State<ProfilePicture> {
       child: Stack(
         alignment: Alignment.center,
         children: [
-          MyAnimatedWaveCurves(),
+          const AnimatedWaveCurves(),
           ClipRRect(
             borderRadius: BorderRadius.circular(60),
             child: Image.asset(

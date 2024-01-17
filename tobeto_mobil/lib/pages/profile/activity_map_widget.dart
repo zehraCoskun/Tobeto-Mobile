@@ -52,26 +52,26 @@ class ActivityMapWidget extends StatelessWidget {
                           padding: const EdgeInsets.symmetric(horizontal: 15),
                           child: Text(
                             month,
-                            style: const TextStyle(fontSize: 15),
+                            style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 14),
                           ),
                         ),
                     ],
                   ),
                   Row(
                     children: [
-                      const Column(
+                      Column(
                         children: <Widget>[
                           Text(
                             "Mon",
-                            style: TextStyle(fontSize: 15),
+                            style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 14),
                           ),
                           Text(
                             "Wed",
-                            style: TextStyle(fontSize: 15),
+                            style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 14),
                           ),
                           Text(
                             "Fri",
-                            style: TextStyle(fontSize: 15),
+                            style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 14),
                           ),
                         ],
                       ),
@@ -85,13 +85,18 @@ class ActivityMapWidget extends StatelessWidget {
                                     margin: const EdgeInsets.all(1),
                                     height: 11,
                                     width: 11,
-                                    color: rate0Color,
-                                    child: Center(
-                                      child: Text(
-                                        j.toString(),
-                                        style: const TextStyle(fontSize: 5),
-                                      ),
-                                    ),
+                                    color: () {
+                                      //renklere örnek olması içi ekledim
+                                      if (i % 7 == 0 && j % 6 == 0) {
+                                        return rate4Color;
+                                      } else if (i % 8 == 0 && j % 3 == 0) {
+                                        return rate2Color;
+                                      } else if (i % 3 == 0 && j % 2 == 0) {
+                                        return rate1Color;
+                                      } else {
+                                        return rate0Color;
+                                      }
+                                    }(),
                                   ),
                               ],
                             ),

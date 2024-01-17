@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/core/screens/global_scaffold.dart';
-import 'package:tobeto_mobil/core/widgets/background_widget.dart';
+import 'package:tobeto_mobil/core/widgets/primary_background.dart';
+import 'package:tobeto_mobil/core/widgets/secondary_background.dart';
 import 'package:tobeto_mobil/dummy_data.dart';
 import 'package:tobeto_mobil/pages/catalog/catalog_body.dart';
 import 'package:tobeto_mobil/pages/catalog/catalog_category/catalog_header.dart';
@@ -19,7 +20,7 @@ class CatalogPage extends StatelessWidget {
         title: const CatalogHeader(),
         toolbarHeight: 80,
       ),
-      body: BackgroundWidget(
+      body: SecondaryBackgroundWidget(
         child: Column(
           children: <Widget>[
             const SizedBox(height: 8),

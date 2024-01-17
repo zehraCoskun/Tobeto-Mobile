@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_mobil/pages/profile/profile_container.dart';
+import 'package:tobeto_mobil/core/clippers/wave_clipper.dart';
 
-class MyAnimatedWaveCurves extends StatefulWidget {
+class AnimatedWaveCurves extends StatefulWidget {
+  const AnimatedWaveCurves({super.key});
+
   @override
   State<StatefulWidget> createState() {
-    return _MyAnimatedWavesCurves();
+    return _AnimatedWavesCurves();
   }
 }
 
-class _MyAnimatedWavesCurves extends State<MyAnimatedWaveCurves> with SingleTickerProviderStateMixin {
+class _AnimatedWavesCurves extends State<AnimatedWaveCurves> with SingleTickerProviderStateMixin {
   late Animation<double> animation;
   late AnimationController _controller;
 
@@ -38,7 +40,7 @@ class _MyAnimatedWavesCurves extends State<MyAnimatedWaveCurves> with SingleTick
             bottom: -100, //dalgaların pozisyonu ne kadar eksideyse o kadar küçük alanda kullanılabilir
             right: animation.value, //animasyonun yönü belirleniyor
             child: ClipPath(
-              clipper: MyWaveClipper(),
+              clipper: WaveClipper(),
               child: Opacity(
                 opacity: 0.5,
                 child: Container(
@@ -53,7 +55,7 @@ class _MyAnimatedWavesCurves extends State<MyAnimatedWaveCurves> with SingleTick
             bottom: -100, //içinde bulunan widgetın yüksekliği kadar olması doğru görüntüyü sağlıyor
             left: animation.value,
             child: ClipPath(
-              clipper: MyWaveClipper(),
+              clipper: WaveClipper(),
               child: Opacity(
                 opacity: 0.5,
                 child: Container(
@@ -70,33 +72,3 @@ class _MyAnimatedWavesCurves extends State<MyAnimatedWaveCurves> with SingleTick
   }
 }
 
-class MyWaveClipper extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    var path = Path();
-    path.lineTo(0.0, 40.0);
-    path.lineTo(0.0, size.height);
-    path.lineTo(size.width, size.height);
-    path.lineTo(size.width, 40.0);
-
-    for (int i = 0; i < 10; i++) {
-      if (i % 2 == 0) {
-        path.quadraticBezierTo(
-            size.width - (size.width / 16) - (i * size.width / 8), 0.0, size.width - ((i + 1) * size.width / 8), size.height - 160);
-      } else {
-        path.quadraticBezierTo(
-            size.width - (size.width / 16) - (i * size.width / 8), size.height - 120, size.width - ((i + 1) * size.width / 8), size.height - 160);
-      }
-    }
-
-    path.lineTo(0.0, 40.0);
-    path.close();
-    return path;
-  }
-
-  @override
-  //shouldReclip metodu false döndürmek clip yolunun widget yeniden oluşturulduğunda tekrar hesaplanmasına gerek olmadığını belirtir
-  bool shouldReclip(CustomClipper<Path> oldClipper) {
-    return false;
-  }
-}
