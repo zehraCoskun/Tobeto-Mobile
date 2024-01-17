@@ -15,19 +15,23 @@ class ProfilePicture extends StatefulWidget {
 class _ProfilePictureState extends State<ProfilePicture> {
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 32.0),
-      child: Stack(children: [
-        MyAnimatedWaveCurves(),
-        ClipRRect(
-          borderRadius: BorderRadius.circular(60),
-          child: Image.asset(
-            ders1,
-            height: 120,
-            width: 120,
+    return SizedBox(
+      height: 300,
+      width: MediaQuery.of(context).size.width - 10,
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          MyAnimatedWaveCurves(),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(60),
+            child: Image.asset(
+              ders1,
+              height: 120,
+              width: 120,
+            ),
           ),
-        ),
-      ]),
+        ],
+      ),
     );
   }
 }

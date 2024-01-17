@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_mobil/pages/profile/profile_picture.dart';
 
 class MyAnimatedWaveCurves extends StatefulWidget {
   @override
