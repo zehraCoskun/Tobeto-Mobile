@@ -5,11 +5,15 @@ class ProfileContainer extends StatelessWidget {
   const ProfileContainer({
     super.key,
     required this.child,
+    this.height,
   });
   final Widget child;
+  final double? height;
+
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: height,
       margin: const EdgeInsets.all(16),
       decoration: BoxDecoration(border: Border.all(), borderRadius: BorderRadius.circular(16), boxShadow: [
         BoxShadow(

@@ -1,13 +1,15 @@
 //profil resmi
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/constants/image_text.dart';
+import 'package:tobeto_mobil/pages/profile/profile_container.dart';
 import 'package:tobeto_mobil/pages/profile/profile_edit_page/animated_wave_curves.dart';
 
 class ProfilePicture extends StatefulWidget {
   const ProfilePicture({
     super.key,
+    this.height,
   });
-
+  final double? height;
   @override
   State<ProfilePicture> createState() => _ProfilePictureState();
 }
@@ -15,9 +17,8 @@ class ProfilePicture extends StatefulWidget {
 class _ProfilePictureState extends State<ProfilePicture> {
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 300,
-      width: MediaQuery.of(context).size.width - 10,
+    return ProfileContainer(
+      height: 150.0,
       child: Stack(
         alignment: Alignment.center,
         children: [

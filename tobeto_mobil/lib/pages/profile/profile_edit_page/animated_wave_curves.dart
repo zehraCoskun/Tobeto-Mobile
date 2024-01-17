@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tobeto_mobil/pages/profile/profile_container.dart';
 
 class MyAnimatedWaveCurves extends StatefulWidget {
   @override
@@ -14,15 +15,15 @@ class _MyAnimatedWavesCurves extends State<MyAnimatedWaveCurves> with SingleTick
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(duration: Duration(seconds: 4), vsync: this);
+    _controller = AnimationController(duration: const Duration(seconds: 4), vsync: this); //duration animasyon hızını belirliyor
     _controller.repeat();
-    animation = Tween<double>(begin: -600, end: 0).animate(_controller);
+    animation = Tween<double>(begin: -600, end: 0).animate(_controller); //animasyonun yönünü belirliyor
     animation.addListener(() {
       setState(() {});
     });
   }
 
-  @override
+  @override //dispose metodu, widget artık kullanılmadığında animasyon kontrolcüsünü temizlemek için kullanılıyor, bellek sızıntılarını önler.
   void dispose() {
     super.dispose();
     _controller.dispose();
@@ -31,26 +32,25 @@ class _MyAnimatedWavesCurves extends State<MyAnimatedWaveCurves> with SingleTick
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        alignment: Alignment.bottomCenter,
-        child: Stack(children: [
+      body: Stack(
+        children: [
           Positioned(
-            bottom: 0,
-            right: animation.value,
+            bottom: -100, //dalgaların pozisyonu ne kadar eksideyse o kadar küçük alanda kullanılabilir
+            right: animation.value, //animasyonun yönü belirleniyor
             child: ClipPath(
               clipper: MyWaveClipper(),
               child: Opacity(
                 opacity: 0.5,
                 child: Container(
                   color: Colors.deepPurple,
-                  width: 900,
-                  height: 200,
+                  width: 900, //burası ne kadar geniş olursa dalga o kadar ağır ağır hareket ediyor
+                  height: 200, //her bir dalganın yüksekliği belirleniyor
                 ),
               ),
             ),
           ),
           Positioned(
-            bottom: 0,
+            bottom: -100, //içinde bulunan widgetın yüksekliği kadar olması doğru görüntüyü sağlıyor
             left: animation.value,
             child: ClipPath(
               clipper: MyWaveClipper(),
@@ -64,7 +64,7 @@ class _MyAnimatedWavesCurves extends State<MyAnimatedWaveCurves> with SingleTick
               ),
             ),
           ),
-        ]),
+        ],
       ),
     );
   }
@@ -73,7 +73,7 @@ class _MyAnimatedWavesCurves extends State<MyAnimatedWaveCurves> with SingleTick
 class MyWaveClipper extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
-    var path = new Path();
+    var path = Path();
     path.lineTo(0.0, 40.0);
     path.lineTo(0.0, size.height);
     path.lineTo(size.width, size.height);
@@ -95,16 +95,8 @@ class MyWaveClipper extends CustomClipper<Path> {
   }
 
   @override
+  //shouldReclip metodu false döndürmek clip yolunun widget yeniden oluşturulduğunda tekrar hesaplanmasına gerek olmadığını belirtir
   bool shouldReclip(CustomClipper<Path> oldClipper) {
     return false;
   }
 }
-
-
-
-
-
-
-
-
-
