@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tobeto_mobil/pages/profile/profile_shadow.dart';
 import 'package:tobeto_mobil/utils/theme/theme_ios.dart';
 
 class PersonalInfoRowWidget extends StatelessWidget {
@@ -26,12 +27,7 @@ class PersonalInfoRowWidget extends StatelessWidget {
               shape: BoxShape.circle,
               color: Colors.white,
               boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.withOpacity(0.5),
-                  spreadRadius: 2,
-                  blurRadius: 4,
-                  offset: const Offset(0, 2),
-                ),
+                ProfileShadow(),
               ],
             ),
             child: Center(
@@ -61,3 +57,4 @@ class PersonalInfoRowWidget extends StatelessWidget {
     );
   }
 }
+

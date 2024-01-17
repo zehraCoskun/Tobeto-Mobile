@@ -1,5 +1,6 @@
 //temel container
 import 'package:flutter/material.dart';
+import 'package:tobeto_mobil/pages/profile/profile_shadow.dart';
 
 class ProfileContainer extends StatelessWidget {
   const ProfileContainer({
@@ -17,16 +18,9 @@ class ProfileContainer extends StatelessWidget {
       height: height,
       margin: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.white, // Beyaz arka plan
+        color: Colors.white,
         borderRadius: BorderRadius.circular(16),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.2), // Hafif gri renkli gölge
-            spreadRadius: 4,
-            blurRadius: 4,
-            offset: const Offset(0, 2),
-          ),
-        ],
+        boxShadow: [ProfileShadow()],
       ),
       child: child,
     );

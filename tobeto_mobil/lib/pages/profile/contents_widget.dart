@@ -1,5 +1,6 @@
 //container içeriklerindeki küçük containerlar
 import 'package:flutter/material.dart';
+import 'package:tobeto_mobil/pages/profile/profile_shadow.dart';
 
 class ContentsWidget extends StatelessWidget {
   const ContentsWidget({
@@ -14,13 +15,10 @@ class ContentsWidget extends StatelessWidget {
         padding: const EdgeInsets.all(8),
         margin: const EdgeInsets.all(4),
         decoration: BoxDecoration(
-          border: Border.all(),
+          color: Colors.white,
+          //border: Border.all(),
           borderRadius: BorderRadius.circular(16),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.white.withOpacity(0.5),
-            ),
-          ],
+          boxShadow: [ProfileShadow()],
         ),
         child: Text(
           competence,
@@ -28,4 +26,3 @@ class ContentsWidget extends StatelessWidget {
         ));
   }
 }
-

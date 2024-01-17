@@ -23,12 +23,27 @@ class _ProfilePictureState extends State<ProfilePicture> {
         alignment: Alignment.center,
         children: [
           const AnimatedWaveCurves(),
-          ClipRRect(
-            borderRadius: BorderRadius.circular(60),
-            child: Image.asset(
-              ders1,
-              height: 120,
-              width: 120,
+          Container(
+            width: 120,
+            height: 120,
+            decoration: const BoxDecoration(
+              shape: BoxShape.circle,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey,
+                  spreadRadius: 2,
+                  blurRadius: 4,
+                  offset: Offset(2, 2),
+                )
+              ],
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(60),
+              child: Image.asset(
+                ders1,
+                height: 120,
+                width: 120,
+              ),
             ),
           ),
         ],
