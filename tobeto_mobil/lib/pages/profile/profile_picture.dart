@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/constants/image_text.dart';
 import 'package:tobeto_mobil/pages/profile/profile_container.dart';
-import 'package:tobeto_mobil/pages/profile/profile_edit_page/animated_wave_curves.dart';
+import 'package:tobeto_mobil/pages/profile/animated_wave_curves.dart';
 
 class ProfilePicture extends StatefulWidget {
   const ProfilePicture({

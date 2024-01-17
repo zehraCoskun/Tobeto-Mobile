@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/core/screens/global_scaffold.dart';
-import 'package:tobeto_mobil/core/widgets/primary_background.dart';
 import 'package:tobeto_mobil/core/widgets/secondary_background.dart';
 import 'package:tobeto_mobil/dummy_data.dart';
 import 'package:tobeto_mobil/pages/catalog/catalog_body.dart';

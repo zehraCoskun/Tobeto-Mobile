@@ -30,8 +30,6 @@ class _SignUpPageState extends State<SignUpPage> {
     ),
   );
 
-  var _formDenetleme = GlobalKey<FormState>();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_mobil/core/clippers/rectangle_clipper.dart';
 import 'package:tobeto_mobil/core/widgets/primary_background.dart';
 import 'package:tobeto_mobil/core/clippers/login_clipper.dart';
 import 'package:tobeto_mobil/pages/login/login_buttons.dart';
