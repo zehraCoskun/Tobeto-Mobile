@@ -35,7 +35,7 @@
  - edit sayfası  ~~yapılacak~~ bitirilecek
 
 - ## catalog screen ##   
- - klavye açıldığında filtreler patates 
+ - ~~klavye açıldığında filtreler patates~~ 
  - paylaş butonu yerine favoriler olabilir 
 
 - ## calander screen ##  
