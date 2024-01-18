@@ -36,7 +36,9 @@
 
 - ## catalog screen ##   
  - ~~klavye açıldığında filtreler patates~~ 
- - paylaş butonu yerine favoriler olabilir 
+ - ~~paylaş butonu yerine favoriler olabilir ~~
+ - ~~tasarım gözden geçirilecek~~
+ - tasarımda özellikle resimler çok kötü
 
 - ## calander screen ##  
  - geliştirilecek

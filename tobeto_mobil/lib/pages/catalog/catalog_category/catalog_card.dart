@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/models/catalog_model.dart';
+import 'package:tobeto_mobil/pages/profile/profile_shadow.dart';
 import 'package:tobeto_mobil/utils/theme/theme_ios.dart';
 
 class CatalogCard extends StatelessWidget {
@@ -14,23 +15,15 @@ class CatalogCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       child: Card(
-        color: Theme.of(context).cardColor, //!
+        color: Colors.white10, //!
         elevation: 4,
         margin: const EdgeInsets.all(8),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(4),
         ),
         child: Container(
-          decoration: const BoxDecoration(
-            boxShadow: [
-              BoxShadow(
-                blurStyle: BlurStyle.solid,
-                color: Colors.black45,
-                spreadRadius: 4,
-                blurRadius: 4,
-                offset: Offset(4, 4),
-              ),
-            ],
+          decoration: BoxDecoration(
+            boxShadow: [ProfileShadow()],
           ),
           child: CardContent(catalog: catalog),
         ),
@@ -69,22 +62,15 @@ class CardContent extends StatelessWidget {
           catalog.title,
           style: Theme.of(context).textTheme.titleSmall?.copyWith(
             color: TobetoLightColors.beyaz,
+            fontWeight: FontWeight.bold,
             shadows: [
-              BoxShadow(
-                color: Theme.of(context).colorScheme.outline,
+              const BoxShadow(
+                color: Colors.black,
                 spreadRadius: 2,
-                blurRadius: 5,
+                blurRadius: 2,
               ),
-              BoxShadow(
-                color: Theme.of(context).colorScheme.outline,
-                spreadRadius: 2,
-                blurRadius: 5,
-              ),
-              BoxShadow(
-                color: Theme.of(context).colorScheme.outline,
-                spreadRadius: 2,
-                blurRadius: 10,
-              ),
+              ProfileShadow(),
+              ProfileShadow(),
             ],
           ),
           textAlign: TextAlign.center,

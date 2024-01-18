@@ -44,7 +44,7 @@ class CatalogFilterHeader extends StatelessWidget {
         child: Container(
           alignment: Alignment.center,
           child: Icon(
-            Icons.ios_share_outlined,
+            Icons.favorite_border_outlined,
             size: 20,
             color: Theme.of(context).colorScheme.outline,
           ),
