@@ -6,11 +6,28 @@ import 'package:tobeto_mobil/pages/catalog/catalog_body.dart';
 import 'package:tobeto_mobil/pages/catalog/catalog_category/catalog_header.dart';
 import 'package:tobeto_mobil/pages/catalog/catalog_filter/catalog_filter_body.dart';
 import 'package:tobeto_mobil/pages/catalog/catalog_filter/catalog_filter_header.dart';
+import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 
-class CatalogPage extends StatelessWidget {
+class CatalogPage extends StatefulWidget {
   const CatalogPage({
     Key? key,
   }) : super(key: key);
+
+  @override
+  State<CatalogPage> createState() => _CatalogPageState();
+}
+
+class _CatalogPageState extends State<CatalogPage> {
+  bool _isKeyboardVisible = false;
+  @override
+  void initState() {
+    super.initState();
+    KeyboardVisibilityController().onChange.listen((bool visible) {
+      setState(() {
+        _isKeyboardVisible = visible;
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,9 +40,9 @@ class CatalogPage extends StatelessWidget {
         child: Column(
           children: <Widget>[
             const SizedBox(height: 8),
-            const CatalogFilterHeader(),
+            if (!_isKeyboardVisible) const CatalogFilterHeader(),
             const SizedBox(height: 5),
-            const CatalogFilterBody(),
+            if (!_isKeyboardVisible) const CatalogFilterBody(),
             CatalogBody(catelogModels: catalogModelData),
           ],
         ),

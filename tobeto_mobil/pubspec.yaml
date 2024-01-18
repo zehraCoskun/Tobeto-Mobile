@@ -44,6 +44,7 @@ dependencies:
   syncfusion_flutter_calendar: ^21.2.3
   url_launcher:
   share:
+  flutter_keyboard_visibility: ^6.0.0
 
 dev_dependencies:
   flutter_test:
