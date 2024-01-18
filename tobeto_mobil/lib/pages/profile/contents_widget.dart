@@ -22,7 +22,9 @@ class ContentsWidget extends StatelessWidget {
         ),
         child: Text(
           competence,
-          style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 20),
+          style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                fontSize: 20,
+              ),
         ));
   }
 }

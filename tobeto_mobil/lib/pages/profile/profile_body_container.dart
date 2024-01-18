@@ -21,13 +21,9 @@ class ProfileBodyContainer extends StatelessWidget {
             style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontWeight: FontWeight.bold),
           ),
           const Divider(),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: body,
-          ),
+          body,
         ],
       ),
     );
   }
 }
-

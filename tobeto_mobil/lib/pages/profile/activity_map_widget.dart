@@ -1,20 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/constants/pages/profile_text.dart';
 
-final List<String> months = [
-  "Jan",
-  "Feb",
-  "Mar",
-  "Apr",
-  "May",
-  "Jun",
-  "Jul",
-  "Aug",
-  "Sep",
-  "Oct",
-  "Nov",
-  "Dec",
-];
+final List<String> months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
 class ActivityMapWidget extends StatelessWidget {
   const ActivityMapWidget({
