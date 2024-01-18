@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/constants/image_text.dart';
 import 'package:tobeto_mobil/constants/pages/profile_text.dart';
 import 'package:tobeto_mobil/core/widgets/secondary_background.dart';
-import 'package:tobeto_mobil/pages/profile/contents_widget.dart';
-import 'package:tobeto_mobil/pages/profile/profile_container.dart';
 import 'package:tobeto_mobil/pages/profile/profile_edit_page/competence_widget.dart';
 import 'package:tobeto_mobil/pages/profile/profile_edit_page/info_title_widget.dart';
 import 'package:tobeto_mobil/pages/profile/profile_edit_page/profile_text_field.dart';
@@ -21,7 +19,7 @@ class _ProfileEditPage extends State<ProfileEditPage> {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _phoneController = TextEditingController();
-  final TextEditingController _competenceController = TextEditingController();
+  //final TextEditingController _competenceController = TextEditingController();
   final TextEditingController _certificateController = TextEditingController();
   final TextEditingController _githubController = TextEditingController();
   final TextEditingController _linkedinController = TextEditingController();

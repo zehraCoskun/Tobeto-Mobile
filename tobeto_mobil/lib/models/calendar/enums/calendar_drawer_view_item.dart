@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:syncfusion_flutter_calendar/calendar.dart';
 
 enum CalendarDrawerViewItem {
   schedule,
@@ -35,6 +36,21 @@ enum CalendarDrawerViewItem {
         return Icons.calendar_view_week_outlined;
       case CalendarDrawerViewItem.month:
         return Icons.calendar_view_month_outlined;
+    }
+  }
+
+  CalendarView toView() {
+    switch (this) {
+      case CalendarDrawerViewItem.schedule:
+        return CalendarView.schedule;
+      case CalendarDrawerViewItem.day:
+        return CalendarView.day;
+      case CalendarDrawerViewItem.days:
+        return CalendarView.timelineDay;
+      case CalendarDrawerViewItem.week:
+        return CalendarView.week;
+      case CalendarDrawerViewItem.month:
+        return CalendarView.month;
     }
   }
 }
