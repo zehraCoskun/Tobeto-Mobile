@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/constants/image_text.dart';
 import 'package:tobeto_mobil/constants/pages/profile_text.dart';
 import 'package:tobeto_mobil/core/widgets/secondary_background.dart';
-import 'package:tobeto_mobil/pages/profile/profile_shadow.dart';
+import 'package:tobeto_mobil/pages/profile/profile_edit_page/info_title_widget.dart';
+import 'package:tobeto_mobil/pages/profile/profile_edit_page/profile_text_field.dart';
 import 'package:tobeto_mobil/utils/theme/theme_ios.dart';
 
 class ProfileEditPage extends StatefulWidget {
@@ -16,6 +17,13 @@ class _ProfileEditPage extends State<ProfileEditPage> {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _phoneController = TextEditingController();
+  final TextEditingController _competenceController = TextEditingController();
+  final TextEditingController _certificateController = TextEditingController();
+  final TextEditingController _githubController = TextEditingController();
+  final TextEditingController _linkedinController = TextEditingController();
+  final TextEditingController _facebookController = TextEditingController();
+  final TextEditingController _twitterController = TextEditingController();
+  final TextEditingController _instagramController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -59,131 +67,49 @@ class _ProfileEditPage extends State<ProfileEditPage> {
                   labelText: "E-Posta",
                   valueIsEmpty: "Lütfen e-posta adresinizi giriniz",
                 ),
-                ProfileTextField(controller: _phoneController, labelText: 'Telefon Numarası', valueIsEmpty: 'Lütfen teledon numaranızı giriniz'),
-                //!
-                InfoTitleWidget(title: "Yetkinliklerim"),
-                ProfileTextField(
-                  controller: _emailController,
+                ProfileTextField(controller: _phoneController, labelText: 'Telefon Numarası', valueIsEmpty: 'Lütfen telefon numaranızı giriniz'),
+                const InfoTitleWidget(title: "Yetkinliklerim"),
+                OptionalProfileTextField(
+                  controller: _competenceController,
                   labelText: "Yetkinlikler",
-                  valueIsEmpty: "",
+                  showDropDown: true,
                 ),
-                //!
                 const InfoTitleWidget(title: "Sertifikalarım"),
-                ProfileTextField(
-                  controller: _emailController,
+                OptionalProfileTextField(
+                  controller: _certificateController,
                   labelText: "Sertifikalar",
-                  valueIsEmpty: "",
                 ),
-                //!
                 const InfoTitleWidget(title: "Sosyal Medya Hesaplarım"),
-                ProfileTextField(
-                  controller: _emailController,
+                OptionalProfileTextField(
+                  controller: _githubController,
                   labelText: "Github",
-                  valueIsEmpty: "",
-                  icon: Image.asset(
-                    github,
-                    height: 32,
-                    width: 32,
-                  ),
+                  icon: Image.asset(github, height: 32, width: 32),
                 ),
-                ProfileTextField(
-                  controller: _emailController,
+                OptionalProfileTextField(
+                  controller: _linkedinController,
                   labelText: "Linkedin",
-                  valueIsEmpty: "",
-                  icon: Image.asset(
-                    linkedin,
-                    height: 32,
-                    width: 32,
-                  ),
+                  icon: Image.asset(linkedin, height: 32, width: 32),
                 ),
-                ProfileTextField(
-                  controller: _emailController,
+                OptionalProfileTextField(
+                  controller: _facebookController,
                   labelText: "Facebook",
-                  valueIsEmpty: "",
-                  icon: Image.asset(
-                    facebook,
-                    height: 32,
-                    width: 32,
-                  ),
+                  icon: Image.asset(facebook, height: 32, width: 32),
                 ),
-                ProfileTextField(
-                  controller: _emailController,
+                OptionalProfileTextField(
+                  controller: _twitterController,
                   labelText: "X",
-                  valueIsEmpty: "",
-                  icon: Image.asset(
-                    twitterX,
-                    height: 32,
-                    width: 32,
-                  ),
+                  icon: Image.asset(twitterX, height: 32, width: 32),
                 ),
-                ProfileTextField(
-                  controller: _emailController,
+                OptionalProfileTextField(
+                  controller: _instagramController,
                   labelText: "Instagram",
-                  valueIsEmpty: "",
-                  icon: Image.asset(
-                    instagram,
-                    height: 32,
-                    width: 32,
-                  ),
+                  icon: Image.asset(instagram, height: 32, width: 32),
                 ),
               ],
             ),
           ),
         ),
       ),
-    );
-  }
-}
-
-class ProfileTextField extends StatelessWidget {
-  const ProfileTextField({
-    super.key,
-    required TextEditingController controller,
-    required this.labelText,
-    required this.valueIsEmpty,
-    this.icon,
-  }) : _controller = controller;
-
-  final TextEditingController _controller;
-  final String labelText;
-  final String valueIsEmpty;
-
-  final Widget? icon;
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.symmetric(vertical: 8),
-      padding: const EdgeInsets.all(4),
-      decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(16), boxShadow: [ProfileShadow()]),
-      child: TextFormField(
-        controller: _controller,
-        decoration: InputDecoration(
-          labelText: labelText,
-          icon: icon,
-        ),
-        validator: (value) {
-          if (value!.isEmpty) {
-            return valueIsEmpty;
-          }
-          return null;
-        },
-      ),
-    );
-  }
-}
-
-class InfoTitleWidget extends StatelessWidget {
-  const InfoTitleWidget({
-    super.key,
-    required this.title,
-  });
-  final String title;
-
-  @override
-  Widget build(BuildContext context) {
-    return Text(
-      title,
-      style: Theme.of(context).textTheme.titleMedium!.copyWith(fontSize: 22, color: Colors.black),
     );
   }
 }

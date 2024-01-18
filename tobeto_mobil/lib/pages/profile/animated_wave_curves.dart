@@ -19,11 +19,9 @@ class _AnimatedWavesCurves extends State<AnimatedWaveCurves>
   void initState() {
     super.initState();
     _controller = AnimationController(
-        duration: const Duration(seconds: 4),
-        vsync: this); //duration animasyon hızını belirliyor
+        duration: const Duration(seconds: 4),vsync: this); //duration animasyon hızını belirliyor
     _controller.repeat();
-    animation = Tween<double>(begin: -600, end: 0)
-        .animate(_controller); //animasyonun yönünü belirliyor
+    animation = Tween<double>(begin: -600, end: 0).animate(_controller); //animasyonun yönünü belirliyor
     animation.addListener(() {
       setState(() {});
     });
@@ -50,16 +48,14 @@ class _AnimatedWavesCurves extends State<AnimatedWaveCurves>
                 opacity: 0.5,
                 child: Container(
                   color: Colors.deepPurple,
-                  width:
-                      900, //burası ne kadar geniş olursa dalga o kadar ağır ağır hareket ediyor
+                  width:900, //burası ne kadar geniş olursa dalga o kadar ağır ağır hareket ediyor
                   height: 200, //her bir dalganın yüksekliği belirleniyor
                 ),
               ),
             ),
           ),
           Positioned(
-            bottom:
-                -100, //içinde bulunan widgetın yüksekliği kadar olması doğru görüntüyü sağlıyor
+            bottom: -100, //içinde bulunan widgetın yüksekliği kadar olması doğru görüntüyü sağlıyor
             left: animation.value,
             child: ClipPath(
               clipper: WaveClipper(),
