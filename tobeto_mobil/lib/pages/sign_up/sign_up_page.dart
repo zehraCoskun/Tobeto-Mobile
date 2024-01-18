@@ -14,6 +14,7 @@ class SignUpPage extends StatefulWidget {
 
 class _SignUpPageState extends State<SignUpPage> {
   bool passwordVisible = false;
+  bool passwordVisible2 = false;
   var snackBar = SnackBar(
     backgroundColor: TobetoDarkColors.mor,
     duration: const Duration(seconds: 3),
@@ -58,17 +59,21 @@ class _SignUpPageState extends State<SignUpPage> {
                     children: [
                       SizedBox(height: padding16),
                       //AD************************************AD
-                      const TextField(
+                      TextField(
                         obscureText: false,
                         decoration: InputDecoration(
                           prefixIcon: Icon(Icons.person),
                           labelText: SignUpNameLabel,
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.all(Radius.circular(55)),
-                            borderSide: BorderSide(color: Colors.purple, width: 3.0),
+                            borderSide: BorderSide(
+                                color: Theme.of(context).colorScheme.onPrimary,
+                                width: 3.0), // colorscheme
                           ),
                           enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.black, width: 1.0),
+                            borderSide: BorderSide(
+                                color: Theme.of(context).colorScheme.primary,
+                                width: 2.0),
                             borderRadius: BorderRadius.all(Radius.circular(15)),
                           ),
                           hintText: SignUpNameHint,
@@ -76,17 +81,23 @@ class _SignUpPageState extends State<SignUpPage> {
                       ),
                       //**************************SOYAD
                       SizedBox(height: padding16),
-                      const TextField(
+                      TextField(
                         obscureText: true,
                         decoration: InputDecoration(
                           prefixIcon: Icon(Icons.person),
                           labelText: SignUpSurnameLabel,
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.all(Radius.circular(55)),
-                            borderSide: BorderSide(color: Colors.purple, width: 3.0),
+                            borderSide: BorderSide(
+                                color: Theme.of(context)
+                                    .colorScheme
+                                    .onPrimary, // colorscheme111********
+                                width: 3.0),
                           ),
                           enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.black, width: 1.0),
+                            borderSide: BorderSide(
+                                color: Theme.of(context).colorScheme.primary,
+                                width: 2.0), // ColorScheme22
                             borderRadius: BorderRadius.all(Radius.circular(15)),
                           ),
                           hintText: SignUpSurnameSurname,
@@ -94,17 +105,21 @@ class _SignUpPageState extends State<SignUpPage> {
                       ),
                       //***************************E-MAİL
                       const SizedBox(height: padding16),
-                      const TextField(
+                      TextField(
                         obscureText: true,
                         decoration: InputDecoration(
                           prefixIcon: Icon(Icons.email),
                           labelText: SignUpEmailLabel,
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.all(Radius.circular(55)),
-                            borderSide: BorderSide(color: Colors.purple, width: 3.0),
+                            borderSide: BorderSide(
+                                color: Theme.of(context).colorScheme.onPrimary,
+                                width: 3.0),
                           ),
                           enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.black, width: 1.0),
+                            borderSide: BorderSide(
+                                color: Theme.of(context).colorScheme.primary,
+                                width: 2.0),
                             borderRadius: BorderRadius.all(Radius.circular(15)),
                           ),
                           hintText: SignUpEmailHint,
@@ -122,16 +137,25 @@ class _SignUpPageState extends State<SignUpPage> {
                                 passwordVisible = !passwordVisible;
                               });
                             },
-                            icon: Icon(passwordVisible ? Icons.visibility : Icons.visibility_off),
+                            icon: Icon(passwordVisible
+                                ? Icons.visibility
+                                : Icons.visibility_off),
+                            color: Theme.of(context)
+                                .colorScheme
+                                .onPrimary, // Buradaaa icon renk almadı neden????
                           ),
                           labelText: SignUpSifreLabel,
-                          focusedBorder: const OutlineInputBorder(
+                          focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.all(Radius.circular(55)),
-                            borderSide: BorderSide(color: Colors.purple, width: 3.0),
+                            borderSide: BorderSide(
+                                color: Theme.of(context).colorScheme.onPrimary,
+                                width: 3.0), //ColorScheme***
                           ),
-                          enabledBorder: const OutlineInputBorder(
+                          enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.all(Radius.circular(15)),
-                            borderSide: BorderSide(color: Colors.black, width: 1.0),
+                            borderSide: BorderSide(
+                                color: Theme.of(context).colorScheme.primary,
+                                width: 2.0),
                           ),
                           hintText: SignUpSifreHint,
                         ),
@@ -139,25 +163,34 @@ class _SignUpPageState extends State<SignUpPage> {
                       //************************* SIFRE TEKRAR
                       const SizedBox(height: padding16),
                       TextField(
-                        obscureText: !passwordVisible,
+                        obscureText: !passwordVisible2,
                         decoration: InputDecoration(
                           prefixIcon: Icon(Icons.lock_reset_outlined),
                           suffixIcon: IconButton(
+                            color: Theme.of(context)
+                                .colorScheme
+                                .onPrimary, // Buradaaa icon renk almadı neden????
                             onPressed: () {
                               setState(() {
-                                passwordVisible = !passwordVisible;
+                                passwordVisible2 = !passwordVisible2;
                               });
                             },
-                            icon: Icon(passwordVisible ? Icons.visibility : Icons.visibility_off),
+                            icon: Icon(passwordVisible2
+                                ? Icons.visibility
+                                : Icons.visibility_off),
                           ),
                           labelText: SignUpSifreTekrarLabel,
-                          focusedBorder: const OutlineInputBorder(
+                          focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.all(Radius.circular(55)),
-                            borderSide: BorderSide(color: Colors.purple, width: 3.0),
+                            borderSide: BorderSide(
+                                color: Theme.of(context).colorScheme.onPrimary,
+                                width: 3.0), // ColorScheme***
                           ),
-                          enabledBorder: const OutlineInputBorder(
+                          enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.all(Radius.circular(15)),
-                            borderSide: BorderSide(color: Colors.black, width: 1.0),
+                            borderSide: BorderSide(
+                                color: Theme.of(context).colorScheme.primary,
+                                width: 2.0),
                           ),
                           hintText: SignUpSifreTekrarHint,
                         ),

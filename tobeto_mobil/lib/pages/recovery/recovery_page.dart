@@ -5,6 +5,7 @@ import 'package:tobeto_mobil/constants/pages/login_text.dart';
 import 'package:tobeto_mobil/constants/sizes.dart';
 import 'package:tobeto_mobil/core/widgets/primary_background.dart';
 import 'package:tobeto_mobil/pages/sign_up/sign_up_page.dart';
+import 'package:tobeto_mobil/utils/theme/theme_ios.dart';
 
 class RecoveryPage extends StatefulWidget {
   const RecoveryPage({super.key});
@@ -31,24 +32,27 @@ class _RecoveryPageState extends State<RecoveryPage> {
             children: [
               SizedBox(
                 height: (MediaQuery.of(context).size.width / 2),
-                child: Lottie.network("https://lottie.host/e9be6368-9465-4b43-8fc4-02314f5ec942/sZlkgQnieS.json"),
+                child: Lottie.network(
+                    "https://lottie.host/e9be6368-9465-4b43-8fc4-02314f5ec942/sZlkgQnieS.json"),
               ),
               const Text(
                 forgetPasswordTitle,
                 style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
               ),
               const Padding(padding: EdgeInsets.only(top: 10, bottom: 30)),
-              const Padding(
+              Padding(
                 padding: EdgeInsets.symmetric(horizontal: padding16),
                 child: TextField(
                   obscureText: false,
                   decoration: InputDecoration(
                     focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.purple, width: 3.0),
+                      borderSide: BorderSide(
+                          color: Theme.of(context).primaryColor, width: 3.0),
                       borderRadius: BorderRadius.all(Radius.circular(55)),
                     ),
                     enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.black, width: 1.0),
+                      borderSide:
+                          BorderSide(color: TobetoDarkColors.siyah, width: 1.0),
                       borderRadius: BorderRadius.all(Radius.circular(25)),
                     ),
                     hintText: "e-posta adresinizi giriniz",
@@ -69,7 +73,8 @@ class _RecoveryPageState extends State<RecoveryPage> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const SignUpPage(), // signuppage sayfasına navigator eklendi.
+                      builder: (context) =>
+                          const SignUpPage(), // signuppage sayfasına navigator eklendi.
                     ),
                   );
                 },
