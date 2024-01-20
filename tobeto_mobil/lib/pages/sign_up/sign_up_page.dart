@@ -15,6 +15,8 @@ class SignUpPage extends StatefulWidget {
 class _SignUpPageState extends State<SignUpPage> {
   bool passwordVisible = false;
   bool passwordVisible2 = false;
+
+  //****************/
   var snackBar = SnackBar(
     backgroundColor: TobetoDarkColors.mor,
     duration: const Duration(seconds: 3),
@@ -30,6 +32,19 @@ class _SignUpPageState extends State<SignUpPage> {
       ],
     ),
   );
+
+  void _submit() async {
+    _formKey.currentState!.save();
+    _formKey.currentState!.validate();
+  }
+
+  final _formKey = GlobalKey<FormState>();
+
+  var _ad = '';
+  var _soyad = '';
+  var _email = '';
+  var _password = '';
+  var _passwordAgain = '';
 
   @override
   Widget build(BuildContext context) {
@@ -54,12 +69,22 @@ class _SignUpPageState extends State<SignUpPage> {
                 alignment: Alignment.center,
               ),
               Form(
+                key: _formKey,
                 child: Expanded(
                   child: ListView(
                     children: [
                       SizedBox(height: padding16),
                       //AD************************************AD
-                      TextField(
+                      TextFormField(
+                        onSaved: (newValue) {
+                          _ad = newValue!;
+                        },
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return "Lütfen ad alanını boş bırakmayın";
+                          }
+                          return null;
+                        }, // ad validator ************
                         obscureText: false,
                         decoration: InputDecoration(
                           prefixIcon: Icon(Icons.person),
@@ -81,7 +106,16 @@ class _SignUpPageState extends State<SignUpPage> {
                       ),
                       //**************************SOYAD
                       SizedBox(height: padding16),
-                      TextField(
+                      TextFormField(
+                        onSaved: (newValue) {
+                          _soyad = newValue!;
+                        },
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return "Lütfen Soyad alanını boş bırakmayın";
+                          }
+                          return null;
+                        }, //  validator ************
                         obscureText: true,
                         decoration: InputDecoration(
                           prefixIcon: Icon(Icons.person),
@@ -105,7 +139,21 @@ class _SignUpPageState extends State<SignUpPage> {
                       ),
                       //***************************E-MAİL
                       const SizedBox(height: padding16),
-                      TextField(
+                      TextFormField(
+                        onSaved: (newValue) {
+                          _email = newValue!;
+                        },
+
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return "Lütfen E-mail alanını boş bırakmayın";
+                          }
+                          if (!value.contains("@")) {
+                            return "Mail geçersiz; Mail, @ içermelidir";
+                          }
+                          return null; // Geçerli durum
+                        },
+                        // ad validator ************
                         obscureText: true,
                         decoration: InputDecoration(
                           prefixIcon: Icon(Icons.email),
@@ -127,7 +175,16 @@ class _SignUpPageState extends State<SignUpPage> {
                       ),
                       //******************* ŞİFRE
                       const SizedBox(height: padding16),
-                      TextField(
+                      TextFormField(
+                        onSaved: (newValue) {
+                          _password = newValue!;
+                        },
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return "Lütfen Şifre alanını boş bırakmayın";
+                          }
+                          return null;
+                        }, //  validator ************
                         obscureText: !passwordVisible,
                         decoration: InputDecoration(
                           prefixIcon: Icon(Icons.lock),
@@ -162,7 +219,16 @@ class _SignUpPageState extends State<SignUpPage> {
                       ),
                       //************************* SIFRE TEKRAR
                       const SizedBox(height: padding16),
-                      TextField(
+                      TextFormField(
+                        onSaved: (newValue) {
+                          _passwordAgain = newValue!;
+                        },
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return "Lütfen Şifre alanını boş bırakmayın";
+                          }
+                          return null;
+                        }, // ad validator ************
                         obscureText: !passwordVisible2,
                         decoration: InputDecoration(
                           prefixIcon: Icon(Icons.lock_reset_outlined),
@@ -199,6 +265,8 @@ class _SignUpPageState extends State<SignUpPage> {
                       const SizedBox(height: padding16),
                       ElevatedButton(
                         onPressed: () {
+                          _formKey.currentState?.save();
+                          _formKey.currentState?.validate();
                           ScaffoldMessenger.of(context).showSnackBar(snackBar);
                         },
                         child: const Text(signUp),
