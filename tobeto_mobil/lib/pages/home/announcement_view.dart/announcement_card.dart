@@ -14,7 +14,7 @@ class AnnouncementCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
-      aspectRatio: 3 / 1,
+      aspectRatio: 2.7 / 1,
       child: ContainerWidget(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
