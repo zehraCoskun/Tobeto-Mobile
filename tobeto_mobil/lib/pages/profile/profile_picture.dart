@@ -1,6 +1,7 @@
 //profil resmi
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/constants/image_text.dart';
+import 'package:tobeto_mobil/models/user_model.dart';
 import 'package:tobeto_mobil/pages/profile/profile_container.dart';
 import 'package:tobeto_mobil/pages/profile/animated_wave_curves.dart';
 
@@ -8,8 +9,11 @@ class ProfilePicture extends StatefulWidget {
   const ProfilePicture({
     super.key,
     this.height,
+    required this.user,
   });
   final double? height;
+  final UserModel user;
+
   @override
   State<ProfilePicture> createState() => _ProfilePictureState();
 }
@@ -40,7 +44,7 @@ class _ProfilePictureState extends State<ProfilePicture> {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(60),
               child: Image.asset(
-                ders1,
+                widget.user.userPicture != null ? widget.user.userPicture! : ders2,
                 height: 120,
                 width: 120,
               ),

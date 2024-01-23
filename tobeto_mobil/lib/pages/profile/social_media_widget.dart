@@ -1,41 +1,43 @@
 //sosyal medyalarım içeriği
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/constants/pages/profile_text.dart';
+import 'package:tobeto_mobil/models/user_model.dart';
 import 'package:tobeto_mobil/pages/profile/social_media_button.dart';
 
 class SocialMediaWidget extends StatelessWidget {
   const SocialMediaWidget({
     super.key,
+    required this.user,
   });
-
+  final UserModel user;
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    return Row(
       children: [
         SocialMediaButton(
           logo: github,
           color: githubColor,
-          url: githubUrl,
+          url: user.githubLink ?? "", 
         ),
         SocialMediaButton(
           logo: linkedin,
           color: linkedinColor,
-          url: linkedinUrl,
+          url: user.linkedinLink ?? "", //boş döndürmek yerine tobetonun sayfaları konabilir
         ),
         SocialMediaButton(
           logo: facebook,
           color: facebookColor,
-          url: facebookUrl,
+          url: user.facebookLink ?? "",
         ),
         SocialMediaButton(
           logo: twitterX,
           color: twitterXColor,
-          url: twitterUrl,
+          url: user.twitterLink ?? "",
         ),
         SocialMediaButton(
           logo: instagram,
           color: instagramColor,
-          url: instagramUrl,
+          url: user.instagramLink ?? "",
         ),
       ],
     );

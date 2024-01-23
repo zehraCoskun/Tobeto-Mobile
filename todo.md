@@ -33,12 +33,13 @@
  - ~~yetkinlik rozetleri büyütülebilir olacak~~ 
  -  ~~aktivite haritası gelişecek, adı da düzelecek~~
  - edit sayfası  ~~yapılacak~~ bitirilecek
+ - edit sayfasına doğum tarihi için date picker eklenmeli
 
 - ## catalog screen ##   
  - ~~klavye açıldığında filtreler patates~~ 
  - ~~paylaş butonu yerine favoriler olabilir ~~
  - ~~tasarım gözden geçirilecek~~
- - tasarımda özellikle resimler çok kötü
+ - ~~tasarımda özellikle resimler çok kötü~~
 
 - ## calander screen ##  
  - geliştirilecek

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tobeto_mobil/dummy_user_data.dart';
 import 'package:tobeto_mobil/pages/profile/profile_shadow.dart';
 
 class CompetenceCard extends StatelessWidget {
@@ -24,11 +25,11 @@ class CompetenceCard extends StatelessWidget {
             crossAxisSpacing: 5,
             mainAxisSpacing: 5,
           ),
-          itemCount: items.length,
+          itemCount: CompetenceList.length,
           itemBuilder: (context, index) {
             return SizedBox(
               child: Text(
-                items[index],
+                CompetenceList[index],
                 style: const TextStyle(color: Colors.black),
               ),
             );
@@ -39,26 +40,3 @@ class CompetenceCard extends StatelessWidget {
   }
 }
 
-final List<String> items = [
-  "Flutter",
-  "iOS",
-  "Kotlin",
-  "React Native",
-  "Java",
-  "C#",
-  "Python",
-  "Flutter",
-  "iOS",
-  "Kotlin",
-  "React Native",
-  "Java",
-  "C#",
-  "Python",
-  "Flutter",
-  "iOS",
-  "Kotlin",
-  "React Native",
-  "Java",
-  "C#",
-  "Python",
-];

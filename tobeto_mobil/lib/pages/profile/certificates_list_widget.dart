@@ -1,27 +1,27 @@
 //sertifikalarım içeriği
 import 'package:flutter/material.dart';
+import 'package:tobeto_mobil/models/user_model.dart';
 import 'package:tobeto_mobil/pages/profile/contents_widget.dart';
 
-class CertificatesRowWidget extends StatelessWidget {
-  const CertificatesRowWidget.CertificatesListWidget({
+class CertificatesListWidget extends StatelessWidget {
+  const CertificatesListWidget({
     super.key,
+    required this.user,
   });
-
+  final UserModel user;
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
       aspectRatio: 7 / 1,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemCount: certificates.length,
+        itemCount: user.certificates != null ? user.certificates!.length : 0,
         itemBuilder: (context, index) {
           return ContentsWidget(
-            competence: certificates[index],
+            competence: user.certificates != null ? user.certificates![index] : "",
           );
         },
       ),
     );
   }
 }
-
-final List<String> certificates = ["Tobeto- Flutter ile Mobil Geliştirme"];
