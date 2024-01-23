@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/constants/image_text.dart';
 import 'package:tobeto_mobil/constants/pages/profile_text.dart';
 import 'package:tobeto_mobil/core/widgets/secondary_background.dart';
+import 'package:tobeto_mobil/pages/profile/profile_edit_page/birthdate_widget.dart';
 import 'package:tobeto_mobil/pages/profile/profile_edit_page/competence_widget.dart';
 import 'package:tobeto_mobil/pages/profile/profile_edit_page/info_title_widget.dart';
 import 'package:tobeto_mobil/pages/profile/profile_edit_page/profile_text_field.dart';
@@ -16,16 +17,6 @@ class ProfileEditPage extends StatefulWidget {
 
 class _ProfileEditPage extends State<ProfileEditPage> {
   final _formKey = GlobalKey<FormState>();
-  final TextEditingController _nameController = TextEditingController();
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _phoneController = TextEditingController();
-  //final TextEditingController _competenceController = TextEditingController();
-  final TextEditingController _certificateController = TextEditingController();
-  final TextEditingController _githubController = TextEditingController();
-  final TextEditingController _linkedinController = TextEditingController();
-  final TextEditingController _facebookController = TextEditingController();
-  final TextEditingController _twitterController = TextEditingController();
-  final TextEditingController _instagramController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -51,63 +42,59 @@ class _ProfileEditPage extends State<ProfileEditPage> {
       body: SecondaryBackgroundWidget(
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const InfoTitleWidget(
-                title: "Profil Bilgilerim",
-              ),
-              ProfileTextField(
-                controller: _nameController,
-                labelText: "Ad Soyad",
-                valueIsEmpty: 'Lütfen adınızı ve soyadınızı girin',
-              ),
-              ProfileTextField(
-                controller: _emailController,
-                labelText: "E-Posta",
-                valueIsEmpty: "Lütfen e-posta adresinizi giriniz",
-              ),
-              ProfileTextField(controller: _phoneController, labelText: 'Telefon Numarası', valueIsEmpty: 'Lütfen telefon numaranızı giriniz'),
-              InfoTitleWidget(
-                  title: "Yetkinliklerim",
-                  icon: IconButton(
-                      onPressed: () {
-                        competenceBottomSheet(context);
-                      },
-                      icon: Icon(Icons.add, color: TobetoDarkColors.mor))),
-              const CompetenceWidget(),
-              const InfoTitleWidget(title: "Sertifikalarım"),
-              OptionalProfileTextField(
-                controller: _certificateController,
-                labelText: "Sertifikalar",
-              ),
-              const InfoTitleWidget(title: "Sosyal Medya Hesaplarım"),
-              OptionalProfileTextField(
-                controller: _githubController,
-                labelText: "Github",
-                icon: Image.asset(github, height: 32, width: 32),
-              ),
-              OptionalProfileTextField(
-                controller: _linkedinController,
-                labelText: "Linkedin",
-                icon: Image.asset(linkedin, height: 32, width: 32),
-              ),
-              OptionalProfileTextField(
-                controller: _facebookController,
-                labelText: "Facebook",
-                icon: Image.asset(facebook, height: 32, width: 32),
-              ),
-              OptionalProfileTextField(
-                controller: _twitterController,
-                labelText: "X",
-                icon: Image.asset(twitterX, height: 32, width: 32),
-              ),
-              OptionalProfileTextField(
-                controller: _instagramController,
-                labelText: "Instagram",
-                icon: Image.asset(instagram, height: 32, width: 32),
-              ),
-            ],
+          child: Form(
+            key: _formKey,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const InfoTitleWidget(
+                  title: "Profil Bilgilerim",
+                ),
+                const ProfileTextField(
+                  labelText: "Ad Soyad",
+                  valueIsEmpty: 'Lütfen adınızı ve soyadınızı girin',
+                ),
+                BirthDateWidget(),
+                const ProfileTextField(
+                  labelText: "E-Posta",
+                  valueIsEmpty: "Lütfen e-posta adresinizi giriniz",
+                ),
+                const ProfileTextField(labelText: 'Telefon Numarası', valueIsEmpty: 'Lütfen telefon numaranızı giriniz'),
+                InfoTitleWidget(
+                    title: "Yetkinliklerim",
+                    icon: IconButton(
+                        onPressed: () {
+                          competenceBottomSheet(context);
+                        },
+                        icon: Icon(Icons.add, color: TobetoDarkColors.mor))),
+                const CompetenceWidget(),
+                const InfoTitleWidget(title: "Sertifikalarım"),
+                const OptionalProfileTextField(
+                  labelText: "Sertifikalar",
+                ),
+                const InfoTitleWidget(title: "Sosyal Medya Hesaplarım"),
+                OptionalProfileTextField(
+                  labelText: "Github",
+                  icon: Image.asset(github, height: 32, width: 32),
+                ),
+                OptionalProfileTextField(
+                  labelText: "Linkedin",
+                  icon: Image.asset(linkedin, height: 32, width: 32),
+                ),
+                OptionalProfileTextField(
+                  labelText: "Facebook",
+                  icon: Image.asset(facebook, height: 32, width: 32),
+                ),
+                OptionalProfileTextField(
+                  labelText: "X",
+                  icon: Image.asset(twitterX, height: 32, width: 32),
+                ),
+                OptionalProfileTextField(
+                  labelText: "Instagram",
+                  icon: Image.asset(instagram, height: 32, width: 32),
+                ),
+              ],
+            ),
           ),
         ),
       ),

@@ -28,11 +28,11 @@
 
 - ## profile screen ## 
  - ~~profil resmi arkası animasyonu eklenecek~~
- - modelleme yapılacak(ağlayarak )
+ - ~~modelleme yapılacak~~
  - ~~icon renkleri kendi renklerinde olacak~~ 
  - ~~yetkinlik rozetleri büyütülebilir olacak~~ 
  -  ~~aktivite haritası gelişecek, adı da düzelecek~~
- - edit sayfası  ~~yapılacak~~ bitirilecek
+ - edit sayfası  ~~yapılacak~~ model ile entegre edilecek
  - edit sayfasına doğum tarihi için date picker eklenmeli
 
 - ## catalog screen ##   

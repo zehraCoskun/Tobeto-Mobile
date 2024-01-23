@@ -5,17 +5,16 @@ import 'package:tobeto_mobil/utils/theme/theme_ios.dart';
 class ProfileTextField extends StatelessWidget {
   const ProfileTextField({
     super.key,
-    required TextEditingController controller,
     required this.labelText,
     required this.valueIsEmpty,
     this.icon,
-  }) : _controller = controller;
+  });
 
-  final TextEditingController _controller;
   final String labelText;
   final String valueIsEmpty;
 
   final Widget? icon;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -23,7 +22,6 @@ class ProfileTextField extends StatelessWidget {
       padding: const EdgeInsets.all(4),
       decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(16), boxShadow: [ProfileShadow()]),
       child: TextFormField(
-        controller: _controller,
         decoration: InputDecoration(
           labelText: labelText,
           icon: icon,
@@ -42,13 +40,10 @@ class ProfileTextField extends StatelessWidget {
 class OptionalProfileTextField extends StatelessWidget {
   const OptionalProfileTextField({
     super.key,
-    required TextEditingController controller,
     required this.labelText,
     this.icon,
     this.showDropDown = false,
-  }) : _controller = controller;
-
-  final TextEditingController _controller;
+  });
   final String labelText;
   final bool showDropDown;
 
@@ -63,7 +58,6 @@ class OptionalProfileTextField extends StatelessWidget {
         children: [
           Expanded(
             child: TextFormField(
-              controller: _controller,
               decoration: InputDecoration(
                 labelText: labelText,
                 icon: icon,
