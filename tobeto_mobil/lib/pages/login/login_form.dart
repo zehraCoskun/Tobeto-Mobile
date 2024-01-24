@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_mobil/constants/sizes.dart';
 import 'package:tobeto_mobil/constants/pages/login_text.dart';
 import 'package:tobeto_mobil/core/widgets/form_widget.dart';
 import 'package:tobeto_mobil/core/widgets/password_form_widget.dart';
@@ -29,7 +28,7 @@ class _LoginFormState extends State<LoginForm> {
     );
   }
 
-    Widget buildDesktopLoginForm() {
+  Widget buildDesktopLoginForm() {
     return Center(
       child: AspectRatio(
         aspectRatio: 2 / 3,
@@ -40,24 +39,24 @@ class _LoginFormState extends State<LoginForm> {
 
   Widget buildMobileLoginForm() {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: padding16),
+      padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const SizedBox(height: padding16),
+          const SizedBox(height: 16),
           FormWidget(
             controller: widget.usernameController,
             prefixIcon: const Icon(Icons.person_outline_rounded),
             labelText: loginUsernameLabel,
             hintText: loginUsernameHint,
           ),
-          const SizedBox(height: padding16),
+          const SizedBox(height: 16),
           PasswordFormWidget(
             labelText: loginPasswordLabel,
             hintText: loginUsernameHint,
             controller: widget.passwordController,
           ),
-          const SizedBox(height: padding16),
+          const SizedBox(height: 16),
         ],
       ),
     );

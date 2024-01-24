@@ -1,5 +1,7 @@
 const logoT = "assets/images/tobeto-logo-t.png";
 const logo = "assets/images/tobeto-logo.png";
+const ikLogoLight = "assets/images/ik-logo-light.png";
+const ikLogoDark = "assets/images/ik-logo-dark.png";
 
 //dummydata images
 
@@ -37,5 +39,3 @@ const Map<int, String> monthMap = {
   11: calendarNovember,
   12: calendarDecember,
 };
-
-

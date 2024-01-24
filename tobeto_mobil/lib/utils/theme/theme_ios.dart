@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_mobil/constants/sizes.dart';
 
 class TobetoLightColors {
   static Color mor = const Color(0xFF7743DB);
@@ -73,7 +72,7 @@ final iosLightTheme = ThemeData(
           horizontal: 40,
         ),
       ),
-      textStyle: const MaterialStatePropertyAll(TextStyle(fontSize: font20)),
+      textStyle: const MaterialStatePropertyAll(TextStyle(fontSize: 20)),
       foregroundColor: MaterialStatePropertyAll(TobetoLightColors.beyaz),
       backgroundColor: MaterialStatePropertyAll(TobetoLightColors.mor),
     ),
@@ -84,18 +83,18 @@ final iosLightTheme = ThemeData(
     prefixIconColor: TobetoLightColors.siyah,
     iconColor: TobetoLightColors.siyah,
     focusedBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(border16),
+      borderRadius: BorderRadius.circular(16),
       borderSide: BorderSide(
         color: TobetoLightColors.siyah,
         width: 2,
       ),
     ),
     enabledBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(border16),
+      borderRadius: BorderRadius.circular(16),
       borderSide: BorderSide(color: TobetoLightColors.acikSiyah, width: 1.5),
     ),
     errorBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(border16),
+      borderRadius: BorderRadius.circular(16),
       borderSide: BorderSide(color: TobetoLightColors.kirmizi, width: 2),
     ),
   ),
@@ -179,7 +178,7 @@ final iosDarkTheme = ThemeData(
           horizontal: 40,
         ),
       ),
-      textStyle: const MaterialStatePropertyAll(TextStyle(fontSize: font20)),
+      textStyle: const MaterialStatePropertyAll(TextStyle(fontSize: 20)),
       foregroundColor: MaterialStatePropertyAll(TobetoDarkColors.beyaz),
       backgroundColor: MaterialStatePropertyAll(TobetoDarkColors.mor),
     ),
@@ -192,18 +191,18 @@ final iosDarkTheme = ThemeData(
     iconColor: TobetoDarkColors.siyah,
     hintStyle: TextStyle(color: TobetoDarkColors.acikSiyah),
     focusedBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(border16),
+      borderRadius: BorderRadius.circular(16),
       borderSide: BorderSide(
         color: TobetoDarkColors.siyah,
         width: 2,
       ),
     ),
     enabledBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(border16),
+      borderRadius: BorderRadius.circular(16),
       borderSide: BorderSide(color: TobetoDarkColors.acikSiyah, width: 1.5),
     ),
     errorBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(border16),
+      borderRadius: BorderRadius.circular(16),
       borderSide: BorderSide(color: TobetoDarkColors.kirmizi, width: 2),
     ),
   ),

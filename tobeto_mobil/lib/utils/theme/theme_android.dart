@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_mobil/constants/sizes.dart';
 import 'package:tobeto_mobil/utils/theme/theme_ios.dart';
 
 final androidLightTheme = ThemeData(
@@ -75,7 +74,7 @@ final androidLightTheme = ThemeData(
         ),
       ),
       textStyle: const MaterialStatePropertyAll(
-        TextStyle(fontSize: font20),
+        TextStyle(fontSize: 20),
       ),
       foregroundColor: MaterialStatePropertyAll(TobetoLightColors.beyaz), //text color
       backgroundColor: MaterialStatePropertyAll(TobetoLightColors.mor),
@@ -90,7 +89,7 @@ final androidLightTheme = ThemeData(
     //text field tiklandiginda yani focuslandiginda cikacak border ayarlari
     focusedBorder: OutlineInputBorder(
       //borderRadius = BorderRadius. yazarak istediginizi verebilirsiniz koselerinin seklini cizer
-      borderRadius: BorderRadius.circular(border16),
+      borderRadius: BorderRadius.circular(16),
 
       //borderSide = BoderSide() olarak verebilirsiniz etrafindaki
       //borderin kalinligini, rengini vb. ayarlayabilirisiniz
@@ -102,13 +101,13 @@ final androidLightTheme = ThemeData(
 
     //text field tiklanmamis haldeykenki cikacak border ayarlari
     enabledBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(border16),
+      borderRadius: BorderRadius.circular(16),
       borderSide: BorderSide(color: TobetoLightColors.acikSiyah, width: 1.5),
     ),
 
     //text field icerisindeki string de hata oldugundaki cikacak border ayarlari
     errorBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(border16),
+      borderRadius: BorderRadius.circular(16),
       borderSide: BorderSide(color: TobetoLightColors.kirmizi, width: 2),
     ),
   ),
@@ -184,7 +183,7 @@ final androidDarkTheme = ThemeData(
           horizontal: 40,
         ),
       ),
-      textStyle: const MaterialStatePropertyAll(TextStyle(fontSize: font20)),
+      textStyle: const MaterialStatePropertyAll(TextStyle(fontSize: 20)),
       foregroundColor: MaterialStatePropertyAll(TobetoDarkColors.beyaz), //text color
       backgroundColor: MaterialStatePropertyAll(TobetoDarkColors.mor),
     ),
@@ -197,14 +196,14 @@ final androidDarkTheme = ThemeData(
     iconColor: TobetoDarkColors.siyah,
     hintStyle: TextStyle(color: TobetoDarkColors.acikSiyah),
     focusedBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(border16),
+      borderRadius: BorderRadius.circular(16),
       borderSide: BorderSide(
         color: TobetoDarkColors.siyah,
         width: 2,
       ),
     ),
     enabledBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(border16),
+      borderRadius: BorderRadius.circular(16),
       borderSide: BorderSide(color: TobetoDarkColors.acikSiyah, width: 1.5),
     ),
     errorBorder: OutlineInputBorder(

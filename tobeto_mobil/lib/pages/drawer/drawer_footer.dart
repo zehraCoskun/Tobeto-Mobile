@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_mobil/constants/sizes.dart';
 import 'package:tobeto_mobil/constants/image_text.dart';
 
 class DrawerFooter extends StatelessWidget {
@@ -13,17 +12,16 @@ class DrawerFooter extends StatelessWidget {
       alignment: Alignment.bottomCenter,
       child: Container(
         padding: const EdgeInsets.symmetric(
-          horizontal: padding16,
-          vertical: padding32,
+          horizontal: 16,
+          vertical: 32,
         ),
         child: MaterialButton(
           onPressed: () {},
           child: Image.asset(
             logo,
-            height: padding32,
-            color: Theme.of(context).brightness == Brightness.dark
-                ? Theme.of(context).colorScheme.onSecondary
-                : Theme.of(context).colorScheme.primary,
+            height: 32,
+            color:
+                Theme.of(context).brightness == Brightness.dark ? Theme.of(context).colorScheme.onSecondary : Theme.of(context).colorScheme.primary,
           ),
         ),
       ),

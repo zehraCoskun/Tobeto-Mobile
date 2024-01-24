@@ -24,7 +24,8 @@
  - progress bar eklenebilir(opsiyonel)
 
 - ## reviews screen ##   
- - değerlendirilmeler sayfası yapılacak
+ - ~~değerlendirilmeler sayfası yapılacak~~
+ - sınav sayfası eklenecek mi? tarayıcıya mı yönlendirsin?
 
 - ## profile screen ## 
  - ~~profil resmi arkası animasyonu eklenecek~~

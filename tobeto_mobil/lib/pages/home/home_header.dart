@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tobeto_mobil/constants/image_text.dart';
 import 'package:tobeto_mobil/core/widgets/tab_bar_widget.dart';
 import 'package:tobeto_mobil/models/enums/tab_bar_item.dart';
 
@@ -19,8 +20,8 @@ class HomeHeader extends StatelessWidget implements PreferredSizeWidget {
       title: Image.asset(
         height: kToolbarHeight,
         Theme.of(context).brightness == Brightness.dark
-            ? "assets/images/ik-logo-light.png"
-            : "assets/images/ik-logo-dark.png",
+            ? ikLogoLight
+            : ikLogoDark,
       ),
       bottom: TabBarWidget(
         isScrollable: true,

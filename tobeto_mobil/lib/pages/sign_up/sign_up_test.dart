@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/constants/image_text.dart';
 import 'package:tobeto_mobil/constants/pages/login_text.dart';
-import 'package:tobeto_mobil/constants/sizes.dart';
 import 'package:tobeto_mobil/core/widgets/primary_background.dart';
 import 'package:tobeto_mobil/pages/sign_up/sign_up_button.dart';
 import 'package:tobeto_mobil/pages/sign_up/sign_up_form.dart';
@@ -29,11 +28,11 @@ class SignUpPage extends StatelessWidget {
       ),
       body: const PrimaryBackgroundWidget(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: padding16),
+          padding: EdgeInsets.symmetric(horizontal: 16),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(height: padding16),
+              SizedBox(height: 16),
               TextField(
                 obscureText: false,
                 decoration: InputDecoration(
@@ -48,7 +47,7 @@ class SignUpPage extends StatelessWidget {
                 ),
               ),
               //**************************AD
-              SizedBox(height: padding16),
+              SizedBox(height: 16),
               TextField(
                 obscureText: false,
                 decoration: InputDecoration(
@@ -63,7 +62,7 @@ class SignUpPage extends StatelessWidget {
                 ),
               ),
               //***************************SOYAD
-              SizedBox(height: padding16),
+              SizedBox(height: 16),
               TextField(
                 obscureText: false,
                 decoration: InputDecoration(
@@ -78,7 +77,7 @@ class SignUpPage extends StatelessWidget {
                 ),
               ),
               //************** E-MAİL
-              SizedBox(height: padding16),
+              SizedBox(height: 16),
               TextField(
                 obscureText: false,
                 decoration: InputDecoration(
@@ -93,7 +92,7 @@ class SignUpPage extends StatelessWidget {
                 ),
               ),
               //**************** SIFRE
-              SizedBox(height: padding16),
+              SizedBox(height: 16),
             ],
           ),
         ),

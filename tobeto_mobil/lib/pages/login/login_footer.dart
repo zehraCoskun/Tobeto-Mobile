@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_mobil/constants/sizes.dart';
 import 'package:tobeto_mobil/constants/image_text.dart';
 
 class LoginFooter extends StatelessWidget {
@@ -10,7 +9,7 @@ class LoginFooter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(padding16),
+      padding: const EdgeInsets.all(16),
       child: Align(
         alignment: Alignment.bottomLeft,
         child: Image(

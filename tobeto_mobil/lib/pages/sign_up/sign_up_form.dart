@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/constants/pages/login_text.dart';
-import 'package:tobeto_mobil/constants/sizes.dart';
-
 import 'package:tobeto_mobil/utils/responsive/responsive_layout.dart';
 
 class SignUpForm extends StatefulWidget {
@@ -43,11 +41,11 @@ class _SignUpFormState extends State<SignUpForm> {
 
   Widget buildMobileSignUpForm() {
     return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: padding16),
+      padding: EdgeInsets.symmetric(horizontal: 16),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SizedBox(height: padding16),
+          SizedBox(height: 16),
           TextField(
             obscureText: false,
             decoration: InputDecoration(
@@ -62,7 +60,7 @@ class _SignUpFormState extends State<SignUpForm> {
             ),
           ),
 //**************************
-          SizedBox(height: padding16),
+          SizedBox(height: 16),
           TextField(
             obscureText: false,
             decoration: InputDecoration(
@@ -77,7 +75,7 @@ class _SignUpFormState extends State<SignUpForm> {
             ),
           ),
           //*************************** */
-          SizedBox(height: padding16),
+          SizedBox(height: 16),
           TextField(
             obscureText: false,
             decoration: InputDecoration(
@@ -92,7 +90,7 @@ class _SignUpFormState extends State<SignUpForm> {
             ),
           ),
 //********** */
-          SizedBox(height: padding16),
+          SizedBox(height: 16),
           TextField(
             obscureText: false,
             decoration: InputDecoration(
@@ -106,7 +104,7 @@ class _SignUpFormState extends State<SignUpForm> {
               hintText: SignUpSifreHint,
             ),
           ),
-          SizedBox(height: padding16),
+          SizedBox(height: 16),
         ],
       ),
     );

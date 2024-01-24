@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/constants/pages/home_text.dart';
-import 'package:tobeto_mobil/constants/sizes.dart';
 import 'package:tobeto_mobil/models/application_model.dart';
 
 class ApplicationCard extends StatelessWidget {
@@ -15,8 +14,8 @@ class ApplicationCard extends StatelessWidget {
     return AspectRatio(
       aspectRatio: 1.5 / 1,
       child: Container(
-        margin: const EdgeInsets.symmetric(horizontal: padding16, vertical: padding16 / 2),
-        padding: const EdgeInsets.symmetric(horizontal: padding16, vertical: padding16 / 2),
+        margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
           color: Theme.of(context).drawerTheme.backgroundColor,
