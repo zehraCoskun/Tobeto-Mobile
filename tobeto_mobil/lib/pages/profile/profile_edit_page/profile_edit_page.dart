@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/constants/image_text.dart';
-import 'package:tobeto_mobil/constants/pages/profile_text.dart';
 import 'package:tobeto_mobil/core/widgets/secondary_background.dart';
+import 'package:tobeto_mobil/models/enums/social_media_item.dart';
 import 'package:tobeto_mobil/pages/profile/profile_edit_page/birthdate_widget.dart';
 import 'package:tobeto_mobil/pages/profile/profile_edit_page/competence_widget.dart';
 import 'package:tobeto_mobil/pages/profile/profile_edit_page/info_title_widget.dart';
 import 'package:tobeto_mobil/pages/profile/profile_edit_page/profile_text_field.dart';
 import 'package:tobeto_mobil/core/widgets/basic_shadow.dart';
+import 'package:tobeto_mobil/pages/profile/profile_edit_page/social_media_widget.dart';
 import 'package:tobeto_mobil/utils/theme/theme_ios.dart';
 
 class ProfileEditPage extends StatefulWidget {
@@ -73,26 +74,7 @@ class _ProfileEditPage extends State<ProfileEditPage> {
                   labelText: "Sertifikalar",
                 ),
                 const InfoTitleWidget(title: "Sosyal Medya Hesaplarım"),
-                OptionalProfileTextField(
-                  labelText: "Github",
-                  icon: Image.asset(github, height: 32, width: 32),
-                ),
-                OptionalProfileTextField(
-                  labelText: "Linkedin",
-                  icon: Image.asset(linkedin, height: 32, width: 32),
-                ),
-                OptionalProfileTextField(
-                  labelText: "Facebook",
-                  icon: Image.asset(facebook, height: 32, width: 32),
-                ),
-                OptionalProfileTextField(
-                  labelText: "X",
-                  icon: Image.asset(twitterX, height: 32, width: 32),
-                ),
-                OptionalProfileTextField(
-                  labelText: "Instagram",
-                  icon: Image.asset(instagram, height: 32, width: 32),
-                ),
+                const SocialMediaWidget(socialMediaItems: SocialMediaItem.values)
               ],
             ),
           ),

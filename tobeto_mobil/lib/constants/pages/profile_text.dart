@@ -1,19 +1,18 @@
 //profile page -social media icons
 import 'package:flutter/material.dart';
 
-const facebook = "assets/images/profile/facebook.png";
-const github = "assets/images/profile/github.png";
-const instagram = "assets/images/profile/instagram.png";
-const linkedin = "assets/images/profile/linkedin.png";
-const twitter = "assets/images/profile/twitter.png";
-const twitterX = "assets/images/profile/twitterX.png";
+const facebookIcon = "assets/images/profile/facebook.png";
+const githubIcon = "assets/images/profile/github.png";
+const instagramIcon = "assets/images/profile/instagram.png";
+const linkedinIcon = "assets/images/profile/linkedin.png";
+const twitterIcon = "assets/images/profile/twitterX.png";
 
 //profile page -social media icons color
 const facebookColor = Color(0xFF3b5998);
 const githubColor = Color(0xFF2b3137);
 const instagramColor = Color(0xFFdd2a7b);
 const linkedinColor = Color(0xFF0077b5);
-const twitterXColor = Colors.black;
+const twitterColor = Colors.black;
 
 //profile page -social media links
 const facebookUrl = "https://www.facebook.com/";

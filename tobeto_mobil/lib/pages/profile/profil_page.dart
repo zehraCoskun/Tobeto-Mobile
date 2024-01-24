@@ -3,6 +3,7 @@ import 'package:share/share.dart';
 import 'package:tobeto_mobil/constants/image_text.dart';
 import 'package:tobeto_mobil/core/screens/global_scaffold.dart';
 import 'package:tobeto_mobil/core/widgets/secondary_background.dart';
+import 'package:tobeto_mobil/models/enums/social_media_item.dart';
 import 'package:tobeto_mobil/models/user_model.dart';
 import 'package:tobeto_mobil/pages/profile/activity_map/activity_map_widget.dart';
 import 'package:tobeto_mobil/pages/profile/lists/badges_list_widget.dart';
@@ -11,7 +12,7 @@ import 'package:tobeto_mobil/pages/profile/lists/competence_list_widget.dart';
 import 'package:tobeto_mobil/pages/profile/personal_info/personal_info_column_widget.dart';
 import 'package:tobeto_mobil/pages/profile/profile_container.dart';
 import 'package:tobeto_mobil/pages/profile/profile_picture/profile_picture.dart';
-import 'package:tobeto_mobil/pages/profile/social_media/social_media_widget.dart';
+import 'package:tobeto_mobil/pages/profile/lists/social_media_list_widget.dart';
 
 class ProfilPage extends StatelessWidget {
   const ProfilPage({super.key, required this.userModel});
@@ -63,6 +64,7 @@ class ProfilPage extends StatelessWidget {
                   title: "Sosyal Medya Hesaplarım",
                   child: SocialMediaWidget(
                     user: userModel,
+                    socialMediaItems: SocialMediaItem.values,
                   ),
                 ),
                 ProfileContainer(
