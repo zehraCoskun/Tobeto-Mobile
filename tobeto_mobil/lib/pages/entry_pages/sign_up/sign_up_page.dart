@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/constants/image_text.dart';
 import 'package:tobeto_mobil/constants/pages/login_text.dart';
 import 'package:tobeto_mobil/core/widgets/primary_background.dart';
+import 'package:tobeto_mobil/pages/entry_pages/login/login_page.dart';
+import 'package:tobeto_mobil/pages/entry_pages/recovery/recovery_page.dart';
 import 'package:tobeto_mobil/utils/theme/theme_ios.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -33,8 +35,8 @@ class _SignUpPageState extends State<SignUpPage> {
   );
 
   void _submit() async {
-    _formKey.currentState!.save();
     _formKey.currentState!.validate();
+    _formKey.currentState!.save();
   }
 
   final _formKey = GlobalKey<FormState>();
@@ -48,15 +50,33 @@ class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: true,
+      resizeToAvoidBottomInset: false,
       body: PrimaryBackgroundWidget(
         child: Padding(
-          padding: const EdgeInsets.only(left: 16, right: 16, top: 80),
+          padding: const EdgeInsets.only(left: 16, right: 16, top: 30),
           child: Column(
             children: [
+              Row(
+                children: [
+                  IconButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => RecoveryPage()));
+                    },
+                    icon: Icon(Icons.arrow_back),
+                  ),
+                ],
+              ),
               Image.asset(
                 height: kToolbarHeight,
-                Theme.of(context).brightness == Brightness.dark ? ikLogoLight : ikLogoDark,
+                Theme.of(context).brightness == Brightness.dark
+                    ? ikLogoLight
+                    : ikLogoDark,
+              ),
+              const SizedBox(
+                height: 20,
               ),
               Form(
                 key: _formKey,
@@ -80,12 +100,18 @@ class _SignUpPageState extends State<SignUpPage> {
                           prefixIcon: const Icon(Icons.person),
                           labelText: SignUpNameLabel,
                           focusedBorder: OutlineInputBorder(
-                            borderRadius: const BorderRadius.all(Radius.circular(55)),
-                            borderSide: BorderSide(color: Theme.of(context).colorScheme.onPrimary, width: 3.0), // colorscheme
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(55)),
+                            borderSide: BorderSide(
+                                color: Theme.of(context).colorScheme.onPrimary,
+                                width: 3.0), // colorscheme
                           ),
                           enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Theme.of(context).colorScheme.primary, width: 2.0),
-                            borderRadius: const BorderRadius.all(Radius.circular(15)),
+                            borderSide: BorderSide(
+                                color: Theme.of(context).colorScheme.primary,
+                                width: 2.0),
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(15)),
                           ),
                           hintText: SignUpNameHint,
                         ),
@@ -107,14 +133,20 @@ class _SignUpPageState extends State<SignUpPage> {
                           prefixIcon: const Icon(Icons.person),
                           labelText: SignUpSurnameLabel,
                           focusedBorder: OutlineInputBorder(
-                            borderRadius: const BorderRadius.all(Radius.circular(55)),
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(55)),
                             borderSide: BorderSide(
-                                color: Theme.of(context).colorScheme.onPrimary, // colorscheme111********
+                                color: Theme.of(context)
+                                    .colorScheme
+                                    .onPrimary, // colorscheme111********
                                 width: 3.0),
                           ),
                           enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Theme.of(context).colorScheme.primary, width: 2.0), // ColorScheme22
-                            borderRadius: const BorderRadius.all(Radius.circular(15)),
+                            borderSide: BorderSide(
+                                color: Theme.of(context).colorScheme.primary,
+                                width: 2.0), // ColorScheme22
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(15)),
                           ),
                           hintText: SignUpSurnameSurname,
                         ),
@@ -133,6 +165,9 @@ class _SignUpPageState extends State<SignUpPage> {
                           if (!value.contains("@")) {
                             return "Mail geçersiz; Mail, @ içermelidir";
                           }
+                          if (value.length < 10) {
+                            return "Lütfen geçerli bir mail girin!";
+                          }
                           return null; // Geçerli durum
                         },
                         // validator ************
@@ -142,12 +177,18 @@ class _SignUpPageState extends State<SignUpPage> {
                           prefixIcon: const Icon(Icons.email),
                           labelText: SignUpEmailLabel,
                           focusedBorder: OutlineInputBorder(
-                            borderRadius: const BorderRadius.all(Radius.circular(55)),
-                            borderSide: BorderSide(color: Theme.of(context).colorScheme.onPrimary, width: 3.0),
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(55)),
+                            borderSide: BorderSide(
+                                color: Theme.of(context).colorScheme.onPrimary,
+                                width: 3.0),
                           ),
                           enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Theme.of(context).colorScheme.primary, width: 2.0),
-                            borderRadius: const BorderRadius.all(Radius.circular(15)),
+                            borderSide: BorderSide(
+                                color: Theme.of(context).colorScheme.primary,
+                                width: 2.0),
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(15)),
                           ),
                           hintText: SignUpEmailHint,
                         ),
@@ -155,8 +196,8 @@ class _SignUpPageState extends State<SignUpPage> {
                       //******************* ŞİFRE
                       const SizedBox(height: 16),
                       TextFormField(
-                        onSaved: (newValue) {
-                          _password = newValue!;
+                        onChanged: (newValue) {
+                          _password = newValue;
                         },
                         validator: (value) {
                           if (value!.isEmpty) {
@@ -173,17 +214,27 @@ class _SignUpPageState extends State<SignUpPage> {
                                 passwordVisible = !passwordVisible;
                               });
                             },
-                            icon: Icon(passwordVisible ? Icons.visibility : Icons.visibility_off),
-                            color: Theme.of(context).colorScheme.onPrimary, // Buradaaa icon renk almadı neden????
+                            icon: Icon(passwordVisible
+                                ? Icons.visibility
+                                : Icons.visibility_off),
+                            color: Theme.of(context)
+                                .colorScheme
+                                .onPrimary, // Buradaaa icon renk almadı neden????
                           ),
                           labelText: SignUpSifreLabel,
                           focusedBorder: OutlineInputBorder(
-                            borderRadius: const BorderRadius.all(Radius.circular(55)),
-                            borderSide: BorderSide(color: Theme.of(context).colorScheme.onPrimary, width: 3.0), //ColorScheme***
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(55)),
+                            borderSide: BorderSide(
+                                color: Theme.of(context).colorScheme.onPrimary,
+                                width: 3.0), //ColorScheme***
                           ),
                           enabledBorder: OutlineInputBorder(
-                            borderRadius: const BorderRadius.all(Radius.circular(15)),
-                            borderSide: BorderSide(color: Theme.of(context).colorScheme.primary, width: 2.0),
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(15)),
+                            borderSide: BorderSide(
+                                color: Theme.of(context).colorScheme.primary,
+                                width: 2.0),
                           ),
                           hintText: SignUpSifreHint,
                         ),
@@ -191,12 +242,15 @@ class _SignUpPageState extends State<SignUpPage> {
                       //************************* SIFRE TEKRAR
                       const SizedBox(height: 16),
                       TextFormField(
-                        onSaved: (newValue) {
-                          _passwordAgain = newValue!;
+                        onChanged: (newValue) {
+                          _passwordAgain = newValue;
                         },
                         validator: (value) {
                           if (value!.isEmpty) {
                             return "Lütfen Şifre alanını boş bırakmayın";
+                          }
+                          if (_passwordAgain != _password) {
+                            return "Şifreler uyuşmadı, Lütfen tekrar deneyin!";
                           }
                           return null;
                         }, //  validator ************
@@ -204,42 +258,71 @@ class _SignUpPageState extends State<SignUpPage> {
                         decoration: InputDecoration(
                           prefixIcon: const Icon(Icons.lock_reset_outlined),
                           suffixIcon: IconButton(
-                            color: Theme.of(context).colorScheme.onPrimary, // Buradaaa icon renk almadı neden????
+                            color: Theme.of(context)
+                                .colorScheme
+                                .onPrimary, // Buradaaa icon renk almadı neden????
                             onPressed: () {
                               setState(() {
                                 passwordVisible2 = !passwordVisible2;
                               });
                             },
-                            icon: Icon(passwordVisible2 ? Icons.visibility : Icons.visibility_off),
+                            icon: Icon(passwordVisible2
+                                ? Icons.visibility
+                                : Icons.visibility_off),
                           ),
                           labelText: SignUpSifreTekrarLabel,
                           focusedBorder: OutlineInputBorder(
-                            borderRadius: const BorderRadius.all(Radius.circular(55)),
-                            borderSide: BorderSide(color: Theme.of(context).colorScheme.onPrimary, width: 3.0), // ColorScheme***
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(55)),
+                            borderSide: BorderSide(
+                                color: Theme.of(context).colorScheme.onPrimary,
+                                width: 3.0), // ColorScheme***
                           ),
                           enabledBorder: OutlineInputBorder(
-                            borderRadius: const BorderRadius.all(Radius.circular(15)),
-                            borderSide: BorderSide(color: Theme.of(context).colorScheme.primary, width: 2.0),
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(15)),
+                            borderSide: BorderSide(
+                                color: Theme.of(context).colorScheme.primary,
+                                width: 2.0),
                           ),
                           hintText: SignUpSifreTekrarHint,
                         ),
                       ),
                       //**************************************
-                      const SizedBox(height: 16),
+                      const SizedBox(height: 25),
                       ElevatedButton(
                         onPressed: () {
-                          print(_ad);
+                          print(_password);
+                          print(_passwordAgain);
+
                           final result = _formKey.currentState!.validate();
                           if (result) {
                             _formKey.currentState?.save();
-                            print(_ad);
-                            ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                            print(_password);
+                            print(_passwordAgain);
+                            ScaffoldMessenger.of(context)
+                                .showSnackBar(snackBar);
                           }
                         },
                         child: const Text(signUp),
+                        style: ElevatedButton.styleFrom(
+                            elevation: 20,
+                            shadowColor: Colors
+                                .blueGrey // Gölge miktarı, ayarlayabilirsiniz
+                            ),
+                      ),
+                      SizedBox(
+                        height: 10,
                       ),
                       const Text("Zaten bir hesabın var mı ?"),
-                      TextButton(onPressed: () {}, child: const Text("Giriş Yap"))
+                      TextButton(
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const LoginPage()));
+                          },
+                          child: const Text("Giriş Yap"))
                     ],
                   ),
                 ),

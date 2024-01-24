@@ -14,6 +14,9 @@ class RecoveryPage extends StatefulWidget {
 }
 
 class _RecoveryPageState extends State<RecoveryPage> {
+  final _recoverykey = GlobalKey<FormState>();
+  var _recovery = '';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,7 +34,8 @@ class _RecoveryPageState extends State<RecoveryPage> {
             children: [
               SizedBox(
                 height: (MediaQuery.of(context).size.width / 2),
-                child: Lottie.network("https://lottie.host/e9be6368-9465-4b43-8fc4-02314f5ec942/sZlkgQnieS.json"),
+                child: Lottie.network(
+                    "https://lottie.host/e9be6368-9465-4b43-8fc4-02314f5ec942/sZlkgQnieS.json"),
               ),
               const Text(
                 forgetPasswordTitle,
@@ -45,11 +49,13 @@ class _RecoveryPageState extends State<RecoveryPage> {
                   keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
                     focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Theme.of(context).primaryColor, width: 3.0),
+                      borderSide: BorderSide(
+                          color: Theme.of(context).primaryColor, width: 3.0),
                       borderRadius: BorderRadius.all(Radius.circular(55)),
                     ),
                     enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: TobetoDarkColors.siyah, width: 1.0),
+                      borderSide:
+                          BorderSide(color: TobetoDarkColors.siyah, width: 1.0),
                       borderRadius: BorderRadius.all(Radius.circular(25)),
                     ),
                     hintText: "e-posta adresinizi giriniz",
@@ -58,7 +64,10 @@ class _RecoveryPageState extends State<RecoveryPage> {
               ),
               const Padding(padding: EdgeInsets.only(bottom: 30)),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  _recoverykey.currentState!.validate();
+                  _recoverykey.currentState!.save();
+                },
                 child: const Text(send),
               ),
               const SizedBox(
@@ -70,7 +79,8 @@ class _RecoveryPageState extends State<RecoveryPage> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const SignUpPage(), // signuppage sayfasına navigator eklendi.
+                      builder: (context) =>
+                          const SignUpPage(), // signuppage sayfasına navigator eklendi.
                     ),
                   );
                 },
