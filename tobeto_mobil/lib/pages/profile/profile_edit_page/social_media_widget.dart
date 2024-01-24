@@ -18,7 +18,7 @@ class SocialMediaWidget extends StatelessWidget {
         itemCount: socialMediaItems.length,
         itemBuilder: (context, index) {
           return OptionalProfileTextField(
-            labelText: socialMediaItems[index].name,
+            labelText: socialMediaItems[index].getName(),
             icon: Image.asset(socialMediaItems[index].getIcon(), height: 32, width: 32),
           );
         },
