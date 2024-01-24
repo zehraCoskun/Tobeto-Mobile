@@ -116,7 +116,7 @@ class _SignUpPageState extends State<SignUpPage> {
                           }
                           return null;
                         }, //  validator ************
-                        obscureText: true,
+                        obscureText: false,
                         decoration: InputDecoration(
                           prefixIcon: Icon(Icons.person),
                           labelText: SignUpSurnameLabel,
@@ -153,8 +153,9 @@ class _SignUpPageState extends State<SignUpPage> {
                           }
                           return null; // Geçerli durum
                         },
-                        // ad validator ************
-                        obscureText: true,
+                        // validator ************
+                        obscureText: false,
+                        keyboardType: TextInputType.emailAddress,
                         decoration: InputDecoration(
                           prefixIcon: Icon(Icons.email),
                           labelText: SignUpEmailLabel,
@@ -228,7 +229,7 @@ class _SignUpPageState extends State<SignUpPage> {
                             return "Lütfen Şifre alanını boş bırakmayın";
                           }
                           return null;
-                        }, // ad validator ************
+                        }, //  validator ************
                         obscureText: !passwordVisible2,
                         decoration: InputDecoration(
                           prefixIcon: Icon(Icons.lock_reset_outlined),

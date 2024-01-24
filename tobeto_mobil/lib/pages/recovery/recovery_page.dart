@@ -44,6 +44,7 @@ class _RecoveryPageState extends State<RecoveryPage> {
                 padding: EdgeInsets.symmetric(horizontal: padding16),
                 child: TextField(
                   obscureText: false,
+                  keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(
