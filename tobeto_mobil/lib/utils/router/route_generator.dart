@@ -6,6 +6,7 @@ import 'package:tobeto_mobil/pages/login/login_page.dart';
 import 'package:tobeto_mobil/pages/home/home_page.dart';
 import 'package:tobeto_mobil/pages/profile/profil_page.dart';
 import 'package:tobeto_mobil/pages/profile/profile_edit_page/profile_edit_page.dart';
+import 'package:tobeto_mobil/pages/review/reviews_page.dart';
 import 'package:tobeto_mobil/utils/router/route_transition.dart';
 
 class RouteGenerator {
@@ -17,6 +18,8 @@ class RouteGenerator {
         return defaultRouteTransition(const LoginPage());
       case "/home":
         return defaultRouteTransition(const HomePage());
+      case "/reviews":
+        return defaultRouteTransition(const ReviewsPage());
       case "/profile":
         return defaultRouteTransition(ProfilPage(userModel: user1));
       case "/catalog":

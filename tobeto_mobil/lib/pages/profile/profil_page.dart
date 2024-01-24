@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:share/share.dart';
 import 'package:tobeto_mobil/constants/image_text.dart';
+import 'package:tobeto_mobil/core/screens/global_scaffold.dart';
 import 'package:tobeto_mobil/core/widgets/secondary_background.dart';
+import 'package:tobeto_mobil/dummy_user_data.dart';
 import 'package:tobeto_mobil/models/user_model.dart';
 import 'package:tobeto_mobil/pages/profile/activity_map_widget.dart';
 import 'package:tobeto_mobil/pages/profile/badges_list_widget.dart';
@@ -18,7 +20,8 @@ class ProfilPage extends StatelessWidget {
   final UserModel userModel;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return GlobalScaffold(
+        userModel: userModel,
         appBar: AppBar(
           centerTitle: true,
           title: Image.asset(

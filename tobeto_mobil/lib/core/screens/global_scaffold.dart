@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/models/enums/drawer_item.dart';
+import 'package:tobeto_mobil/models/user_model.dart';
 import 'package:tobeto_mobil/pages/drawer/drawer_page.dart';
 
 //login screen disinda suan icin Scaffold yerine her sayfada kullanilacak
@@ -10,16 +11,19 @@ class GlobalScaffold extends StatelessWidget {
     Key? key,
     this.appBar,
     this.body,
+    required this.userModel,
   }) : super(key: key);
 
   final PreferredSizeWidget? appBar;
   final Widget? body;
+  final UserModel userModel;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const DrawerPage(
+      drawer: DrawerPage(
         items: DrawerItem.values,
+        userModel: userModel,
       ),
       appBar: appBar ??
           AppBar(

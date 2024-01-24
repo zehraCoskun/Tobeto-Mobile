@@ -1,6 +1,6 @@
 enum DrawerItem {
   home,
-  ratings,
+  reviews,
   profile,
   catalog,
   calendar;
@@ -11,7 +11,7 @@ enum DrawerItem {
     switch (this) {
       case DrawerItem.home:
         return "🏠 Anasayfa";
-      case DrawerItem.ratings:
+      case DrawerItem.reviews:
         return "🖊️ Değerlendirmeler";
       case DrawerItem.profile:
         return "😊 Profilim";
@@ -34,7 +34,7 @@ enum DrawerItem {
     //   case DrawerItem.home:
     //     return "/home";
     //   case DrawerItem.ratings:
-    //     return "/ratings";
+    //     return "/reviews";
     //   case DrawerItem.profile:
     //     return "/profile";
     //   case DrawerItem.catalog:
