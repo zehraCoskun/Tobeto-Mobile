@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/dummy_user_data.dart';
-import 'package:tobeto_mobil/pages/profile/profile_shadow.dart';
+import 'package:tobeto_mobil/core/widgets/basic_shadow.dart';
 
 class CompetenceCard extends StatelessWidget {
   const CompetenceCard({
@@ -12,10 +12,7 @@ class CompetenceCard extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 8),
       padding: const EdgeInsets.all(4),
-      decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(16),
-          boxShadow: [ProfileShadow()]),
+      decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(16), boxShadow: [basicShadow()]),
       child: AspectRatio(
         aspectRatio: 4 / 1,
         child: GridView.builder(
@@ -39,4 +36,3 @@ class CompetenceCard extends StatelessWidget {
     );
   }
 }
-

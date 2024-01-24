@@ -1,8 +1,8 @@
 //container
 import 'package:flutter/material.dart';
 
-class ProfileBodyContainer extends StatelessWidget {
-  const ProfileBodyContainer({
+class ProfileContentContainer extends StatelessWidget {
+  const ProfileContentContainer({
     super.key,
     required this.title,
     required this.body,

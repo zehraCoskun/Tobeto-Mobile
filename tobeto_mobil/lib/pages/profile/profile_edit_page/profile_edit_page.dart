@@ -6,7 +6,7 @@ import 'package:tobeto_mobil/pages/profile/profile_edit_page/birthdate_widget.da
 import 'package:tobeto_mobil/pages/profile/profile_edit_page/competence_widget.dart';
 import 'package:tobeto_mobil/pages/profile/profile_edit_page/info_title_widget.dart';
 import 'package:tobeto_mobil/pages/profile/profile_edit_page/profile_text_field.dart';
-import 'package:tobeto_mobil/pages/profile/profile_shadow.dart';
+import 'package:tobeto_mobil/core/widgets/basic_shadow.dart';
 import 'package:tobeto_mobil/utils/theme/theme_ios.dart';
 
 class ProfileEditPage extends StatefulWidget {
@@ -107,7 +107,7 @@ class _ProfileEditPage extends State<ProfileEditPage> {
         return Container(
           margin: const EdgeInsets.symmetric(vertical: 16),
           padding: const EdgeInsets.all(16),
-          decoration: BoxDecoration(color: TobetoDarkColors.beyaz, borderRadius: BorderRadius.circular(16), boxShadow: [ProfileShadow()]),
+          decoration: BoxDecoration(color: TobetoDarkColors.beyaz, borderRadius: BorderRadius.circular(16), boxShadow: [basicShadow()]),
           child: Column(
             children: [
               AspectRatio(
@@ -126,7 +126,7 @@ class _ProfileEditPage extends State<ProfileEditPage> {
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(16),
-                          boxShadow: [ProfileShadow()],
+                          boxShadow: [basicShadow()],
                         ),
                         child: InkWell(
                           child: Text(

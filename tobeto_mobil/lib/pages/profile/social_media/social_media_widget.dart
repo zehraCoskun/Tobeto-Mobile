@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/constants/pages/profile_text.dart';
 import 'package:tobeto_mobil/models/user_model.dart';
-import 'package:tobeto_mobil/pages/profile/social_media_button.dart';
+import 'package:tobeto_mobil/pages/profile/social_media/social_media_button.dart';
 
 class SocialMediaWidget extends StatelessWidget {
   const SocialMediaWidget({
@@ -17,7 +17,7 @@ class SocialMediaWidget extends StatelessWidget {
         SocialMediaButton(
           logo: github,
           color: githubColor,
-          url: user.githubLink ?? "", 
+          url: user.githubLink ?? "",
         ),
         SocialMediaButton(
           logo: linkedin,

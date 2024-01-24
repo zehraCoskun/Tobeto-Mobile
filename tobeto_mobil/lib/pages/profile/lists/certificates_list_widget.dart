@@ -1,11 +1,12 @@
-//yetkinliklerim içeriği
+//sertifikalarım içeriği
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/models/user_model.dart';
-import 'package:tobeto_mobil/pages/profile/contents_widget.dart';
+import 'package:tobeto_mobil/pages/profile/lists/contents_widget.dart';
 
-class CompetenceListWidget extends StatelessWidget {
-  const CompetenceListWidget({
-    super.key, required this.user,
+class CertificatesListWidget extends StatelessWidget {
+  const CertificatesListWidget({
+    super.key,
+    required this.user,
   });
   final UserModel user;
   @override
@@ -14,10 +15,10 @@ class CompetenceListWidget extends StatelessWidget {
       aspectRatio: 7 / 1,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemCount: user.compteneces != null ? user.compteneces!.length : 0,
+        itemCount: user.certificates != null ? user.certificates!.length : 0,
         itemBuilder: (context, index) {
           return ContentsWidget(
-            competence: user.compteneces != null ? user.compteneces![index] : "",
+            competence: user.certificates != null ? user.certificates![index] : "",
           );
         },
       ),

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:tobeto_mobil/pages/profile/profile_shadow.dart';
+import 'package:tobeto_mobil/core/widgets/basic_shadow.dart';
 import 'package:tobeto_mobil/utils/theme/theme_ios.dart';
+
 //şu an için sadece ekledi, düzenlenecek
 class BirthDateWidget extends StatelessWidget {
   BirthDateWidget({super.key});
@@ -14,7 +15,7 @@ class BirthDateWidget extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(16),
-        boxShadow: [ProfileShadow()],
+        boxShadow: [basicShadow()],
       ),
       child: Container(
         margin: const EdgeInsets.symmetric(vertical: 1),

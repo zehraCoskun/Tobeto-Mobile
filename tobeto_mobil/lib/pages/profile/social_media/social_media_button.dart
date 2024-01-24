@@ -1,6 +1,6 @@
 //sosyal medya icon button
 import 'package:flutter/material.dart';
-import 'package:tobeto_mobil/pages/profile/profile_shadow.dart';
+import 'package:tobeto_mobil/core/widgets/basic_shadow.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class SocialMediaButton extends StatelessWidget {
@@ -26,7 +26,7 @@ class SocialMediaButton extends StatelessWidget {
         decoration: BoxDecoration(
           shape: BoxShape.circle,
           color: Colors.white,
-          boxShadow: [ProfileShadow()],
+          boxShadow: [basicShadow()],
         ),
         child: Image.asset(
           logo,

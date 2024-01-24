@@ -3,17 +3,16 @@ import 'package:share/share.dart';
 import 'package:tobeto_mobil/constants/image_text.dart';
 import 'package:tobeto_mobil/core/screens/global_scaffold.dart';
 import 'package:tobeto_mobil/core/widgets/secondary_background.dart';
-import 'package:tobeto_mobil/dummy_user_data.dart';
 import 'package:tobeto_mobil/models/user_model.dart';
-import 'package:tobeto_mobil/pages/profile/activity_map_widget.dart';
-import 'package:tobeto_mobil/pages/profile/badges_list_widget.dart';
-import 'package:tobeto_mobil/pages/profile/certificates_list_widget.dart';
-import 'package:tobeto_mobil/pages/profile/competence_list_widget.dart';
-import 'package:tobeto_mobil/pages/profile/personal_info_column_widget.dart';
-import 'package:tobeto_mobil/pages/profile/profile_body_container.dart';
-import 'package:tobeto_mobil/pages/profile/profile_container.dart';
-import 'package:tobeto_mobil/pages/profile/profile_picture.dart';
-import 'package:tobeto_mobil/pages/profile/social_media_widget.dart';
+import 'package:tobeto_mobil/pages/profile/activity_map/activity_map_widget.dart';
+import 'package:tobeto_mobil/pages/profile/lists/badges_list_widget.dart';
+import 'package:tobeto_mobil/pages/profile/lists/certificates_list_widget.dart';
+import 'package:tobeto_mobil/pages/profile/lists/competence_list_widget.dart';
+import 'package:tobeto_mobil/pages/profile/personal_info/personal_info_column_widget.dart';
+import 'package:tobeto_mobil/pages/profile/profile_content_container.dart';
+import 'package:tobeto_mobil/pages/profile/profile_main_container.dart';
+import 'package:tobeto_mobil/pages/profile/profile_picture/profile_picture.dart';
+import 'package:tobeto_mobil/pages/profile/social_media/social_media_widget.dart';
 
 class ProfilPage extends StatelessWidget {
   const ProfilPage({super.key, required this.userModel});
@@ -49,29 +48,31 @@ class ProfilPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 ProfilePicture(user: userModel),
-                ProfileContainer(child: PersonalInfoColumnWidget(user: userModel)),
-                ProfileContainer(
-                  child: ProfileBodyContainer(
+                ProfileMainContainer(
+                  child: PersonalInfoColumnWidget(user: userModel),
+                ),
+                ProfileMainContainer(
+                  child: ProfileContentContainer(
                     title: "Yetkinliklerim",
                     body: CompetenceListWidget(user: userModel),
                   ),
                 ),
-                ProfileContainer(
-                  child: ProfileBodyContainer(
+                ProfileMainContainer(
+                  child: ProfileContentContainer(
                     title: "Sertifikalarım",
                     body: CertificatesListWidget(user: userModel),
                   ),
                 ),
-                ProfileContainer(
-                  child: ProfileBodyContainer(
+                ProfileMainContainer(
+                  child: ProfileContentContainer(
                     title: "Sosyal Medya Hesaplarım",
                     body: SocialMediaWidget(
                       user: userModel,
                     ),
                   ),
                 ),
-                ProfileContainer(
-                  child: ProfileBodyContainer(
+                ProfileMainContainer(
+                  child: ProfileContentContainer(
                     title: "Yetkinlik Rozetlerim",
                     body: BadgesListWidget(
                       user: userModel,

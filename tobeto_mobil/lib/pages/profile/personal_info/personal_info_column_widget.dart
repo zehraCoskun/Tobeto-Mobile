@@ -1,7 +1,7 @@
 //kişşisel bilgiler içerik
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/models/user_model.dart';
-import 'package:tobeto_mobil/pages/profile/personal_info_row_widget.dart';
+import 'package:tobeto_mobil/pages/profile/personal_info/personal_info_row_widget.dart';
 
 class PersonalInfoColumnWidget extends StatelessWidget {
   const PersonalInfoColumnWidget({

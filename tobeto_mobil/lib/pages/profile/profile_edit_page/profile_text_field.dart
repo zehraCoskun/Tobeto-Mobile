@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_mobil/pages/profile/profile_shadow.dart';
+import 'package:tobeto_mobil/core/widgets/basic_shadow.dart';
 import 'package:tobeto_mobil/utils/theme/theme_ios.dart';
 
 class ProfileTextField extends StatelessWidget {
@@ -20,7 +20,7 @@ class ProfileTextField extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 8),
       padding: const EdgeInsets.all(4),
-      decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(16), boxShadow: [ProfileShadow()]),
+      decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(16), boxShadow: [basicShadow()]),
       child: TextFormField(
         decoration: InputDecoration(
           labelText: labelText,
@@ -53,7 +53,7 @@ class OptionalProfileTextField extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 8),
       padding: const EdgeInsets.all(4),
-      decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(16), boxShadow: [ProfileShadow()]),
+      decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(16), boxShadow: [basicShadow()]),
       child: Row(
         children: [
           Expanded(

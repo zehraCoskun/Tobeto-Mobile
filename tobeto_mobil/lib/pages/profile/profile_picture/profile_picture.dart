@@ -2,8 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/constants/image_text.dart';
 import 'package:tobeto_mobil/models/user_model.dart';
-import 'package:tobeto_mobil/pages/profile/profile_container.dart';
-import 'package:tobeto_mobil/pages/profile/animated_wave_curves.dart';
+import 'package:tobeto_mobil/pages/profile/profile_main_container.dart';
+import 'package:tobeto_mobil/pages/profile/profile_picture/animated_wave_curves.dart';
 
 class ProfilePicture extends StatefulWidget {
   const ProfilePicture({
@@ -21,7 +21,7 @@ class ProfilePicture extends StatefulWidget {
 class _ProfilePictureState extends State<ProfilePicture> {
   @override
   Widget build(BuildContext context) {
-    return ProfileContainer(
+    return ProfileMainContainer(
       height: 150.0,
       child: Stack(
         alignment: Alignment.center,

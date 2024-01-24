@@ -1,9 +1,9 @@
 //temel container
 import 'package:flutter/material.dart';
-import 'package:tobeto_mobil/pages/profile/profile_shadow.dart';
+import 'package:tobeto_mobil/core/widgets/basic_shadow.dart';
 
-class ProfileContainer extends StatelessWidget {
-  const ProfileContainer({
+class ProfileMainContainer extends StatelessWidget {
+  const ProfileMainContainer({
     Key? key,
     required this.child,
     this.height,
@@ -20,7 +20,7 @@ class ProfileContainer extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(16),
-        boxShadow: [ProfileShadow()],
+        boxShadow: [basicShadow()],
       ),
       child: child,
     );

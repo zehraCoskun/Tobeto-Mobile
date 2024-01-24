@@ -1,7 +1,7 @@
 //rozetlerim
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/models/user_model.dart';
-import 'package:tobeto_mobil/pages/profile/badge_widget.dart';
+import 'package:tobeto_mobil/pages/profile/lists/badge_widget.dart';
 
 class BadgesListWidget extends StatelessWidget {
   const BadgesListWidget({
