@@ -7,6 +7,7 @@ import 'package:tobeto_mobil/models/education/education_model.dart';
 import 'package:tobeto_mobil/models/education/enums/education_status.dart';
 import 'package:tobeto_mobil/models/exam_model.dart';
 import 'package:tobeto_mobil/models/survey_model.dart';
+import 'package:tobeto_mobil/models/review_model.dart';
 
 final List<EducationModel> educationModelData = [
   EducationModel(
@@ -147,8 +148,7 @@ final List<AnnouncementModel> announcementModelData = [
     date: "27.12.2023",
     organisation: "İstanbul Kodluyor",
     title: "Yeni Grupların Discord'a Katılımı",
-    content:
-        """Merhabalar,\n\n Herkes için Kodlama 4A grubunun discorda katılımı yarın gerçekleşecek olan Mentor oturumu sonrası yapılacaktır.\n
+    content: """Merhabalar,\n\n Herkes için Kodlama 4A grubunun discorda katılımı yarın gerçekleşecek olan Mentor oturumu sonrası yapılacaktır.\n
  Mentor oturumuna Eğitimlerim bölümünden giriş yapabilirsiniz.""",
     type: "Duyuru",
   ),
@@ -201,8 +201,7 @@ TOBETO Ekibi""",
     date: "4.11.2023",
     organisation: "İstanbul Kodluyor",
     title: "25 Kasım Kampüs Buluşması",
-    content:
-        """ Herkes için Kodlama eğitimi sonrası kampüs buluşmamız 25 Kasım 2023 tarihinde Üsküdar Üniversitesi'nde gerçekleşecektir.\n
+    content: """ Herkes için Kodlama eğitimi sonrası kampüs buluşmamız 25 Kasım 2023 tarihinde Üsküdar Üniversitesi'nde gerçekleşecektir.\n
  Saat:10:30-12:30\n
 Adres:Mimar Sinan, Selmani Pak Cd., 34672 Üsküdar/İstanbul\n
  Toplu Taşıma ile ulaşım: Marmaray'ın Üsküdar durağında indikten sonra 4-5 dakika yürüyerek kampüse ulaşabilirsin.
@@ -310,4 +309,12 @@ final List<CatalogModel> catalogModelData = [
     trainer: "Gürkan İlişen",
     thumbnail: catalog2,
   ),
+];
+
+final List<ReviewModel> reviewModelData = [
+  ReviewModel(id: "1", title: "Tobeto İşte Başarı Modeli"),
+  ReviewModel(id: "2", title: "Front End"),
+  ReviewModel(id: "3", title: "Back End"),
+  ReviewModel(id: "4", title: "Full Stack"),
+  ReviewModel(id: "5", title: "SQL"),
 ];

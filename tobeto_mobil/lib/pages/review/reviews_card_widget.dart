@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/core/widgets/basic_shadow.dart';
+import 'package:tobeto_mobil/models/review_model.dart';
 import 'package:tobeto_mobil/utils/theme/theme_ios.dart';
 
 class ReviewsCard extends StatelessWidget {
-  const ReviewsCard({super.key});
+  const ReviewsCard({super.key, required this.reviewModel});
+  final ReviewModel reviewModel;
 
   @override
   Widget build(BuildContext context) {
@@ -13,22 +15,26 @@ class ReviewsCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(16),
-        boxShadow: [basicShadow()],
+        boxShadow: [basicShadow(), basicShadow(), basicShadow()],
       ),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              "Tobeto İşte Başarı Modeli",
+              reviewModel.title,
               maxLines: 2,
               overflow: TextOverflow.clip,
               style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontWeight: FontWeight.bold),
             ),
-            ElevatedButton(
+            IconButton(
               onPressed: () {},
-              child: Text("Başla"),
+              icon: Icon(
+                Icons.account_tree_rounded,
+                color: TobetoDarkColors.mor,
+              ),
             )
           ],
         ),

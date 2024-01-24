@@ -24,7 +24,7 @@ class ProfilPage extends StatelessWidget {
           centerTitle: true,
           title: Image.asset(
             logo,
-            height: kToolbarHeight - 10,
+            height: kToolbarHeight - 20,
           ),
           actions: [
             IconButton(
