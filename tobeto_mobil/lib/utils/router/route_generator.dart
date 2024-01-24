@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/dummy_user_data.dart';
-import 'package:tobeto_mobil/pages/calendar/calendar_page.dart';
-import 'package:tobeto_mobil/pages/catalog/catalog_page.dart';
-import 'package:tobeto_mobil/pages/login/login_page.dart';
-import 'package:tobeto_mobil/pages/home/home_page.dart';
-import 'package:tobeto_mobil/pages/profile/profil_page.dart';
-import 'package:tobeto_mobil/pages/profile/profile_edit_page/profile_edit_page.dart';
-import 'package:tobeto_mobil/pages/review/reviews_page.dart';
+import 'package:tobeto_mobil/pages/drawer_list_pages/calendar/calendar_page.dart';
+import 'package:tobeto_mobil/pages/drawer_list_pages/catalog/catalog_page.dart';
+import 'package:tobeto_mobil/pages/entry_pages/login/login_page.dart';
+import 'package:tobeto_mobil/pages/home_tabbar_pages/home_page.dart';
+import 'package:tobeto_mobil/pages/drawer_list_pages/profile/profil_page.dart';
+import 'package:tobeto_mobil/pages/drawer_list_pages/profile/profile_edit_page/profile_edit_page.dart';
+import 'package:tobeto_mobil/pages/drawer_list_pages/review/reviews_page.dart';
 import 'package:tobeto_mobil/utils/router/route_transition.dart';
 
 class RouteGenerator {
