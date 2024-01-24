@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tobeto_mobil/constants/image_text.dart';
 import 'package:tobeto_mobil/models/user_model.dart';
 
 class DrawerHead extends StatelessWidget {
@@ -28,7 +29,29 @@ class DrawerHead extends StatelessWidget {
       ),
 
       // user.photo?
-      currentAccountPicture: CircleAvatar(backgroundColor: Theme.of(context).colorScheme.background, child: Image.asset(user.userPicture!)),
+      currentAccountPicture: Container(
+        width: 120,
+        height: 120,
+        decoration: const BoxDecoration(
+          shape: BoxShape.circle,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey,
+              spreadRadius: 2,
+              blurRadius: 4,
+              offset: Offset(2, 2),
+            )
+          ],
+        ),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(60),
+          child: Image.asset(
+            user.userPicture != null ? user.userPicture! : ders2,
+            height: 120,
+            width: 120,
+          ),
+        ),
+      ),
     );
   }
 }

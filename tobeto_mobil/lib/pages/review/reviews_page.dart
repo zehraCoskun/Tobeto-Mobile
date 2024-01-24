@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:tobeto_mobil/constants/image_text.dart';
 import 'package:tobeto_mobil/core/screens/global_scaffold.dart';
 import 'package:tobeto_mobil/dummy_user_data.dart';
+import 'package:tobeto_mobil/pages/review/reviews_card_widget.dart';
 
 class ReviewsPage extends StatelessWidget {
   const ReviewsPage({super.key});
@@ -10,11 +12,12 @@ class ReviewsPage extends StatelessWidget {
     return GlobalScaffold(
       userModel: user1,
       appBar: AppBar(
-        title: Text(
-          "Yetkinliklerini Test Et !",
-          style: Theme.of(context).textTheme.titleLarge,
+        title: Image.asset(
+          logo,
+          height: kToolbarHeight - 10,
         ),
       ),
+      body: ReviewsCard(),
     );
   }
 }
