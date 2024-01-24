@@ -9,8 +9,7 @@ import 'package:tobeto_mobil/pages/profile/lists/badges_list_widget.dart';
 import 'package:tobeto_mobil/pages/profile/lists/certificates_list_widget.dart';
 import 'package:tobeto_mobil/pages/profile/lists/competence_list_widget.dart';
 import 'package:tobeto_mobil/pages/profile/personal_info/personal_info_column_widget.dart';
-import 'package:tobeto_mobil/pages/profile/profile_content_container.dart';
-import 'package:tobeto_mobil/pages/profile/profile_main_container.dart';
+import 'package:tobeto_mobil/pages/profile/profile_container.dart';
 import 'package:tobeto_mobil/pages/profile/profile_picture/profile_picture.dart';
 import 'package:tobeto_mobil/pages/profile/social_media/social_media_widget.dart';
 
@@ -48,35 +47,28 @@ class ProfilPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 ProfilePicture(user: userModel),
-                ProfileMainContainer(
+                ProfileContainer(
                   child: PersonalInfoColumnWidget(user: userModel),
+                  title: "Kişisel Bİlgilerim",
                 ),
-                ProfileMainContainer(
-                  child: ProfileContentContainer(
-                    title: "Yetkinliklerim",
-                    body: CompetenceListWidget(user: userModel),
+                ProfileContainer(
+                  child: CompetenceListWidget(user: userModel),
+                  title: "Yetkinliklerim",
+                ),
+                ProfileContainer(
+                  title: "Sertifikalarım",
+                  child: CertificatesListWidget(user: userModel),
+                ),
+                ProfileContainer(
+                  title: "Sosyal Medya Hesaplarım",
+                  child: SocialMediaWidget(
+                    user: userModel,
                   ),
                 ),
-                ProfileMainContainer(
-                  child: ProfileContentContainer(
-                    title: "Sertifikalarım",
-                    body: CertificatesListWidget(user: userModel),
-                  ),
-                ),
-                ProfileMainContainer(
-                  child: ProfileContentContainer(
-                    title: "Sosyal Medya Hesaplarım",
-                    body: SocialMediaWidget(
-                      user: userModel,
-                    ),
-                  ),
-                ),
-                ProfileMainContainer(
-                  child: ProfileContentContainer(
-                    title: "Yetkinlik Rozetlerim",
-                    body: BadgesListWidget(
-                      user: userModel,
-                    ),
+                ProfileContainer(
+                  title: "Yetkinlik Rozetlerim",
+                  child: BadgesListWidget(
+                    user: userModel,
                   ),
                 ),
                 const ActivityMapWidget(),
