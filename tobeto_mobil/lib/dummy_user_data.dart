@@ -9,9 +9,9 @@ final user1 = UserModel(
   userEmail: "ecmelaydin@mail.com",
   userPhoneNumber: "+90 505 505 05 05",
   userPicture: ders1,
-  compteneces: [CompetenceList[0], CompetenceList[1], CompetenceList[2], CompetenceList[3]],
+  compteneces: [competenceList[0], competenceList[1], competenceList[2], competenceList[3]],
   certificates: ["Tobeto- Flutter ile Mobil Geliştirme"],
-  //githubLink: githubUrl,
+  githubLink: githubUrl,
   linkedinLink: linkedinUrl,
   facebookLink: facebookUrl,
   twitterLink: twitterUrl,
@@ -19,7 +19,7 @@ final user1 = UserModel(
   badges: [badge1, badge2, badge3, badge4, badge5, badge6, badge7, badge8],
 );
 
-final List<String> CompetenceList = [
+final List<String> competenceList = [
   "Flutter",
   "iOS",
   "Kotlin",

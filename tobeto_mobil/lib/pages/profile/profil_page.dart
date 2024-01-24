@@ -48,12 +48,12 @@ class ProfilPage extends StatelessWidget {
               children: [
                 ProfilePicture(user: userModel),
                 ProfileContainer(
-                  child: PersonalInfoColumnWidget(user: userModel),
                   title: "Kişisel Bİlgilerim",
+                  child: PersonalInfoColumnWidget(user: userModel),
                 ),
                 ProfileContainer(
-                  child: CompetenceListWidget(user: userModel),
                   title: "Yetkinliklerim",
+                  child: CompetenceListWidget(user: userModel),
                 ),
                 ProfileContainer(
                   title: "Sertifikalarım",

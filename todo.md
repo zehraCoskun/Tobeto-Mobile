@@ -42,7 +42,8 @@
  - ~~tasarımda özellikle resimler çok kötü~~
 
 - ## calander screen ##  
- - geliştirilecek
+ - ~~geliştirilecek~~
 
-
+- ## firebase & bloc ##
+ - 
 

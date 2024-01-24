@@ -22,11 +22,11 @@ class CompetenceCard extends StatelessWidget {
             crossAxisSpacing: 5,
             mainAxisSpacing: 5,
           ),
-          itemCount: CompetenceList.length,
+          itemCount: competenceList.length,
           itemBuilder: (context, index) {
             return SizedBox(
               child: Text(
-                CompetenceList[index],
+                competenceList[index],
                 style: const TextStyle(color: Colors.black),
               ),
             );

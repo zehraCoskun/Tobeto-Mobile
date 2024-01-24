@@ -1,3 +1,7 @@
+import 'package:tobeto_mobil/models/application_model.dart';
+import 'package:tobeto_mobil/models/education/education_model.dart';
+import 'package:tobeto_mobil/models/exam_model.dart';
+
 class UserModel {
   final String id;
   final String userName;
@@ -16,6 +20,9 @@ class UserModel {
   final String? instagramLink;
 
   final List<String>? badges;
+  final List<ExamModel>? exams;
+  final List<ApplicationModel>? applications;
+  final List<EducationModel>? educations;
 
   UserModel({
     required this.id,
@@ -32,5 +39,8 @@ class UserModel {
     this.compteneces,
     this.certificates,
     this.badges,
+    this.applications,
+    this.educations,
+    this.exams,
   });
 }
