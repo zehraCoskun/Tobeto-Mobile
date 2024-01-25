@@ -1,6 +1,7 @@
 //profil resmi
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/constants/image_text.dart';
+import 'package:tobeto_mobil/core/widgets/basic_shadow.dart';
 import 'package:tobeto_mobil/models/user_model.dart';
 import 'package:tobeto_mobil/pages/drawer_list_pages/profile/profile_picture/animated_wave_curves.dart';
 
@@ -29,16 +30,9 @@ class _ProfilePictureState extends State<ProfilePicture> {
           Container(
             width: 120,
             height: 120,
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
               shape: BoxShape.circle,
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey,
-                  spreadRadius: 2,
-                  blurRadius: 4,
-                  offset: Offset(2, 2),
-                )
-              ],
+              boxShadow: [basicShadow()],
             ),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(60),

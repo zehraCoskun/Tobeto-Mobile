@@ -1,4 +1,5 @@
 enum TabBarItem {
+  main,
   education,
   announcement,
   exam,
@@ -8,6 +9,8 @@ enum TabBarItem {
   @override
   String toString() {
     switch (this) {
+      case TabBarItem.main:
+        return "Anasayfa";
       case TabBarItem.application:
         return "Başvurularım";
       case TabBarItem.education:
