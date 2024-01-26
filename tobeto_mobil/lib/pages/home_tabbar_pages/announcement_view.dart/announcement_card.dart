@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/core/widgets/container_widget.dart';
+import 'package:tobeto_mobil/core/widgets/title_shadow.dart';
 import 'package:tobeto_mobil/models/announcement_model.dart';
 import 'package:tobeto_mobil/utils/theme/theme_ios.dart';
 
@@ -32,10 +33,18 @@ class AnnouncementCard extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(
-          announcement.type,
-          style: Theme.of(context).textTheme.titleLarge,
-        ),
+        Text(announcement.type,
+            style: TextStyle(
+              color: TobetoDarkColors.beyaz, //Theme.of(context).textTheme.titleLarge!.color,
+              fontWeight: FontWeight.bold,
+              height: 2,
+              shadows: [
+                titleShadow(),
+                titleShadow(),
+              ],
+            )
+            //Theme.of(context).textTheme.titleLarge,
+            ),
         Text(
           announcement.organisation,
           style: Theme.of(context).textTheme.titleSmall,

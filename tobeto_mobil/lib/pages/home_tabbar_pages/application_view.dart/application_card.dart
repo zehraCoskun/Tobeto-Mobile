@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:tobeto_mobil/core/widgets/basic_shadow.dart';
+import 'package:tobeto_mobil/core/widgets/container_widget.dart';
 import 'package:tobeto_mobil/models/application_model.dart';
 import 'package:tobeto_mobil/utils/theme/theme_ios.dart';
 
@@ -13,21 +15,7 @@ class ApplicationCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return AspectRatio(
       aspectRatio: 1.5 / 1,
-      child: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(16),
-          color: Theme.of(context).drawerTheme.backgroundColor,
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.5),
-              spreadRadius: 2,
-              blurRadius: 5,
-              offset: const Offset(4, 4), // Sol üst köşeden ışık vurmuş gibi efekt için negatif değerler kullanılır.
-            ),
-          ],
-        ),
+      child: ContainerWidget(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,

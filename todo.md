@@ -17,6 +17,7 @@
 
 - ## home screen ##
 - tasarım seçilecek, oluşturulacak (opsiyonel)
+- anasayfadaki tüm yeşil başlıkların light modu için değiştirilecek
 
 - ## education detail screen ## 
  - video oynatıcı eklenecek, kalp icon button olacak
