@@ -10,6 +10,7 @@ class EducationModel {
   final String startDate;
   final String endDate;
   final String creator;
+  final bool? isBookmark;
   final EducationStatus status;
   final List<ContentModel> content;
 
@@ -24,5 +25,6 @@ class EducationModel {
     required this.creator,
     required this.status,
     required this.content,
+    this.isBookmark = false,
   });
 }

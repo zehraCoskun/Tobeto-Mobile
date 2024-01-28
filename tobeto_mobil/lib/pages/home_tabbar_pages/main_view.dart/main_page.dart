@@ -1,131 +1,106 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/constants/image_text.dart';
-import 'package:tobeto_mobil/core/widgets/basic_shadow.dart';
 import 'package:tobeto_mobil/core/widgets/container_widget.dart';
 import 'package:tobeto_mobil/core/widgets/secondary_background.dart';
-import 'package:tobeto_mobil/utils/theme/theme_ios.dart';
+import 'package:tobeto_mobil/dummy_data.dart';
+import 'package:tobeto_mobil/pages/home_tabbar_pages/main_view.dart/bookmark_education_list.dart';
+import 'package:tobeto_mobil/pages/home_tabbar_pages/main_view.dart/widgets/main_page_content.dart';
 
 class MainPage extends StatelessWidget {
-  const MainPage({super.key});
-
+  MainPage({super.key});
+  final educationList = educationModelData;
   @override
   Widget build(BuildContext context) {
     return SecondaryBackgroundWidget(
-      child: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            MainPageHeader(),
-            ContainerWidget(
-              child: Text(
-                "Tekrar izlemek istediklerin",
-                style: Theme.of(context).textTheme.titleMedium,
-              ),
-              
-            )
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class MainPageHeader extends StatelessWidget {
-  const MainPageHeader({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Stack(
-      alignment: Alignment.topRight,
-      children: [
-        MainPageContainer(
-          widget: Row(
-            children: [
-              Container(
-                width: 120,
-                height: 120,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  boxShadow: [basicShadow()],
-                ),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(60),
-                  child: Image.asset(
-                    ders2,
-                    height: 120,
-                    width: 120,
+      child: Column(
+        children: [
+          Flexible(
+            flex: 9,
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const MainPageContent(
+                    title: "İstanbul Kodluyor'a Hoşgeldin !",
+                    imageUrl: ders2,
+                    icon: Icons.push_pin_outlined,
                   ),
-                ),
-              ),
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Text(
-                    "İstanbul Kodluyora Hoşgeldin !",
-                    softWrap: true,
-                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: Colors.black),
+                  Stack(
+                    alignment: Alignment.topLeft,
+                    children: [
+                      BookmarkEducationList(
+                        educationList: educationList,
+                        icon: Icons.heart_broken,
+                      ),
+                      ContainerWidget(
+                        margin: const EdgeInsets.symmetric(horizontal: 2, vertical: 0),
+                        child: Text(
+                          "Yarım kalanlar",
+                          style: Theme.of(context).textTheme.titleMedium,
+                        ),
+                      ),
+                    ],
                   ),
-                ),
-              )
-            ],
+                  Stack(children: [
+                    BookmarkEducationList(
+                      educationList: educationList,
+                      icon: Icons.favorite,
+                    ),
+                    ContainerWidget(
+                      margin: const EdgeInsets.symmetric(horizontal: 2, vertical: 0),
+                      child: Text(
+                        "Tekrar izlemek istediklerin",
+                        style: Theme.of(context).textTheme.titleMedium,
+                      ),
+                    ),
+                  ]),
+                  Stack(children: [
+                    BookmarkEducationList(
+                      educationList: educationList,
+                      icon: Icons.check,
+                    ),
+                    ContainerWidget(
+                      margin: const EdgeInsets.symmetric(horizontal: 2, vertical: 0),
+                      child: Text(
+                        "Tamamladıkların",
+                        style: Theme.of(context).textTheme.titleMedium,
+                      ),
+                    ),
+                  ]),
+                ],
+              ),
+            ),
           ),
-        ),
-        MainPageTitleContainer(
-            widget: Icon(
-          Icons.push_pin_outlined,
-          color: TobetoDarkColors.mor,
-          size: 32,
-        )),
-      ],
-    );
-  }
-}
-
-class MainPageContainer extends StatelessWidget {
-  const MainPageContainer({
-    super.key,
-    required this.widget,
-  });
-  final Widget widget;
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.all(8),
-      padding: EdgeInsets.all(8),
-      child: widget,
-      decoration: BoxDecoration(
-        color: Colors.blueGrey.shade100,
-        borderRadius: BorderRadius.circular(16),
-        border: Border.all(),
-        boxShadow: [
-          basicShadow(),
-          basicShadow(),
-        ],
-      ),
-    );
-  }
-}
-
-//iconun container'ı
-class MainPageTitleContainer extends StatelessWidget {
-  const MainPageTitleContainer({
-    super.key,
-    required this.widget,
-  });
-  final Widget widget;
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.all(2),
-      child: widget,
-      decoration: BoxDecoration(
-        color: Colors.blueGrey.shade100,
-        borderRadius: BorderRadius.circular(4),
-        border: Border.all(),
-        boxShadow: [
-          basicShadow(),
+          Flexible(
+            flex: 1,
+            child: SizedBox(
+              height: 150,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  IconButton(
+                      onPressed: () {},
+                      icon: Icon(
+                        Icons.favorite_border_rounded,
+                        size: 48,
+                      )),
+                  Row(children: [
+                    IconButton(
+                      onPressed: () {},
+                      icon: Icon(
+                        Icons.local_fire_department_outlined,
+                        size: 48,
+                      ),
+                    ),
+                    Text(
+                      "12",
+                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: 28, fontWeight: FontWeight.w700),
+                    )
+                  ])
+                ],
+              ),
+            ),
+          )
         ],
       ),
     );

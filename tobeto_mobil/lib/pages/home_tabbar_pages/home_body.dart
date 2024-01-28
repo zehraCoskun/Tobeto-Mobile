@@ -31,7 +31,7 @@ class HomeBody extends StatelessWidget {
   }
 
   Widget buildMainView() {
-    return const MainPage();
+    return  MainPage();
   }
 
   Widget buildEducationView() {

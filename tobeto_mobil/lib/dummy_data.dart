@@ -13,7 +13,7 @@ final List<EducationModel> educationModelData = [
   EducationModel(
     id: "1",
     userId: "1",
-    title: "Something",
+    title: "Ders 1",
     category: "Genel",
     thumbnail: ders1,
     startDate: "1/1/1",
@@ -30,7 +30,7 @@ final List<EducationModel> educationModelData = [
   EducationModel(
     id: "2",
     userId: "2",
-    title: "Something",
+    title: "Ders 2",
     category: "Genel",
     thumbnail: ders1,
     startDate: "1/1/1",
@@ -47,7 +47,7 @@ final List<EducationModel> educationModelData = [
   EducationModel(
     id: "3",
     userId: "3",
-    title: "Something",
+    title: "Ders 3",
     category: "Genel",
     thumbnail: ders1,
     startDate: "1/1/1",
