@@ -4,6 +4,7 @@ import 'package:tobeto_mobil/api/business/requests/profile_requests/profile_crea
 import 'package:tobeto_mobil/api/business/requests/profile_requests/profile_update_request.dart';
 import 'package:tobeto_mobil/api/business/requests/user_requests/user_create_request.dart';
 import 'package:tobeto_mobil/api/business/requests/user_requests/user_update_request.dart';
+import 'package:tobeto_mobil/api/business/services/user_service.dart';
 import 'package:tobeto_mobil/api/repository/user_repository.dart';
 import 'package:tobeto_mobil/constants/image_text.dart';
 import 'package:tobeto_mobil/core/screens/global_scaffold.dart';
@@ -44,6 +45,9 @@ class ProfilPage extends StatelessWidget {
             ),
             IconButton(
               onPressed: () async {
+                final result = await UserService(UserRepository()).get("123456");
+                print(result?.profileGetResponse?.fullName);
+                print(result?.profileGetResponse?.badges);
                 //Navigator.of(context).pushNamed("/profileEdit");
 
                 // final request = UserCreateRequest(
@@ -98,7 +102,7 @@ class ProfilPage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                ProfilePicture(user: userModel),
+                //ProfilePicture(user: userModel),
                 ProfileContainer(
                   title: "Kişisel Bİlgilerim",
                   child: PersonalInfoColumnWidget(user: userModel),

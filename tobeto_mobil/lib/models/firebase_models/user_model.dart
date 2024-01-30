@@ -12,7 +12,7 @@ class UserModel extends Entity {
 
   factory UserModel.fromMap(Map<String, dynamic> map) {
     return UserModel(
-      id: map["id"] as String,
+      id: map["id"] as String?,
       profile: ProfileModel.fromMap(map["profile"] as Map<String, dynamic>?),
     );
   }
@@ -27,7 +27,6 @@ class UserModel extends Entity {
         map.addEntries([entry]);
       }
     }
-
     return map;
   }
 

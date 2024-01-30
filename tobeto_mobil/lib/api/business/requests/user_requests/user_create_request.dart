@@ -1,11 +1,18 @@
 import 'package:tobeto_mobil/api/business/requests/profile_requests/profile_create_request.dart';
+import 'package:tobeto_mobil/models/firebase_models/user_model.dart';
+import 'package:uuid/uuid.dart';
 
 class UserCreateRequest {
-  final String id;
-  final ProfileCreateRequest profileRequest;
+  final ProfileCreateRequest profileCreateRequest;
 
   UserCreateRequest({
-    required this.id,
-    required this.profileRequest,
+    required this.profileCreateRequest,
   });
+
+  UserModel toModel() {
+    return UserModel(
+      id: const Uuid().v4(),
+      profile: profileCreateRequest.toModel(),
+    );
+  }
 }

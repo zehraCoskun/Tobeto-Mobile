@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:tobeto_mobil/models/firebase_models/badge_model.dart';
 
 class ProfileModel {
@@ -36,10 +37,11 @@ class ProfileModel {
     return ProfileModel(
       fullName: map?["full_name"] as String?,
       email: map?["email"] as String?,
-      birthDate: map?["birth_date"] as DateTime?,
+      birthDate: (map?["birth_date"] as Timestamp?)?.toDate(),
+      phoneNumber: map?["phone_number"] as String?,
+      certificates: (map?["certificates"] as List<dynamic>?)?.map((e) => e.toString()).toList(),
       talents: map?["talents"] as List<String>?,
-      certificates: map?["certificates"] as List<String>?,
-      badges: BadgeModel.fromMap(map?["badges"]) as List<BadgeModel>?,
+      badges: (map?["badges"] as List<dynamic>?)?.map((map) => BadgeModel.fromMap(map)).toList(),
       github: map?["github"] as String?,
       linkedin: map?["linkedin"] as String?,
       facebook: map?["facebook"] as String?,
