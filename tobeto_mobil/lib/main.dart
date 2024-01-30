@@ -1,22 +1,24 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tobeto_mobil/api/providers.dart';
+import 'package:tobeto_mobil/firebase_options.dart';
 import 'package:tobeto_mobil/utils/router/route_generator.dart';
 import 'package:tobeto_mobil/utils/theme/theme_generator.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
   runApp(
-    MultiBlocProvider(
-      providers: providers,
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeGenerator.lightTheme(),
-        darkTheme: ThemeGenerator.darkTheme(),
-        themeMode: ThemeMode.system,
-        //home: const SignUpPage(),
-        initialRoute: "/login",
-        onGenerateRoute: (route) => RouteGenerator.onGenerateRoute(route),
-      ),
+    MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeGenerator.lightTheme(),
+      darkTheme: ThemeGenerator.darkTheme(),
+      themeMode: ThemeMode.system,
+      initialRoute: "/login",
+      onGenerateRoute: (route) => RouteGenerator.onGenerateRoute(route),
     ),
   );
 }

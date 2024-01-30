@@ -1,13 +1,13 @@
 //yetkinliklerim içeriği
 import 'package:flutter/material.dart';
-import 'package:tobeto_mobil/models/user_model.dart';
+import 'package:tobeto_mobil/models/demo_user_model.dart';
 import 'package:tobeto_mobil/pages/drawer_list_pages/profile/lists/contents_widget.dart';
 
 class CompetenceListWidget extends StatelessWidget {
   const CompetenceListWidget({
     super.key, required this.user,
   });
-  final UserModel user;
+  final DemoUserModel user;
   @override
   Widget build(BuildContext context) {
     return AspectRatio(

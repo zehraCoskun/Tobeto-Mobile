@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/constants/image_text.dart';
-import 'package:tobeto_mobil/models/user_model.dart';
+import 'package:tobeto_mobil/models/demo_user_model.dart';
 
 class DrawerHead extends StatelessWidget {
   const DrawerHead({
     Key? key,
     required this.user,
   }) : super(key: key);
-  final UserModel user;
+  final DemoUserModel user;
   @override
   Widget build(BuildContext context) {
     return UserAccountsDrawerHeader(
@@ -18,13 +18,13 @@ class DrawerHead extends StatelessWidget {
 
       // user.name,
       accountName: Text(
-        user.userName,
+        "user.fullName",
         style: const TextStyle(color: Colors.black87),
       ),
 
       // user.email,
       accountEmail: Text(
-        user.userEmail,
+        user.email,
         style: const TextStyle(color: Colors.black87),
       ),
 
@@ -46,7 +46,7 @@ class DrawerHead extends StatelessWidget {
         child: ClipRRect(
           borderRadius: BorderRadius.circular(60),
           child: Image.asset(
-            user.userPicture != null ? user.userPicture! : ders2,
+            "user.userPicture != null ? user.userPicture! : ders2,",
             height: 120,
             width: 120,
           ),

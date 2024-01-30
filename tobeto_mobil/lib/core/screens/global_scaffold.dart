@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/models/enums/drawer_item.dart';
-import 'package:tobeto_mobil/models/user_model.dart';
+import 'package:tobeto_mobil/models/demo_user_model.dart';
 import 'package:tobeto_mobil/pages/drawer/drawer_page.dart';
 
 //login screen disinda suan icin Scaffold yerine her sayfada kullanilacak
@@ -16,7 +16,7 @@ class GlobalScaffold extends StatelessWidget {
 
   final PreferredSizeWidget? appBar;
   final Widget? body;
-  final UserModel userModel;
+  final DemoUserModel userModel;
 
   @override
   Widget build(BuildContext context) {

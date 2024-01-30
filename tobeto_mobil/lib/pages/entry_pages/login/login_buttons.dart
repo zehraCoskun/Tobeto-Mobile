@@ -37,7 +37,7 @@ class LoginButtons extends StatelessWidget {
         // ElevatedButton flexible ile sarildi
         Flexible(
           child: ElevatedButton(
-            onPressed: () {
+            onPressed: () async {
               Navigator.of(context).pushNamed("/home");
             },
             style: Theme.of(context).elevatedButtonTheme.style,

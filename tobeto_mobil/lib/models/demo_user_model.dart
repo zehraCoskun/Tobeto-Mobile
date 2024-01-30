@@ -2,11 +2,12 @@ import 'package:tobeto_mobil/models/application_model.dart';
 import 'package:tobeto_mobil/models/education/education_model.dart';
 import 'package:tobeto_mobil/models/exam_model.dart';
 
-class UserModel {
+class DemoUserModel {
   final String id;
   final String userName;
   final String userBirthDate;
-  final String userEmail;
+  final String email;
+  final String password;
   final String userPhoneNumber;
   final String? userPicture;
 
@@ -24,11 +25,12 @@ class UserModel {
   final List<ApplicationModel>? applications;
   final List<EducationModel>? educations;
 
-  UserModel({
+  DemoUserModel({
     required this.id,
     required this.userName,
     required this.userBirthDate,
-    required this.userEmail,
+    required this.email,
+    required this.password,
     required this.userPhoneNumber,
     this.userPicture,
     this.githubLink,

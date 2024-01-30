@@ -3,7 +3,7 @@ import 'package:tobeto_mobil/constants/image_text.dart';
 import 'package:tobeto_mobil/core/widgets/secondary_background.dart';
 import 'package:tobeto_mobil/dummy_user_data.dart';
 import 'package:tobeto_mobil/models/enums/social_media_item.dart';
-import 'package:tobeto_mobil/models/user_model.dart';
+import 'package:tobeto_mobil/models/demo_user_model.dart';
 import 'package:tobeto_mobil/pages/drawer_list_pages/profile/profile_edit_page/birthdate_widget.dart';
 import 'package:tobeto_mobil/pages/drawer_list_pages/profile/profile_edit_page/competence_widget.dart';
 import 'package:tobeto_mobil/pages/drawer_list_pages/profile/profile_edit_page/info_title_widget.dart';
@@ -23,7 +23,7 @@ class _ProfileEditPage extends State<ProfileEditPage> {
 
   @override
   Widget build(BuildContext context) {
-    final UserModel userModel = user1; //burası geçici olarak böyle yapıldı
+    final DemoUserModel userModel = user1; //burası geçici olarak böyle yapıldı
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/core/screens/global_scaffold.dart';
 import 'package:tobeto_mobil/core/widgets/secondary_background.dart';
 import 'package:tobeto_mobil/dummy_user_data.dart';
-import 'package:tobeto_mobil/models/user_model.dart';
+import 'package:tobeto_mobil/models/demo_user_model.dart';
 import 'package:tobeto_mobil/pages/home_tabbar_pages/home_body.dart';
 import 'package:tobeto_mobil/pages/home_tabbar_pages/home_header.dart';
 
@@ -24,7 +24,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
     _tabController = TabController(length: 6, vsync: this);
   }
 
-  final UserModel userModel;
+  final DemoUserModel userModel;
   @override
   Widget build(BuildContext context) {
     return GlobalScaffold(

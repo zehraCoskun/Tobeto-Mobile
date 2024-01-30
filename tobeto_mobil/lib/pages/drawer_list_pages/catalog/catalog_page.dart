@@ -3,7 +3,7 @@ import 'package:tobeto_mobil/core/screens/global_scaffold.dart';
 import 'package:tobeto_mobil/core/widgets/secondary_background.dart';
 import 'package:tobeto_mobil/dummy_data.dart';
 import 'package:tobeto_mobil/dummy_user_data.dart';
-import 'package:tobeto_mobil/models/user_model.dart';
+import 'package:tobeto_mobil/models/demo_user_model.dart';
 import 'package:tobeto_mobil/pages/drawer_list_pages/catalog/catalog_body.dart';
 import 'package:tobeto_mobil/pages/drawer_list_pages/catalog/catalog_category/catalog_header.dart';
 import 'package:tobeto_mobil/pages/drawer_list_pages/catalog/catalog_filter/catalog_filter_body.dart';
@@ -33,7 +33,7 @@ class _CatalogPageState extends State<CatalogPage> {
     });
   }
 
-  final UserModel userModel;
+  final DemoUserModel userModel;
   @override
   Widget build(BuildContext context) {
     return GlobalScaffold(

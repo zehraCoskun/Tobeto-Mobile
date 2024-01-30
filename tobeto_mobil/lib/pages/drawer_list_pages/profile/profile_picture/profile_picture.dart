@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/constants/image_text.dart';
 import 'package:tobeto_mobil/core/widgets/basic_shadow.dart';
-import 'package:tobeto_mobil/models/user_model.dart';
+import 'package:tobeto_mobil/models/demo_user_model.dart';
 import 'package:tobeto_mobil/pages/drawer_list_pages/profile/profile_picture/animated_wave_curves.dart';
 
 class ProfilePicture extends StatefulWidget {
@@ -12,7 +12,7 @@ class ProfilePicture extends StatefulWidget {
     required this.user,
   });
   final double? height;
-  final UserModel user;
+  final DemoUserModel user;
 
   @override
   State<ProfilePicture> createState() => _ProfilePictureState();

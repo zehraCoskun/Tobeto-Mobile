@@ -1,6 +1,6 @@
 //kişşisel bilgiler içerik
 import 'package:flutter/material.dart';
-import 'package:tobeto_mobil/models/user_model.dart';
+import 'package:tobeto_mobil/models/demo_user_model.dart';
 import 'package:tobeto_mobil/pages/drawer_list_pages/profile/personal_info/personal_info_row_widget.dart';
 
 class PersonalInfoColumnWidget extends StatelessWidget {
@@ -8,7 +8,7 @@ class PersonalInfoColumnWidget extends StatelessWidget {
     super.key,
     required this.user,
   });
-  final UserModel user;
+  final DemoUserModel user;
   @override
   Widget build(BuildContext context) {
     return Column(children: [
@@ -24,7 +24,7 @@ class PersonalInfoColumnWidget extends StatelessWidget {
       ),
       PersonalInfoRowWidget(
         title: "E-Posta adresi",
-        content: user.userEmail,
+        content: user.email,
         contentIcon: Icons.mail_outline_rounded,
       ),
       PersonalInfoRowWidget(
