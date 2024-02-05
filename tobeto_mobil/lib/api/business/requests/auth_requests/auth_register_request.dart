@@ -1,9 +1,11 @@
-class ProfileCreateRequest {
+class AuthRegisterRequest {
   final String fullName;
   final String email;
+  final String password;
 
-  ProfileCreateRequest({
+  AuthRegisterRequest({
     required this.fullName,
     required this.email,
+    required this.password,
   });
 }

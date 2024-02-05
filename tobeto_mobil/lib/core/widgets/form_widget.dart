@@ -9,10 +9,16 @@ class FormWidget extends StatelessWidget {
     this.suffixIcon,
     this.isPassword,
     this.controller,
+    this.validator,
+    this.onChanged,
+    this.onSaved,
   });
 
   final Icon prefixIcon;
   final String labelText;
+  final String? Function(String? value)? validator;
+  final void Function(String newValue)? onChanged;
+  final void Function(String? value)? onSaved;
 
   //controller disaridan alicaz icerisine yazdigimiz degerleri yonetebilmek icin
   final TextEditingController? controller;
@@ -27,8 +33,11 @@ class FormWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
       controller: controller,
+      validator: validator,
+      onChanged: onChanged,
+      onSaved: onSaved,
       decoration: InputDecoration(
         prefixIconColor: Theme.of(context).inputDecorationTheme.prefixIconColor,
         prefixIcon: prefixIcon,

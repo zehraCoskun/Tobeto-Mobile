@@ -1,19 +1,51 @@
 import 'package:tobeto_mobil/core/entities/entity.dart';
-import 'package:tobeto_mobil/models/firebase_models/profile_model.dart';
+import 'package:tobeto_mobil/models/firebase_models/badge_model.dart';
 
 class UserModel extends Entity {
-  final String? id;
-  final ProfileModel? profile;
+  final String? fullName;
+  final String? email;
+  final DateTime? birthDate;
+
+  final String? phoneNumber;
+
+  final List<String>? talents;
+  final List<String>? certificates;
+  final List<BadgeModel>? badges;
+
+  final String? github;
+  final String? linkedin;
+  final String? facebook;
+  final String? twitter;
+  final String? instagram;
 
   UserModel({
-    this.id,
-    this.profile,
+    this.fullName,
+    this.email,
+    this.birthDate,
+    this.phoneNumber,
+    this.certificates,
+    this.talents,
+    this.badges,
+    this.github,
+    this.linkedin,
+    this.facebook,
+    this.twitter,
+    this.instagram,
   });
 
   factory UserModel.fromMap(Map<String, dynamic> map) {
     return UserModel(
-      id: map["id"] as String,
-      profile: ProfileModel.fromMap(map["profile"] as Map<String, dynamic>?),
+      fullName: map["full_name"] as String?,
+      email: map["email"] as String?,
+      birthDate: map["birth_date"] as DateTime?,
+      talents: map["talents"] as List<String>?,
+      certificates: map["certificates"] as List<String>?,
+      badges: BadgeModel.fromMap(map["badges"]) as List<BadgeModel>?,
+      github: map["github"] as String?,
+      linkedin: map["linkedin"] as String?,
+      facebook: map["facebook"] as String?,
+      twitter: map["twitter"] as String?,
+      instagram: map["instagram"] as String?,
     );
   }
 
@@ -33,8 +65,18 @@ class UserModel extends Entity {
 
   Map<String, dynamic> _createClassMap() {
     return {
-      "id": id,
-      "profile": profile!.toMap(),
+      "full_name": fullName,
+      "email": email,
+      "birth_date": birthDate,
+      "phone_number": phoneNumber,
+      "talents": talents,
+      "certificates": certificates,
+      "badges": badges?.map((badge) => badge.toMap()),
+      "github": github,
+      "linkedin": linkedin,
+      "facebook": facebook,
+      "twitter": twitter,
+      "instagram": instagram,
     };
   }
 }

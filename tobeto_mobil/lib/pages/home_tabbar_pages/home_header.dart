@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tobeto_mobil/api/bloc/auth_bloc/auth_bloc.dart';
+import 'package:tobeto_mobil/api/bloc/auth_bloc/auth_event.dart';
 import 'package:tobeto_mobil/constants/image_text.dart';
 import 'package:tobeto_mobil/core/widgets/tab_bar_widget.dart';
 import 'package:tobeto_mobil/models/enums/tab_bar_item.dart';
@@ -34,6 +37,14 @@ class HomeHeader extends StatelessWidget implements PreferredSizeWidget {
           }),
         ],
       ),
+      actions: [
+        IconButton(
+          onPressed: () {
+            context.read<AuthBloc>().add(const AuthEventLogOut());
+          },
+          icon: const Icon(Icons.logout_outlined),
+        ),
+      ],
     );
   }
 }

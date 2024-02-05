@@ -1,21 +1,30 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class UserRepository {
-  final firestore = FirebaseFirestore.instance.collection("users");
+  final CollectionReference<Map<String, dynamic>> _collection;
 
-  Future<DocumentReference> create(Map<String, dynamic> data) async {
-    return await firestore.add(data);
+  const UserRepository._(this._collection);
+
+  static final _instance = UserRepository._(
+    FirebaseFirestore.instance.collection("users"),
+  );
+
+  factory UserRepository.instance() {
+    return _instance;
   }
 
-  Future<void> update(String id, Map<String, dynamic> data) async {
-    await firestore.doc(id).update(data);
+  Future<void> create(String docId, Map<String, dynamic> data) async {
+    await _collection.doc(docId).set(data);
   }
 
-  Future<DocumentSnapshot<Map<String, dynamic>>> get(String id) async {
-    return await firestore.get().then(
-          (value) => value.docs.firstWhere(
-            (element) => element.data()["id"] == id,
-          ),
+  Future<void> update(String docId, Map<String, dynamic> data) async {
+    await _collection.doc(docId).update(data);
+  }
+
+  Future<DocumentSnapshot<Map<String, dynamic>>> findWithDocId(
+      String docId) async {
+    return await _collection.get().then(
+          (value) => value.docs.firstWhere((element) => element.id == docId),
         );
   }
 }
