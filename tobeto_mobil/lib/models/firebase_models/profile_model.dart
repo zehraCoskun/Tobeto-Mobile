@@ -1,7 +1,7 @@
-import 'package:tobeto_mobil/core/entities/entity.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:tobeto_mobil/models/firebase_models/badge_model.dart';
 
-class UserModel extends Entity {
+class ProfileModel {
   final String? fullName;
   final String? email;
   final DateTime? birthDate;
@@ -18,7 +18,7 @@ class UserModel extends Entity {
   final String? twitter;
   final String? instagram;
 
-  UserModel({
+  ProfileModel({
     this.fullName,
     this.email,
     this.birthDate,
@@ -33,19 +33,20 @@ class UserModel extends Entity {
     this.instagram,
   });
 
-  factory UserModel.fromMap(Map<String, dynamic> map) {
-    return UserModel(
-      fullName: map["full_name"] as String?,
-      email: map["email"] as String?,
-      birthDate: map["birth_date"] as DateTime?,
-      talents: map["talents"] as List<String>?,
-      certificates: map["certificates"] as List<String>?,
-      badges: BadgeModel.fromMap(map["badges"]) as List<BadgeModel>?,
-      github: map["github"] as String?,
-      linkedin: map["linkedin"] as String?,
-      facebook: map["facebook"] as String?,
-      twitter: map["twitter"] as String?,
-      instagram: map["instagram"] as String?,
+  factory ProfileModel.fromMap(Map<String, dynamic>? map) {
+    return ProfileModel(
+      fullName: map?["full_name"] as String?,
+      email: map?["email"] as String?,
+      birthDate: (map?["birth_date"] as Timestamp?)?.toDate(),
+      phoneNumber: map?["phone_number"] as String?,
+      certificates: (map?["certificates"] as List<dynamic>?)?.map((e) => e.toString()).toList(),
+      talents: map?["talents"] as List<String>?,
+      badges: (map?["badges"] as List<dynamic>?)?.map((map) => BadgeModel.fromMap(map)).toList(),
+      github: map?["github"] as String?,
+      linkedin: map?["linkedin"] as String?,
+      facebook: map?["facebook"] as String?,
+      twitter: map?["twitter"] as String?,
+      instagram: map?["instagram"] as String?,
     );
   }
 
@@ -59,6 +60,7 @@ class UserModel extends Entity {
         map.addEntries([entry]);
       }
     }
+
     return map;
   }
 

@@ -11,7 +11,6 @@ import 'package:tobeto_mobil/pages/drawer_list_pages/profile/lists/certificates_
 import 'package:tobeto_mobil/pages/drawer_list_pages/profile/lists/competence_list_widget.dart';
 import 'package:tobeto_mobil/pages/drawer_list_pages/profile/personal_info/personal_info_column_widget.dart';
 import 'package:tobeto_mobil/pages/drawer_list_pages/profile/profile_container.dart';
-import 'package:tobeto_mobil/pages/drawer_list_pages/profile/profile_picture/profile_picture.dart';
 import 'package:tobeto_mobil/pages/drawer_list_pages/profile/lists/social_media_list_widget.dart';
 
 class ProfilPage extends StatelessWidget {
@@ -45,7 +44,7 @@ class ProfilPage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                ProfilePicture(user: userModel),
+                //ProfilePicture(user: userModel),
                 ProfileContainer(
                   title: "Kişisel Bİlgilerim",
                   child: PersonalInfoColumnWidget(user: userModel),
