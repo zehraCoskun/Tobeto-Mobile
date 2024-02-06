@@ -22,7 +22,6 @@ void main() async {
       providers: [
         authBlocProvider,
         userBlocProvider,
-        profileBlocProvider,
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
