@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/constants/image_text.dart';
 import 'package:tobeto_mobil/constants/pages/login_text.dart';
 import 'package:tobeto_mobil/core/widgets/primary_background.dart';
-import 'package:tobeto_mobil/pages/entry_pages/sign_up/sign_up_button.dart';
+import 'package:tobeto_mobil/pages/entry_pages/sign_up/sign_up_buttons.dart';
 import 'package:tobeto_mobil/pages/entry_pages/sign_up/sign_up_form.dart';
 
 class SignUpPage extends StatelessWidget {
@@ -38,7 +38,8 @@ class SignUpPage extends StatelessWidget {
                 decoration: InputDecoration(
                   labelText: SignUpNameLabel,
                   focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.pinkAccent, width: 3.0),
+                    borderSide:
+                        BorderSide(color: Colors.pinkAccent, width: 3.0),
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(color: Colors.black, width: 1.0),
@@ -53,7 +54,8 @@ class SignUpPage extends StatelessWidget {
                 decoration: InputDecoration(
                   labelText: SignUpSurnameLabel,
                   focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.pinkAccent, width: 3.0),
+                    borderSide:
+                        BorderSide(color: Colors.pinkAccent, width: 3.0),
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(color: Colors.black, width: 1.0),
@@ -68,7 +70,8 @@ class SignUpPage extends StatelessWidget {
                 decoration: InputDecoration(
                   labelText: SignUpEmailLabel,
                   focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.pinkAccent, width: 3.0),
+                    borderSide:
+                        BorderSide(color: Colors.pinkAccent, width: 3.0),
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(color: Colors.black, width: 1.0),
@@ -83,7 +86,8 @@ class SignUpPage extends StatelessWidget {
                 decoration: InputDecoration(
                   labelText: SignUpSifreLabel,
                   focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.pinkAccent, width: 3.0),
+                    borderSide:
+                        BorderSide(color: Colors.pinkAccent, width: 3.0),
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(color: Colors.black, width: 1.0),

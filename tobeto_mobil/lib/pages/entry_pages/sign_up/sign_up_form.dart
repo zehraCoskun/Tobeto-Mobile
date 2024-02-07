@@ -1,159 +1,227 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/constants/pages/login_text.dart';
-import 'package:tobeto_mobil/utils/responsive/responsive_layout.dart';
+import 'package:tobeto_mobil/pages/entry_pages/sign_up/sign_up_buttons.dart';
+import 'package:tobeto_mobil/utils/theme/theme_ios.dart';
 
 class SignUpForm extends StatefulWidget {
-  const SignUpForm({
-    Key? key,
-    required this.nameController,
-    required this.surnameController,
-    required this.emailController,
-    required this.passwordController,
-  }) : super(key: key);
-
-  final TextEditingController nameController;
-  final TextEditingController surnameController;
-  final TextEditingController emailController;
-  final TextEditingController passwordController;
+  const SignUpForm({super.key});
 
   @override
   State<SignUpForm> createState() => _SignUpFormState();
 }
 
+bool passwordVisible = false;
+bool passwordVisible2 = false;
+
+//****************/
+
+void _submit() async {
+  _formKey.currentState!.validate();
+  _formKey.currentState!.save();
+}
+
+final _formKey = GlobalKey<FormState>();
+
+var _ad = '';
+var _soyad = '';
+var _email = '';
+var _password = '';
+var _passwordAgain = '';
+
 class _SignUpFormState extends State<SignUpForm> {
   @override
   Widget build(BuildContext context) {
-    return ResponsiveLayout(
-      desktopBody: buildDesktopSignUpForm(),
-      mobileBody: buildMobileSignUpForm(),
-      tabletBody: buildDesktopSignUpForm(),
-    );
-  }
+    return Column(
+      children: [
+        const SizedBox(height: 16),
+        //AD************************************AD
+        TextFormField(
+          onSaved: (newValue) {
+            _ad = newValue!;
+          },
+          validator: (value) {
+            if (value!.isEmpty) {
+              return "Lütfen ad alanını boş bırakmayın";
+            }
+            return null;
+          }, // ad validator ************
+          obscureText: false,
+          decoration: InputDecoration(
+            prefixIcon: const Icon(Icons.person),
+            labelText: SignUpNameLabel,
+            focusedBorder: OutlineInputBorder(
+              borderRadius: const BorderRadius.all(Radius.circular(55)),
+              borderSide: BorderSide(
+                  color: Theme.of(context).colorScheme.onPrimary,
+                  width: 3.0), // colorscheme
+            ),
+            enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                  color: Theme.of(context).colorScheme.primary, width: 2.0),
+              borderRadius: const BorderRadius.all(Radius.circular(15)),
+            ),
+            hintText: SignUpNameHint,
+          ),
+        ),
+        //**************************SOYAD
+        const SizedBox(height: 16),
+        TextFormField(
+          onSaved: (newValue) {
+            _soyad = newValue!;
+          },
+          validator: (value) {
+            if (value!.isEmpty) {
+              return "Lütfen Soyad alanını boş bırakmayın";
+            }
+            return null;
+          }, //  validator ************
+          obscureText: false,
+          decoration: InputDecoration(
+            prefixIcon: const Icon(Icons.person),
+            labelText: SignUpSurnameLabel,
+            focusedBorder: OutlineInputBorder(
+              borderRadius: const BorderRadius.all(Radius.circular(55)),
+              borderSide: BorderSide(
+                  color: Theme.of(context)
+                      .colorScheme
+                      .onPrimary, // colorscheme111********
+                  width: 3.0),
+            ),
+            enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                  color: Theme.of(context).colorScheme.primary,
+                  width: 2.0), // ColorScheme22
+              borderRadius: const BorderRadius.all(Radius.circular(15)),
+            ),
+            hintText: SignUpSurnameSurname,
+          ),
+        ),
+        //***************************E-MAİL
+        const SizedBox(height: 16),
+        TextFormField(
+          onSaved: (newValue) {
+            _email = newValue!;
+          },
 
-  Widget buildDesktopSignUpForm() {
-    return Center(
-      child: AspectRatio(
-        aspectRatio: 2 / 3,
-        child: buildMobileSignUpForm(),
-      ),
-    );
-  }
-
-  Widget buildMobileSignUpForm() {
-    return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          SizedBox(height: 16),
-          TextField(
-            obscureText: false,
-            decoration: InputDecoration(
-              labelText: SignUpNameLabel,
-              focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.pinkAccent, width: 3.0),
-              ),
-              enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.black, width: 1.0),
-              ),
-              hintText: SignUpNameHint,
+          validator: (value) {
+            if (value!.isEmpty) {
+              return "Lütfen E-mail alanını boş bırakmayın";
+            }
+            if (!value.contains("@")) {
+              return "Mail geçersiz; Mail, @ içermelidir";
+            }
+            if (value.length < 10) {
+              return "Lütfen geçerli bir mail girin!";
+            }
+            return null; // Geçerli durum
+          },
+          // validator ************
+          obscureText: false,
+          keyboardType: TextInputType.emailAddress,
+          decoration: InputDecoration(
+            prefixIcon: const Icon(Icons.email),
+            labelText: SignUpEmailLabel,
+            focusedBorder: OutlineInputBorder(
+              borderRadius: const BorderRadius.all(Radius.circular(55)),
+              borderSide: BorderSide(
+                  color: Theme.of(context).colorScheme.onPrimary, width: 3.0),
             ),
-          ),
-//**************************
-          SizedBox(height: 16),
-          TextField(
-            obscureText: false,
-            decoration: InputDecoration(
-              labelText: SignUpSurnameLabel,
-              focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.pinkAccent, width: 3.0),
-              ),
-              enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.black, width: 1.0),
-              ),
-              hintText: SignUpSurnameSurname,
+            enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                  color: Theme.of(context).colorScheme.primary, width: 2.0),
+              borderRadius: const BorderRadius.all(Radius.circular(15)),
             ),
+            hintText: SignUpEmailHint,
           ),
-          //*************************** */
-          SizedBox(height: 16),
-          TextField(
-            obscureText: false,
-            decoration: InputDecoration(
-              labelText: SignUpEmailLabel,
-              focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.pinkAccent, width: 3.0),
-              ),
-              enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.black, width: 1.0),
-              ),
-              hintText: SignUpEmailHint,
+        ),
+        //******************* ŞİFRE
+        const SizedBox(height: 16),
+        TextFormField(
+          onChanged: (newValue) {
+            _password = newValue;
+          },
+          validator: (value) {
+            if (value!.isEmpty) {
+              return "Lütfen Şifre alanını boş bırakmayın";
+            }
+            return null;
+          }, //  validator ************
+          obscureText: !passwordVisible,
+          decoration: InputDecoration(
+            prefixIcon: const Icon(Icons.lock),
+            suffixIcon: IconButton(
+              onPressed: () {
+                setState(() {
+                  passwordVisible = !passwordVisible;
+                });
+              },
+              icon: Icon(
+                  passwordVisible ? Icons.visibility : Icons.visibility_off),
+              color: Theme.of(context)
+                  .colorScheme
+                  .onPrimary, // Buradaaa icon renk almadı neden????
             ),
-          ),
-//********** */
-          SizedBox(height: 16),
-          TextField(
-            obscureText: false,
-            decoration: InputDecoration(
-              labelText: SignUpSifreLabel,
-              focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.pinkAccent, width: 3.0),
-              ),
-              enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.black, width: 1.0),
-              ),
-              hintText: SignUpSifreHint,
+            labelText: SignUpSifreLabel,
+            focusedBorder: OutlineInputBorder(
+              borderRadius: const BorderRadius.all(Radius.circular(55)),
+              borderSide: BorderSide(
+                  color: Theme.of(context).colorScheme.onPrimary,
+                  width: 3.0), //ColorScheme***
             ),
+            enabledBorder: OutlineInputBorder(
+              borderRadius: const BorderRadius.all(Radius.circular(15)),
+              borderSide: BorderSide(
+                  color: Theme.of(context).colorScheme.primary, width: 2.0),
+            ),
+            hintText: SignUpSifreHint,
           ),
-          SizedBox(height: 16),
-        ],
-      ),
+        ),
+        //************************* SIFRE TEKRAR
+        const SizedBox(height: 16),
+        TextFormField(
+          onChanged: (newValue) {
+            _passwordAgain = newValue;
+          },
+          validator: (value) {
+            if (value!.isEmpty) {
+              return "Lütfen Şifre alanını boş bırakmayın";
+            }
+            if (_passwordAgain != _password) {
+              return "Şifreler uyuşmadı, Lütfen tekrar deneyin!";
+            }
+            return null;
+          }, //  validator ************
+          obscureText: !passwordVisible2,
+          decoration: InputDecoration(
+            prefixIcon: const Icon(Icons.lock_reset_outlined),
+            suffixIcon: IconButton(
+              color: Theme.of(context)
+                  .colorScheme
+                  .onPrimary, // Buradaaa icon renk almadı neden????
+              onPressed: () {
+                setState(() {
+                  passwordVisible2 = !passwordVisible2;
+                });
+              },
+              icon: Icon(
+                  passwordVisible2 ? Icons.visibility : Icons.visibility_off),
+            ),
+            labelText: SignUpSifreTekrarLabel,
+            focusedBorder: OutlineInputBorder(
+              borderRadius: const BorderRadius.all(Radius.circular(55)),
+              borderSide: BorderSide(
+                  color: Theme.of(context).colorScheme.onPrimary,
+                  width: 3.0), // ColorScheme***
+            ),
+            enabledBorder: OutlineInputBorder(
+              borderRadius: const BorderRadius.all(Radius.circular(15)),
+              borderSide: BorderSide(
+                  color: Theme.of(context).colorScheme.primary, width: 2.0),
+            ),
+            hintText: SignUpSifreTekrarHint,
+          ),
+        ),
+      ],
     );
   }
 }
-
-/*class SignUpFormWidget extends StatelessWidget {
-  const SignUpFormWidget({
-    super.key,
-    required this.prefixIcon,
-    required this.labelText,
-    this.hintText,
-    this.suffixIcon,
-    this.isPassword,
-    this.controller,
-  });
-
-  final Icon prefixIcon;
-  final String labelText;
-
-  //controller disaridan alicaz icerisine yazdigimiz degerleri yonetebilmek icin
-  final TextEditingController? controller;
-
-  //hintText optional yaptim iceride bazen hint vermek istemeyebiliriz diye dusundum daha sonra bakariz
-  final String? hintText;
-  final Widget? suffixIcon;
-
-  //bunu optional yaptim gereksiz yer kaplamasina gerek yok her formWidget cagirdigimizda
-  //bize isPassword vermesse false olarak ayarliyorum asagida zaten
-  final bool? isPassword;
-
-  @override
-  Widget build(BuildContext context) {
-    return TextField(
-      controller: controller,
-      decoration: InputDecoration(
-        prefixIconColor: Theme.of(context).inputDecorationTheme.prefixIconColor,
-        prefixIcon: prefixIcon,
-        labelText: labelText, //placeholder
-        hintText: hintText,
-        suffixIconColor: Theme.of(context).inputDecorationTheme.suffixIconColor,
-        suffixIcon: suffixIcon,
-        enabledBorder: Theme.of(context).inputDecorationTheme.enabledBorder,
-        focusedBorder: Theme.of(context).inputDecorationTheme.focusedBorder,
-      ),
-
-      //isPassword null degilse ObscureText = isPassword
-      //isPassword null ise ObscureText = false
-      obscureText: isPassword ?? false,
-    );
-  }
-}*/
