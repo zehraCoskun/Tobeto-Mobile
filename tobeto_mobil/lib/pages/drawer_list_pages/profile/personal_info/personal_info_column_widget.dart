@@ -1,4 +1,3 @@
-//kişşisel bilgiler içerik
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/models/firebase_models/user_model.dart';
 import 'package:tobeto_mobil/pages/drawer_list_pages/profile/personal_info/personal_info_row_widget.dart';
@@ -19,7 +18,7 @@ class PersonalInfoColumnWidget extends StatelessWidget {
       ),
       PersonalInfoRowWidget(
         title: "Doğum Tarihi",
-        content: user.birthDate.toString() ?? "doğum tarihi ekleyiniz",
+        content: user.birthDate.toString(), // ?? "doğum tarihi ekleyiniz",
         contentIcon: Icons.calendar_month_outlined,
       ),
       PersonalInfoRowWidget(

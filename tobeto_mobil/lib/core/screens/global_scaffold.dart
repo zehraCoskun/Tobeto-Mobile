@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/models/enums/drawer_item.dart';
-import 'package:tobeto_mobil/models/demo_user_model.dart';
 import 'package:tobeto_mobil/models/firebase_models/user_model.dart';
 import 'package:tobeto_mobil/pages/drawer/drawer_page.dart';
 

@@ -1,4 +1,3 @@
-import 'package:tobeto_mobil/models/firebase_models/badge_model.dart';
 import 'package:tobeto_mobil/models/firebase_models/user_model.dart';
 
 class UserUpdateRequest {
