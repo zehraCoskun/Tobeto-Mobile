@@ -7,10 +7,13 @@ import 'package:tobeto_mobil/constants/image_text.dart';
 import 'package:tobeto_mobil/constants/pages/login_text.dart';
 import 'package:tobeto_mobil/core/widgets/primary_background.dart';
 import 'package:tobeto_mobil/pages/entry_pages/login/login_page.dart';
+<<<<<<< HEAD
 import 'package:tobeto_mobil/pages/entry_pages/recovery/recovery_page.dart';
 import 'package:tobeto_mobil/pages/entry_pages/sign_up/sign_up_buttons.dart';
 import 'package:tobeto_mobil/pages/entry_pages/sign_up/sign_up_form.dart';
 import 'package:tobeto_mobil/pages/entry_pages/sign_up/sign_up_header.dart';
+=======
+>>>>>>> feab404b15f8609b74fed1ade07e51034a30c247
 import 'package:tobeto_mobil/utils/theme/theme_ios.dart';
 
 class SignUpPage extends StatefulWidget {

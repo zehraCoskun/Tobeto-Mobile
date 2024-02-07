@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/models/enums/drawer_item.dart';
-import 'package:tobeto_mobil/models/demo_user_model.dart';
+import 'package:tobeto_mobil/models/firebase_models/user_model.dart';
 import 'package:tobeto_mobil/pages/drawer/drawer_body.dart';
 import 'package:tobeto_mobil/pages/drawer/drawer_footer.dart';
 import 'package:tobeto_mobil/pages/drawer/drawer_head.dart';
@@ -9,11 +9,11 @@ class DrawerPage extends StatelessWidget {
   const DrawerPage({
     super.key,
     required this.items,
-    required this.userModel,
+    this.userModel,
   });
 
   final List<DrawerItem> items;
-  final DemoUserModel userModel;
+  final UserModel? userModel;
   @override
   Widget build(BuildContext context) {
     return Drawer(

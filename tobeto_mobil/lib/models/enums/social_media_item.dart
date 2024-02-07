@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/constants/pages/profile_text.dart';
+import 'package:tobeto_mobil/models/firebase_models/user_model.dart';
 
 enum SocialMediaItem {
   github,
@@ -23,18 +24,18 @@ enum SocialMediaItem {
     }
   }
 
-  String getUrl() {
+  String getUrl(UserModel user) {
     switch (this) {
       case SocialMediaItem.github:
-        return githubUrl;
+        return user.github ?? githubUrl;
       case SocialMediaItem.linkedin:
-        return linkedinUrl;
+        return user.linkedin ?? linkedinUrl;
       case SocialMediaItem.facebook:
-        return facebookUrl;
+        return user.facebook ?? facebookUrl;
       case SocialMediaItem.twitter:
-        return twitterUrl;
+        return user.twitter ?? twitterUrl;
       case SocialMediaItem.instagram:
-        return instagramUrl;
+        return user.instagram ?? instagramUrl;
     }
   }
 

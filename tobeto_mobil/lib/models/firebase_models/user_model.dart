@@ -1,16 +1,15 @@
 import 'package:tobeto_mobil/core/entities/entity.dart';
-import 'package:tobeto_mobil/models/firebase_models/badge_model.dart';
 
 class UserModel extends Entity {
   final String? fullName;
   final String? email;
   final DateTime? birthDate;
-
   final String? phoneNumber;
+  final String? profileImage;
 
-  final List<String>? talents;
-  final List<String>? certificates;
-  final List<BadgeModel>? badges;
+  // final List<String>? talents;
+  // final List<String>? certificates;
+  // final List<BadgeModel>? badges;
 
   final String? github;
   final String? linkedin;
@@ -23,9 +22,10 @@ class UserModel extends Entity {
     this.email,
     this.birthDate,
     this.phoneNumber,
-    this.certificates,
-    this.talents,
-    this.badges,
+    this.profileImage,
+    // this.certificates,
+    // this.talents,
+    // this.badges,
     this.github,
     this.linkedin,
     this.facebook,
@@ -38,9 +38,11 @@ class UserModel extends Entity {
       fullName: map["full_name"] as String?,
       email: map["email"] as String?,
       birthDate: map["birth_date"] as DateTime?,
-      talents: map["talents"] as List<String>?,
-      certificates: map["certificates"] as List<String>?,
-      badges: BadgeModel.fromMap(map["badges"]) as List<BadgeModel>?,
+      phoneNumber: map["phone_number"] as String?,
+      profileImage: map["profile_image"] as String?,
+      // talents: map["talents"] as List<String>?,
+      // certificates: map["certificates"] as List<String>?,
+      // badges: BadgeModel.fromMap(map["badges"]) as List<BadgeModel>?,
       github: map["github"] as String?,
       linkedin: map["linkedin"] as String?,
       facebook: map["facebook"] as String?,
@@ -68,9 +70,10 @@ class UserModel extends Entity {
       "email": email,
       "birth_date": birthDate,
       "phone_number": phoneNumber,
-      "talents": talents,
-      "certificates": certificates,
-      "badges": badges?.map((badge) => badge.toMap()),
+      "profile_image": profileImage,
+      // "talents": talents,
+      // "certificates": certificates,
+      // "badges": badges?.map((badge) => badge.toMap()),
       "github": github,
       "linkedin": linkedin,
       "facebook": facebook,

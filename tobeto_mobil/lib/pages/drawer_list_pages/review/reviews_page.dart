@@ -3,7 +3,6 @@ import 'package:tobeto_mobil/constants/image_text.dart';
 import 'package:tobeto_mobil/core/screens/global_scaffold.dart';
 import 'package:tobeto_mobil/core/widgets/primary_background.dart';
 import 'package:tobeto_mobil/dummy_data.dart';
-import 'package:tobeto_mobil/dummy_user_data.dart';
 import 'package:tobeto_mobil/pages/drawer_list_pages/review/review_list_widget.dart';
 
 class ReviewsPage extends StatelessWidget {
@@ -12,7 +11,7 @@ class ReviewsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GlobalScaffold(
-      userModel: user1,
+      //userModel: user1,
       appBar: AppBar(
         title: Image.asset(
           logo,

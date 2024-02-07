@@ -1,26 +1,43 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:share/share.dart';
+import 'package:tobeto_mobil/api/bloc/user_bloc/user_bloc.dart';
+import 'package:tobeto_mobil/api/bloc/user_bloc/user_event.dart';
+import 'package:tobeto_mobil/api/bloc/user_bloc/user_state.dart';
 import 'package:tobeto_mobil/constants/image_text.dart';
 import 'package:tobeto_mobil/core/screens/global_scaffold.dart';
 import 'package:tobeto_mobil/core/widgets/secondary_background.dart';
 import 'package:tobeto_mobil/models/enums/social_media_item.dart';
-import 'package:tobeto_mobil/models/demo_user_model.dart';
+import 'package:tobeto_mobil/models/firebase_models/user_model.dart';
 import 'package:tobeto_mobil/pages/drawer_list_pages/profile/activity_map/activity_map_widget.dart';
-import 'package:tobeto_mobil/pages/drawer_list_pages/profile/lists/badges_list_widget.dart';
-import 'package:tobeto_mobil/pages/drawer_list_pages/profile/lists/certificates_list_widget.dart';
-import 'package:tobeto_mobil/pages/drawer_list_pages/profile/lists/competence_list_widget.dart';
 import 'package:tobeto_mobil/pages/drawer_list_pages/profile/personal_info/personal_info_column_widget.dart';
 import 'package:tobeto_mobil/pages/drawer_list_pages/profile/profile_container.dart';
 import 'package:tobeto_mobil/pages/drawer_list_pages/profile/lists/social_media_list_widget.dart';
 import 'package:tobeto_mobil/pages/drawer_list_pages/profile/profile_picture/profile_picture.dart';
 
-class ProfilPage extends StatelessWidget {
-  const ProfilPage({super.key, required this.userModel});
-  final DemoUserModel userModel;
+class ProfilPage extends StatefulWidget {
+  const ProfilPage({super.key, this.user});
+  final UserModel? user;
+
+  @override
+  State<ProfilPage> createState() => _ProfilPageState();
+}
+
+class _ProfilPageState extends State<ProfilPage> {
+  @override
+  void initState() {
+    super.initState();
+    final user = FirebaseAuth.instance.currentUser;
+    if (user != null) {
+      final id = user.uid;
+      context.read<UserBloc>().add(UserEventFetch(docId: id));
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return GlobalScaffold(
-        userModel: userModel,
         appBar: AppBar(
           centerTitle: true,
           title: Image.asset(
@@ -45,33 +62,69 @@ class ProfilPage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text(""),
-                ProfilePicture(user: userModel),
-                ProfileContainer(
-                  title: "Kişisel Bİlgilerim",
-                  child: PersonalInfoColumnWidget(user: userModel),
+                BlocBuilder<UserBloc, UserState>(
+                  builder: (context, state) {
+                    if (state is UserStateFetching) {
+                      if (state.user != null) {
+                        return Column(
+                          children: [
+                            ProfilePicture(user: state.user!),
+                            ProfileContainer(
+                              title: "Kişisel Bİlgilerim",
+                              child: PersonalInfoColumnWidget(user: state.user!),
+                            ),
+                            ProfileContainer(
+                              title: "Sosyal Medya Hesaplarım",
+                              child: SocialMediaWidget(
+                                user: state.user!,
+                                socialMediaItems: SocialMediaItem.values,
+                              ),
+                            ),
+                          ],
+                        );
+                      } else {
+                        return const CircularProgressIndicator();
+                      }
+                    } else if (state is UserStateError) {
+                      print(state.errorMessage);
+                      return Text(
+                        'Hata: ${state.errorMessage}',
+                        style: const TextStyle(fontSize: 16, color: Colors.red),
+                      );
+                    } else {
+                      return Text(
+                        'state : ${state.toString()}',
+                        style: const TextStyle(fontSize: 16, color: Colors.black),
+                      );
+                    }
+                  },
                 ),
-                ProfileContainer(
-                  title: "Yetkinliklerim",
-                  child: CompetenceListWidget(user: userModel),
-                ),
-                ProfileContainer(
-                  title: "Sertifikalarım",
-                  child: CertificatesListWidget(user: userModel),
-                ),
-                ProfileContainer(
-                  title: "Sosyal Medya Hesaplarım",
-                  child: SocialMediaWidget(
-                    user: userModel,
-                    socialMediaItems: SocialMediaItem.values,
-                  ),
-                ),
-                ProfileContainer(
-                  title: "Yetkinlik Rozetlerim",
-                  child: BadgesListWidget(
-                    user: userModel,
-                  ),
-                ),
+                //ProfilePicture(user: widget.userModel),
+                // ProfileContainer(
+                //   title: "Kişisel Bİlgilerim",
+                //   child: PersonalInfoColumnWidget(user: widget.userModel),
+                // ),
+                // ProfileContainer(
+                //   title: "Yetkinliklerim",
+                //   child: CompetenceListWidget(user: widget.userModel),
+                // ),
+                // ProfileContainer(
+                //   title: "Sertifikalarım",
+                //   child: CertificatesListWidget(user: widget.userModel),
+                // ),
+                // ProfileContainer(
+                //   title: "Sosyal Medya Hesaplarım",
+                //   child: SocialMediaWidget(
+                //     user: widget.userModel,
+                //     socialMediaItems: SocialMediaItem.values,
+                //   ),
+                // ),
+                // ProfileContainer(
+                //   title: "Yetkinlik Rozetlerim",
+                //   child: BadgesListWidget(
+                //     user: widget.userModel,
+                //   ),
+                // ),
                 const ActivityMapWidget(),
               ],
             ),

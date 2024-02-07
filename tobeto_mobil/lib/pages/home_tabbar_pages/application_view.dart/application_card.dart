@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_mobil/core/widgets/basic_shadow.dart';
 import 'package:tobeto_mobil/core/widgets/container_widget.dart';
 import 'package:tobeto_mobil/models/application_model.dart';
 import 'package:tobeto_mobil/utils/theme/theme_ios.dart';
