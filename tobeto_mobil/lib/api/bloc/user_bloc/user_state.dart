@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart' show immutable;
+import 'package:tobeto_mobil/models/firebase_models/user_model.dart';
 
 @immutable //bu sınıfın oluşturulduktan sonra değiştirilemez olmasını sağlar
 abstract class UserState {
@@ -15,28 +16,28 @@ class UserStateInitial extends UserState {
   }) : super(isLoading: isLoading);
 }
 
- @immutable
- class UserStateCreating extends UserState {
-   const UserStateCreating({
-     bool isLoading = false,
-   }) : super(isLoading: isLoading);
- }
- 
- @immutable
- class UserStateUpdating extends UserState {
-   const UserStateUpdating({
-     bool isLoading = false,
-   }) : super(isLoading: isLoading);
- }
+@immutable
+class UserStateCreating extends UserState {
+  const UserStateCreating({
+    bool isLoading = false,
+  }) : super(isLoading: isLoading);
+}
 
-  @immutable
- class UserStateFetching extends UserState {
-   const UserStateFetching({
-     bool isLoading = false,
-   }) : super(isLoading: isLoading);
- }
+@immutable
+class UserStateUpdating extends UserState {
+  const UserStateUpdating({
+    bool isLoading = false,
+  }) : super(isLoading: isLoading);
+}
 
-
+@immutable
+class UserStateFetching extends UserState {
+  final UserModel? user;
+  const UserStateFetching({
+    this.user,
+    bool isLoading = false,
+  }) : super(isLoading: isLoading);
+}
 
 @immutable
 class UserStateLoading extends UserState {
@@ -44,10 +45,6 @@ class UserStateLoading extends UserState {
     bool isLoading = false,
   }) : super(isLoading: isLoading);
 }
-
-
-
-
 
 @immutable
 class UserStateError extends UserState {

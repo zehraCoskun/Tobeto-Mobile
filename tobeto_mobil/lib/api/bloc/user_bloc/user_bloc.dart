@@ -37,8 +37,8 @@ class UserBloc extends Bloc<UserEvent, UserState> {
   Future<void> _onFetchUser(UserEventFetch event, Emitter<UserState> emit) async {
     emit(const UserStateLoading(isLoading: true));
     try {
-      await _userService.fetchUserData(event.docId);
-      emit(const UserStateFetching());
+      final user = await _userService.fetchUserData(event.docId);
+      emit(UserStateFetching(user: user));
     } catch (e) {
       emit(UserStateError(errorMessage: e.toString()));
     }
