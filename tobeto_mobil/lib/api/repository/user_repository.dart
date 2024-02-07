@@ -1,27 +1,40 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:tobeto_mobil/models/firebase_models/user_model.dart';
 
 class UserRepository {
-  final firestore =
-      FirebaseFirestore.instance.collection("users").withConverter(
-            fromFirestore: (snapshot, options) =>
-                UserModel.fromMap(snapshot.data()!),
-            toFirestore: (value, options) => value.toMap(),
-          );
+  final CollectionReference<Map<String, dynamic>> _collection;
 
-  Future<void> create(UserModel user) async {
-    await firestore.add(user);
+  const UserRepository._(this._collection);
+
+  static final _instance = UserRepository._(
+    FirebaseFirestore.instance.collection("users"),
+  );
+
+  factory UserRepository.instance() {
+    return _instance;
   }
 
-  Future<void> update(String id, Map<String, dynamic> data) async {
-    await firestore.doc(id).update(data);
+  Future<void> create(String docId, Map<String, dynamic> data) async {
+    await _collection.doc(docId).set(data);
   }
 
-  Future<DocumentSnapshot<UserModel>> get(String id) async {
-    return await firestore.get().then(
-          (value) => value.docs.firstWhere(
-            (element) => element.data().id == id,
-          ),
+  Future<void> update(String docId, Map<String, dynamic> data) async {
+    await _collection.doc(docId).update(data);
+  }
+
+  Future<DocumentSnapshot<Map<String, dynamic>>> findWithDocId(String docId) async {
+    return await _collection.get().then(
+          (value) => value.docs.firstWhere((element) => element.id == docId),
         );
   }
+
+  // Future<UserModel> fetchUserData() async {
+  //   final userId = _collection.doc().id;
+  //   final userDoc = await _collection.doc(userId).get();
+  //   final userData = userDoc.data();
+  //   if (userData != null) {
+  //     return UserModel.fromMap(userData);
+  //   } else {
+  //     throw Exception('User data not found');
+  //   }
+  // }
 }

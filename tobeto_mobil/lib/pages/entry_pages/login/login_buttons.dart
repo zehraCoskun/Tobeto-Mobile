@@ -5,7 +5,10 @@ import 'package:tobeto_mobil/pages/entry_pages/recovery/recovery_page.dart';
 class LoginButtons extends StatelessWidget {
   const LoginButtons({
     super.key,
+    required this.onPressed,
   });
+
+  final void Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -37,9 +40,7 @@ class LoginButtons extends StatelessWidget {
         // ElevatedButton flexible ile sarildi
         Flexible(
           child: ElevatedButton(
-            onPressed: () async {
-              Navigator.of(context).pushNamed("/home");
-            },
+            onPressed: onPressed,
             style: Theme.of(context).elevatedButtonTheme.style,
 
             //overflow ve maxlines eklendi

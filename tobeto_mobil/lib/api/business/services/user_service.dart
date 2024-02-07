@@ -1,29 +1,36 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:tobeto_mobil/api/business/requests/user_requests/user_create_request.dart';
 import 'package:tobeto_mobil/api/business/requests/user_requests/user_update_request.dart';
-import 'package:tobeto_mobil/api/business/responses/user_responses/user_get_response.dart';
 import 'package:tobeto_mobil/api/repository/user_repository.dart';
+import 'package:tobeto_mobil/models/firebase_models/user_model.dart';
 
 class UserService {
   final UserRepository _userRepository;
 
   const UserService(this._userRepository);
 
-  Future<void> create(UserCreateRequest request) async {
-    final user = request.toModel();
+  Future<void> create(String docId, UserCreateRequest request) async {
+    //check if user already exists
 
-    await _userRepository.create(user);
+    await _userRepository.create(
+      docId,
+      request.toModel().toMap(),
+    );
   }
 
-  Future<void> update(String id, UserUpdateRequest request) async {
-    final DocumentSnapshot doc = await _userRepository.get(id);
-
-    await _userRepository.update(doc.id, request.toModel().toMap());
+  Future<void> update(String docId, UserUpdateRequest request) async {
+    await _userRepository.update(
+      docId,
+      request.toModel().toMap(),
+    );
   }
 
-  Future<UserGetResponse?> get(String id) async {
-    final user = await _userRepository.get(id);
-
-    return UserGetResponse.fromModel(user.data());
+  Future<UserModel> fetchUserData(String docId) async {
+    final userDoc = await _userRepository.findWithDocId(docId);
+    if (userDoc.exists) {
+      final userData = userDoc.data();
+      return UserModel.fromMap(userData!);
+    } else {
+      throw Exception('User not found');
+    }
   }
 }

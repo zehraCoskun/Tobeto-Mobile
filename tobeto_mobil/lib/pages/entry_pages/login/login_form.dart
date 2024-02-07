@@ -1,30 +1,36 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tobeto_mobil/api/bloc/auth_bloc/auth_bloc.dart';
+import 'package:tobeto_mobil/api/bloc/auth_bloc/auth_event.dart';
 import 'package:tobeto_mobil/constants/pages/login_text.dart';
 import 'package:tobeto_mobil/core/widgets/form_widget.dart';
 import 'package:tobeto_mobil/core/widgets/password_form_widget.dart';
+import 'package:tobeto_mobil/pages/entry_pages/login/login_buttons.dart';
 import 'package:tobeto_mobil/utils/responsive/responsive_layout.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({
     Key? key,
-    required this.usernameController,
-    required this.passwordController,
   }) : super(key: key);
-
-  final TextEditingController usernameController;
-  final TextEditingController passwordController;
 
   @override
   State<LoginForm> createState() => _LoginFormState();
 }
 
 class _LoginFormState extends State<LoginForm> {
+  final _formKey = GlobalKey<FormState>();
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
-    return ResponsiveLayout(
-      desktopBody: buildDesktopLoginForm(),
-      tabletBody: buildDesktopLoginForm(),
-      mobileBody: buildMobileLoginForm(),
+    return Form(
+      key: _formKey,
+      child: ResponsiveLayout(
+        desktopBody: buildDesktopLoginForm(),
+        tabletBody: buildDesktopLoginForm(),
+        mobileBody: buildMobileLoginForm(),
+      ),
     );
   }
 
@@ -45,18 +51,30 @@ class _LoginFormState extends State<LoginForm> {
         children: [
           const SizedBox(height: 16),
           FormWidget(
-            controller: widget.usernameController,
+            controller: emailController,
             prefixIcon: const Icon(Icons.person_outline_rounded),
             labelText: loginUsernameLabel,
             hintText: loginUsernameHint,
+
           ),
           const SizedBox(height: 16),
           PasswordFormWidget(
             labelText: loginPasswordLabel,
             hintText: loginUsernameHint,
-            controller: widget.passwordController,
+            controller: passwordController,
           ),
           const SizedBox(height: 16),
+          LoginButtons(
+            onPressed: () {
+              _formKey.currentState!.save();
+              context.read<AuthBloc>().add(AuthEventLogin(
+                email: emailController.text,
+                password: passwordController.text,
+              ));
+
+              //if successfull go to home screen
+            },
+          ),
         ],
       ),
     );

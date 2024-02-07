@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tobeto_mobil/api/bloc/auth_bloc/auth_bloc.dart';
+import 'package:tobeto_mobil/api/bloc/auth_bloc/auth_event.dart';
+import 'package:tobeto_mobil/api/business/requests/auth_requests/auth_register_request.dart';
 import 'package:tobeto_mobil/constants/image_text.dart';
 import 'package:tobeto_mobil/constants/pages/login_text.dart';
 import 'package:tobeto_mobil/core/widgets/primary_background.dart';
@@ -79,18 +83,27 @@ class _SignUpPageState extends State<SignUpPage> {
                           final result = _formKey.currentState!.validate();
                           if (result) {
                             _formKey.currentState?.save();
-                            print(_password);
-                            print(_passwordAgain);
-                            ScaffoldMessenger.of(context)
-                                .showSnackBar(snackBar);
+                            context.read<AuthBloc>().add(
+                                  AuthEventRegister(
+                                    request: AuthRegisterRequest(
+                                      fullName: "$_ad $_soyad",
+                                      email: _email,
+                                      password: _password,
+                                    ),
+                                  ),
+                                );
+                            //if successfull go to login screen or homescreen
+
+                            // ScaffoldMessenger.of(context)
+                            //     .showSnackBar(snackBar);
                           }
                         },
-                        child: const Text(signUp),
                         style: ElevatedButton.styleFrom(
                             elevation: 20,
                             shadowColor: Colors
                                 .blueGrey // Gölge miktarı, ayarlayabilirsiniz
                             ),
+                        child: const Text(signUp),
                       ),
                       const SizedBox(
                         height: 10,
