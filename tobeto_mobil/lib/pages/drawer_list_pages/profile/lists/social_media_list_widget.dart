@@ -1,7 +1,7 @@
 //sosyal medyalarım içeriği
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/models/enums/social_media_item.dart';
-import 'package:tobeto_mobil/models/demo_user_model.dart';
+import 'package:tobeto_mobil/models/firebase_models/user_model.dart';
 import 'package:tobeto_mobil/pages/drawer_list_pages/profile/social_media_button.dart';
 
 class SocialMediaWidget extends StatelessWidget {
@@ -10,7 +10,7 @@ class SocialMediaWidget extends StatelessWidget {
     required this.user,
     required this.socialMediaItems,
   });
-  final DemoUserModel user;
+  final UserModel user;
 
   final List<SocialMediaItem> socialMediaItems;
   @override
@@ -24,7 +24,7 @@ class SocialMediaWidget extends StatelessWidget {
         itemBuilder: (context, index) {
           return SocialMediaButton(
             logo: socialMediaItems[index].getIcon(),
-            url: socialMediaItems[index].getUrl(),
+            url: socialMediaItems[index].getUrl(user),
             color: socialMediaItems[index].getColor(),
           );
         },

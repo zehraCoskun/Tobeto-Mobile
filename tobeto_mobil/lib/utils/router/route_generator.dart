@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_mobil/dummy_user_data.dart';
 import 'package:tobeto_mobil/pages/drawer_list_pages/calendar/calendar_page.dart';
 import 'package:tobeto_mobil/pages/drawer_list_pages/catalog/catalog_page.dart';
 import 'package:tobeto_mobil/pages/entry_pages/login/login_page.dart';
@@ -21,7 +20,7 @@ class RouteGenerator {
       case "/reviews":
         return defaultRouteTransition(const ReviewsPage());
       case "/profile":
-        return defaultRouteTransition(ProfilPage(userModel: user1));
+        return defaultRouteTransition(const ProfilPage());
       case "/catalog":
         return defaultRouteTransition(const CatalogPage());
       case "/calendar":

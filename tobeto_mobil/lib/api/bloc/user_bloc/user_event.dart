@@ -29,8 +29,10 @@ class UserEventUpdate implements UserEvent {
 
 @immutable
 class UserEventFetch implements UserEvent {
-  final String docId;
-  const UserEventFetch({required this.docId});
+    final String docId;
+    const UserEventFetch({
+      required this.docId
+    });
 }
 
 

@@ -23,7 +23,7 @@ class _ProfileEditPage extends State<ProfileEditPage> {
 
   @override
   Widget build(BuildContext context) {
-    final DemoUserModel userModel = user1; //burası geçici olarak böyle yapıldı
+   // final DemoUserModel userModel = user1; //burası geçici olarak böyle yapıldı
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -71,9 +71,9 @@ class _ProfileEditPage extends State<ProfileEditPage> {
                           competenceBottomSheet(context);
                         },
                         icon: Icon(Icons.add, color: TobetoDarkColors.mor))),
-                CompetenceWidget(
-                  user: userModel,
-                ),
+                // CompetenceWidget(
+                //   user: userModel,
+                // ),
                 const InfoTitleWidget(title: "Sertifikalarım"),
                 const OptionalProfileTextField(
                   labelText: "Sertifikalar",
