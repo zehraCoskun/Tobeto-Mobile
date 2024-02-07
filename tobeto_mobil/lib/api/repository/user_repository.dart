@@ -21,10 +21,20 @@ class UserRepository {
     await _collection.doc(docId).update(data);
   }
 
-  Future<DocumentSnapshot<Map<String, dynamic>>> findWithDocId(
-      String docId) async {
+  Future<DocumentSnapshot<Map<String, dynamic>>> findWithDocId(String docId) async {
     return await _collection.get().then(
           (value) => value.docs.firstWhere((element) => element.id == docId),
         );
   }
+
+  // Future<UserModel> fetchUserData() async {
+  //   final userId = _collection.doc().id;
+  //   final userDoc = await _collection.doc(userId).get();
+  //   final userData = userDoc.data();
+  //   if (userData != null) {
+  //     return UserModel.fromMap(userData);
+  //   } else {
+  //     throw Exception('User data not found');
+  //   }
+  // }
 }
