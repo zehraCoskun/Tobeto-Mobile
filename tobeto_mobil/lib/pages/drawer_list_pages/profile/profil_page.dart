@@ -19,19 +19,19 @@ import 'package:tobeto_mobil/pages/drawer_list_pages/profile/profile_picture/pro
 class ProfilPage extends StatefulWidget {
   const ProfilPage({super.key, this.user});
   final UserModel? user;
-
   @override
   State<ProfilPage> createState() => _ProfilPageState();
 }
 
 class _ProfilPageState extends State<ProfilPage> {
+  late final String userId;
   @override
   void initState() {
     super.initState();
     final user = FirebaseAuth.instance.currentUser;
     if (user != null) {
-      final id = user.uid;
-      context.read<UserBloc>().add(UserEventFetch(docId: id));
+      userId = user.uid;
+      context.read<UserBloc>().add(UserEventFetch(docId: userId));
     }
   }
 
@@ -68,7 +68,9 @@ class _ProfilPageState extends State<ProfilPage> {
                       if (state.user != null) {
                         return Column(
                           children: [
-                            ProfilePicture(user: state.user!),
+                            ProfilePicture(
+                              userId: userId,
+                            ),
                             ProfileContainer(
                               title: "Kişisel Bİlgilerim",
                               child: PersonalInfoColumnWidget(user: state.user!),

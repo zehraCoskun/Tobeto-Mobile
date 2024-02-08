@@ -10,16 +10,21 @@ class DrawerPage extends StatelessWidget {
     super.key,
     required this.items,
     this.userModel,
+    this.userId,
   });
 
   final List<DrawerItem> items;
   final UserModel? userModel;
+  final String? userId;
   @override
   Widget build(BuildContext context) {
     return Drawer(
       child: Column(
         children: [
-          DrawerHead(user: userModel),
+          DrawerHead(
+            //user: userModel,
+            userId: userId,
+          ),
           DrawerBody(drawerItems: items),
           const DrawerFooter(),
           const Text("© 2022 Tobeto"),

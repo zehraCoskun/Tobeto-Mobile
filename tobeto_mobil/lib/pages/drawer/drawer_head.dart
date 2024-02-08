@@ -3,14 +3,15 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/user_bloc/user_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/user_bloc/user_state.dart';
 import 'package:tobeto_mobil/constants/image_text.dart';
-import 'package:tobeto_mobil/models/firebase_models/user_model.dart';
 
 class DrawerHead extends StatelessWidget {
   const DrawerHead({
     Key? key,
-    this.user,
+    //this.user,
+    this.userId,
   }) : super(key: key);
-  final UserModel? user;
+  //final UserModel? user;
+  final String? userId;
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<UserBloc, UserState>(
@@ -49,7 +50,7 @@ class DrawerHead extends StatelessWidget {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(60),
                       child: Image.asset(
-                        state.user!.profileImage ?? ders2,
+                        ders2,
                         height: 120,
                         width: 120,
                       ),

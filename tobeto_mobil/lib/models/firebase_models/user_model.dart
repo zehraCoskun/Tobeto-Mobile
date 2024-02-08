@@ -6,7 +6,6 @@ class UserModel extends Entity {
   final String? email;
   final DateTime? birthDate;
   final String? phoneNumber;
-  final String? profileImage;
 
   // final List<String>? talents;
   // final List<String>? certificates;
@@ -23,7 +22,6 @@ class UserModel extends Entity {
     this.email,
     this.birthDate,
     this.phoneNumber,
-    this.profileImage,
     // this.certificates,
     // this.talents,
     // this.badges,
@@ -41,7 +39,6 @@ class UserModel extends Entity {
       //birthDate: map["birth_date"] as DateTime?,
       birthDate: (map["birth_date"] as Timestamp?)?.toDate(),
       phoneNumber: map["phone_number"] as String?,
-      profileImage: map["profile_image"] as String?,
       // talents: map["talents"] as List<String>?,
       // certificates: map["certificates"] as List<String>?,
       // badges: BadgeModel.fromMap(map["badges"]) as List<BadgeModel>?,
@@ -73,7 +70,6 @@ class UserModel extends Entity {
       //"birth_date": birthDate,
       "birth_date": birthDate != null ? Timestamp.fromDate(birthDate!) : null,
       "phone_number": phoneNumber,
-      "profile_image": profileImage,
       // "talents": talents,
       // "certificates": certificates,
       // "badges": badges?.map((badge) => badge.toMap()),
