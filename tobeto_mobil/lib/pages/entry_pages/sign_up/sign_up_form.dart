@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/constants/pages/login_text.dart';
-import 'package:tobeto_mobil/pages/entry_pages/sign_up/sign_up_buttons.dart';
-import 'package:tobeto_mobil/utils/theme/theme_ios.dart';
 
 class SignUpForm extends StatefulWidget {
   const SignUpForm({super.key});

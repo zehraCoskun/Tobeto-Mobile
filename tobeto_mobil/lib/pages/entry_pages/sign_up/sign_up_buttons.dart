@@ -3,6 +3,7 @@ import 'package:tobeto_mobil/constants/pages/login_text.dart';
 import 'package:tobeto_mobil/pages/entry_pages/login/login_page.dart';
 import 'package:tobeto_mobil/utils/theme/theme_ios.dart';
 
+// ignore: must_be_immutable
 class SignUpButton extends StatelessWidget {
   SignUpButton({super.key});
 
@@ -28,10 +29,6 @@ class SignUpButton extends StatelessWidget {
   }
 
   final _formKey = GlobalKey<FormState>();
-
-  var _ad = '';
-  var _soyad = '';
-  var _email = '';
   var _password = '';
   var _passwordAgain = '';
 
