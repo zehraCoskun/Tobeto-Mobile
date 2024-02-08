@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:tobeto_mobil/core/entities/entity.dart';
 
 class UserModel extends Entity {
@@ -37,7 +38,8 @@ class UserModel extends Entity {
     return UserModel(
       fullName: map["full_name"] as String?,
       email: map["email"] as String?,
-      birthDate: map["birth_date"] as DateTime?,
+      //birthDate: map["birth_date"] as DateTime?,
+      birthDate: (map["birth_date"] as Timestamp?)?.toDate(),
       phoneNumber: map["phone_number"] as String?,
       profileImage: map["profile_image"] as String?,
       // talents: map["talents"] as List<String>?,
@@ -68,7 +70,8 @@ class UserModel extends Entity {
     return {
       "full_name": fullName,
       "email": email,
-      "birth_date": birthDate,
+      //"birth_date": birthDate,
+      "birth_date": birthDate != null ? Timestamp.fromDate(birthDate!) : null,
       "phone_number": phoneNumber,
       "profile_image": profileImage,
       // "talents": talents,

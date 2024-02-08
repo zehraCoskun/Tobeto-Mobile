@@ -18,7 +18,7 @@ class PersonalInfoColumnWidget extends StatelessWidget {
       ),
       PersonalInfoRowWidget(
         title: "Doğum Tarihi",
-        content: user.birthDate.toString(), // ?? "doğum tarihi ekleyiniz",
+        content: user.birthDate != null ? _formatDate(user.birthDate!) : "doğum tarihi giriniz",
         contentIcon: Icons.calendar_month_outlined,
       ),
       PersonalInfoRowWidget(
@@ -32,5 +32,9 @@ class PersonalInfoColumnWidget extends StatelessWidget {
         contentIcon: Icons.phone_iphone_outlined,
       ),
     ]);
+  }
+
+  String _formatDate(DateTime date) {
+    return "${date.day}/${date.month}/${date.year}";
   }
 }
