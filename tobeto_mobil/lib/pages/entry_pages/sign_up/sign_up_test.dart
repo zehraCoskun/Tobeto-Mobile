@@ -114,12 +114,12 @@ class SignUpPage extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         SignUpForm(
-          nameController: nameController,
-          surnameController: surnameController,
-          emailController: emailController,
-          passwordController: passwordController,
+          // nameController: nameController,
+          // surnameController: surnameController,
+          // emailController: emailController,
+          // passwordController: passwordController,
         ),
-        const SignUpButton(),
+        SignUpButton(),
       ],
     );
   }
