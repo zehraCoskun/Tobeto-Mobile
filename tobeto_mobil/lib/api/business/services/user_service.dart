@@ -18,9 +18,13 @@ class UserService {
   }
 
   Future<void> update(String docId, UserUpdateRequest request) async {
+    final map = request.toModel().toMap();
+    if (request.profileImage != null) {
+      map.addEntries([MapEntry("file", request.profileImage)]);
+    }
     await _userRepository.update(
       docId,
-      request.toModel().toMap(),
+      map,
     );
   }
 

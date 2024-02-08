@@ -11,6 +11,8 @@ import 'package:tobeto_mobil/core/widgets/secondary_background.dart';
 import 'package:tobeto_mobil/models/enums/social_media_item.dart';
 import 'package:tobeto_mobil/models/firebase_models/user_model.dart';
 import 'package:tobeto_mobil/pages/drawer_list_pages/profile/activity_map/activity_map_widget.dart';
+import 'package:tobeto_mobil/pages/drawer_list_pages/profile/lists/certificates_list_widget.dart';
+import 'package:tobeto_mobil/pages/drawer_list_pages/profile/lists/competence_list_widget.dart';
 import 'package:tobeto_mobil/pages/drawer_list_pages/profile/personal_info/personal_info_column_widget.dart';
 import 'package:tobeto_mobil/pages/drawer_list_pages/profile/profile_container.dart';
 import 'package:tobeto_mobil/pages/drawer_list_pages/profile/lists/social_media_list_widget.dart';
@@ -69,11 +71,19 @@ class _ProfilPageState extends State<ProfilPage> {
                         return Column(
                           children: [
                             ProfilePicture(
-                              userId: userId,
+                              userImage: state.user!.profileImage,
                             ),
                             ProfileContainer(
                               title: "Kişisel Bİlgilerim",
                               child: PersonalInfoColumnWidget(user: state.user!),
+                            ),
+                            ProfileContainer(
+                              title: "Yetkinliklerim",
+                              child: CompetenceListWidget(competences: state.user!.competences),
+                            ),
+                            ProfileContainer(
+                              title: "Sertifikalarım",
+                              child: CertificatesListWidget(certificates: state.user!.certificates),
                             ),
                             ProfileContainer(
                               title: "Sosyal Medya Hesaplarım",
@@ -82,52 +92,28 @@ class _ProfilPageState extends State<ProfilPage> {
                                 socialMediaItems: SocialMediaItem.values,
                               ),
                             ),
+                            const ActivityMapWidget(),
                           ],
                         );
                       } else {
-                        return const CircularProgressIndicator();
+                        return const Center(child: CircularProgressIndicator());
                       }
                     } else if (state is UserStateError) {
-                      print(state.errorMessage);
                       return Text(
                         'Hata: ${state.errorMessage}',
                         style: const TextStyle(fontSize: 16, color: Colors.red),
                       );
                     } else {
-                      return Text(
-                        'state : ${state.toString()}',
-                        style: const TextStyle(fontSize: 16, color: Colors.black),
-                      );
+                      return const Center(child: CircularProgressIndicator());
                     }
                   },
                 ),
-                //ProfilePicture(user: widget.userModel),
-                // ProfileContainer(
-                //   title: "Kişisel Bİlgilerim",
-                //   child: PersonalInfoColumnWidget(user: widget.userModel),
-                // ),
-                // ProfileContainer(
-                //   title: "Yetkinliklerim",
-                //   child: CompetenceListWidget(user: widget.userModel),
-                // ),
-                // ProfileContainer(
-                //   title: "Sertifikalarım",
-                //   child: CertificatesListWidget(user: widget.userModel),
-                // ),
-                // ProfileContainer(
-                //   title: "Sosyal Medya Hesaplarım",
-                //   child: SocialMediaWidget(
-                //     user: widget.userModel,
-                //     socialMediaItems: SocialMediaItem.values,
-                //   ),
-                // ),
                 // ProfileContainer(
                 //   title: "Yetkinlik Rozetlerim",
                 //   child: BadgesListWidget(
                 //     user: widget.userModel,
                 //   ),
                 // ),
-                const ActivityMapWidget(),
               ],
             ),
           ),

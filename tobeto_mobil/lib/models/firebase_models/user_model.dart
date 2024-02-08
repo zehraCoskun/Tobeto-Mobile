@@ -6,9 +6,10 @@ class UserModel extends Entity {
   final String? email;
   final DateTime? birthDate;
   final String? phoneNumber;
+  final String? profileImage;
 
-  // final List<String>? talents;
-  // final List<String>? certificates;
+  final List<String>? competences;
+  final List<String>? certificates;
   // final List<BadgeModel>? badges;
 
   final String? github;
@@ -22,8 +23,9 @@ class UserModel extends Entity {
     this.email,
     this.birthDate,
     this.phoneNumber,
-    // this.certificates,
-    // this.talents,
+    this.profileImage,
+    this.certificates,
+    this.competences,
     // this.badges,
     this.github,
     this.linkedin,
@@ -36,11 +38,11 @@ class UserModel extends Entity {
     return UserModel(
       fullName: map["full_name"] as String?,
       email: map["email"] as String?,
-      //birthDate: map["birth_date"] as DateTime?,
       birthDate: (map["birth_date"] as Timestamp?)?.toDate(),
       phoneNumber: map["phone_number"] as String?,
-      // talents: map["talents"] as List<String>?,
-      // certificates: map["certificates"] as List<String>?,
+      profileImage: map["profile_image"] as String?,
+      competences: (map["competences"] as List<dynamic>?)?.map((e) => e.toString()).toList(),
+      certificates: (map["certificates"] as List<dynamic>?)?.map((e) => e.toString()).toList(),
       // badges: BadgeModel.fromMap(map["badges"]) as List<BadgeModel>?,
       github: map["github"] as String?,
       linkedin: map["linkedin"] as String?,
@@ -67,11 +69,11 @@ class UserModel extends Entity {
     return {
       "full_name": fullName,
       "email": email,
-      //"birth_date": birthDate,
       "birth_date": birthDate != null ? Timestamp.fromDate(birthDate!) : null,
       "phone_number": phoneNumber,
-      // "talents": talents,
-      // "certificates": certificates,
+      "profile_image": profileImage,
+      //"competences": competences,
+      //"certificates": certificates,
       // "badges": badges?.map((badge) => badge.toMap()),
       "github": github,
       "linkedin": linkedin,

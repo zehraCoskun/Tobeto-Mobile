@@ -19,7 +19,7 @@ class CompetenceWidget extends StatelessWidget {
           itemCount: user.compteneces!.isNotEmpty ? user.compteneces?.length : 0, //MyItems.length,
           itemBuilder: (context, index) {
             return IntrinsicWidth(
-              child: ContentsWidget(competence: user.compteneces![index]),
+              child: ContentsWidget(content: user.compteneces![index]),
             );
           },
         ),

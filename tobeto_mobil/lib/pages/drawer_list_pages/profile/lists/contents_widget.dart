@@ -5,9 +5,9 @@ import 'package:tobeto_mobil/core/widgets/basic_shadow.dart';
 class ContentsWidget extends StatelessWidget {
   const ContentsWidget({
     super.key,
-    required this.competence,
+    required this.content,
   });
-  final String competence;
+  final String content;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class ContentsWidget extends StatelessWidget {
           boxShadow: [basicShadow()],
         ),
         child: Text(
-          competence,
+          content,
           style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                 fontSize: 20,
               ),

@@ -36,6 +36,8 @@ class UserEventFetch implements UserEvent {
 }
 
 
+
+
 /* implements ve extends arasındaki temel fark, bir sınıfın başka bir sınıfı miras alması (extends) ve bir arayüzü uygulaması (implements) arasındadır.
 
 Yukarıdaki kod parçasında implements kullanılmasının sebebi, UserEventCreate sınıfının UserEvent arayüzünü uygulamasıdır. İşte nedenleri:
