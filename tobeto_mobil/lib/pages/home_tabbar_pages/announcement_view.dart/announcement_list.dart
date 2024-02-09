@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tobeto_mobil/api/bloc/announcement_bloc.dart/announcement_bloc.dart';
-import 'package:tobeto_mobil/api/bloc/announcement_bloc.dart/announcement_event.dart';
-import 'package:tobeto_mobil/api/bloc/announcement_bloc.dart/announcement_state.dart';
+import 'package:tobeto_mobil/api/bloc/announcement_bloc/announcement_bloc.dart';
+import 'package:tobeto_mobil/api/bloc/announcement_bloc/announcement_event.dart';
+import 'package:tobeto_mobil/api/bloc/announcement_bloc/announcement_state.dart';
 import 'package:tobeto_mobil/pages/home_tabbar_pages/announcement_view.dart/announcement_card.dart';
 
 class AnnouncementList extends StatelessWidget {
@@ -12,10 +12,11 @@ class AnnouncementList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    context.read<AnnouncementBloc>().add(const AnnouncementEventFetch());
-
     return BlocBuilder<AnnouncementBloc, AnnouncementState>(builder: (context, state) {
-      if (state is AnnouncementStateLoading) {
+      if (state is AnnouncementStateInitial) {
+        context.watch<AnnouncementBloc>().add(const AnnouncementEventFetch());
+        return const CircularProgressIndicator();
+      } else if (state is AnnouncementStateLoading) {
         return const CircularProgressIndicator();
       } else if (state is AnnouncementStateLoaded) {
         return ListView.builder(

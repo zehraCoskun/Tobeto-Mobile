@@ -1,6 +1,6 @@
 import 'package:tobeto_mobil/constants/image_text.dart';
 import 'package:tobeto_mobil/dummy_education_data.dart';
-import 'package:tobeto_mobil/models/application_model.dart';
+import 'package:tobeto_mobil/models/firebase_models/application_model.dart';
 import 'package:tobeto_mobil/models/catalog_model.dart';
 import 'package:tobeto_mobil/models/education/education_model.dart';
 import 'package:tobeto_mobil/models/education/enums/education_status.dart';
@@ -70,43 +70,6 @@ final List<SurveyModel> surveyModelData = [
   SurveyModel(id: "5"),
 ];
 
-final List<ApplicationModel> applicationModelData = [
-  ApplicationModel(
-    id: "1",
-    state: "Kabul Edildi",
-    title: "İstanbul Kodluyor Bilgilendirme",
-    text1: "İstanbul Kodluyor başvuru formu onaylandı.",
-    text2: "İstanbul Kodluyor belge yükleme formu onaylandı.",
-  ),
-  ApplicationModel(
-    id: "2",
-    state: "Kabul Edildi",
-    title: "İstanbul Kodluyor Bilgilendirme",
-    text1: "İstanbul Kodluyor başvuru formu onaylandı.",
-    text2: "İstanbul Kodluyor belge yükleme formu onaylandı.",
-  ),
-  ApplicationModel(
-    id: "3",
-    state: "Kabul Edildi",
-    title: "İstanbul Kodluyor Bilgilendirme",
-    text1: "İstanbul Kodluyor başvuru formu onaylandı.",
-    text2: "İstanbul Kodluyor belge yükleme formu onaylandı.",
-  ),
-  ApplicationModel(
-    id: "4",
-    state: "Kabul Edildi",
-    title: "İstanbul Kodluyor Bilgilendirme",
-    text1: "İstanbul Kodluyor başvuru formu onaylandı.",
-    text2: "İstanbul Kodluyor belge yükleme formu onaylandı.",
-  ),
-  ApplicationModel(
-    id: "5",
-    state: "Kabul Edildi",
-    title: "İstanbul Kodluyor Bilgilendirme",
-    text1: "İstanbul Kodluyor başvuru formu onaylandı.",
-    text2: "İstanbul Kodluyor belge yükleme formu onaylandı.",
-  ),
-];
 
 final List<ExamModel> examModelData = [
   ExamModel(

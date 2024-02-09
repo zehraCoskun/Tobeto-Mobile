@@ -23,6 +23,7 @@ void main() async {
         authBlocProvider,
         userBlocProvider,
         announcementBlocProvider,
+        applicationBlocProvider,
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
