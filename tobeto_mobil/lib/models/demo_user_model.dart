@@ -1,6 +1,6 @@
 import 'package:tobeto_mobil/models/firebase_models/application_model.dart';
 import 'package:tobeto_mobil/models/education/education_model.dart';
-import 'package:tobeto_mobil/models/exam_model.dart';
+import 'package:tobeto_mobil/models/firebase_models/exam_model.dart';
 
 class DemoUserModel {
   final String id;

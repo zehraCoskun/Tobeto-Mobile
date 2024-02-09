@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/core/widgets/container_widget.dart';
-import 'package:tobeto_mobil/models/exam_model.dart';
+import 'package:tobeto_mobil/models/firebase_models/exam_model.dart';
 import 'package:tobeto_mobil/utils/theme/theme_ios.dart';
 
 class ExamCard extends StatelessWidget {

@@ -24,6 +24,7 @@ void main() async {
         userBlocProvider,
         announcementBlocProvider,
         applicationBlocProvider,
+        examBlocProvider,
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

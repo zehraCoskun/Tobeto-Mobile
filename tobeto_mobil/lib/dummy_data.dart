@@ -4,7 +4,7 @@ import 'package:tobeto_mobil/models/firebase_models/application_model.dart';
 import 'package:tobeto_mobil/models/catalog_model.dart';
 import 'package:tobeto_mobil/models/education/education_model.dart';
 import 'package:tobeto_mobil/models/education/enums/education_status.dart';
-import 'package:tobeto_mobil/models/exam_model.dart';
+import 'package:tobeto_mobil/models/firebase_models/exam_model.dart';
 import 'package:tobeto_mobil/models/survey_model.dart';
 import 'package:tobeto_mobil/models/review_model.dart';
 
@@ -70,39 +70,6 @@ final List<SurveyModel> surveyModelData = [
   SurveyModel(id: "5"),
 ];
 
-
-final List<ExamModel> examModelData = [
-  ExamModel(
-    id: "1",
-    title: "Herkes için Kodlama 1C Değerlendirme Sınavı",
-    detail: "Herkes için Kodlama - 1C",
-    duration: "5 dakika",
-  ),
-  ExamModel(
-    id: "2",
-    title: "Herkes için Kodlama 2C Değerlendirme Sınavı",
-    detail: "Herkes için Kodlama - 2C",
-    duration: "15 dakika",
-  ),
-  ExamModel(
-    id: "3",
-    title: "Herkes için Kodlama 3C Değerlendirme Sınavı",
-    detail: "Herkes için Kodlama - 3C",
-    duration: "25 dakika",
-  ),
-  ExamModel(
-    id: "4",
-    title: "Herkes için Kodlama 4C Değerlendirme Sınavı",
-    detail: "Herkes için Kodlama - 4C",
-    duration: "35 dakika",
-  ),
-  ExamModel(
-    id: "5",
-    title: "Herkes için Kodlama 5C Değerlendirme Sınavı",
-    detail: "Herkes için Kodlama - 5C",
-    duration: "45 dakika",
-  ),
-];
 
 final List<CatalogModel> catalogModelData = [
   CatalogModel(
