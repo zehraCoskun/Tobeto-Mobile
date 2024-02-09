@@ -20,13 +20,12 @@ class _ProfileEditPage extends State<ProfileEditPage> {
 
   @override
   Widget build(BuildContext context) {
-   // final DemoUserModel userModel = user1; //burası geçici olarak böyle yapıldı
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
         title: Image.asset(
           logo,
-          height: kToolbarHeight - 10,
+          height: kToolbarHeight - 20,
         ),
         actions: [
           IconButton(

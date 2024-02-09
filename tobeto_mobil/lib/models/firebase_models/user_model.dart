@@ -10,7 +10,7 @@ class UserModel extends Entity {
 
   final List<String>? competences;
   final List<String>? certificates;
-  // final List<BadgeModel>? badges;
+  final List<String>? badges;
 
   final String? github;
   final String? linkedin;
@@ -26,7 +26,7 @@ class UserModel extends Entity {
     this.profileImage,
     this.certificates,
     this.competences,
-    // this.badges,
+    this.badges,
     this.github,
     this.linkedin,
     this.facebook,
@@ -43,7 +43,7 @@ class UserModel extends Entity {
       profileImage: map["profile_image"] as String?,
       competences: (map["competences"] as List<dynamic>?)?.map((e) => e.toString()).toList(),
       certificates: (map["certificates"] as List<dynamic>?)?.map((e) => e.toString()).toList(),
-      // badges: BadgeModel.fromMap(map["badges"]) as List<BadgeModel>?,
+      badges: (map["badges"] as List<dynamic>?)?.map((e) => e.toString()).toList(),
       github: map["github"] as String?,
       linkedin: map["linkedin"] as String?,
       facebook: map["facebook"] as String?,

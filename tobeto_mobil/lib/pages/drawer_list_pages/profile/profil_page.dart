@@ -6,11 +6,13 @@ import 'package:tobeto_mobil/api/bloc/user_bloc/user_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/user_bloc/user_event.dart';
 import 'package:tobeto_mobil/api/bloc/user_bloc/user_state.dart';
 import 'package:tobeto_mobil/constants/image_text.dart';
+import 'package:tobeto_mobil/constants/pages/profile_text.dart';
 import 'package:tobeto_mobil/core/screens/global_scaffold.dart';
 import 'package:tobeto_mobil/core/widgets/secondary_background.dart';
 import 'package:tobeto_mobil/models/enums/social_media_item.dart';
 import 'package:tobeto_mobil/models/firebase_models/user_model.dart';
 import 'package:tobeto_mobil/pages/drawer_list_pages/profile/activity_map/activity_map_widget.dart';
+import 'package:tobeto_mobil/pages/drawer_list_pages/profile/lists/badges_list_widget.dart';
 import 'package:tobeto_mobil/pages/drawer_list_pages/profile/lists/certificates_list_widget.dart';
 import 'package:tobeto_mobil/pages/drawer_list_pages/profile/lists/competence_list_widget.dart';
 import 'package:tobeto_mobil/pages/drawer_list_pages/profile/personal_info/personal_info_column_widget.dart';
@@ -54,7 +56,9 @@ class _ProfilPageState extends State<ProfilPage> {
               icon: const Icon(Icons.share),
             ),
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).pushNamed("/profileEdit");
+              },
               icon: const Icon(Icons.edit_outlined),
             )
           ],
@@ -70,9 +74,7 @@ class _ProfilPageState extends State<ProfilPage> {
                       if (state.user != null) {
                         return Column(
                           children: [
-                            ProfilePicture(
-                              userImage: state.user!.profileImage,
-                            ),
+                            ProfilePicture(userImage: state.user!.profileImage),
                             ProfileContainer(
                               title: "Kişisel Bİlgilerim",
                               child: PersonalInfoColumnWidget(user: state.user!),
@@ -87,10 +89,11 @@ class _ProfilPageState extends State<ProfilPage> {
                             ),
                             ProfileContainer(
                               title: "Sosyal Medya Hesaplarım",
-                              child: SocialMediaWidget(
-                                user: state.user!,
-                                socialMediaItems: SocialMediaItem.values,
-                              ),
+                              child: SocialMediaWidget(user: state.user!, socialMediaItems: SocialMediaItem.values),
+                            ),
+                            const ProfileContainer(
+                              title: "Yetkinlik Rozetlerim",
+                              child: BadgesListWidget(badges: badgeList),
                             ),
                             const ActivityMapWidget(),
                           ],
@@ -108,12 +111,6 @@ class _ProfilPageState extends State<ProfilPage> {
                     }
                   },
                 ),
-                // ProfileContainer(
-                //   title: "Yetkinlik Rozetlerim",
-                //   child: BadgesListWidget(
-                //     user: widget.userModel,
-                //   ),
-                // ),
               ],
             ),
           ),

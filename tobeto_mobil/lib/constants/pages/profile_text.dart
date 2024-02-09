@@ -30,6 +30,7 @@ const badge5 = "assets/images/profile/badge5.jpeg";
 const badge6 = "assets/images/profile/badge6.jpeg";
 const badge7 = "assets/images/profile/badge7.jpeg";
 const badge8 = "assets/images/profile/badge8.jpeg";
+const badgeList = [badge2, badge3, badge4, badge5, badge6, badge7, badge8];
 
 //profile page -activity map colors
 const rate0Color = Color(0xFFCACACA);

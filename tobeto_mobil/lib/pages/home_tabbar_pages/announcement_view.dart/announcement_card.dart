@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/core/widgets/container_widget.dart';
 import 'package:tobeto_mobil/core/widgets/title_shadow.dart';
-import 'package:tobeto_mobil/models/announcement_model.dart';
+import 'package:tobeto_mobil/models/firebase_models/announcement_model.dart';
 import 'package:tobeto_mobil/utils/theme/theme_ios.dart';
 
 class AnnouncementCard extends StatelessWidget {
