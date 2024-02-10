@@ -1,24 +1,49 @@
 //sertifikalarım içeriği
 import 'package:flutter/material.dart';
-import 'package:tobeto_mobil/models/review_model.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tobeto_mobil/api/bloc/review_bloc/review_bloc.dart';
+import 'package:tobeto_mobil/api/bloc/review_bloc/review_event.dart';
+import 'package:tobeto_mobil/api/bloc/review_bloc/review_state.dart';
 import 'package:tobeto_mobil/pages/drawer_list_pages/review/reviews_card_widget.dart';
 
 class ReviewListWidget extends StatelessWidget {
   const ReviewListWidget({
     super.key,
-    required this.reviewList,
   });
-  final List<ReviewModel> reviewList;
+
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      scrollDirection: Axis.vertical,
-      itemCount: reviewList.length,
-      itemBuilder: (context, index) {
-        return ReviewsCard(
-          reviewModel: reviewList[index],
+    return BlocBuilder<ReviewBloc, ReviewState>(builder: (context, state) {
+      if (state is ReviewStateInitial) {
+        context.watch<ReviewBloc>().add(const ReviewEventFetch());
+        return const CircularProgressIndicator();
+      } else if (state is ReviewStateLoading) {
+        return const CircularProgressIndicator();
+      } else if (state is ReviewStateLoaded) {
+        return ListView.builder(
+          scrollDirection: Axis.vertical,
+          itemCount: state.reviews.length,
+          itemBuilder: (context, index) {
+            return ReviewsCard(
+              reviewModel: state.reviews[index],
+            );
+          },
         );
-      },
-    );
+      } else if (state is ReviewStateError) {
+        return Center(
+          child: Text(
+            state.errorMessage,
+            style: TextStyle(color: Colors.red),
+          ),
+        );
+      } else {
+        return Center(
+          child: Text(
+            state.toString(),
+            style: TextStyle(color: Colors.red),
+          ),
+        );
+      }
+    });
   }
 }

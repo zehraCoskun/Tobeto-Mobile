@@ -1,12 +1,8 @@
 import 'package:tobeto_mobil/constants/image_text.dart';
 import 'package:tobeto_mobil/dummy_education_data.dart';
-import 'package:tobeto_mobil/models/firebase_models/application_model.dart';
 import 'package:tobeto_mobil/models/catalog_model.dart';
 import 'package:tobeto_mobil/models/education/education_model.dart';
 import 'package:tobeto_mobil/models/education/enums/education_status.dart';
-import 'package:tobeto_mobil/models/firebase_models/exam_model.dart';
-import 'package:tobeto_mobil/models/survey_model.dart';
-import 'package:tobeto_mobil/models/review_model.dart';
 
 final List<EducationModel> educationModelData = [
   EducationModel(
@@ -61,15 +57,6 @@ final List<EducationModel> educationModelData = [
     ],
   ),
 ];
-
-final List<SurveyModel> surveyModelData = [
-  SurveyModel(id: "1"),
-  SurveyModel(id: "2"),
-  SurveyModel(id: "3"),
-  SurveyModel(id: "4"),
-  SurveyModel(id: "5"),
-];
-
 
 final List<CatalogModel> catalogModelData = [
   CatalogModel(
@@ -144,10 +131,4 @@ final List<CatalogModel> catalogModelData = [
   ),
 ];
 
-final List<ReviewModel> reviewModelData = [
-  ReviewModel(id: "1", title: "Tobeto İşte Başarı Modeli"),
-  ReviewModel(id: "2", title: "Front End"),
-  ReviewModel(id: "3", title: "Back End"),
-  ReviewModel(id: "4", title: "Full Stack"),
-  ReviewModel(id: "5", title: "SQL"),
-];
+

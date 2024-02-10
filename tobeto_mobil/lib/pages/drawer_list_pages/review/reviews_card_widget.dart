@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/core/widgets/basic_shadow.dart';
-import 'package:tobeto_mobil/models/review_model.dart';
+import 'package:tobeto_mobil/models/firebase_models/review_model.dart';
 import 'package:tobeto_mobil/utils/theme/theme_ios.dart';
 
 class ReviewsCard extends StatelessWidget {
