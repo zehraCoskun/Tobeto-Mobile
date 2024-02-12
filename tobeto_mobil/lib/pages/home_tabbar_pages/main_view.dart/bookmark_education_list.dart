@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_mobil/models/education/education_models.dart';
+import 'package:tobeto_mobil/models/firebase_models/education_model.dart';
 import 'package:tobeto_mobil/pages/home_tabbar_pages/main_view.dart/widgets/main_page_content.dart';
 
 class BookmarkEducationList extends StatelessWidget {
@@ -8,7 +8,7 @@ class BookmarkEducationList extends StatelessWidget {
     required this.educationList, required this.icon,
   }) : super(key: key);
 
-  final List<EducationModels> educationList;
+  final List<EducationModel> educationList;
   final IconData icon;
 
   @override

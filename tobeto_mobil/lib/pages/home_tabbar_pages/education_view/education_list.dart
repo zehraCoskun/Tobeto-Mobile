@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_mobil/models/education/education_models.dart';
+import 'package:tobeto_mobil/models/firebase_models/education_model.dart';
 import 'package:tobeto_mobil/pages/home_tabbar_pages/education_view/education_card.dart';
 
 class EducationList extends StatelessWidget {
@@ -8,7 +8,7 @@ class EducationList extends StatelessWidget {
     required this.educationList,
   }) : super(key: key);
 
-  final List<EducationModels> educationList;
+  final List<EducationModel> educationList;
 
   @override
   Widget build(BuildContext context) {

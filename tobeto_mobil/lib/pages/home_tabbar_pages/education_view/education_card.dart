@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_mobil/models/education/education_models.dart';
+import 'package:tobeto_mobil/models/firebase_models/education_model.dart';
 import 'package:tobeto_mobil/pages/home_tabbar_pages/detail/education_detail_page/education_detail_page.dart';
 
 class EducationCard extends StatelessWidget {
@@ -8,7 +8,7 @@ class EducationCard extends StatelessWidget {
     required this.education,
   }) : super(key: key);
 
-  final EducationModels education;
+  final EducationModel education;
 
   @override
   Widget build(BuildContext context) {
@@ -17,8 +17,9 @@ class EducationCard extends StatelessWidget {
       child: Container(
         margin: const EdgeInsets.only(top: 20, left: 30, right: 30),
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(30),
-            color: Theme.of(context).drawerTheme.backgroundColor),
+          borderRadius: BorderRadius.circular(30),
+          color: Theme.of(context).drawerTheme.backgroundColor,
+        ),
         child: ListView(
           primary: false,
           children: <Widget>[
@@ -40,7 +41,7 @@ class EducationCard extends StatelessWidget {
             topLeft: Radius.circular(30),
             topRight: Radius.circular(30),
           ),
-          child: Image.asset(
+          child: Image.network(
             education.thumbnail,
             fit: BoxFit.fitWidth,
           ),
@@ -61,7 +62,7 @@ class EducationCard extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(
           horizontal: 16,
-          vertical: 8,
+          vertical: 2,
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -71,7 +72,7 @@ class EducationCard extends StatelessWidget {
               style: Theme.of(context).textTheme.titleLarge,
             ),
             Text(
-              "",
+              education.totalDuration,
               style: Theme.of(context).textTheme.bodySmall,
             ),
           ],

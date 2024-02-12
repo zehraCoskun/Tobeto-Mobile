@@ -1,62 +1,55 @@
 import 'package:tobeto_mobil/constants/image_text.dart';
-import 'package:tobeto_mobil/dummy_education_data.dart';
-import 'package:tobeto_mobil/models/education/education_models.dart';
 import 'package:tobeto_mobil/models/firebase_models/education_model.dart';
-import 'package:tobeto_mobil/models/education/enums/education_status.dart';
 
-final List<EducationModels> educationModelData = [
-  EducationModels(
-    id: "1",
-    userId: "1",
-    title: "Ders 1",
-    category: "Genel",
+final List<EducationModel> educationModelData = [
+  EducationModel(
+    title: "Dr. Ecmel Ayral'dan Hoşgeldin Mesajı",
+    category: "Soft Skill",
+    mainHeadline: "Dr. Ecmel Ayral'dan Hoşgeldin Mesajı",
     thumbnail: ders1,
     startDate: "1/1/1",
     endDate: "1/1/1",
-    creator: "Enocta",
-    status: EducationStatus.started,
-    content: [
-      module1Data,
-      softSkill1Data,
-      virtualClass3Data,
-      ...dummyEducationData,
-    ],
-  ),
-  EducationModels(
-    id: "2",
-    userId: "2",
-    title: "Ders 2",
-    category: "Genel",
-    thumbnail: ders1,
-    startDate: "1/1/1",
-    endDate: "1/1/1",
-    creator: "Enocta",
-    status: EducationStatus.started,
-    content: [
-      module1Data,
-      softSkill1Data,
-      virtualClass3Data,
-      ...dummyEducationData,
-    ],
-  ),
-  EducationModels(
-    id: "3",
-    userId: "3",
-    title: "Ders 3",
-    category: "Genel",
-    thumbnail: ders1,
-    startDate: "1/1/1",
-    endDate: "1/1/1",
-    creator: "Enocta",
-    status: EducationStatus.started,
-    content: [
-      module1Data,
-      softSkill1Data,
-      virtualClass3Data,
-      ...dummyEducationData,
-    ],
+    totalDuration: '17 dk',
+    releaseDate: '21 Eylül 2023',
+    content: 'xxx',
+    trainer: 'Ecmel Ayral',
   ),
 ];
+  // EducationModels(
+  //   id: "2",
+  //   userId: "2",
+  //   title: "Ders 2",
+  //   category: "Genel",
+  //   thumbnail: ders1,
+  //   startDate: "1/1/1",
+  //   endDate: "1/1/1",
+  //   creator: "Enocta",
+  //   status: EducationStatus.started,
+  //   content: [
+  //     module1Data,
+  //     softSkill1Data,
+  //     virtualClass3Data,
+  //     ...dummyEducationData,
+  //   ],
+  // ),
+  // EducationModels(
+  //   id: "3",
+  //   userId: "3",
+  //   title: "Ders 3",
+  //   category: "Genel",
+  //   thumbnail: ders1,
+  //   startDate: "1/1/1",
+  //   endDate: "1/1/1",
+  //   creator: "Enocta",
+  //   status: EducationStatus.started,
+  //   content: [
+  //     module1Data,
+  //     softSkill1Data,
+  //     virtualClass3Data,
+  //     ...dummyEducationData,
+  //   ],
+  // ),
+
 
 // final List<EducationModel> catalogModelData = [
 //   EducationModel(

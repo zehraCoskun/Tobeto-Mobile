@@ -3,11 +3,12 @@ class EducationModel {
   final String thumbnail; // listedeki kapak resmi
   final String totalDuration; //eğitimin süresi
   final String releaseDate; //yayınlanma tarihi
-  final String category; //bir dersin içindeki diğer eğitimleri bir arada toplamak için kullanacağız
+  final String category; //soft skill, mobil, mentor vs gibi kategoriler
+  final String? mainHeadline; //bir dersin içindeki diğer eğitimleri bir arada toplayan başlık
   final String content; //buraya video linki gelecek sanırım
-  final String startDate; //derslerin kullanılabileceği başlşangıç tarihi
+  final String startDate; //derslerin kullanılabileceği başlangıç tarihi
   final String endDate;
-  final String trainer; //eğitmen(burada birden fazla da olabiliyor sitesinde ama bana kalırsa gerek yok)
+  final String trainer; //eğitmen(burada birden fazla da olabiliyor sitesinde ama bence gerek yok)
 
   EducationModel({
     required this.title,
@@ -15,6 +16,7 @@ class EducationModel {
     required this.totalDuration,
     required this.releaseDate,
     required this.category,
+    this.mainHeadline,
     required this.content,
     required this.startDate,
     required this.endDate,
@@ -27,6 +29,7 @@ class EducationModel {
       thumbnail: map["thumbnail"] as String,
       totalDuration: map["totalDuration"] as String,
       releaseDate: map["releaseDate"] as String,
+      mainHeadline: map["mainHeadline"] as String?,
       category: map["category"] as String,
       content: map["content"] as String,
       startDate: map["startDate"] as String,

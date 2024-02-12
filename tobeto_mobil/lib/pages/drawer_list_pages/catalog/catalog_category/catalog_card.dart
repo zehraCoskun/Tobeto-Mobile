@@ -48,7 +48,7 @@ class CardContent extends StatelessWidget {
           borderRadius: const BorderRadius.all(Radius.circular(4)),
           child: Opacity(
             opacity: 0.7,
-            child: Image.asset(
+            child: Image.network(
               catalog.thumbnail,
               width: double.infinity,
               fit: BoxFit.cover,
