@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_mobil/models/catalog_model.dart';
 import 'package:tobeto_mobil/core/widgets/basic_shadow.dart';
+import 'package:tobeto_mobil/models/firebase_models/education_model.dart';
 import 'package:tobeto_mobil/utils/theme/theme_ios.dart';
 
 class CatalogCard extends StatelessWidget {
@@ -9,7 +9,7 @@ class CatalogCard extends StatelessWidget {
     required this.catalog,
   }) : super(key: key);
 
-  final CatalogModel catalog;
+  final EducationModel catalog;
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +38,7 @@ class CardContent extends StatelessWidget {
     required this.catalog,
   });
 
-  final CatalogModel catalog;
+  final EducationModel catalog;
   @override
   Widget build(BuildContext context) {
     return Stack(

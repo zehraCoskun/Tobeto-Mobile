@@ -6,7 +6,7 @@ class ReviewRepository {
 
   static final _instance = ReviewRepository._(FirebaseFirestore.instance.collection("reviews"));
 
-  factory ReviewRepository.intance() {
+  factory ReviewRepository.instance() {
     return _instance;
   }
 

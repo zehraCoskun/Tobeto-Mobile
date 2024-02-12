@@ -1,7 +1,7 @@
 import 'package:tobeto_mobil/models/education/content_model.dart';
 import 'package:tobeto_mobil/models/education/enums/education_status.dart';
 
-class EducationModel {
+class EducationModels {
   final String id;
   final String userId;
   final String title; //egitimin basligi
@@ -14,7 +14,7 @@ class EducationModel {
   final EducationStatus status;
   final List<ContentModel> content;
 
-  EducationModel({
+  EducationModels({
     required this.id,
     required this.userId,
     required this.title,

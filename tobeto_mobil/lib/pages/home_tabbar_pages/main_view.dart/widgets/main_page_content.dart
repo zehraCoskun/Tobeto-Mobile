@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/core/widgets/basic_shadow.dart';
-import 'package:tobeto_mobil/models/education/education_model.dart';
+import 'package:tobeto_mobil/models/education/education_models.dart';
 import 'package:tobeto_mobil/pages/home_tabbar_pages/main_view.dart/widgets/main_page_container.dart';
 import 'package:tobeto_mobil/pages/home_tabbar_pages/main_view.dart/widgets/main_page_pin_container.dart';
 import 'package:tobeto_mobil/utils/theme/theme_ios.dart';
@@ -13,7 +13,7 @@ class MainPageContent extends StatelessWidget {
     this.imageUrl,
     required this.icon,
   });
-  final EducationModel? educationModel;
+  final EducationModels? educationModel;
   final String? title;
   final String? imageUrl;
   final IconData icon;

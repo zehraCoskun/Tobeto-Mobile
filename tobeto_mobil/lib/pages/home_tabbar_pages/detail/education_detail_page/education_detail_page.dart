@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_mobil/models/education/education_model.dart';
+import 'package:tobeto_mobil/models/education/education_models.dart';
 
 class EducationDetailPage extends StatelessWidget {
   const EducationDetailPage({
@@ -7,7 +7,7 @@ class EducationDetailPage extends StatelessWidget {
     required this.education,
   }) : super(key: key);
 
-  final EducationModel education;
+  final EducationModels education;
 
   @override
   Widget build(BuildContext context) {

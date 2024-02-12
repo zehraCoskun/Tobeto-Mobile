@@ -6,7 +6,7 @@ class ExamRepository {
 
   static final _instance = ExamRepository._(FirebaseFirestore.instance.collection("exams"));
 
-  factory ExamRepository.intance() {
+  factory ExamRepository.instance() {
     return _instance;
   }
 
