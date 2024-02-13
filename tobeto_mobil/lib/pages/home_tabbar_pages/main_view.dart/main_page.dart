@@ -1,72 +1,69 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/constants/image_text.dart';
-import 'package:tobeto_mobil/core/widgets/container_widget.dart';
 import 'package:tobeto_mobil/core/widgets/secondary_background.dart';
-import 'package:tobeto_mobil/dummy_data.dart';
-import 'package:tobeto_mobil/pages/home_tabbar_pages/main_view.dart/bookmark_education_list.dart';
 import 'package:tobeto_mobil/pages/home_tabbar_pages/main_view.dart/widgets/main_page_content.dart';
 
 class MainPage extends StatelessWidget {
   MainPage({super.key});
-  final educationList = educationModelData;
+  //final educationList = educationModelData;
   @override
   Widget build(BuildContext context) {
     return SecondaryBackgroundWidget(
       child: Column(
         children: [
-          Flexible(
+          const Flexible(
             flex: 9,
             child: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const MainPageContent(
+                  MainPageContent(
                     title: "İstanbul Kodluyor'a Hoşgeldin !",
                     imageUrl: ders2,
                     icon: Icons.push_pin_outlined,
                   ),
-                  Stack(
-                    alignment: Alignment.topLeft,
-                    children: [
-                      BookmarkEducationList(
-                        educationList: educationList,
-                        icon: Icons.heart_broken,
-                      ),
-                      ContainerWidget(
-                        margin: const EdgeInsets.symmetric(horizontal: 2, vertical: 0),
-                        child: Text(
-                          "Yarım kalanlar",
-                          style: Theme.of(context).textTheme.titleMedium,
-                        ),
-                      ),
-                    ],
-                  ),
-                  Stack(children: [
-                    BookmarkEducationList(
-                      educationList: educationList,
-                      icon: Icons.favorite,
-                    ),
-                    ContainerWidget(
-                      margin: const EdgeInsets.symmetric(horizontal: 2, vertical: 0),
-                      child: Text(
-                        "Tekrar izlemek istediklerin",
-                        style: Theme.of(context).textTheme.titleMedium,
-                      ),
-                    ),
-                  ]),
-                  Stack(children: [
-                    BookmarkEducationList(
-                      educationList: educationList,
-                      icon: Icons.check,
-                    ),
-                    ContainerWidget(
-                      margin: const EdgeInsets.symmetric(horizontal: 2, vertical: 0),
-                      child: Text(
-                        "Tamamladıkların",
-                        style: Theme.of(context).textTheme.titleMedium,
-                      ),
-                    ),
-                  ]),
+                  // Stack(
+                  //   alignment: Alignment.topLeft,
+                  //   children: [
+                  //     BookmarkEducationList(
+                  //       educationList: educationList,
+                  //       icon: Icons.heart_broken,
+                  //     ),
+                  //     ContainerWidget(
+                  //       margin: const EdgeInsets.symmetric(horizontal: 2, vertical: 0),
+                  //       child: Text(
+                  //         "Yarım kalanlar",
+                  //         style: Theme.of(context).textTheme.titleMedium,
+                  //       ),
+                  //     ),
+                  //   ],
+                  // ),
+                  // Stack(children: [
+                  //   BookmarkEducationList(
+                  //     educationList: educationList,
+                  //     icon: Icons.favorite,
+                  //   ),
+                  //   ContainerWidget(
+                  //     margin: const EdgeInsets.symmetric(horizontal: 2, vertical: 0),
+                  //     child: Text(
+                  //       "Tekrar izlemek istediklerin",
+                  //       style: Theme.of(context).textTheme.titleMedium,
+                  //     ),
+                  //   ),
+                  // ]),
+                  // Stack(children: [
+                  //   BookmarkEducationList(
+                  //     educationList: educationList,
+                  //     icon: Icons.check,
+                  //   ),
+                  //   ContainerWidget(
+                  //     margin: const EdgeInsets.symmetric(horizontal: 2, vertical: 0),
+                  //     child: Text(
+                  //       "Tamamladıkların",
+                  //       style: Theme.of(context).textTheme.titleMedium,
+                  //     ),
+                  //   ),
+                  // ]),
                 ],
               ),
             ),
