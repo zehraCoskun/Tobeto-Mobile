@@ -1,7 +1,7 @@
 
 # Tobeto Mobile App
 
-Tobeto https://tobeto.com , eğitim ve öğrenme deneyimini dijital dünyada dönüştüren bir eğitim platformudur. Bu proje, Tobeto'nun kullanıcılarına sunulan zengin içeriği, öğrenme araçlarını ve kişiselleştirilmiş öğrenme deneyimini mobil cihazlara taşıyan bir uygulamadır.
+[Tobeto](https://tobeto.com) , eğitim ve öğrenme deneyimini dijital dünyada dönüştüren bir eğitim platformudur. Bu proje, Tobeto'nun kullanıcılarına sunulan zengin içeriği, öğrenme araçlarını ve kişiselleştirilmiş öğrenme deneyimini mobil cihazlara taşıyan bir uygulamadır.
 
 
 
