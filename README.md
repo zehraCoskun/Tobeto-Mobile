@@ -11,15 +11,15 @@ Tobeto https://tobeto.com , eğitim ve öğrenme deneyimini dijital dünyada dö
 
 - ### Bloc Mimarisi ile Durum Yönetimi:
 Bloc mimarisi, uygulamanın durum yönetimini sağlar, veri akışlarını kolayca kontrol eder ve uygulama mantığını ayrı modüller halinde organize eder.
-#### - Firebase ile Kullanıcı Oluşturma: 
+- ### Firebase ile Kullanıcı Oluşturma: 
 Firebase kimlik doğrulama servisi kullanılarak kullanıcıların hesap oluşturması ve oturum açması sağlanır.
-#### - Firebase Storage Kullanımı: 
+- ### Firebase Storage Kullanımı: 
 Kullanıcıların profil resimlerini depolamak ve yönetmek, uygulama içindeki diğer görsel verileri saklamak için Firebase Storage kullanılır. Bu sayede, kullanıcıların profil fotoğraflarını güvenli bir şekilde saklamamızı ve sunmamızı sağlar. Eğitim videoları gibi büyük dosyaları saklamak ve sunmak için de Firebase Storage kullanılır. Bu, uygulamanın daha hızlı ve verimli çalışmasını sağlar, çünkü kullanıcıların cihazlarına büyük dosyalar indirmesi gerekmez.
-#### - Açık/Koyu Mod Geçişi: 
+- ### Açık/Koyu Mod Geçişi: 
 Kullanıcıların tercihlerine göre açık veya koyu modu seçmelerine olanak tanır, görsel deneyimi kişiselleştirir.
-#### - Animasyon Kullanımı:
+- ### Animasyon Kullanımı:
 Ekran geçişleri, buton tıklamaları ve diğer etkileşimlerde animasyonlar kullanılarak uygulama kullanıcı dostu ve etkileyici bir deneyim sunar.
-#### - iOS ve Android için Ayrı Tema Düzenlemesi: 
+- ### iOS ve Android için Ayrı Tema Düzenlemesi: 
 Hem iOS hem de Android platformları için ayrı temalar oluşturulur, her platformun tasarım diline uygun ve tutarlı bir görünüm sağlanır.
 
 
