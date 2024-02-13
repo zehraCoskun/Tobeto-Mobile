@@ -9,7 +9,7 @@ Tobeto https://tobeto.com , eğitim ve öğrenme deneyimini dijital dünyada dö
 
 ## Özellikler
 
-#### - Bloc Mimarisi ile Durum Yönetimi:
+- ### Bloc Mimarisi ile Durum Yönetimi:
 Bloc mimarisi, uygulamanın durum yönetimini sağlar, veri akışlarını kolayca kontrol eder ve uygulama mantığını ayrı modüller halinde organize eder.
 #### - Firebase ile Kullanıcı Oluşturma: 
 Firebase kimlik doğrulama servisi kullanılarak kullanıcıların hesap oluşturması ve oturum açması sağlanır.
