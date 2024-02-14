@@ -7,11 +7,11 @@ enum EducationCategoryItem {
   String toString() {
     switch (this) {
       case EducationCategoryItem.soft:
-        return "Soft Skill";
+        return "Soft Skill Eğitimleri";
       case EducationCategoryItem.mentor:
-        return "Mentor Meetings";
+        return "Mentör Buluşmaları";
       case EducationCategoryItem.mandatory:
-        return "Mandatory Skills";
+        return "Geliştirici Eğitimleri";
     }
   }
 }

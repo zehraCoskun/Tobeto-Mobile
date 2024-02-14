@@ -13,4 +13,5 @@ class EducationRepository {
   Future<QuerySnapshot<Map<String, dynamic>>> getAllEducation() async {
     return await _collection.get();
   }
+
 }

@@ -6,3 +6,5 @@ abstract class EducationEvent {}
 class EducationEventFetch implements EducationEvent {
   const EducationEventFetch();
 }
+
+

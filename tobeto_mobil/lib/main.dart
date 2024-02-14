@@ -26,7 +26,8 @@ void main() async {
         applicationBlocProvider,
         examBlocProvider,
         reviewBlocProvider,
-        educationBlocProvider
+        educationBlocProvider,
+        catalogBlocProvider
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

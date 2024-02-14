@@ -17,4 +17,5 @@ class EducationService {
     }
     return educationList;
   }
+
 }

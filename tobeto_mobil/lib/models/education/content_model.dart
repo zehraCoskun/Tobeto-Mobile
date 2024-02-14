@@ -1,9 +1,9 @@
-import 'package:tobeto_mobil/models/education/enums/content_model_type.dart';
+import 'package:tobeto_mobil/models/education/enums/education_category.dart';
 
 abstract class ContentModel {
   final String id;
   final String title;
-  final ContentModelType type;
+  final EducationCategory type;
 
   ContentModel({
     required this.id,
