@@ -68,5 +68,4 @@ Lütfen bu projenin `davranış kurallarına` uyun.
 
   
 
-    ![AppIcon-60@2x~car](https://github.com/zehraCoskun/tobeto-mobile/assets/110024096/cd2d3ef5-db53-45b2-8f00-0439ef08ce7a)
-
+![AppIcon-60@2x~car](https://github.com/zehraCoskun/tobeto-mobile/assets/110024096/55d538de-05b7-400e-809d-d1026722f478)
