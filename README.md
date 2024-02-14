@@ -67,6 +67,6 @@ Lütfen bu projenin `davranış kurallarına` uyun.
 ![Uygulama Ekran Görüntüsü](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
 
   
-![Logo](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/th5xamgrr6se0x5ro4g6.png)
 
-    
+    ![AppIcon-60@2x~car](https://github.com/zehraCoskun/tobeto-mobile/assets/110024096/cd2d3ef5-db53-45b2-8f00-0439ef08ce7a)
+
