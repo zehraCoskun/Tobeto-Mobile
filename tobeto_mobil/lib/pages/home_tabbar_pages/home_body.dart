@@ -40,7 +40,8 @@ class HomeBody extends StatelessWidget {
       children: [
         ...EducationCategoryItem.values.map((category) {
           return EducationCategory(
-            title: category.toString(),
+            title: category.toTitle(),
+            educationCategory: category.toString(),
           );
         }),
       ],

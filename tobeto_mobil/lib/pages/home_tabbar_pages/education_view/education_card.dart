@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:tobeto_mobil/core/widgets/basic_shadow.dart';
 import 'package:tobeto_mobil/models/firebase_models/education_model.dart';
 import 'package:tobeto_mobil/pages/home_tabbar_pages/detail/education_detail_page/education_detail_page.dart';
+import 'package:tobeto_mobil/pages/home_tabbar_pages/main_view.dart/widgets/main_page_pin_container.dart';
 
 class EducationCard extends StatelessWidget {
   const EducationCard({
@@ -15,15 +17,16 @@ class EducationCard extends StatelessWidget {
     return AspectRatio(
       aspectRatio: 1 / 1,
       child: Container(
-        margin: const EdgeInsets.only(top: 20, left: 30, right: 30),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(30),
-          color: Theme.of(context).drawerTheme.backgroundColor,
-        ),
+        margin: const EdgeInsets.only(top: 20, left: 10, right: 10),
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(30), color: Theme.of(context).drawerTheme.backgroundColor, boxShadow: [
+          basicShadow(),
+          basicShadow(),
+          basicShadow(),
+        ]),
         child: ListView(
           primary: false,
           children: <Widget>[
-            buildHeader(),
+            buildHeader(context),
             buildBody(context),
           ],
         ),
@@ -31,22 +34,34 @@ class EducationCard extends StatelessWidget {
     );
   }
 
-  Widget buildHeader() {
-    return AspectRatio(
-      aspectRatio: 3 / 2,
-      child: Padding(
-        padding: const EdgeInsets.all(3.0),
-        child: ClipRRect(
-          borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(30),
-            topRight: Radius.circular(30),
-          ),
-          child: Image.network(
-            education.thumbnail,
-            fit: BoxFit.fitWidth,
+  Widget buildHeader(BuildContext context) {
+    return Stack(
+      alignment: Alignment.bottomRight,
+      children: [
+        AspectRatio(
+          aspectRatio: 3 / 2,
+          child: Padding(
+            padding: const EdgeInsets.all(1.0),
+            child: ClipRRect(
+              borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(30),
+                topRight: Radius.circular(30),
+              ),
+              child: Image.network(
+                education.thumbnail,
+                fit: BoxFit.fitWidth,
+              ),
+            ),
           ),
         ),
-      ),
+        MainPagePinContainer(
+          widget: Text(
+            education.totalDuration,
+            style: Theme.of(context).textTheme.titleSmall,
+            textAlign: TextAlign.end,
+          ),
+        ),
+      ],
     );
   }
 
@@ -71,13 +86,21 @@ class EducationCard extends StatelessWidget {
               education.title,
               style: Theme.of(context).textTheme.titleLarge,
             ),
-            Text(
-              education.totalDuration,
-              style: Theme.of(context).textTheme.bodySmall,
+            Row(
+              children: [
+                Text(
+                  "Bitiş tarihi : ${_formatDate(education.endDate)}",
+                  style: Theme.of(context).textTheme.titleSmall,
+                ),
+              ],
             ),
           ],
         ),
       ),
     );
+  }
+
+  String _formatDate(DateTime date) {
+    return "${date.day}/${date.month}/${date.year}";
   }
 }

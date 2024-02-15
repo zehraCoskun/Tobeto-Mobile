@@ -26,7 +26,7 @@ class ApplicationList extends StatelessWidget {
           },
         );
       } else if (state is ApplicationStateError) {
-       return Center(
+        return Center(
           child: Text(
             state.errorMessage,
             style: TextStyle(color: Colors.red),

@@ -11,16 +11,16 @@ class MainPagePinContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(2),
-      child: widget,
+      margin: const EdgeInsets.all(2),
       decoration: BoxDecoration(
-        color: Colors.blueGrey.shade100,
+        color: Theme.of(context).appBarTheme.backgroundColor,
         borderRadius: BorderRadius.circular(4),
         border: Border.all(),
         boxShadow: [
           basicShadow(),
         ],
       ),
+      child: widget,
     );
   }
 }

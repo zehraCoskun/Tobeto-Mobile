@@ -47,7 +47,7 @@ class MainPageContent extends StatelessWidget {
                   child: Text(
                     educationModel?.title ?? title!,
                     softWrap: true,
-                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: Colors.black),
+                    style: Theme.of(context).textTheme.titleMedium,
                   ),
                 ),
               )
@@ -57,7 +57,7 @@ class MainPageContent extends StatelessWidget {
         MainPagePinContainer(
             widget: Icon(
           icon,
-          color: TobetoDarkColors.mor,
+          color: TobetoDarkColors.yesil,
           size: 32,
         )),
       ],

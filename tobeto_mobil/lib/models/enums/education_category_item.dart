@@ -4,7 +4,7 @@ enum EducationCategoryItem {
   mentor;
 
   @override
-  String toString() {
+  String toTitle() {
     switch (this) {
       case EducationCategoryItem.soft:
         return "Soft Skill Eğitimleri";
@@ -12,6 +12,17 @@ enum EducationCategoryItem {
         return "Mentör Buluşmaları";
       case EducationCategoryItem.mandatory:
         return "Geliştirici Eğitimleri";
+    }
+  }
+
+  String toString() {
+    switch (this) {
+      case EducationCategoryItem.soft:
+        return "soft";
+      case EducationCategoryItem.mentor:
+        return "mentor";
+      case EducationCategoryItem.mandatory:
+        return "mandatory";
     }
   }
 }

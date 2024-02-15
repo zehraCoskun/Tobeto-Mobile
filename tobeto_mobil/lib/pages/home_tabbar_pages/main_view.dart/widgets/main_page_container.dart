@@ -10,11 +10,10 @@ class MainPageContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(8),
-      padding: EdgeInsets.all(8),
-      child: widget,
+      margin: const EdgeInsets.all(8),
+      padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
-        color: Colors.blueGrey.shade100,
+        color: Theme.of(context).appBarTheme.backgroundColor,
         borderRadius: BorderRadius.circular(16),
         border: Border.all(),
         boxShadow: [
@@ -22,6 +21,7 @@ class MainPageContainer extends StatelessWidget {
           basicShadow(),
         ],
       ),
+      child: widget,
     );
   }
 }

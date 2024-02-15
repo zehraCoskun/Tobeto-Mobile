@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:tobeto_mobil/models/firebase_models/education_model.dart';
 import 'package:tobeto_mobil/pages/home_tabbar_pages/education_view/education_category/education_category_body.dart';
 import 'package:tobeto_mobil/pages/home_tabbar_pages/education_view/education_category/education_category_header.dart';
 
 class EducationCategory extends StatefulWidget {
   const EducationCategory({
     Key? key,
-    required this.title,
+    required this.title, required this.educationCategory,
   }) : super(key: key);
 
   final String title;
-
+final String educationCategory;
   @override
   State<EducationCategory> createState() => _EducationCategoryState();
 }
@@ -65,7 +66,7 @@ class _EducationCategoryState extends State<EducationCategory>
             curve: Curves.decelerate,
             child: Visibility(
               visible: isVisible,
-              child: const EducationCategoryBody(),
+              child: EducationCategoryBody(educationCategory: widget.educationCategory,),
             ),
           ),
         ],
