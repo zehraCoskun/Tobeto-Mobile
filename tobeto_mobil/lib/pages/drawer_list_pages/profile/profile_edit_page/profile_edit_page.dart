@@ -87,63 +87,66 @@ class _ProfileEditPage extends State<ProfileEditPage> {
   Future<dynamic> competenceBottomSheet(BuildContext context) => showModalBottomSheet(
       context: context,
       builder: (BuildContext context) {
-        return Container(
-          margin: const EdgeInsets.only(top: 16),
-          padding: const EdgeInsets.only(top: 16, left: 8, right: 8),
-          decoration: BoxDecoration(color: TobetoDarkColors.beyaz, borderRadius: BorderRadius.circular(16), boxShadow: [basicShadow()]),
-          child: Column(
-            children: [
-              AspectRatio(
-                aspectRatio: 1 / 1,
-                child: GridView.builder(
-                  gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                    crossAxisSpacing: 10,
-                    mainAxisSpacing: 10,
-                    maxCrossAxisExtent: 150.0,
-                    childAspectRatio: 3 / 1,
-                  ),
-                  itemCount: items.length,
-                  itemBuilder: (context, index) {
-                    return Container(
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(16),
-                          boxShadow: [basicShadow()],
-                        ),
-                        child: InkWell(
-                          child: Text(
-                            items[index],
-                            style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                                  fontSize: 16,
-                                ),
-                          ),
-                          onTap: () {},
-                        ));
-                  },
-                ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  IconButton(
-                    onPressed: () {},
-                    icon: Icon(
-                      Icons.add_outlined,
-                      size: 32,
-                      color: TobetoDarkColors.lacivert,
+        return Material(
+          color: TobetoLightColors.krem,
+          borderRadius: BorderRadius.circular(16),
+          child: Container(
+            margin: const EdgeInsets.only(top: 8),
+            padding: const EdgeInsets.only(top: 8, left: 8, right: 8),
+            child: Column(
+              children: [
+                AspectRatio(
+                  aspectRatio: 1 / 1,
+                  child: GridView.builder(
+                    gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                      crossAxisSpacing: 10,
+                      mainAxisSpacing: 10,
+                      maxCrossAxisExtent: 150.0,
+                      childAspectRatio: 3 / 1,
                     ),
+                    itemCount: items.length,
+                    itemBuilder: (context, index) {
+                      return Container(
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(16),
+                            boxShadow: [basicShadow()],
+                          ),
+                          child: InkWell(
+                            child: Text(
+                              items[index],
+                              style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                                    fontSize: 16,
+                                  ),
+                            ),
+                            onTap: () {},
+                          ));
+                    },
                   ),
-                  IconButton(
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    IconButton(
                       onPressed: () {},
                       icon: Icon(
-                        Icons.check,
+                        Icons.add_outlined,
                         size: 32,
-                        color: TobetoDarkColors.yesil,
-                      )),
-                ],
-              )
-            ],
+                        color: TobetoDarkColors.lacivert,
+                      ),
+                    ),
+                    IconButton(
+                        onPressed: () {},
+                        icon: Icon(
+                          Icons.check,
+                          size: 32,
+                          color: TobetoDarkColors.yesil,
+                        )),
+                  ],
+                )
+              ],
+            ),
           ),
         );
       });

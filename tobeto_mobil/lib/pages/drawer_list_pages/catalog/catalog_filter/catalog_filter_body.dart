@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/models/enums/catalog_filter_item.dart';
+import 'package:tobeto_mobil/utils/theme/theme_ios.dart';
 
-class CatalogFilterBody extends StatelessWidget {
+class CatalogFilterBody extends StatefulWidget {
   const CatalogFilterBody({
     Key? key,
   }) : super(key: key);
 
+  @override
+  State<CatalogFilterBody> createState() => _CatalogFilterBodyState();
+}
+
+class _CatalogFilterBodyState extends State<CatalogFilterBody> {
+  String? selectedItem;
   @override
   Widget build(BuildContext context) {
     return Flexible(
@@ -25,38 +32,69 @@ class CatalogFilterBody extends StatelessWidget {
     );
   }
 
-  Widget buildFilterItem(
-      CatalogFilterItem catalogFilterItem, BuildContext context) {
-    return IntrinsicWidth(
-      stepHeight: 8,
-      child: Container(
-        alignment: Alignment.center,
-        margin: const EdgeInsets.symmetric(horizontal: 5),
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(5),
-          // border: const Border(
-          //   top: BorderSide(
-          //     width: 0.1,
-          //   ),
-          //   left: BorderSide(
-          //     width: 0.1,
-          //   ),
-          //   right: BorderSide(width: 0.3),
-          //   bottom: BorderSide(
-          //     width: 0.3,
-          //   ),
-          // ),
-          border: Border.all(
-            color: Theme.of(context).colorScheme.outline,
+  Widget buildFilterItem(CatalogFilterItem catalogFilterItem, BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        showModalBottomSheet<void>(
+          context: context,
+          builder: (BuildContext context) {
+            return buildBottomSheet(catalogFilterItem);
+          },
+        );
+      },
+      child: IntrinsicWidth(
+        stepHeight: 8,
+        child: Container(
+          alignment: Alignment.center,
+          margin: const EdgeInsets.symmetric(horizontal: 5),
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(5),
+            border: Border.all(
+              color: Theme.of(context).colorScheme.outline,
+            ),
+            boxShadow: kElevationToShadow[1],
+            color: Colors.white,
           ),
-          boxShadow: kElevationToShadow[1],
-          color: Colors.white,
+          child: Text(
+            catalogFilterItem.toString(),
+            style: Theme.of(context).textTheme.bodyLarge,
+          ),
         ),
-        child: Text(
-          catalogFilterItem.toString(),
-          style: Theme.of(context).textTheme.bodyLarge,
-        ),
+      ),
+    );
+  }
+
+  Widget buildBottomSheet(CatalogFilterItem catalogFilterItem) {
+    List<String> itemList = catalogFilterItem.toList();
+
+    return Material(
+      color: TobetoLightColors.krem,
+      borderRadius: BorderRadius.circular(16),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: itemList.map((item) {
+          return ListTile(
+            title: Row(
+              children: [
+                Radio<String>(
+                  value: item,
+                  groupValue: selectedItem,
+                  onChanged: (value) {
+                    setState(() {
+                      selectedItem = value;
+                      //burada filtrelemeyi de yapması lazım
+                    });
+                    Navigator.pop(context);
+                  },
+                ),
+                Expanded(
+                  child: Text(item),
+                ),
+              ],
+            ),
+          );
+        }).toList(),
       ),
     );
   }
