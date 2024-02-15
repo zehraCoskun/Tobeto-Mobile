@@ -25,6 +25,8 @@ class ApplicationModel extends Entity {
       stage1: map["stage1"] as String,
       isPass2: map["isPass2"] as bool,
       stage2: map["stage2"] as String,
+      
+   
     );
   }
 }

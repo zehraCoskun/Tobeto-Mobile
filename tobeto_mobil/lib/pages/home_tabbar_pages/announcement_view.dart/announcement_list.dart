@@ -3,7 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/announcement_bloc/announcement_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/announcement_bloc/announcement_event.dart';
 import 'package:tobeto_mobil/api/bloc/announcement_bloc/announcement_state.dart';
+import 'package:tobeto_mobil/constants/text_list.dart';
+import 'package:tobeto_mobil/core/widgets/error_snackbar_widget.dart';
 import 'package:tobeto_mobil/pages/home_tabbar_pages/announcement_view.dart/announcement_card.dart';
+import 'package:tobeto_mobil/utils/theme/theme_ios.dart';
 
 class AnnouncementList extends StatelessWidget {
   const AnnouncementList({
@@ -19,6 +22,7 @@ class AnnouncementList extends StatelessWidget {
       } else if (state is AnnouncementStateLoading) {
         return const CircularProgressIndicator();
       } else if (state is AnnouncementStateLoaded) {
+        state.announcements.sort((a, b) => b.date.compareTo(a.date));
         return ListView.builder(
           itemCount: state.announcements.length,
           itemBuilder: (context, index) {
@@ -28,18 +32,12 @@ class AnnouncementList extends StatelessWidget {
           },
         );
       } else if (state is AnnouncementStateError) {
-        return Center(
-          child: Text(
-            state.errorMessage,
-            style: TextStyle(color: Colors.red),
-          ),
+        return ErrorSnackBar(
+          errorMessage: state.errorMessage,
         );
       } else {
-        return Center(
-          child: Text(
-            state.toString(),
-            style: TextStyle(color: Colors.red),
-          ),
+        return const ErrorSnackBar(
+          errorMessage: errorMessage,
         );
       }
     });

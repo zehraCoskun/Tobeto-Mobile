@@ -35,16 +35,14 @@ class AnnouncementCard extends StatelessWidget {
       children: [
         Text(announcement.type,
             style: TextStyle(
-              color: TobetoDarkColors.beyaz, //Theme.of(context).textTheme.titleLarge!.color,
+              color: TobetoDarkColors.beyaz,
               fontWeight: FontWeight.bold,
               height: 2,
               shadows: [
                 titleShadow(),
                 titleShadow(),
               ],
-            )
-            //Theme.of(context).textTheme.titleLarge,
-            ),
+            )),
         Text(
           announcement.organisation,
           style: Theme.of(context).textTheme.titleSmall,

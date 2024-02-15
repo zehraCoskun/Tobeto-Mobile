@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/exam_bloc/exam_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/exam_bloc/exam_event.dart';
 import 'package:tobeto_mobil/api/bloc/exam_bloc/exam_state.dart';
+import 'package:tobeto_mobil/constants/text_list.dart';
+import 'package:tobeto_mobil/core/widgets/error_snackbar_widget.dart';
 import 'package:tobeto_mobil/pages/home_tabbar_pages/exam_view.dart/exam_card.dart';
 
 class ExamList extends StatelessWidget {
@@ -26,19 +28,9 @@ class ExamList extends StatelessWidget {
           },
         );
       } else if (state is ExamStateError) {
-        return Center(
-          child: Text(
-            state.errorMessage,
-            style: TextStyle(color: Colors.red),
-          ),
-        );
+        return ErrorSnackBar(errorMessage: state.errorMessage);
       } else {
-        return Center(
-          child: Text(
-            state.toString(),
-            style: TextStyle(color: Colors.red),
-          ),
-        );
+        return const ErrorSnackBar(errorMessage: errorMessage);
       }
     });
   }

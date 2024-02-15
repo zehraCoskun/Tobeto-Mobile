@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/education_bloc/education_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/education_bloc/education_event.dart';
 import 'package:tobeto_mobil/api/bloc/education_bloc/education_state.dart';
+import 'package:tobeto_mobil/constants/text_list.dart';
+import 'package:tobeto_mobil/core/widgets/error_snackbar_widget.dart';
 import 'package:tobeto_mobil/pages/home_tabbar_pages/education_view/education_card.dart';
 
 class EducationCategoryBody extends StatelessWidget {
@@ -40,19 +42,9 @@ class EducationCategoryBody extends StatelessWidget {
           ),
         );
       } else if (state is EducationStateError) {
-        return Center(
-          child: Text(
-            state.errorMessage,
-            style: TextStyle(color: Colors.red),
-          ),
-        );
+        return ErrorSnackBar(errorMessage: state.errorMessage);
       } else {
-        return Center(
-          child: Text(
-            state.toString(),
-            style: TextStyle(color: Colors.red),
-          ),
-        );
+        return const ErrorSnackBar(errorMessage: errorMessage);
       }
     });
   }
