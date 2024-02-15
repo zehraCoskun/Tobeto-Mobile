@@ -65,7 +65,7 @@ class AnnouncementCard extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
-          announcement.date,
+          _formatDate(announcement.date),
           style: Theme.of(context).textTheme.titleSmall,
         ),
         TextButton(
@@ -83,8 +83,6 @@ class AnnouncementCard extends StatelessWidget {
                     child: Text(
                       announcement.content,
                       style: Theme.of(context).textTheme.bodyMedium,
-                      /* style: TextStyle(
-                          fontSize: 16, color: TobetoLightColors.beyaz),*/
                     ),
                   ),
                   actions: [
@@ -106,5 +104,9 @@ class AnnouncementCard extends StatelessWidget {
         )
       ],
     );
+  }
+
+  String _formatDate(DateTime date) {
+    return "${date.day}/${date.month}/${date.year}";
   }
 }
