@@ -3,7 +3,6 @@ enum EducationCategoryItem {
   soft,
   mentor;
 
-  @override
   String toTitle() {
     switch (this) {
       case EducationCategoryItem.soft:
@@ -15,6 +14,7 @@ enum EducationCategoryItem {
     }
   }
 
+  @override
   String toString() {
     switch (this) {
       case EducationCategoryItem.soft:
