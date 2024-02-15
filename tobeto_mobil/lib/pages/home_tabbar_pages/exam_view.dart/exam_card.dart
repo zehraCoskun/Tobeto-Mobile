@@ -12,17 +12,41 @@ class ExamCard extends StatelessWidget {
   final ExamModel exam;
   @override
   Widget build(BuildContext context) {
-    return AspectRatio(
-      aspectRatio: 3 / 1,
-      child: ContainerWidget(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            buildHeader(context),
-            buildBody(context),
-            buildFooter(context),
-          ],
+    return InkWell(
+      onTap: () {
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              backgroundColor: TobetoDarkColors.lacivert,
+              title: Text(
+                "Bu sınavı zaten tamamladınız !",
+                style: Theme.of(context).textTheme.titleLarge,
+              ),
+              actions: [
+                TextButton(
+                  child: const Text("Tamam"),
+                  onPressed: () {
+                    Navigator.of(context).pop(); 
+                  },
+                ),
+              ],
+            );
+          },
+        );
+      },
+      child: AspectRatio(
+        aspectRatio: 3 / 1,
+        child: ContainerWidget(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              buildHeader(context),
+              buildBody(context),
+              buildFooter(context),
+            ],
+          ),
         ),
       ),
     );
