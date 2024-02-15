@@ -43,8 +43,14 @@ class ApplicationCard extends StatelessWidget {
   Widget buildBody() {
     return Column(
       children: [
-        InfoLine(infoText: application.text1),
-        InfoLine(infoText: application.text2),
+        InfoLine(
+          infoText: application.stage1,
+          isPass: application.isPass1,
+        ),
+        InfoLine(
+          infoText: application.stage2,
+          isPass: application.isPass2,
+        ),
       ],
     );
   }
@@ -66,16 +72,18 @@ class InfoLine extends StatelessWidget {
   const InfoLine({
     super.key,
     required this.infoText,
+    required this.isPass,
   });
 
   final String infoText;
+  final bool isPass;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const CheckIcon(),
+        isPass ? const CheckIcon() : const CancelIcon(),
         Expanded(
           child: Text(
             infoText,
@@ -99,6 +107,23 @@ class CheckIcon extends StatelessWidget {
       child: Icon(
         Icons.check,
         color: TobetoDarkColors.yesil,
+      ),
+    );
+  }
+}
+
+class CancelIcon extends StatelessWidget {
+  const CancelIcon({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(4),
+      child: Icon(
+        Icons.cancel,
+        color: TobetoDarkColors.kirmizi,
       ),
     );
   }
