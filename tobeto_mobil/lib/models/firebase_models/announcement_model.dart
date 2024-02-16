@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:tobeto_mobil/core/entities/entity.dart';
+import 'package:tobeto_mobil/core/models/entity.dart';
 
 class AnnouncementModel extends Entity {
   final String type;

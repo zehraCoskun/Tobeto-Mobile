@@ -1,4 +1,4 @@
-import 'package:tobeto_mobil/core/entities/entity.dart';
+import 'package:tobeto_mobil/core/models/entity.dart';
 
 class ApplicationModel extends Entity {
   final String state;

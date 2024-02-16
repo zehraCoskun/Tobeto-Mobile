@@ -1,40 +1,55 @@
 import 'package:tobeto_mobil/api/business/requests/user_requests/user_create_request.dart';
 import 'package:tobeto_mobil/api/business/requests/user_requests/user_update_request.dart';
+import 'package:tobeto_mobil/api/business/services/storage_service.dart';
 import 'package:tobeto_mobil/api/repository/user_repository.dart';
-import 'package:tobeto_mobil/models/firebase_models/user_model.dart';
+import 'package:tobeto_mobil/models/firebase_models/user/user_model.dart';
 
 class UserService {
   final UserRepository _userRepository;
+  final StorageService _storageService;
 
-  const UserService(this._userRepository);
+  UserService._private(this._userRepository, this._storageService);
 
-  Future<void> create(String docId, UserCreateRequest request) async {
-    //check if user already exists
+  static final _instance = UserService._private(
+    UserRepository.instance(),
+    StorageService.instance(),
+  );
 
-    await _userRepository.create(
-      docId,
-      request.toModel().toMap(),
-    );
+  factory UserService.instance() {
+    return _instance;
   }
 
-  Future<void> update(String docId, UserUpdateRequest request) async {
-    final map = request.toModel().toMap();
-    if (request.profileImage != null) {
-      map.addEntries([MapEntry("file", request.profileImage)]);
-    }
-    await _userRepository.update(
-      docId,
-      map,
-    );
+  Future<void> create(UserCreateRequest request) async {
+    await _userRepository.create(request.id, request.toMap());
   }
 
-  Future<UserModel> fetchUserData(String docId) async {
-    final userDoc = await _userRepository.findWithDocId(docId);
-    if (userDoc.exists) {
-      final userData = userDoc.data();
-      return UserModel.fromMap(userData!);
-    } else {
-      throw Exception('User not found');
+  Future<void> update(UserUpdateRequest request) async {
+    if (request.file != null) {
+      final user = await get(request.id);
+      final String downloadUrl;
+
+      if (user.imageUrl != null) {
+        downloadUrl = await _storageService.updateImage(
+          request.id,
+          request.file!,
+          user.imageUrl!,
+        );
+      } else {
+        downloadUrl = await _storageService.putImage(
+          request.id,
+          request.file!,
+        );
+      }
+
+      request.imageUrl = downloadUrl;
     }
+
+    await _userRepository.update(request.id, request.toMap());
+  }
+
+  Future<UserModel> get(String id) async {
+    final snapshot = await _userRepository.getUser(id);
+
+    return UserModel.fromMap(snapshot.data()!);
   }
 }

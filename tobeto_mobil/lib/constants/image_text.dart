@@ -11,6 +11,10 @@ const ders2 = "assets/images/ders2.png";
 const catalog1 = "assets/images/catalog1.jpg";
 const catalog2 = "assets/images/catalog2.jpg";
 
+// AUTH
+const loginPageHeaderImage = "https://lottie.host/a20e84e5-14bf-427b-b18a-79b409fbe1b6/C7azsyk4R7.json";
+const recoveryPageHeaderImage = "https://lottie.host/e9be6368-9465-4b43-8fc4-02314f5ec942/sZlkgQnieS.json";
+
 //calendar page
 const calendarJanuary = "assets/images/calendar/calendar_january.jpg";
 const calendarFebruary = "assets/images/calendar/calendar_february.jpg";

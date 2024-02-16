@@ -1,18 +1,20 @@
-import 'package:tobeto_mobil/models/firebase_models/user_model.dart';
+import 'package:tobeto_mobil/models/firebase_models/user/user_model.dart';
 
 class UserCreateRequest {
+  final String id;
   final String fullName;
   final String email;
 
   UserCreateRequest({
+    required this.id,
     required this.fullName,
     required this.email,
   });
 
-  UserModel toModel() {
+  Map<String, dynamic> toMap() {
     return UserModel(
       fullName: fullName,
       email: email,
-    );
+    ).toMap();
   }
 }

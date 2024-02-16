@@ -1,56 +1,65 @@
 import 'dart:io';
 
-import 'package:tobeto_mobil/models/firebase_models/user_model.dart';
+import 'package:tobeto_mobil/models/firebase_models/enums/classroom.dart';
+import 'package:tobeto_mobil/models/firebase_models/user/badge_model.dart';
+import 'package:tobeto_mobil/models/firebase_models/user/certificate_model.dart';
+import 'package:tobeto_mobil/models/firebase_models/user/talent_model.dart';
+import 'package:tobeto_mobil/models/firebase_models/user/user_model.dart';
 
 class UserUpdateRequest {
-  final String? fullName;
-  final String? email;
-  // final DateTime? birthDate;
+  String id;
+  File? file;
+  String? fullName;
+  String? email;
+  DateTime? birthDate;
+  String? imageUrl;
+  String? phoneNumber;
+  Classroom? classroom;
+  List<TalentModel>? talents;
+  List<CertificateModel>? certificates;
+  List<BadgeModel>? badges;
 
-  // final String? phoneNumber;
-  final File? profileImage;
-
-  // final List<String>? talents;
-  // final List<String>? certificates;
-  // final List<BadgeModel>? badges;
-
-  // final String? github;
-  // final String? linkedin;
-  // final String? facebook;
-  // final String? twitter;
-  // final String? instagram;
+  String? github;
+  String? linkedin;
+  String? facebook;
+  String? twitter;
+  String? instagram;
 
   UserUpdateRequest({
+    required this.id,
+    this.file,
     this.fullName,
     this.email,
-    this.profileImage,
-    // this.birthDate,
-    // this.phoneNumber,
-    // this.certificates,
-    // this.talents,
-    // this.badges,
-    // this.github,
-    // this.linkedin,
-    // this.facebook,
-    // this.twitter,
-    // this.instagram,
+    this.birthDate,
+    this.imageUrl,
+    this.phoneNumber,
+    this.classroom,
+    this.talents,
+    this.certificates,
+    this.badges,
+    this.github,
+    this.linkedin,
+    this.facebook,
+    this.twitter,
+    this.instagram,
   });
 
-  UserModel toModel() {
+  Map<String, dynamic> toMap() {
     return UserModel(
       fullName: fullName,
       email: email,
-      //profileImage: profileImage,
-      // birthDate: birthDate,
-      // phoneNumber: phoneNumber,
-      // certificates: certificates,
-      // talents: talents,
-      // badges: badges,
-      // github: github,
-      // linkedin: linkedin,
-      // facebook: facebook,
-      // twitter: twitter,
-      // instagram: instagram,
-    );
+      birthDate: birthDate,
+      imageUrl: imageUrl,
+      phoneNumber: phoneNumber,
+      classroom: classroom,
+      talents: talents,
+      certificates: certificates,
+      badges: badges,
+      github: github,
+      linkedin: linkedin,
+      facebook: facebook,
+      twitter: twitter,
+      instagram: instagram,
+    ).toMap();
   }
 }

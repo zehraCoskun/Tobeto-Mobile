@@ -1,0 +1,24 @@
+import 'package:flutter/material.dart';
+import 'package:tobeto_mobil/models/firebase_models/education_model.dart';
+import 'package:tobeto_mobil/pages/home/education_view/education_card.dart';
+
+class EducationList extends StatelessWidget {
+  const EducationList({
+    Key? key,
+    required this.educationList,
+  }) : super(key: key);
+
+  final List<EducationModel> educationList;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      itemCount: educationList.length,
+      itemBuilder: (context, index) {
+        return EducationCard(
+          education: educationList[index],
+        );
+      },
+    );
+  }
+}

@@ -1,32 +1,50 @@
 import 'package:flutter/foundation.dart' show immutable;
-import 'package:tobeto_mobil/api/business/requests/auth_requests/auth_register_request.dart';
 
 @immutable
 abstract class AuthEvent {}
 
 @immutable
-class AuthEventInitialize implements AuthEvent {}
+class AuthEventInitialize implements AuthEvent {
+  const AuthEventInitialize();
+}
 
+// LOGIN
 @immutable
-class AuthEventLogin implements AuthEvent {
+class AuthEventLogIn implements AuthEvent {
   final String email;
   final String password;
 
-  const AuthEventLogin({
+  const AuthEventLogIn({
     required this.email,
     required this.password,
   });
 }
 
+// REGISTER
 @immutable
 class AuthEventRegister implements AuthEvent {
-  final AuthRegisterRequest request;
+  final String fullName;
+  final String email;
+  final String password;
 
   const AuthEventRegister({
-    required this.request,
+    required this.fullName,
+    required this.email,
+    required this.password,
   });
 }
 
+// RECOVER
+@immutable
+class AuthEventRecover implements AuthEvent {
+  final String email;
+
+  const AuthEventRecover({
+    required this.email,
+  });
+}
+
+// LOGOUT
 @immutable
 class AuthEventLogOut implements AuthEvent {
   const AuthEventLogOut();

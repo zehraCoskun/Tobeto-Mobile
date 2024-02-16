@@ -3,25 +3,31 @@ import 'package:firebase_auth/firebase_auth.dart';
 class AuthRepository {
   final FirebaseAuth _authentication;
 
-  const AuthRepository._(this._authentication);
+  const AuthRepository._private(this._authentication);
 
-  static final _instance = AuthRepository._(FirebaseAuth.instance);
+  static final _instance = AuthRepository._private(
+    FirebaseAuth.instance,
+  );
 
   factory AuthRepository.instance() {
     return _instance;
   }
 
   Future<UserCredential> login(String email, String password) async {
-    return await _authentication.signInWithEmailAndPassword(
-        email: email, password: password);
+    return _authentication.signInWithEmailAndPassword(
+      email: email,
+      password: password,
+    );
   }
 
   Future<UserCredential> register(String email, String password) async {
-    return await _authentication.createUserWithEmailAndPassword(
-        email: email, password: password);
+    return _authentication.createUserWithEmailAndPassword(
+      email: email,
+      password: password,
+    );
   }
 
-  Future<void> logOut() async {
+  Future<void> logout() async {
     await _authentication.signOut();
   }
 
@@ -29,7 +35,7 @@ class AuthRepository {
     await _authentication.currentUser?.delete();
   }
 
-  Future<User?> currentUser() async {
+  User? currentUser() {
     return _authentication.currentUser;
   }
 }

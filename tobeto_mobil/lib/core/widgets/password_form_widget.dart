@@ -4,15 +4,17 @@ import 'package:tobeto_mobil/core/widgets/form_widget.dart';
 class PasswordFormWidget extends StatefulWidget {
   const PasswordFormWidget({
     Key? key,
-    this.controller,
     required this.labelText,
-    required this.hintText,
+    this.controller,
+    this.onChanged,
+    this.validator,
   }) : super(key: key);
 
   final String labelText;
-  final String hintText;
-
   final TextEditingController? controller;
+
+  final void Function(String newValue)? onChanged;
+  final String? Function(String? value)? validator;
 
   @override
   State<PasswordFormWidget> createState() => _PasswordFormWidgetState();
@@ -39,7 +41,6 @@ class _PasswordFormWidgetState extends State<PasswordFormWidget> {
       controller: widget.controller,
       prefixIcon: const Icon(Icons.lock_outline),
       labelText: widget.labelText,
-      hintText: widget.hintText,
       suffixIcon: IconButton(
         onPressed: handleInvisible,
         icon: isInvisible
@@ -47,6 +48,8 @@ class _PasswordFormWidgetState extends State<PasswordFormWidget> {
             : const Icon(Icons.visibility_off_outlined),
       ),
       isPassword: isInvisible,
+      onChanged: widget.onChanged,
+      validator: widget.validator,
     );
   }
 }

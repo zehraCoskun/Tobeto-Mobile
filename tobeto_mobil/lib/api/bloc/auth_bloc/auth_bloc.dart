@@ -1,55 +1,90 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/auth_bloc/auth_event.dart';
 import 'package:tobeto_mobil/api/bloc/auth_bloc/auth_state.dart';
-import 'package:tobeto_mobil/api/business/services/auth_service.dart';
+import 'package:tobeto_mobil/api/business/requests/user_requests/user_create_request.dart';
+import 'package:tobeto_mobil/api/business/services/user_service.dart';
+import 'package:tobeto_mobil/api/repository/auth_repository.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
-  final AuthService _authService;
+  final AuthRepository _authRepository;
+  final UserService _userService;
 
-  AuthBloc(this._authService) : super(const AuthStateLogOut()) {
+  AuthBloc(this._authRepository, this._userService)
+      : super(const AuthStateLoggedOut()) {
     on<AuthEventInitialize>((event, emit) => _onInitialize(event, emit));
-    on<AuthEventLogin>((event, emit) => _onLogin(event, emit));
+    on<AuthEventLogIn>((event, emit) => _onLogin(event, emit));
     on<AuthEventRegister>((event, emit) => _onRegister(event, emit));
-    on<AuthEventLogOut>((event, emit) => _onLogOut(event, emit));
+    on<AuthEventLogOut>((event, emit) => _onLogout(event, emit));
   }
 
   Future<void> _onInitialize(
     AuthEventInitialize event,
     Emitter<AuthState> emit,
   ) async {
-    final result = await _authService.getCurrentUser();
+    final user = _authRepository.currentUser();
 
-    if (result != null) {
-      emit(const AuthStateLogin());
+    if (user != null) {
+      emit(AuthStateLoggedIn(user: user));
     } else {
-      emit(const AuthStateLogOut());
+      emit(const AuthStateLoggedOut());
     }
   }
 
-  Future<void> _onLogin(AuthEventLogin event, Emitter<AuthState> emit) async {
-    emit(const AuthStateLogin(isLoading: true));
+  Future<void> _onLogin(
+    AuthEventLogIn event,
+    Emitter<AuthState> emit,
+  ) async {
+    emit(const AuthStateLoading());
 
-    await _authService.login(event.email, event.password);
-
-    emit(const AuthStateLogin());
+    try {
+      final credential = await _authRepository.login(
+        event.email,
+        event.password,
+      );
+      emit(AuthStateLoggedIn(user: credential.user!));
+    } on FirebaseAuthException catch (_) {
+      emit(const AuthStateLoggedOut());
+    }
   }
 
   Future<void> _onRegister(
     AuthEventRegister event,
     Emitter<AuthState> emit,
   ) async {
-    emit(const AuthStateRegister(isLoading: true));
+    emit(const AuthStateLoading());
 
-    await _authService.register(event.request);
-
-    emit(const AuthStateRegister());
+    try {
+      final credential = await _authRepository.register(
+        event.email,
+        event.password,
+      );
+      if (credential.user != null) {
+        await _userService.create(UserCreateRequest(
+          id: credential.user!.uid,
+          fullName: event.fullName,
+          email: event.email,
+        ));
+        emit(AuthStateRegistered(user: credential.user!));
+      }
+    } on FirebaseAuthException catch (_) {
+      await _authRepository.login(
+        event.email,
+        event.password,
+      );
+      await _authRepository.delete();
+      emit(const AuthStateLoggedOut());
+    }
   }
 
-  Future<void> _onLogOut(AuthEventLogOut event, Emitter<AuthState> emit) async {
-    emit(const AuthStateLogOut(isLoading: true));
+  Future<void> _onLogout(
+    AuthEventLogOut event,
+    Emitter<AuthState> emit,
+  ) async {
+    emit(const AuthStateLoading());
 
-    await _authService.logOut();
+    await _authRepository.logout();
 
-    emit(const AuthStateLogOut());
+    emit(const AuthStateLoggedOut());
   }
 }
