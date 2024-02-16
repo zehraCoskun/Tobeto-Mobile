@@ -3,31 +3,41 @@
  - bulunacak ve eklenecek, 3 boyutta ayrı fontlar
 
  - ## read.me ##
- - taslak oluşturulacak
+ - ~~taslak oluşturulacak~~
  - içerik düzenlenecek
 
+# authentication screens #
 - ## login screen ##
- - responsive layout 
+ - ~~responsive layout~~ 
 
-- ## sign up screen ##   
-- renk ayarlamaları, password tf 
+- ## recovery screen ##   
+ - push notification atılacak
 
 - ## register screen ##
- - renk ayarlamaları 
+ - ~~renk ayarlamaları~~ 
 
-- ## home screen ##
-- tasarım seçilecek, oluşturulacak (opsiyonel)
-- anasayfadaki tüm yeşil başlıkların light modu için değiştirilecek
+
+  
+- # home screen #
+
+- ## announcement screen ##
 
 - ## education detail screen ## 
  - video oynatıcı eklenecek, kalp icon button olacak
  - kategorinin tamamının açılacağı sayfa eklenecek
  - progress bar eklenebilir(opsiyonel)
 
-- ## reviews screen ##   
- - ~~değerlendirilmeler sayfası yapılacak~~
- - sınav sayfası eklenecek mi? tarayıcıya mı yönlendirsin?
+- ## exam screen ##
+ - süresi geçmemiş bir sınav eklenecek
 
+- ## main screen ##
+ - tasarım seçilecek, oluşturulacak
+
+- ## survey screen ##
+
+
+
+# drawer screen #
 - ## profile screen ## 
  - ~~profil resmi arkası animasyonu eklenecek~~
  - ~~modelleme yapılacak~~
@@ -36,16 +46,14 @@
  -  ~~aktivite haritası gelişecek, adı da düzelecek~~
  - edit sayfası  ~~yapılacak~~ model ile entegre edilecek
  - edit sayfasına doğum tarihi için date picker eklenmeli
+  
+- ## reviews screen ##   
+ - ~~değerlendirilmeler sayfası yapılacak~~
+ - sınav sayfası eklenecek mi? tarayıcıya mı yönlendirsin?
 
-- ## catalog screen ##   
- - ~~klavye açıldığında filtreler patates~~ 
- - ~~paylaş butonu yerine favoriler olabilir ~~
- - ~~tasarım gözden geçirilecek~~
- - ~~tasarımda özellikle resimler çok kötü~~
+- ## calender screen ##
+   
+- ## catalog screen ##
 
-- ## calander screen ##  
- - ~~geliştirilecek~~
 
-- ## firebase & bloc ##
- - 
 
