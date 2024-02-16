@@ -3,13 +3,8 @@ const logo = "assets/images/tobeto-logo.png";
 const ikLogoLight = "assets/images/ik-logo-light.png";
 const ikLogoDark = "assets/images/ik-logo-dark.png";
 
-//dummydata images
-
-const ders1 = "assets/images/ders1.jpg";
-const ders2 = "assets/images/ders2.png";
-
-const catalog1 = "assets/images/catalog1.jpg";
-const catalog2 = "assets/images/catalog2.jpg";
+//EmptyData View
+const mainEmptyHeaderDataImage = "assets/images/ders2.png";
 
 // AUTH
 const loginPageHeaderImage = "https://lottie.host/a20e84e5-14bf-427b-b18a-79b409fbe1b6/C7azsyk4R7.json";

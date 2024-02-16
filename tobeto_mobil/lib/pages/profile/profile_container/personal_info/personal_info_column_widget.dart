@@ -22,7 +22,7 @@ class PersonalInfoColumnWidget extends StatelessWidget {
       PersonalInfoRowWidget(
         title: "Doğum Tarihi",
         content: user.birthDate != null
-            ? DateFormat.yMMMMd().format(user.birthDate!)
+            ? DateFormat.yMd().format(user.birthDate!)
             : "DD/MM/YYYY",
         contentIcon: Icons.calendar_month_outlined,
       ),

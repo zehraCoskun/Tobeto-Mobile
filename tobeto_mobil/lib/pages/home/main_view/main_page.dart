@@ -25,7 +25,7 @@ class MainPage extends StatelessWidget {
       flex: 2,
       child: MainPageContent(
         title: "İstanbul Kodluyor'a Hoşgeldin !",
-        imageUrl: ders2,
+        imageUrl: mainEmptyHeaderDataImage,
         icon: Icons.push_pin_outlined,
       ),
     );

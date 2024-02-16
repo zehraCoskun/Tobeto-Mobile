@@ -16,21 +16,10 @@ const twitterColor = Colors.black;
 
 //profile page -social media links
 const facebookUrl = "https://www.facebook.com/";
-const githubUrl = "https://github.com/zehraCoskun/tobeto-mobile";
-const instagramUrl = "https://www.instagram.com";
-const linkedinUrl = "https://www.linkedin.com/in/zehracoskun/";
-const twitterUrl = "https://twitter.com/home";
-
-//profile page -badges
-const badge1 = "assets/images/profile/badge1.jpeg";
-const badge2 = "assets/images/profile/badge2.jpeg";
-const badge3 = "assets/images/profile/badge3.jpeg";
-const badge4 = "assets/images/profile/badge4.jpeg";
-const badge5 = "assets/images/profile/badge5.jpeg";
-const badge6 = "assets/images/profile/badge6.jpeg";
-const badge7 = "assets/images/profile/badge7.jpeg";
-const badge8 = "assets/images/profile/badge8.jpeg";
-const badgeList = [badge2, badge3, badge4, badge5, badge6, badge7, badge8];
+const githubUrl = "https://github.com/";
+const instagramUrl = "https://www.instagram.com/";
+const linkedinUrl = "https://www.linkedin.com/";
+const twitterUrl = "https://twitter.com/";
 
 //profile page -activity map colors
 const rate0Color = Color(0xFFCACACA);

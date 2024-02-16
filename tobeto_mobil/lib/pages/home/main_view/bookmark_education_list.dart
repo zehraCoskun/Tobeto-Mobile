@@ -18,9 +18,8 @@ class BookmarkEducationList extends StatelessWidget {
       builder: (context, state) {
         if (state is EducationStateInitial) {
           context.read<EducationBloc>().add(const EducationEventFetch());
-        } else if (state is EducationStateLoading) {
-          return const CircularProgressIndicator();
-        } else if (state is EducationStateLoaded) {
+        }
+        if (state is EducationStateLoaded) {
           return AspectRatio(
             aspectRatio: 2.5 / 1,
             child: ListView.builder(
