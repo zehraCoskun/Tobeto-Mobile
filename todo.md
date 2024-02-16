@@ -1,6 +1,7 @@
 # TODO : # 
-- ## font ##
- - bulunacak ve eklenecek, 3 boyutta ayrı fontlar
+- ## genel ##
+ - font bulunacak ve eklenecek, 3 boyutta ayrı fontlar
+ - textlerin tamamı constlara atılacak
 
  - ## read.me ##
  - ~~taslak oluşturulacak~~
@@ -20,8 +21,17 @@
   
 - # home screen #
 
+-  ## home screen ##
+ - baştan yapılacak  
+
 - ## announcement screen ##
 
+- ## application screen ##
+  - kabul edilmeyen başvuru eklenecek 
+
+- ## education screen ##
+ - kategori listesi eklenecek
+    
 - ## education detail screen ## 
  - video oynatıcı eklenecek, kalp icon button olacak
  - kategorinin tamamının açılacağı sayfa eklenecek
@@ -44,14 +54,17 @@
  - ~~icon renkleri kendi renklerinde olacak~~ 
  - ~~yetkinlik rozetleri büyütülebilir olacak~~ 
  -  ~~aktivite haritası gelişecek, adı da düzelecek~~
- - edit sayfası  ~~yapılacak~~ model ile entegre edilecek
- - edit sayfasına doğum tarihi için date picker eklenmeli
+ - ~~edit sayfası  ~~yapılacak~~ model ile entegre edilecek~~
+ - ~~edit sayfasına doğum tarihi için date picker eklenmeli~~
+ - aktivite haritası ??
+ - profil edit yetkinlikler sertifikalar eklenecek
   
 - ## reviews screen ##   
  - ~~değerlendirilmeler sayfası yapılacak~~
  - sınav sayfası eklenecek mi? tarayıcıya mı yönlendirsin?
 
 - ## calender screen ##
+  - küçültülecek
    
 - ## catalog screen ##
 
