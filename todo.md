@@ -67,6 +67,7 @@
   - küçültülecek
    
 - ## catalog screen ##
+ - filtrelerin fonksiyonları eklenecek 
 
 
 
