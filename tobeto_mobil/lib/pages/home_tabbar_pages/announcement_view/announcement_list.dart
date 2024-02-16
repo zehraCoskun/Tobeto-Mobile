@@ -5,7 +5,7 @@ import 'package:tobeto_mobil/api/bloc/announcement_bloc/announcement_event.dart'
 import 'package:tobeto_mobil/api/bloc/announcement_bloc/announcement_state.dart';
 import 'package:tobeto_mobil/constants/text_list.dart';
 import 'package:tobeto_mobil/core/widgets/error_snackbar_widget.dart';
-import 'package:tobeto_mobil/pages/home_tabbar_pages/announcement_view.dart/announcement_card.dart';
+import 'package:tobeto_mobil/pages/home_tabbar_pages/announcement_view/announcement_card.dart';
 import 'package:tobeto_mobil/utils/theme/theme_ios.dart';
 
 class AnnouncementList extends StatelessWidget {

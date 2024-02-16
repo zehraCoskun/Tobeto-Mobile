@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/core/widgets/basic_shadow.dart';
 import 'package:tobeto_mobil/models/firebase_models/education_model.dart';
-import 'package:tobeto_mobil/pages/home_tabbar_pages/main_view.dart/widgets/main_page_container.dart';
-import 'package:tobeto_mobil/pages/home_tabbar_pages/main_view.dart/widgets/main_page_pin_container.dart';
+import 'package:tobeto_mobil/pages/home_tabbar_pages/main_view/widgets/main_page_container.dart';
+import 'package:tobeto_mobil/pages/home_tabbar_pages/main_view/widgets/main_page_pin_container.dart';
 import 'package:tobeto_mobil/utils/theme/theme_ios.dart';
 
 class MainPageContent extends StatelessWidget {
   const MainPageContent({
     super.key,
-    this.educationModel,
+    this.education,
     this.title,
     this.imageUrl,
     required this.icon,
   });
-  final EducationModel? educationModel;
+  final EducationModel? education;
   final String? title;
   final String? imageUrl;
   final IconData icon;
@@ -33,19 +33,24 @@ class MainPageContent extends StatelessWidget {
                   boxShadow: [basicShadow()],
                 ),
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(60),
-                  child: Image.asset(
-                    educationModel?.thumbnail ?? imageUrl!,
-                    height: 120,
-                    width: 120,
-                  ),
-                ),
+                    borderRadius: BorderRadius.circular(60),
+                    child: education?.thumbnail == null
+                        ? Image.asset(
+                            imageUrl!,
+                            height: 120,
+                            width: 120,
+                          )
+                        : Image.network(
+                            education!.thumbnail,
+                            height: 120,
+                            width: 120,
+                          )),
               ),
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Text(
-                    educationModel?.title ?? title!,
+                    education?.title ?? title!,
                     softWrap: true,
                     style: Theme.of(context).textTheme.titleMedium,
                   ),

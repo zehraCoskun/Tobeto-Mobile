@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_mobil/models/firebase_models/education_model.dart';
 import 'package:tobeto_mobil/pages/home_tabbar_pages/education_view/education_category/education_category_body.dart';
 import 'package:tobeto_mobil/pages/home_tabbar_pages/education_view/education_category/education_category_header.dart';
 

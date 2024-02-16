@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/core/widgets/basic_shadow.dart';
 import 'package:tobeto_mobil/models/firebase_models/education_model.dart';
 import 'package:tobeto_mobil/pages/home_tabbar_pages/detail/education_detail_page/education_detail_page.dart';
-import 'package:tobeto_mobil/pages/home_tabbar_pages/main_view.dart/widgets/main_page_pin_container.dart';
+import 'package:tobeto_mobil/pages/home_tabbar_pages/main_view/widgets/main_page_pin_container.dart';
 
 class EducationCard extends StatelessWidget {
   const EducationCard({

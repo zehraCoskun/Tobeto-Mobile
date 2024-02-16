@@ -5,7 +5,7 @@ import 'package:tobeto_mobil/api/bloc/exam_bloc/exam_event.dart';
 import 'package:tobeto_mobil/api/bloc/exam_bloc/exam_state.dart';
 import 'package:tobeto_mobil/constants/text_list.dart';
 import 'package:tobeto_mobil/core/widgets/error_snackbar_widget.dart';
-import 'package:tobeto_mobil/pages/home_tabbar_pages/exam_view.dart/exam_card.dart';
+import 'package:tobeto_mobil/pages/home_tabbar_pages/exam_view/exam_card.dart';
 
 class ExamList extends StatelessWidget {
   const ExamList({
