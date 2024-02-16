@@ -8,45 +8,37 @@ import 'package:tobeto_mobil/core/widgets/container_widget.dart';
 import 'package:tobeto_mobil/core/widgets/secondary_background.dart';
 import 'package:tobeto_mobil/pages/home/main_view/bookmark_education_list.dart';
 import 'package:tobeto_mobil/pages/home/main_view/widgets/main_header_container.dart';
-import 'package:tobeto_mobil/pages/home/main_view/widgets/main_page_content.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final state = context.watch<UserBloc>().state as UserStateFetched;
+
     return SecondaryBackgroundWidget(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [buildHeader(), buildBody(), buildFooter(context)],
+        children: [
+          buildHeader(state.userModel.fullName!),
+          buildBody(),
+          buildFooter(context),
+        ],
       ),
     );
   }
 
-  Widget buildHeader() {
+  Widget buildHeader(String fullName) {
     return SizedBox(
       height: 150,
       child: Stack(
         alignment: Alignment.center,
         children: [
           const AnimatedWaveCurves(),
-          BlocBuilder<UserBloc, UserState>(
-            builder: (context, state) {
-              String greeting = "";
-              if (state is UserStateFetched) {
-                greeting = "İstanbul Kodluyor'a Hoşgeldin ${state.userModel.fullName} !";
-              } else {
-                greeting = "İstanbul Kodluyor'a Hoşgeldin !";
-              }
-              return Flexible(
-                flex: 2,
-                child: MainHeaderContainer(
-                  title: greeting,
-                  imageUrl: mainEmptyHeaderDataImage,
-                  icon: Icons.push_pin_outlined,
-                ),
-              );
-            },
+          MainHeaderContainer(
+            title: "İstanbul Kodluyor'a Hoşgeldin $fullName !",
+            imageUrl: mainEmptyHeaderDataImage,
+            icon: Icons.push_pin_outlined,
           )
         ],
       ),
@@ -141,7 +133,10 @@ class MainPage extends StatelessWidget {
               ),
               Text(
                 "12",
-                style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: 28, fontWeight: FontWeight.w700),
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyMedium!
+                    .copyWith(fontSize: 28, fontWeight: FontWeight.w700),
               )
             ])
           ],

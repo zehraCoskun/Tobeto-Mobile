@@ -21,32 +21,6 @@ class EducationDetailsPage extends StatelessWidget {
           overflow: TextOverflow.fade,
         ),
         title: Text(education.title),
-        actions: <Widget>[
-          //begenen kisilerin listesini gosteren bir sayfaya gidilicek
-          InkWell(
-            onTap: () {},
-            child: const Text(
-              "200",
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.white54,
-              ),
-            ),
-          ),
-
-          //begenmeye bastiginda ici dolu kalp tekrar bastiginda ici bos kalp goruntulenecek ve begenen sayisi guncellenecek
-          InkWell(
-            onTap: () {},
-            child: const Padding(
-              padding: EdgeInsets.only(right: 15, left: 5),
-              child: Icon(
-                Icons.favorite_border_outlined,
-                size: 28,
-                color: Colors.white54,
-              ),
-            ),
-          ),
-        ],
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
