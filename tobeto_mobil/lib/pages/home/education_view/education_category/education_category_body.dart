@@ -10,7 +10,9 @@ class EducationCategoryBody extends StatelessWidget {
     Key? key,
     required this.educationCategory,
   }) : super(key: key);
+
   final String educationCategory;
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size.height;
@@ -18,13 +20,14 @@ class EducationCategoryBody extends StatelessWidget {
     return BlocBuilder<EducationBloc, EducationState>(
       builder: (context, state) {
         if (state is EducationStateInitial) {
-          context.watch<EducationBloc>().add(const EducationEventFetch());
+          context.read<EducationBloc>().add(const EducationEventFetch());
           return const CircularProgressIndicator();
         } else if (state is EducationStateLoading) {
           return const CircularProgressIndicator();
         } else if (state is EducationStateLoaded) {
+          print(state.educations.first.category);
           final softEducations = state.educations
-              .where((education) => education.category == educationCategory)
+              .where((education) => education.category.name == educationCategory)
               .toList();
           return SizedBox(
             height: size * 0.4,

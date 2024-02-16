@@ -5,11 +5,13 @@ import 'package:tobeto_mobil/pages/home/education_view/education_category/educat
 class EducationCategory extends StatefulWidget {
   const EducationCategory({
     Key? key,
-    required this.title, required this.educationCategory,
+    required this.title,
+    required this.educationCategory,
   }) : super(key: key);
 
   final String title;
-final String educationCategory;
+  final String educationCategory;
+  
   @override
   State<EducationCategory> createState() => _EducationCategoryState();
 }
@@ -65,7 +67,9 @@ class _EducationCategoryState extends State<EducationCategory>
             curve: Curves.decelerate,
             child: Visibility(
               visible: isVisible,
-              child: EducationCategoryBody(educationCategory: widget.educationCategory,),
+              child: EducationCategoryBody(
+                educationCategory: widget.educationCategory,
+              ),
             ),
           ),
         ],

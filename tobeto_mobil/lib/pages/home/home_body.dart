@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/models/enums/education_category_item.dart';
 import 'package:tobeto_mobil/pages/home/announcement_view/announcement_list.dart';
 import 'package:tobeto_mobil/pages/home/application_view/application_list.dart';
-import 'package:tobeto_mobil/pages/home/education_view/education_category/education_category.dart';
+import 'package:tobeto_mobil/pages/home/education_view/education_category/education_category_card.dart';
 import 'package:tobeto_mobil/pages/home/exam_view/exam_list.dart';
 import 'package:tobeto_mobil/pages/home/main_view/main_page.dart';
 import 'package:tobeto_mobil/pages/home/survey_view/no_surveys_card.dart';
