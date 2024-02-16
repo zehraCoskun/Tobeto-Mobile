@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/models/firebase_models/education_model.dart';
+import 'package:tobeto_mobil/pages/education_details/video_player_widget.dart';
 
 class EducationDetailsPage extends StatelessWidget {
   const EducationDetailsPage({
@@ -25,11 +26,9 @@ class EducationDetailsPage extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          const Flexible(
+          Flexible(
             flex: 5,
-            child: Column(
-              children: <Widget>[],
-            ),
+            child: VideoPlayerWidget(url: education.content),
           ),
           const Spacer(),
           const Divider(
@@ -37,30 +36,30 @@ class EducationDetailsPage extends StatelessWidget {
             endIndent: 10,
             thickness: 0.8,
           ),
-          Expanded(
-            flex: 5,
-            child: ListView.builder(
-              itemCount: education.content.length,
-              shrinkWrap: true,
-              itemBuilder: (context, index) {
-                return Container(
-                  alignment: Alignment.center,
-                  margin: const EdgeInsets.symmetric(
-                    horizontal: 15,
-                    vertical: 5,
-                  ),
-                  height: 50,
-                  color: Colors.black,
-                  child: Text(
-                    education.content[index],
-                    style: const TextStyle(
-                      fontSize: 16,
-                    ),
-                  ),
-                );
-              },
-            ),
-          ),
+          // Expanded(
+          //   flex: 5,
+          //   child: ListView.builder(
+          //     itemCount: education.content.length,
+          //     shrinkWrap: true,
+          //     itemBuilder: (context, index) {
+          //       return Container(
+          //         alignment: Alignment.center,
+          //         margin: const EdgeInsets.symmetric(
+          //           horizontal: 15,
+          //           vertical: 5,
+          //         ),
+          //         height: 50,
+          //         color: Colors.black,
+          //         child: Text(
+          //           education.content[index],
+          //           style: const TextStyle(
+          //             fontSize: 16,
+          //           ),
+          //         ),
+          //       );
+          //     },
+          //   ),
+          // ),
         ],
       ),
     );
