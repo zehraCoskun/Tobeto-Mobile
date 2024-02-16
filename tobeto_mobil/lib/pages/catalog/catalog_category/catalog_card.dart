@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_mobil/core/widgets/basic_shadow.dart';
+import 'package:tobeto_mobil/core/widgets/shadows.dart';
 import 'package:tobeto_mobil/models/firebase_models/catalog_model.dart';
 import 'package:tobeto_mobil/utils/theme/theme_ios.dart';
 
@@ -23,7 +23,7 @@ class CatalogCard extends StatelessWidget {
         ),
         child: Container(
           decoration: BoxDecoration(
-            boxShadow: [basicShadow()],
+            boxShadow: [containerBasicShadow()],
           ),
           child: CardContent(catalog: catalog),
         ),
@@ -69,8 +69,8 @@ class CardContent extends StatelessWidget {
                 spreadRadius: 2,
                 blurRadius: 2,
               ),
-              basicShadow(),
-              basicShadow(),
+              containerBasicShadow(),
+              containerBasicShadow(),
             ],
           ),
           textAlign: TextAlign.center,

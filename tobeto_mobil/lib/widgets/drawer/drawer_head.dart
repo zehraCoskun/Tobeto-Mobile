@@ -4,7 +4,7 @@ import 'package:tobeto_mobil/api/bloc/user_bloc/user_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/user_bloc/user_state.dart';
 import 'package:tobeto_mobil/constants/image_text.dart';
 import 'package:tobeto_mobil/constants/pages/drawer_text.dart';
-import 'package:tobeto_mobil/core/widgets/basic_shadow.dart';
+import 'package:tobeto_mobil/core/widgets/shadows.dart';
 import 'package:tobeto_mobil/models/firebase_models/user/user_model.dart';
 
 class DrawerHead extends StatelessWidget {
@@ -43,7 +43,7 @@ class DrawerHead extends StatelessWidget {
         decoration: BoxDecoration(
           shape: BoxShape.circle,
           boxShadow: [
-            basicShadow(),
+            containerBasicShadow(),
           ],
         ),
         child: ClipRRect(

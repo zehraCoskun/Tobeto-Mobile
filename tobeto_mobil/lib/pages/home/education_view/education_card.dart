@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:tobeto_mobil/core/widgets/basic_shadow.dart';
+import 'package:tobeto_mobil/core/widgets/shadows.dart';
 import 'package:tobeto_mobil/models/firebase_models/education_model.dart';
 import 'package:tobeto_mobil/pages/home/main_view/widgets/main_page_pin_container.dart';
 
@@ -27,9 +27,9 @@ class EducationCard extends StatelessWidget {
             borderRadius: BorderRadius.circular(30),
             color: Theme.of(context).drawerTheme.backgroundColor,
             boxShadow: [
-              basicShadow(),
-              basicShadow(),
-              basicShadow(),
+              containerBasicShadow(),
+              containerBasicShadow(),
+              containerBasicShadow(),
             ],
           ),
           child: ListView(

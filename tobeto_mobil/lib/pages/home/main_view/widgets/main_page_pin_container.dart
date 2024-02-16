@@ -1,6 +1,6 @@
 //iconun container'ı
 import 'package:flutter/material.dart';
-import 'package:tobeto_mobil/core/widgets/basic_shadow.dart';
+import 'package:tobeto_mobil/core/widgets/shadows.dart';
 
 class MainPagePinContainer extends StatelessWidget {
   const MainPagePinContainer({
@@ -17,7 +17,7 @@ class MainPagePinContainer extends StatelessWidget {
         borderRadius: BorderRadius.circular(4),
         border: Border.all(),
         boxShadow: [
-          basicShadow(),
+          containerBasicShadow(),
         ],
       ),
       child: widget,

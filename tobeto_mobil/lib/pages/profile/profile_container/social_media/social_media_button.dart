@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_mobil/core/widgets/basic_shadow.dart';
+import 'package:tobeto_mobil/core/widgets/shadows.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class SocialMediaButton extends StatelessWidget {
@@ -25,7 +25,7 @@ class SocialMediaButton extends StatelessWidget {
         decoration: BoxDecoration(
           shape: BoxShape.circle,
           color: Colors.white,
-          boxShadow: [basicShadow()],
+          boxShadow: [containerBasicShadow()],
         ),
         child: Image.asset(
           logo,

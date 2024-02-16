@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_mobil/core/widgets/basic_shadow.dart';
+import 'package:tobeto_mobil/core/widgets/shadows.dart';
 
 class ProfileEditFormField extends StatelessWidget {
   const ProfileEditFormField({
@@ -30,19 +30,20 @@ class ProfileEditFormField extends StatelessWidget {
         color: Colors.white,
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
-          basicShadow(),
+          containerBasicShadow(),
         ],
       ),
-      child: child ?? TextFormField(
-        initialValue: initialValue,
-        decoration: InputDecoration(
-          label: label,
-          icon: icon,
-        ),
-        validator: validator,
-        onSaved: onSaved,
-        onChanged: onChanged,
-      ),
+      child: child ??
+          TextFormField(
+            initialValue: initialValue,
+            decoration: InputDecoration(
+              label: label,
+              icon: icon,
+            ),
+            validator: validator,
+            onSaved: onSaved,
+            onChanged: onChanged,
+          ),
     );
   }
 }

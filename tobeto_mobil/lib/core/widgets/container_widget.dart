@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_mobil/core/widgets/basic_shadow.dart';
+import 'package:tobeto_mobil/core/widgets/shadows.dart';
 
 class ContainerWidget extends StatelessWidget {
   const ContainerWidget({
@@ -21,7 +21,7 @@ class ContainerWidget extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
         color: Theme.of(context).drawerTheme.backgroundColor,
-        boxShadow: [basicShadow(), basicShadow(), basicShadow()],
+        boxShadow: [containerBasicShadow(), containerBasicShadow(), containerBasicShadow()],
       ),
       child: child,
     );

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_mobil/core/widgets/basic_shadow.dart';
+import 'package:tobeto_mobil/core/widgets/shadows.dart';
 import 'package:tobeto_mobil/models/firebase_models/user/talent_model.dart';
 import 'package:tobeto_mobil/utils/theme/theme_ios.dart';
 
@@ -33,17 +33,16 @@ class ProfileEditBottomSheet extends StatelessWidget {
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(16),
                   boxShadow: [
-                    basicShadow(),
+                    containerBasicShadow(),
                   ],
                 ),
                 child: talents?[index] != null
                     ? InkWell(
                         child: Text(
                           talents![index].name,
-                          style:
-                              Theme.of(context).textTheme.bodyLarge!.copyWith(
-                                    fontSize: 16,
-                                  ),
+                          style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                                fontSize: 16,
+                              ),
                         ),
                         onTap: () {},
                       )

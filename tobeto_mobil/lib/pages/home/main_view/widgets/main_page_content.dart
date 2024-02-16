@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_mobil/core/widgets/basic_shadow.dart';
+import 'package:tobeto_mobil/core/widgets/shadows.dart';
 import 'package:tobeto_mobil/models/firebase_models/education_model.dart';
 import 'package:tobeto_mobil/pages/home/main_view/widgets/main_page_container.dart';
 import 'package:tobeto_mobil/pages/home/main_view/widgets/main_page_pin_container.dart';
@@ -30,7 +30,7 @@ class MainPageContent extends StatelessWidget {
                 height: 120,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  boxShadow: [basicShadow()],
+                  boxShadow: [containerBasicShadow()],
                 ),
                 child: ClipRRect(
                     borderRadius: BorderRadius.circular(60),
