@@ -7,6 +7,7 @@ import 'package:tobeto_mobil/pages/home/main_view/widgets/main_page_content.dart
 
 class MainPage extends StatelessWidget {
   const MainPage({super.key});
+  
   @override
   Widget build(BuildContext context) {
     return SecondaryBackgroundWidget(

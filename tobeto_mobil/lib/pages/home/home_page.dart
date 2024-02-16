@@ -6,7 +6,6 @@ import 'package:tobeto_mobil/api/bloc/user_bloc/user_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/user_bloc/user_event.dart';
 import 'package:tobeto_mobil/api/bloc/user_bloc/user_state.dart';
 import 'package:tobeto_mobil/core/screens/global_scaffold.dart';
-import 'package:tobeto_mobil/core/widgets/loading_state_widget.dart';
 import 'package:tobeto_mobil/core/widgets/secondary_background.dart';
 import 'package:tobeto_mobil/pages/home/home_body.dart';
 import 'package:tobeto_mobil/pages/home/home_header.dart';
@@ -36,17 +35,7 @@ class _HomePageState extends State<HomePage>
         tabController: _tabController,
       ),
       body: SecondaryBackgroundWidget(
-        child: BlocConsumer<UserBloc, UserState>(
-          listener: (context, state) {
-            if (state is UserStateLoading) {
-              LoadingStateWidget.instance().show(
-                context: context,
-                text: "Loading...",
-              );
-            } else {
-              LoadingStateWidget.instance().hide();
-            }
-          },
+        child: BlocBuilder<UserBloc, UserState>(
           builder: (context, state) {
             if (state is UserStateInitial || state is UserStateUpdated) {
               final state = context.read<AuthBloc>().state as AuthStateLoggedIn;

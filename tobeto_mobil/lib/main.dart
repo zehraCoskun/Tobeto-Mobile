@@ -50,7 +50,7 @@ void main() async {
           builder: (context, state) {
             if (state is AuthStateLoggedIn) {
               return const HomePage();
-            } else if (state is AuthStateLoggedOut) {
+            } else if (state is AuthStateLoggedOut || state is AuthStateRegistered) {
               return const LoginPage();
             }
 

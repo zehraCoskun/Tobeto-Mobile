@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 BoxShadow titleShadow() {
-  return BoxShadow(
+  return const BoxShadow(
     color: Colors.black,
     spreadRadius: 2,
     blurRadius: 5,

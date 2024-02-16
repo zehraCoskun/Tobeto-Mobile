@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/models/firebase_models/education_model.dart';
 
-class EducationDetailPage extends StatelessWidget {
-  const EducationDetailPage({
+class EducationDetailsPage extends StatelessWidget {
+  const EducationDetailsPage({
     Key? key,
     required this.education,
   }) : super(key: key);

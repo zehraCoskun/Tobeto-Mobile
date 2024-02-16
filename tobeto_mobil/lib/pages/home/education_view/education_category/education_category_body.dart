@@ -25,7 +25,6 @@ class EducationCategoryBody extends StatelessWidget {
         } else if (state is EducationStateLoading) {
           return const CircularProgressIndicator();
         } else if (state is EducationStateLoaded) {
-          print(state.educations.first.category);
           final softEducations = state.educations
               .where((education) => education.category.name == educationCategory)
               .toList();

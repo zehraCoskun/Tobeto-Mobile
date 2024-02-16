@@ -11,7 +11,7 @@ class AnimatedBackground extends StatefulWidget {
   const AnimatedBackground({super.key});
 
   @override
-  _AnimatedBackgroundState createState() => _AnimatedBackgroundState();
+  State<AnimatedBackground> createState() => _AnimatedBackgroundState();
 }
 
 class _AnimatedBackgroundState extends State<AnimatedBackground> with SingleTickerProviderStateMixin {
@@ -20,7 +20,7 @@ class _AnimatedBackgroundState extends State<AnimatedBackground> with SingleTick
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(duration: Duration(seconds: 3), vsync: this);
+    _controller = AnimationController(duration: const Duration(seconds: 3), vsync: this);
     _controller.repeat();
   }
 

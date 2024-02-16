@@ -33,14 +33,14 @@ class ReviewListWidget extends StatelessWidget {
         return Center(
           child: Text(
             state.errorMessage,
-            style: TextStyle(color: Colors.red),
+            style: const TextStyle(color: Colors.red),
           ),
         );
       } else {
         return Center(
           child: Text(
             state.toString(),
-            style: TextStyle(color: Colors.red),
+            style: const TextStyle(color: Colors.red),
           ),
         );
       }

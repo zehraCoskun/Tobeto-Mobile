@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:tobeto_mobil/models/firebase_models/education_model.dart';
 import 'package:tobeto_mobil/pages/calendar/calendar_page.dart';
 import 'package:tobeto_mobil/pages/catalog/catalog_page.dart';
 import 'package:tobeto_mobil/pages/authentication/login/login_page.dart';
+import 'package:tobeto_mobil/pages/education_details/education_details_page.dart';
 import 'package:tobeto_mobil/pages/home/home_page.dart';
 import 'package:tobeto_mobil/pages/profile/profile_page.dart';
 import 'package:tobeto_mobil/pages/profile_edit/profile_edit_page.dart';
@@ -27,6 +29,10 @@ class RouteGenerator {
         return defaultRouteTransition(const CalendarPage());
       case "/profileEdit":
         return defaultRouteTransition(const ProfileEditPage());
+      case "/details":
+        return defaultRouteTransition(
+          EducationDetailsPage(education: settings.arguments as EducationModel),
+        );
       default:
         return defaultRouteTransition(const HomePage());
     }

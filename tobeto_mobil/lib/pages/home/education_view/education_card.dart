@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:tobeto_mobil/core/widgets/basic_shadow.dart';
 import 'package:tobeto_mobil/models/firebase_models/education_model.dart';
-import 'package:tobeto_mobil/pages/home/detail/education_detail_page/education_detail_page.dart';
 import 'package:tobeto_mobil/pages/home/main_view/widgets/main_page_pin_container.dart';
 
 class EducationCard extends StatelessWidget {
@@ -14,21 +14,31 @@ class EducationCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AspectRatio(
-      aspectRatio: 1 / 1,
-      child: Container(
-        margin: const EdgeInsets.only(top: 20, left: 10, right: 10),
-        decoration: BoxDecoration(borderRadius: BorderRadius.circular(30), color: Theme.of(context).drawerTheme.backgroundColor, boxShadow: [
-          basicShadow(),
-          basicShadow(),
-          basicShadow(),
-        ]),
-        child: ListView(
-          primary: false,
-          children: <Widget>[
-            buildHeader(context),
-            buildBody(context),
-          ],
+    return InkWell(
+      onTap: () => Navigator.of(context).pushNamed(
+        "/details",
+        arguments: education,
+      ),
+      child: AspectRatio(
+        aspectRatio: 1 / 1,
+        child: Container(
+          margin: const EdgeInsets.only(top: 20, left: 10, right: 10),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(30),
+            color: Theme.of(context).drawerTheme.backgroundColor,
+            boxShadow: [
+              basicShadow(),
+              basicShadow(),
+              basicShadow(),
+            ],
+          ),
+          child: ListView(
+            primary: false,
+            children: <Widget>[
+              buildHeader(context),
+              buildBody(context),
+            ],
+          ),
         ),
       ),
     );
@@ -66,41 +76,28 @@ class EducationCard extends StatelessWidget {
   }
 
   Widget buildBody(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        Navigator.of(context).push(
-          MaterialPageRoute(
-            builder: (context) => EducationDetailPage(education: education),
+    return Padding(
+      padding: const EdgeInsets.symmetric(
+        horizontal: 16,
+        vertical: 2,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text(
+            education.title,
+            style: Theme.of(context).textTheme.titleLarge,
           ),
-        );
-      },
-      child: Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 16,
-          vertical: 2,
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Text(
-              education.title,
-              style: Theme.of(context).textTheme.titleLarge,
-            ),
-            Row(
-              children: [
-                Text(
-                  "Bitiş tarihi : ${_formatDate(education.endDate)}",
-                  style: Theme.of(context).textTheme.titleSmall,
-                ),
-              ],
-            ),
-          ],
-        ),
+          Row(
+            children: [
+              Text(
+                "Bitiş tarihi : ${DateFormat.yMd().format(education.endDate)}",
+                style: Theme.of(context).textTheme.titleSmall,
+              ),
+            ],
+          ),
+        ],
       ),
     );
-  }
-
-  String _formatDate(DateTime date) {
-    return "${date.day}/${date.month}/${date.year}";
   }
 }

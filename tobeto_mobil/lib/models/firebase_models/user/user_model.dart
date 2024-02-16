@@ -45,7 +45,7 @@ class UserModel extends Entity {
     return UserModel(
       fullName: map["full_name"] as String?,
       email: map["email"] as String?,
-      birthDate: (map["birth_date"] as Timestamp).toDate(),
+      birthDate: (map["birth_date"] as Timestamp?)?.toDate(),
       imageUrl: map["image_url"] as String?,
       phoneNumber: map["phone_number"] as String?,
       classroom: Classroom.getClassroom(map["classroom"] as String?),
