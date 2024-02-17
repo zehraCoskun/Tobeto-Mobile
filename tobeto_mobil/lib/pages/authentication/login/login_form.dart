@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/auth_bloc/auth_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/auth_bloc/auth_event.dart';
 import 'package:tobeto_mobil/constants/pages/auth_text.dart';
-import 'package:tobeto_mobil/core/widgets/form_widget.dart';
-import 'package:tobeto_mobil/core/widgets/password_form_widget.dart';
+import 'package:tobeto_mobil/core/widgets/form_field/form_widget.dart';
+import 'package:tobeto_mobil/core/widgets/form_field/password_form_widget.dart';
 import 'package:tobeto_mobil/pages/authentication/recovery/recovery_page.dart';
 import 'package:tobeto_mobil/pages/authentication/register/register_page.dart';
 

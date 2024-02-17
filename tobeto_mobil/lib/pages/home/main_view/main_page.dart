@@ -5,7 +5,7 @@ import 'package:tobeto_mobil/api/bloc/user_bloc/user_state.dart';
 import 'package:tobeto_mobil/constants/image_text.dart';
 import 'package:tobeto_mobil/core/animation/animated_wave_curves.dart';
 import 'package:tobeto_mobil/core/widgets/container_widget.dart';
-import 'package:tobeto_mobil/core/widgets/secondary_background.dart';
+import 'package:tobeto_mobil/core/widgets/background/secondary_background.dart';
 import 'package:tobeto_mobil/pages/home/main_view/bookmark_education_list.dart';
 import 'package:tobeto_mobil/pages/home/main_view/widgets/main_header_container.dart';
 

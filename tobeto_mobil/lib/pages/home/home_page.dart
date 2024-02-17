@@ -6,7 +6,7 @@ import 'package:tobeto_mobil/api/bloc/user_bloc/user_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/user_bloc/user_event.dart';
 import 'package:tobeto_mobil/api/bloc/user_bloc/user_state.dart';
 import 'package:tobeto_mobil/core/screens/global_scaffold.dart';
-import 'package:tobeto_mobil/core/widgets/secondary_background.dart';
+import 'package:tobeto_mobil/core/widgets/background/secondary_background.dart';
 import 'package:tobeto_mobil/pages/home/home_body.dart';
 import 'package:tobeto_mobil/pages/home/home_header.dart';
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_mobil/widgets/drawer/drawer_item.dart';
+import 'package:tobeto_mobil/core/widgets/drawer/drawer_item.dart';
 
 class DrawerBody extends StatelessWidget {
   const DrawerBody({

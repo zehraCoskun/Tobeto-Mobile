@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/constants/image_text.dart';
 import 'package:tobeto_mobil/core/screens/global_scaffold.dart';
-import 'package:tobeto_mobil/core/widgets/primary_background.dart';
+import 'package:tobeto_mobil/core/widgets/background/primary_background.dart';
 import 'package:tobeto_mobil/pages/review/review_list_widget.dart';
 
 class ReviewsPage extends StatelessWidget {

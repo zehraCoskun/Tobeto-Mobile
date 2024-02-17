@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:tobeto_mobil/core/widgets/loading_state_widget_controller.dart';
+import 'package:tobeto_mobil/core/widgets/loading_widget/loading_state_widget_controller.dart';
 
 class LoadingStateWidget {
   LoadingStateWidget._sharedInstance();

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/core/clippers/login_clipper.dart';
-import 'package:tobeto_mobil/core/widgets/primary_background.dart';
+import 'package:tobeto_mobil/core/widgets/background/primary_background.dart';
 import 'package:tobeto_mobil/pages/authentication/login/login_footer.dart';
 import 'package:tobeto_mobil/pages/authentication/login/login_form.dart';
 import 'package:tobeto_mobil/pages/authentication/login/login_header.dart';

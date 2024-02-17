@@ -5,8 +5,8 @@ import 'package:tobeto_mobil/api/bloc/auth_bloc/auth_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/auth_bloc/auth_event.dart';
 import 'package:tobeto_mobil/constants/image_text.dart';
 import 'package:tobeto_mobil/constants/pages/auth_text.dart';
-import 'package:tobeto_mobil/core/widgets/form_widget.dart';
-import 'package:tobeto_mobil/core/widgets/primary_background.dart';
+import 'package:tobeto_mobil/core/widgets/form_field/form_widget.dart';
+import 'package:tobeto_mobil/core/widgets/background/primary_background.dart';
 
 class RecoveryPage extends StatefulWidget {
   const RecoveryPage({

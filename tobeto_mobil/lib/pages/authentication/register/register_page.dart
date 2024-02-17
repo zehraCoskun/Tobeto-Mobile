@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/constants/image_text.dart';
-import 'package:tobeto_mobil/core/widgets/primary_background.dart';
+import 'package:tobeto_mobil/core/widgets/background/primary_background.dart';
 import 'package:tobeto_mobil/pages/authentication/register/register_form.dart';
 
 class RegisterPage extends StatelessWidget {

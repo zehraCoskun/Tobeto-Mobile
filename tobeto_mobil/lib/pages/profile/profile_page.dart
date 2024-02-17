@@ -3,11 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/user_bloc/user_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/user_bloc/user_state.dart';
 import 'package:tobeto_mobil/constants/image_text.dart';
-import 'package:tobeto_mobil/core/widgets/secondary_background.dart';
+import 'package:tobeto_mobil/core/widgets/background/secondary_background.dart';
 import 'package:tobeto_mobil/pages/profile/profile_container/profile_container.dart';
 import 'package:tobeto_mobil/pages/profile/profile_container/profile_container_item.dart';
 import 'package:tobeto_mobil/pages/profile/profile_header.dart';
-import 'package:tobeto_mobil/widgets/drawer/drawer_widget.dart';
+import 'package:tobeto_mobil/core/widgets/drawer/drawer_widget.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({

@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/auth_bloc/auth_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/auth_bloc/auth_event.dart';
 import 'package:tobeto_mobil/constants/image_text.dart';
-import 'package:tobeto_mobil/core/widgets/tab_bar_widget.dart';
-import 'package:tobeto_mobil/widgets/tab_bar/tab_bar_item.dart';
+import 'package:tobeto_mobil/core/widgets/tab_bar/tab_bar_item.dart';
+import 'package:tobeto_mobil/core/widgets/tab_bar/tab_bar_widget.dart';
 
 class HomeHeader extends StatelessWidget implements PreferredSizeWidget {
   const HomeHeader({

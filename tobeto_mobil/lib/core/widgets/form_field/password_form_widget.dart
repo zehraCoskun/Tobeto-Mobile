@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_mobil/core/widgets/form_widget.dart';
+import 'package:tobeto_mobil/core/widgets/form_field/form_widget.dart';
 
 class PasswordFormWidget extends StatefulWidget {
   const PasswordFormWidget({

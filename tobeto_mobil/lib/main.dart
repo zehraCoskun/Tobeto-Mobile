@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/auth_bloc/auth_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/auth_bloc/auth_state.dart';
 import 'package:tobeto_mobil/configuration/configuration.dart';
-import 'package:tobeto_mobil/core/widgets/loading_state_widget.dart';
+import 'package:tobeto_mobil/core/widgets/loading_widget/loading_state_widget.dart';
 import 'package:tobeto_mobil/firebase_options.dart';
 import 'package:tobeto_mobil/pages/authentication/login/login_page.dart';
 import 'package:tobeto_mobil/pages/home/home_page.dart';
