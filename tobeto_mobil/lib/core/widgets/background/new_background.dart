@@ -8,8 +8,7 @@ class NewBackground extends StatefulWidget {
   State<NewBackground> createState() => _NewBackgroundState();
 }
 
-class _NewBackgroundState extends State<NewBackground>
-    with SingleTickerProviderStateMixin {
+class _NewBackgroundState extends State<NewBackground> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<Alignment> _topAligmentAnimation;
   late Animation<Alignment> _bottomAligmentAnimation;
@@ -17,50 +16,41 @@ class _NewBackgroundState extends State<NewBackground>
   @override
   void initState() {
     super.initState();
-    _controller =
-        AnimationController(vsync: this, duration: const Duration(seconds: 8));
+    _controller = AnimationController(vsync: this, duration: const Duration(seconds: 8));
     _topAligmentAnimation = TweenSequence<Alignment>([
       TweenSequenceItem<Alignment>(
-        tween:
-            Tween<Alignment>(begin: Alignment.topLeft, end: Alignment.topRight),
+        tween: Tween<Alignment>(begin: Alignment.topLeft, end: Alignment.topRight),
         weight: 1,
       ),
       TweenSequenceItem<Alignment>(
-        tween: Tween<Alignment>(
-            begin: Alignment.topRight, end: Alignment.bottomRight),
+        tween: Tween<Alignment>(begin: Alignment.topRight, end: Alignment.bottomRight),
         weight: 1,
       ),
       TweenSequenceItem<Alignment>(
-        tween: Tween<Alignment>(
-            begin: Alignment.bottomRight, end: Alignment.bottomLeft),
+        tween: Tween<Alignment>(begin: Alignment.bottomRight, end: Alignment.bottomLeft),
         weight: 1,
       ),
       TweenSequenceItem<Alignment>(
-        tween: Tween<Alignment>(
-            begin: Alignment.bottomLeft, end: Alignment.topLeft),
+        tween: Tween<Alignment>(begin: Alignment.bottomLeft, end: Alignment.topLeft),
         weight: 1,
       ),
     ]).animate(_controller);
 
     _bottomAligmentAnimation = TweenSequence<Alignment>([
       TweenSequenceItem<Alignment>(
-        tween: Tween<Alignment>(
-            begin: Alignment.bottomRight, end: Alignment.bottomLeft),
+        tween: Tween<Alignment>(begin: Alignment.bottomRight, end: Alignment.bottomLeft),
         weight: 1,
       ),
       TweenSequenceItem<Alignment>(
-        tween: Tween<Alignment>(
-            begin: Alignment.bottomLeft, end: Alignment.topLeft),
+        tween: Tween<Alignment>(begin: Alignment.bottomLeft, end: Alignment.topLeft),
         weight: 1,
       ),
       TweenSequenceItem<Alignment>(
-        tween:
-            Tween<Alignment>(begin: Alignment.topLeft, end: Alignment.topRight),
+        tween: Tween<Alignment>(begin: Alignment.topLeft, end: Alignment.topRight),
         weight: 1,
       ),
       TweenSequenceItem<Alignment>(
-        tween: Tween<Alignment>(
-            begin: Alignment.topRight, end: Alignment.bottomRight),
+        tween: Tween<Alignment>(begin: Alignment.topRight, end: Alignment.bottomRight),
         weight: 1,
       ),
     ]).animate(_controller);
@@ -80,8 +70,8 @@ class _NewBackgroundState extends State<NewBackground>
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
                       colors: [
-                        Colors.grey,
-                        Colors.purple,
+                        Colors.grey.shade100,
+                        Colors.black26,
                       ],
                       begin: _topAligmentAnimation.value,
                       end: _bottomAligmentAnimation.value,

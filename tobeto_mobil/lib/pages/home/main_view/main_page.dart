@@ -2,11 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/user_bloc/user_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/user_bloc/user_state.dart';
-import 'package:tobeto_mobil/constants/image_text.dart';
-import 'package:tobeto_mobil/core/animation/animated_wave_curves.dart';
-import 'package:tobeto_mobil/core/widgets/container_widget.dart';
 import 'package:tobeto_mobil/core/widgets/background/secondary_background.dart';
-import 'package:tobeto_mobil/pages/home/main_view/bookmark_education_list.dart';
+import 'package:tobeto_mobil/pages/home/main_view/main_annoucement_list.dart';
 import 'package:tobeto_mobil/pages/home/main_view/widgets/main_header_container.dart';
 
 class MainPage extends StatelessWidget {
@@ -15,12 +12,14 @@ class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final state = context.watch<UserBloc>().state as UserStateFetched;
+    String fullName = state.userModel.fullName!;
+    String firstName = fullName.split(' ')[0];
 
     return SecondaryBackgroundWidget(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          buildHeader(state.userModel.fullName!),
+          buildHeader(firstName),
           buildBody(),
           buildFooter(context),
         ],
@@ -28,19 +27,11 @@ class MainPage extends StatelessWidget {
     );
   }
 
-  Widget buildHeader(String fullName) {
+  Widget buildHeader(String firstName) {
     return SizedBox(
-      height: 150,
-      child: Stack(
-        alignment: Alignment.center,
-        children: [
-          const AnimatedWaveCurves(),
-          MainHeaderContainer(
-            title: "İstanbul Kodluyor'a Hoşgeldin $fullName !",
-            imageUrl: mainEmptyHeaderDataImage,
-            icon: Icons.push_pin_outlined,
-          )
-        ],
+      height: 120,
+      child: MainHeaderContainer(
+        title: "İstanbul Kodluyor'a Hoşgeldin $firstName !",
       ),
     );
   }
@@ -52,57 +43,13 @@ class MainPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Stack(
-              alignment: Alignment.topLeft,
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(top: 30),
-                  child: BookmarkEducationList(
-                    icon: Icons.heart_broken,
-                  ),
-                ),
-                ContainerWidget(
-                  margin: EdgeInsets.symmetric(horizontal: 2, vertical: 0),
-                  child: Text(
-                    "Yarım kalanlar",
-                  ),
-                ),
-              ],
-            ),
-            Stack(
-              alignment: Alignment.topLeft,
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(top: 30),
-                  child: BookmarkEducationList(
-                    icon: Icons.heart_broken,
-                  ),
-                ),
-                ContainerWidget(
-                  margin: EdgeInsets.symmetric(horizontal: 2, vertical: 0),
-                  child: Text(
-                    "Yarım kalanlar",
-                  ),
-                ),
-              ],
-            ),
-            Stack(
-              alignment: Alignment.topLeft,
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(top: 30),
-                  child: BookmarkEducationList(
-                    icon: Icons.heart_broken,
-                  ),
-                ),
-                ContainerWidget(
-                  margin: EdgeInsets.symmetric(horizontal: 2, vertical: 0),
-                  child: Text(
-                    "Yarım kalanlar",
-                  ),
-                ),
-              ],
-            ),
+            SizedBox(child: MainAnnouncementList()),
+            SizedBox(child: MainAnnouncementList()),
+            SizedBox(child: MainAnnouncementList()),
+            SizedBox(child: MainAnnouncementList()),
+            SizedBox(child: MainAnnouncementList()),
+            SizedBox(child: MainAnnouncementList()),
+            SizedBox(child: MainAnnouncementList()),
           ],
         ),
       ),
@@ -133,10 +80,7 @@ class MainPage extends StatelessWidget {
               ),
               Text(
                 "12",
-                style: Theme.of(context)
-                    .textTheme
-                    .bodyMedium!
-                    .copyWith(fontSize: 28, fontWeight: FontWeight.w700),
+                style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: 28, fontWeight: FontWeight.w700),
               )
             ])
           ],

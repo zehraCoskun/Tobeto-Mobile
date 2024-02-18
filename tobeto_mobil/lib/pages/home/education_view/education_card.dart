@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:tobeto_mobil/core/widgets/shadows.dart';
 import 'package:tobeto_mobil/models/firebase_models/education_model.dart';
-import 'package:tobeto_mobil/pages/home/main_view/widgets/main_page_pin_container.dart';
 
 class EducationCard extends StatelessWidget {
   const EducationCard({
@@ -64,15 +63,28 @@ class EducationCard extends StatelessWidget {
             ),
           ),
         ),
-        MainPagePinContainer(
-          widget: Text(
-            education.totalDuration,
-            style: Theme.of(context).textTheme.titleSmall,
-            textAlign: TextAlign.end,
-          ),
-        ),
+        buildTotalDuration(context),
       ],
     );
+  }
+
+  Container buildTotalDuration(BuildContext context) {
+    return Container(
+        margin: const EdgeInsets.all(2),
+        decoration: BoxDecoration(
+          color: Theme.of(context).appBarTheme.backgroundColor,
+          borderRadius: BorderRadius.circular(4),
+          border: Border.all(),
+          boxShadow: [
+            containerBasicShadow(),
+          ],
+        ),
+        child: Text(
+          education.totalDuration,
+          style: Theme.of(context).textTheme.titleSmall,
+          textAlign: TextAlign.end,
+        ),
+      );
   }
 
   Widget buildBody(BuildContext context) {
