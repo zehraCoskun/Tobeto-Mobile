@@ -22,14 +22,16 @@ class _MainTobetoListState extends State<MainTobetoList> {
     _currentIndex = 0;
   }
 
-  void _startAnimation(int itemCount) {
+  void _startAnimation(BuildContext context, int itemCount) {
     Future.delayed(const Duration(seconds: 5), () {
-      setState(() {
-        _currentIndex = ((_currentIndex + 1) % itemCount);
-        _startAnimation(itemCount);
-      });
+      if (context.mounted) {
+        setState(() {
+          _currentIndex = ((_currentIndex + 1) % itemCount);
+          _startAnimation(context, itemCount);
+        });
+      }
     });
-  }
+  } // sayfadan ayrılınca future.delayed fonksiyonunun durmasını nasıl sağlarım
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +42,7 @@ class _MainTobetoListState extends State<MainTobetoList> {
         }
         if (state is TobetoNewsStateLoaded) {
           itemCount = state.tobetoNews.length;
-          _startAnimation(itemCount);
+          _startAnimation(context, itemCount);
           return AspectRatio(
             aspectRatio: 2 / 1,
             child: AnimatedSwitcher(
