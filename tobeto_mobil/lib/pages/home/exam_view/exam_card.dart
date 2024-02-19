@@ -20,14 +20,14 @@ class ExamCard extends StatelessWidget {
             return AlertDialog(
               backgroundColor: TobetoDarkColors.lacivert,
               title: Text(
-                "Bu sınavı zaten tamamladınız !",
+                exam.isExpire ? "Bu sınavı zaten tamamladınız !" : "Sınava yalnızca tarayıcadan girebilirsiniz !",
                 style: Theme.of(context).textTheme.titleLarge,
               ),
               actions: [
                 TextButton(
                   child: const Text("Tamam"),
                   onPressed: () {
-                    Navigator.of(context).pop(); 
+                    Navigator.of(context).pop();
                   },
                 ),
               ],

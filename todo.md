@@ -38,7 +38,7 @@
  - progress bar eklenebilir(opsiyonel)
 
 - ## exam screen ##
- - süresi geçmemiş bir sınav eklenecek
+ - ~~süresi geçmemiş bir sınav eklenecek~~
 
 - ## main screen ##
  - tasarım seçilecek, oluşturulacak
