@@ -56,20 +56,11 @@ class _MainPageState extends State<MainPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              " Tobeto ile Geleceğini Keşfet",
-              style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 22),
-            ),
+            MainBodyTitle(context: context, title: mainTobetoNewsTitle),
             const MainTobetoList(),
-            Text(
-              " İstanbul Kodluyor Son Duyurular",
-              style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 22),
-            ),
+            MainBodyTitle(context: context, title: mainAnnouncementTitle),
             const MainAnnouncementList(),
-            Text(
-              " Biz Kimiz?",
-              style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 22),
-            ),
+            MainBodyTitle(context: context, title: mainTeamsTitle),
             const MainTeamList(),
           ],
         ),
@@ -100,6 +91,25 @@ class _MainPageState extends State<MainPage> {
           ),
         ],
       ),
+    );
+  }
+}
+
+class MainBodyTitle extends StatelessWidget {
+  const MainBodyTitle({
+    super.key,
+    required this.context,
+    required this.title,
+  });
+
+  final BuildContext context;
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      title,
+      style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 22),
     );
   }
 }

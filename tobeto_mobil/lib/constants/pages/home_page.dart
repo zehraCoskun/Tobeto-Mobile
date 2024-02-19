@@ -4,6 +4,9 @@ const ok = "Tamam";
 
 //main page
 const mainHeaderTitle = "İstanbul Kodluyor'a Hoşgeldin";
+const mainAnnouncementTitle = " İstanbul Kodluyor Son Duyurular";
+const mainTobetoNewsTitle = " Tobeto ile Geleceğini Keşfet";
+const mainTeamsTitle = " Biz Kimiz?";
 
 //education pages
 
@@ -13,7 +16,6 @@ const announcementReadMore = "Devamını Oku";
 //exam pages
 const examIsDone = "Bu sınavı zaten tamamladınız !";
 const examIsNotDone = "Sınava yalnızca tarayıcıdan girebilirsiniz !";
-
 
 //application pages
 const isApproved = "Kabul Edildi";
