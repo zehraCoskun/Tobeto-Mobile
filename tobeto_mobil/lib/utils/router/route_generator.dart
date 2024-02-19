@@ -7,7 +7,7 @@ import 'package:tobeto_mobil/pages/education_details/education_details_page.dart
 import 'package:tobeto_mobil/pages/home/home_page.dart';
 import 'package:tobeto_mobil/pages/profile/profile_page.dart';
 import 'package:tobeto_mobil/pages/profile_edit/profile_edit_page.dart';
-import 'package:tobeto_mobil/pages/review/reviews_page.dart';
+import 'package:tobeto_mobil/pages/review_view/reviews_page.dart';
 import 'package:tobeto_mobil/utils/router/route_transition.dart';
 
 class RouteGenerator {

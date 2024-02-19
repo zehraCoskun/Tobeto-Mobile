@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/review_bloc/review_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/review_bloc/review_event.dart';
 import 'package:tobeto_mobil/api/bloc/review_bloc/review_state.dart';
-import 'package:tobeto_mobil/pages/review/reviews_card_widget.dart';
+import 'package:tobeto_mobil/pages/review_view/reviews_card_widget.dart';
 
 class ReviewListWidget extends StatelessWidget {
   const ReviewListWidget({

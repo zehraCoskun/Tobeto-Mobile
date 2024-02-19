@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/core/widgets/shadows.dart';
+import 'package:tobeto_mobil/models/firebase_models/tobeto_announcement_model.dart';
 
-class MainPageContainer extends StatelessWidget {
-  const MainPageContainer({
-    super.key,
-    required this.widget,
-  });
-  final Widget widget;
+class MainTobetoCard extends StatelessWidget {
+  const MainTobetoCard({super.key, required this.tobetoNewsModel});
+  final TobetoNewsModel tobetoNewsModel;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -21,7 +19,12 @@ class MainPageContainer extends StatelessWidget {
           containerBasicShadow(),
         ],
       ),
-      child: widget,
+      child: Column(
+        children: [
+          Text(tobetoNewsModel.title),
+          Text(tobetoNewsModel.content),
+        ],
+      ),
     );
   }
 }

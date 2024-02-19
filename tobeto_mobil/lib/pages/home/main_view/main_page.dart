@@ -4,8 +4,9 @@ import 'package:tobeto_mobil/api/bloc/user_bloc/user_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/user_bloc/user_state.dart';
 import 'package:tobeto_mobil/constants/pages/home_page.dart';
 import 'package:tobeto_mobil/core/widgets/background/secondary_background.dart';
-import 'package:tobeto_mobil/pages/home/main_view/main_annoucement_list.dart';
-import 'package:tobeto_mobil/pages/home/main_view/widgets/main_header_container.dart';
+import 'package:tobeto_mobil/pages/home/main_view/announcement/main_annoucement_list.dart';
+import 'package:tobeto_mobil/pages/home/main_view/header/main_header_container.dart';
+import 'package:tobeto_mobil/pages/home/main_view/tobeto/main_tobeto_list.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({super.key});
@@ -45,7 +46,7 @@ class MainPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(child: MainAnnouncementList()),
-            SizedBox(child: MainAnnouncementList()),
+            SizedBox(child: MainTobetoList()),
             SizedBox(child: MainAnnouncementList()),
             SizedBox(child: MainAnnouncementList()),
             SizedBox(child: MainAnnouncementList()),
