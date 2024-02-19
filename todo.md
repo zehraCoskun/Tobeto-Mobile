@@ -27,7 +27,7 @@
 - ## announcement screen ##
 
 - ## application screen ##
-  - kabul edilmeyen başvuru eklenecek 
+ - ~~kabul edilmeyen başvuru eklenecek~~ 
 
 - ## education screen ##
  - kategori listesi eklenecek

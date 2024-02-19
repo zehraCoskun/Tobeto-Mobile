@@ -21,9 +21,9 @@ class ApplicationModel extends Entity {
     return ApplicationModel(
       state: map["state"] as String,
       title: map["title"] as String,
-      isPass1: map["isPass1"] as bool,
+      isPass1: map["is_Pass_1"] as bool,
       stage1: map["stage1"] as String,
-      isPass2: map["isPass2"] as bool,
+      isPass2: map["is_Pass_2"] as bool,
       stage2: map["stage2"] as String,
       
    
