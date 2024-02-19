@@ -18,6 +18,7 @@ class MainTeamList extends StatelessWidget {
           context.read<TeamBloc>().add(const TeamEventFetch());
         }
         if (state is TeamStateLoaded) {
+          state.teams.sort((a, b) => a.sortNumber.compareTo(b.sortNumber));
           return AspectRatio(
             aspectRatio: 1.5 / 1,
             child: ListView.builder(
