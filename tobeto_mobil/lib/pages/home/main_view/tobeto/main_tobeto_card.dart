@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:tobeto_mobil/core/widgets/shadows.dart';
 import 'package:tobeto_mobil/models/firebase_models/tobeto_announcement_model.dart';
 
@@ -19,10 +20,32 @@ class MainTobetoCard extends StatelessWidget {
           containerBasicShadow(),
         ],
       ),
-      child: Column(
+      child: Row(
         children: [
-          Text(tobetoNewsModel.title),
-          Text(tobetoNewsModel.content),
+          // SvgPicture.asset(
+          //   ikBg,
+          //   height: 120,
+          //   width: 120,
+          // ),
+          Image.asset(
+            tobetoNewsModel.imageUrl,
+            height: 120,
+            width: 120,
+          ),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12.0),
+              child: Text(tobetoNewsModel.content,
+                  softWrap: true,
+                  style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                    wordSpacing: 1.5,
+                    height: 1.5,
+                    shadows: [
+                      newsTitleShadow(),
+                    ],
+                  )),
+            ),
+          ),
         ],
       ),
     );

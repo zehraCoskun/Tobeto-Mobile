@@ -23,8 +23,8 @@ class TobetoNewsStateLoading extends TobetoNewsState {
 
 @immutable
 class TobetoNewsStateLoaded extends TobetoNewsState {
-  final List<TobetoNewsModel> tobetoNewws;
-  const TobetoNewsStateLoaded(this.tobetoNewws);
+  final List<TobetoNewsModel> tobetoNews;
+  const TobetoNewsStateLoaded(this.tobetoNews);
 }
 
 @immutable

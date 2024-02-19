@@ -8,9 +8,14 @@ import 'package:tobeto_mobil/pages/home/main_view/announcement/main_annoucement_
 import 'package:tobeto_mobil/pages/home/main_view/header/main_header_container.dart';
 import 'package:tobeto_mobil/pages/home/main_view/tobeto/main_tobeto_list.dart';
 
-class MainPage extends StatelessWidget {
+class MainPage extends StatefulWidget {
   const MainPage({super.key});
 
+  @override
+  State<MainPage> createState() => _MainPageState();
+}
+
+class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     final state = context.watch<UserBloc>().state as UserStateFetched;
@@ -45,11 +50,7 @@ class MainPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(child: MainAnnouncementList()),
             SizedBox(child: MainTobetoList()),
-            SizedBox(child: MainAnnouncementList()),
-            SizedBox(child: MainAnnouncementList()),
-            SizedBox(child: MainAnnouncementList()),
             SizedBox(child: MainAnnouncementList()),
             SizedBox(child: MainAnnouncementList()),
           ],

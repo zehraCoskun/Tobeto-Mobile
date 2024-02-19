@@ -8,6 +8,13 @@ BoxShadow announcementTitleShadow() {
   );
 }
 
+BoxShadow newsTitleShadow() {
+  return const BoxShadow(
+    color: Colors.white,
+    spreadRadius: 1,
+    blurRadius: 1,
+  );
+}
 
 BoxShadow containerBasicShadow() {
   return BoxShadow(

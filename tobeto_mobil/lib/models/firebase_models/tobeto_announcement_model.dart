@@ -5,6 +5,7 @@ class TobetoNewsModel extends Entity {
   //final String organisation;
   final String title;
   final String content;
+  final String imageUrl;
   //final DateTime date;
 
   TobetoNewsModel({
@@ -12,6 +13,7 @@ class TobetoNewsModel extends Entity {
     //required this.organisation,
     required this.title,
     required this.content,
+    required this.imageUrl,
     //required this.date,
   });
 
@@ -21,6 +23,7 @@ class TobetoNewsModel extends Entity {
       //organisation: map["organisation"] as String,
       title: map["title"] as String,
       content: map["content"] as String,
+      imageUrl: map["image_url"] as String,
       //date: (map["date"] as Timestamp).toDate(),
     );
   }

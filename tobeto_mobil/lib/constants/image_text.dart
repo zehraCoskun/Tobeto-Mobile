@@ -6,6 +6,18 @@ const ikLogoDark = "assets/images/ik-logo-dark.png";
 //EmptyData View
 const mainEmptyHeaderDataImage = "assets/images/ders2.png";
 
+//main page
+const a1 = "assets/images/main/a1.png";
+const a2 = "assets/images/main/a2.png";
+const a3 = "assets/images/main/a3.png";
+const a4 = "assets/images/main/a4.png";
+const a5 = "assets/images/main/a5.png";
+const banner = "assets/images/main/banner.png";
+const dotHorizontal = "assets/images/main/dot_horizontal.svg";
+const dotVertical = "assets/images/main/dot_vertical.svg";
+const ikBg = "assets/images/main/ik_bg.svg";
+
+
 // AUTH
 const loginPageHeaderImage = "https://lottie.host/a20e84e5-14bf-427b-b18a-79b409fbe1b6/C7azsyk4R7.json";
 const recoveryPageHeaderImage = "https://lottie.host/e9be6368-9465-4b43-8fc4-02314f5ec942/sZlkgQnieS.json";

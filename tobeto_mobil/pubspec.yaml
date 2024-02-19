@@ -49,6 +49,7 @@ dependencies:
   firebase_core: ^2.24.2
   firebase_storage: ^11.6.0
   uuid: ^4.3.3
+  flutter_svg:
 
 dev_dependencies:
   flutter_test:
@@ -78,7 +79,7 @@ flutter:
     - assets/images/calendar/
     - assets/images/profile/
     - assets/animations/
-    #- assets/images/tobeto-logo.png
+    - assets/images/main/
     #- assets/images/tobeto-logo-t.png
     #- assets/images/tobetoBackground.png
 
