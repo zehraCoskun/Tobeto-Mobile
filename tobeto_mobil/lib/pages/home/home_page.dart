@@ -7,7 +7,6 @@ import 'package:tobeto_mobil/api/bloc/user_bloc/user_event.dart';
 import 'package:tobeto_mobil/api/bloc/user_bloc/user_state.dart';
 import 'package:tobeto_mobil/core/screens/global_scaffold.dart';
 import 'package:tobeto_mobil/core/widgets/background/new_background.dart';
-import 'package:tobeto_mobil/core/widgets/background/secondary_background.dart';
 import 'package:tobeto_mobil/pages/home/home_body.dart';
 import 'package:tobeto_mobil/pages/home/home_header.dart';
 
@@ -31,7 +30,6 @@ class _HomePageState extends State<HomePage>
   @override
   Widget build(BuildContext context) {
     return GlobalScaffold(
-      //userModel: userModel,
       appBar: HomeHeader(
         tabController: _tabController,
       ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tobeto_mobil/constants/pages/home_page.dart';
 import 'package:tobeto_mobil/core/widgets/shadows.dart';
 import 'package:tobeto_mobil/models/firebase_models/review_model.dart';
 import 'package:tobeto_mobil/utils/theme/theme_ios.dart';
@@ -9,6 +10,34 @@ class ReviewsCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return InkWell(
+      child: builBody(context),
+      onTap: () {
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              backgroundColor: TobetoDarkColors.lacivert,
+              title: Text(
+                noReview,
+                style: Theme.of(context).textTheme.titleLarge,
+              ),
+              actions: [
+                TextButton(
+                  child: const Text(ok),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                ),
+              ],
+            );
+          },
+        );
+      },
+    );
+  }
+
+  Container builBody(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width,
       margin: const EdgeInsets.all(16),

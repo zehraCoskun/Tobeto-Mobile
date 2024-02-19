@@ -10,7 +10,6 @@ class ReviewsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GlobalScaffold(
-      //userModel: user1,
       appBar: AppBar(
         title: Image.asset(
           logo,

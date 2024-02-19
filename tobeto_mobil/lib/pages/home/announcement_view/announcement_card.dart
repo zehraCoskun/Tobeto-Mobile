@@ -97,7 +97,7 @@ class AnnouncementCard extends StatelessWidget {
             );
           },
           child: Text(
-            readMore,
+            announcementReadMore,
             style: Theme.of(context).textTheme.bodySmall,
           ),
         )

@@ -1,20 +1,27 @@
+//genel kullanımlar
+const errorMessage = "Beklenmedik bir durumla karşılaştık";
+const ok = "Tamam";
+
 //main page
 const mainHeaderTitle = "İstanbul Kodluyor'a Hoşgeldin";
 
 //education pages
 
 //announcement pages
-const readMore = "Devamını Oku";
+const announcementReadMore = "Devamını Oku";
 
 //exam pages
 const examIsDone = "Bu sınavı zaten tamamladınız !";
 const examIsNotDone = "Sınava yalnızca tarayıcıdan girebilirsiniz !";
-const ok = "Tamam";
+
 
 //application pages
 const isApproved = "Kabul Edildi";
 const isNotApproved = "Onaylanmadı";
 
+//survey pages
+const noSurveyText = "Atanmış herhangi bir anketiniz bulunmamaktadır";
+const noSurveyLink = "https://lottie.host/3b94c043-6b27-4098-9411-90ef9651273c/C6Tz8FZWci.json";
 
-//genel kullanımlar
-const errorMessage = "Beklenmedik bir durumla karşılaştık";
+//reviews pages
+const noReview = "Değerlendirme ölçütleriniz henüz aktif değil";
