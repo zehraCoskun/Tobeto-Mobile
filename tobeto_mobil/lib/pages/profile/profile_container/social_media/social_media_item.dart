@@ -86,4 +86,19 @@ enum SocialMediaItem {
         return instagramIcon;
     }
   }
+
+    String toTobetoUrl() {
+    switch (this) {
+      case SocialMediaItem.github:
+        return githubUrl;
+      case SocialMediaItem.linkedin:
+        return linkedinUrl;
+      case SocialMediaItem.facebook:
+        return  facebookUrl;
+      case SocialMediaItem.twitter:
+        return  twitterUrl;
+      case SocialMediaItem.instagram:
+        return  instagramUrl;
+    }
+  }
 }

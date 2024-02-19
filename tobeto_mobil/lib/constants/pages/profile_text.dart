@@ -15,11 +15,12 @@ const linkedinColor = Color(0xFF0077b5);
 const twitterColor = Colors.black;
 
 //profile page -social media links
-const facebookUrl = "https://www.facebook.com/";
+const facebookUrl = "https://www.facebook.com/tobetoplatform";
 const githubUrl = "https://github.com/";
-const instagramUrl = "https://www.instagram.com/";
-const linkedinUrl = "https://www.linkedin.com/";
-const twitterUrl = "https://twitter.com/";
+const instagramUrl = "https://www.instagram.com/tobeto_official/";
+const linkedinUrl = "https://www.linkedin.com/company/tobeto/";
+const twitterUrl = "https://twitter.com/tobeto_platform";
+const tobetoUrl = "https://tobeto.com";
 
 //profile page -activity map colors
 const rate0Color = Color(0xFFCACACA);
