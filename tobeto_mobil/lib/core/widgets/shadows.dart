@@ -24,3 +24,12 @@ BoxShadow containerBasicShadow() {
     offset: const Offset(2, 2),
   );
 }
+
+BoxShadow purpleShadow() {
+  return BoxShadow(
+    color: Colors.purple.withOpacity(0.5),
+    spreadRadius: 2,
+    blurRadius: 4,
+    offset: const Offset(2, 2),
+  );
+}

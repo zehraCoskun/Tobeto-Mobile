@@ -18,12 +18,14 @@ class MainHeaderContainer extends StatelessWidget {
       Row(
         children: [
           Container(
-            margin: EdgeInsets.only(left: 8),
+            margin: const EdgeInsets.only(left: 8),
             width: 80,
             height: 80,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              boxShadow: [containerBasicShadow()],
+              boxShadow: [
+                purpleShadow(),
+              ],
             ),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(40),

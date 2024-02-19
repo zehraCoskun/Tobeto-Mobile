@@ -8,6 +8,7 @@ import 'package:tobeto_mobil/constants/pages/profile_text.dart';
 import 'package:tobeto_mobil/core/widgets/background/secondary_background.dart';
 import 'package:tobeto_mobil/pages/home/main_view/announcement/main_annoucement_list.dart';
 import 'package:tobeto_mobil/pages/home/main_view/header/main_header_container.dart';
+import 'package:tobeto_mobil/pages/home/main_view/teams/main_team_list.dart';
 import 'package:tobeto_mobil/pages/home/main_view/tobeto%20news/main_tobeto_list.dart';
 import 'package:tobeto_mobil/pages/home/main_view/tobeto_social_media/tobeto_socail_media_button.dart';
 import 'package:tobeto_mobil/pages/profile/profile_container/social_media/social_media_item.dart';
@@ -49,15 +50,27 @@ class _MainPageState extends State<MainPage> {
   }
 
   Flexible buildBody() {
-    return const Flexible(
+    return Flexible(
       flex: 6,
       child: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(child: MainTobetoList()),
-            SizedBox(child: MainAnnouncementList()),
-            SizedBox(child: MainAnnouncementList()),
+            Text(
+              " Tobeto ile Geleceğini Keşfet",
+              style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 22),
+            ),
+            const MainTobetoList(),
+            Text(
+              " İstanbul Kodluyor Son Duyurular",
+              style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 22),
+            ),
+            const MainAnnouncementList(),
+            Text(
+              " Biz Kimiz?",
+              style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 22),
+            ),
+            const MainTeamList(),
           ],
         ),
       ),

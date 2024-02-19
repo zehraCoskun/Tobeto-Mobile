@@ -31,7 +31,7 @@ class _MainTobetoListState extends State<MainTobetoList> {
         });
       }
     });
-  } // sayfadan ayrılınca future.delayed fonksiyonunun durmasını nasıl sağlarım
+  }
 
   @override
   Widget build(BuildContext context) {

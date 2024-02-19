@@ -7,6 +7,7 @@ import 'package:tobeto_mobil/api/bloc/catalog_blog/catalog_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/education_bloc/education_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/exam_bloc/exam_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/review_bloc/review_bloc.dart';
+import 'package:tobeto_mobil/api/bloc/team_bloc/team_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/tobeto_news_bloc/tobeto_news_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/user_bloc/user_bloc.dart';
 import 'package:tobeto_mobil/api/business/services/announcement_service.dart';
@@ -15,6 +16,7 @@ import 'package:tobeto_mobil/api/business/services/catalog_service.dart';
 import 'package:tobeto_mobil/api/business/services/education_service.dart';
 import 'package:tobeto_mobil/api/business/services/exam_service.dart';
 import 'package:tobeto_mobil/api/business/services/review_service.dart';
+import 'package:tobeto_mobil/api/business/services/team_service.dart';
 import 'package:tobeto_mobil/api/business/services/tobeto_announcement_service.dart';
 import 'package:tobeto_mobil/api/business/services/user_service.dart';
 import 'package:tobeto_mobil/api/repository/announcement_repository.dart';
@@ -24,6 +26,7 @@ import 'package:tobeto_mobil/api/repository/catalog_repository.dart';
 import 'package:tobeto_mobil/api/repository/education_repository.dart';
 import 'package:tobeto_mobil/api/repository/exam_repository.dart';
 import 'package:tobeto_mobil/api/repository/review_repository.dart';
+import 'package:tobeto_mobil/api/repository/team_repository.dart';
 import 'package:tobeto_mobil/api/repository/tobeto_announcement_repository.dart';
 
 final authBlocProvider = BlocProvider(
@@ -91,6 +94,14 @@ final tobetoNewsBlocProvider = BlocProvider(
   create: (context) => TobetoNewsBloc(
     TobetoNewsService(
       TobetoNewsRepository.instance(),
+    ),
+  ),
+);
+
+final teamBlocProvider = BlocProvider(
+  create: (context) => TeamBloc(
+    TeamService(
+      TeamRepository.instance(),
     ),
   ),
 );
