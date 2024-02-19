@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/user_bloc/user_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/user_bloc/user_state.dart';
+import 'package:tobeto_mobil/constants/pages/home_page.dart';
 import 'package:tobeto_mobil/core/widgets/background/secondary_background.dart';
 import 'package:tobeto_mobil/pages/home/main_view/main_annoucement_list.dart';
 import 'package:tobeto_mobil/pages/home/main_view/widgets/main_header_container.dart';
@@ -31,7 +32,7 @@ class MainPage extends StatelessWidget {
     return SizedBox(
       height: 120,
       child: MainHeaderContainer(
-        title: "İstanbul Kodluyor'a Hoşgeldin $firstName !",
+        title: "$mainHeaderTitle $firstName !",
       ),
     );
   }

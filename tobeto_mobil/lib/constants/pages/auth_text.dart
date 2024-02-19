@@ -1,28 +1,28 @@
 // AUTH
 const authEmailLabel = "E-Posta";
 const authPasswordLabel = "Parola";
-const authRegisterButtonText = "Kayit Ol";
+const authRegisterButtonText = "Kayıt Ol";
 
 // AUTH/VALIDATION
-const nameEmptyFieldText = "Lütfen ad alanını boş bırakmayın";
-const surNameEmptyFieldText = "Lütfen Soyad alanını boş bırakmayın";
+const nameEmptyFieldText = "Lütfen isim alanını boş bırakmayın";
+const surNameEmptyFieldText = "Lütfen soyisim alanını boş bırakmayın";
 
-const emailEmptyFieldText = "Lütfen E-mail alanını boş bırakmayın";
-const emailWrongFormatFieldText = "Mail geçersiz; Mail, @ içermelidir";
-const emailLengthLessThanXFieldText = "Lütfen geçerli bir mail girin!";
+const emailEmptyFieldText = "Lütfen e-posta alanını boş bırakmayın";
+const emailWrongFormatFieldText = "E-posta geçersiz; @ içermelidir";
+const emailLengthLessThanXFieldText = "Lütfen geçerli bir e-posta girin!";
 
-const passwordEmptyFieldText = "Lütfen Şifre alanını boş bırakmayın";
-const passwordMismatchFieldText = "Şifreler uyuşmadı, Lütfen tekrar deneyin!";
+const passwordEmptyFieldText = "Lütfen şifre alanını boş bırakmayın";
+const passwordMismatchFieldText = "Şifreler uyuşmadı, lütfen tekrar deneyin!";
 
 // LOGIN
 const loginForgotButtonText = "Parolamı Unuttum";
 const loginButtonText = "Giriş Yap";
 
 // REGISTER
-const registerNameLabel = "Isim";
+const registerNameLabel = "İsim";
 const registerSurnameLabel = "Soyisim";
 const registerRepeatPasswordLabel = "Parola Tekrar";
 
 // RECOVERY
-const recoverySendText = "Gonder";
+const recoverySendText = "Gönder";
 

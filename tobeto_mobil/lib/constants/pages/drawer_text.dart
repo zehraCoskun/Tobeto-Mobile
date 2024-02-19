@@ -1,5 +1,5 @@
 
-const drawerHeaderNullNameText = "Kullanici Adi";
-const drawerHeaderNullEmailText = "Email";
+const drawerHeaderNullNameText = "Kullanıcı Adı";
+const drawerHeaderNullEmailText = "E-posta";
 
 const drawerCopyrightText = "© 2022 Tobeto";
