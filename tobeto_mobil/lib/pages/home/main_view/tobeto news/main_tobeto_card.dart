@@ -21,11 +21,6 @@ class MainTobetoCard extends StatelessWidget {
       ),
       child: Row(
         children: [
-          // SvgPicture.asset(
-          //   ikBg,
-          //   height: 120,
-          //   width: 120,
-          // ),
           Image.asset(
             tobetoNewsModel.imageUrl,
             height: 120,

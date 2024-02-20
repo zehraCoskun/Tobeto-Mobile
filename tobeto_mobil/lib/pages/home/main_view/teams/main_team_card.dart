@@ -16,6 +16,7 @@ class MainTeamCard extends StatelessWidget {
         border: Border.all(),
         boxShadow: [
           containerBasicShadow(),
+          purpleShadow(),
           containerBasicShadow(),
         ],
       ),
