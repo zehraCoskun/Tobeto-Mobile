@@ -56,7 +56,7 @@ class _MainPageState extends State<MainPage> {
             MainBodyTitle(context: context, title: mainAnnouncementTitle),
             const MainAnnouncementList(),
             MainBodyTitle(context: context, title: mainTeamsTitle),
-            // const MainTeamList(),
+            const MainTeamList(),
           ],
         ),
       ),

@@ -27,21 +27,20 @@ class _MainTeamListState extends State<MainTeamList> {
   }
 
   void _startAutoScroll() {
-    Future.delayed(const Duration(seconds: 1), () {
+    Future.delayed(const Duration(seconds: 8), () {
       _controller
           .animateTo(
         _controller.position.maxScrollExtent,
-        duration: const Duration(seconds: 8), // Otomatik kaydırma hızı
+        duration: const Duration(seconds: 8),
         curve: Curves.linear,
       )
           .then((_) {
-        // Animasyon tamamlandığında, listenin en sonuna ulaşıldı, tekrar en başa dönmesi gerekiyo ama dönmüyo
         _controller.animateTo(
           0,
-          duration: Duration.zero,
+          duration: const Duration(seconds: 4),
           curve: Curves.linear,
         );
-        _startAutoScroll(); // Döngüyü başlatmak için tekrar çağırmamız gerekiyo
+        _startAutoScroll();
       });
     });
   }
