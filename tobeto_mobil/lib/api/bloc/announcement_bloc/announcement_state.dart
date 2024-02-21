@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
-import 'package:tobeto_mobil/models/firebase_models/announcement_model.dart';
+import 'package:tobeto_mobil/models/announcement_model.dart';
 
 @immutable
 abstract class AnnouncementState {

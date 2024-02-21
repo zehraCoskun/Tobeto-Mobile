@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart' show immutable;
-import 'package:tobeto_mobil/models/firebase_models/user/user_model.dart';
+import 'package:tobeto_mobil/models/user/user_model.dart';
 
 @immutable
 abstract class UserState {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/core/widgets/shadows.dart';
-import 'package:tobeto_mobil/models/firebase_models/tobeto_announcement_model.dart';
+import 'package:tobeto_mobil/models/tobeto_announcement_model.dart';
 
 class MainTobetoCard extends StatelessWidget {
   const MainTobetoCard({super.key, required this.tobetoNewsModel});

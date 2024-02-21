@@ -2,7 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/education_bloc/education_event.dart';
 import 'package:tobeto_mobil/api/bloc/education_bloc/education_state.dart';
 import 'package:tobeto_mobil/api/business/services/education_service.dart';
-import 'package:tobeto_mobil/models/firebase_models/education_model.dart';
+import 'package:tobeto_mobil/models/education/education_model.dart';
 
 class EducationBloc extends Bloc<EducationEvent, EducationState> {
   final EducationService _educationService;

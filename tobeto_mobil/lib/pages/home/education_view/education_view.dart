@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_mobil/models/enums/education_category_item.dart';
+import 'package:tobeto_mobil/pages/home/education_view/education_category/education_category_item.dart';
 import 'package:tobeto_mobil/pages/home/education_view/education_category/education_category_card.dart';
 
 class EducationView extends StatelessWidget {

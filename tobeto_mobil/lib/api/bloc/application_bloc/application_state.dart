@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
-import 'package:tobeto_mobil/models/firebase_models/application_model.dart';
+import 'package:tobeto_mobil/models/application_model.dart';
 
 @immutable
 abstract class ApplicationState {

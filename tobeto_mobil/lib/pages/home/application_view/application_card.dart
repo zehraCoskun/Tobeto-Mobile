@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/constants/pages/home_page.dart';
 import 'package:tobeto_mobil/core/widgets/container_widget.dart';
-import 'package:tobeto_mobil/models/firebase_models/application_model.dart';
+import 'package:tobeto_mobil/models/application_model.dart';
 import 'package:tobeto_mobil/utils/theme/theme_ios.dart';
 
 class ApplicationCard extends StatelessWidget {

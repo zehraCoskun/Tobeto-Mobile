@@ -1,5 +1,5 @@
 import 'package:tobeto_mobil/api/repository/education_repository.dart';
-import 'package:tobeto_mobil/models/firebase_models/education_model.dart';
+import 'package:tobeto_mobil/models/education/education_model.dart';
 
 class EducationService {
   final EducationRepository _educationRepository;

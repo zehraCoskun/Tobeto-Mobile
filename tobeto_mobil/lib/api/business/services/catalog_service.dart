@@ -1,5 +1,5 @@
 import 'package:tobeto_mobil/api/repository/catalog_repository.dart';
-import 'package:tobeto_mobil/models/firebase_models/catalog_model.dart';
+import 'package:tobeto_mobil/models/catalog_model.dart';
 
 class CatalogService {
   final CatalogRepository _catalogRepository;

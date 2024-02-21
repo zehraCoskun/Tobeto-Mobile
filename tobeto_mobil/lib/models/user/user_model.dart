@@ -1,9 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:tobeto_mobil/core/models/entity.dart';
-import 'package:tobeto_mobil/models/firebase_models/enums/classroom.dart';
-import 'package:tobeto_mobil/models/firebase_models/user/badge_model.dart';
-import 'package:tobeto_mobil/models/firebase_models/user/certificate_model.dart';
-import 'package:tobeto_mobil/models/firebase_models/user/talent_model.dart';
+import 'package:tobeto_mobil/models/enums/classroom.dart';
+import 'package:tobeto_mobil/models/user/badge_model.dart';
+import 'package:tobeto_mobil/models/user/certificate_model.dart';
+import 'package:tobeto_mobil/models/user/talent_model.dart';
 
 class UserModel extends Entity {
   final String? fullName;

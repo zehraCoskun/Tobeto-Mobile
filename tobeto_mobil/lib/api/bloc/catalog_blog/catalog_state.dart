@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_mobil/models/firebase_models/catalog_model.dart';
+import 'package:tobeto_mobil/models/catalog_model.dart';
 
 
 @immutable

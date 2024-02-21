@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_mobil/models/enums/catalog_filter_item.dart';
+import 'package:tobeto_mobil/pages/catalog/catalog_filter/catalog_filter_item.dart';
 import 'package:tobeto_mobil/utils/theme/theme_ios.dart';
 
 class CatalogFilterBody extends StatefulWidget {

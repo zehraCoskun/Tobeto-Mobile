@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_mobil/models/firebase_models/user/user_model.dart';
+import 'package:tobeto_mobil/models/user/user_model.dart';
 import 'package:tobeto_mobil/core/widgets/drawer/drawer_widget.dart';
 
 //login screen disinda suan icin Scaffold yerine her sayfada kullanilacak

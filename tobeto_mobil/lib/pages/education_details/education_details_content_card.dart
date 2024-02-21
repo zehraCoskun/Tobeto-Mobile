@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_mobil/models/firebase_models/education_content_model.dart';
+import 'package:tobeto_mobil/models/education/education_content_model.dart';
 
 class EducationDetailsContentCard extends StatelessWidget {
   const EducationDetailsContentCard({

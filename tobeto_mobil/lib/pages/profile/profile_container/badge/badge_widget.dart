@@ -1,6 +1,6 @@
 //rozet image
 import 'package:flutter/material.dart';
-import 'package:tobeto_mobil/models/firebase_models/user/badge_model.dart';
+import 'package:tobeto_mobil/models/user/badge_model.dart';
 
 class BadgeWidget extends StatefulWidget {
   const BadgeWidget({

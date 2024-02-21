@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_mobil/models/firebase_models/exam_model.dart';
+import 'package:tobeto_mobil/models/exam_model.dart';
 
 @immutable
 abstract class ExamState {

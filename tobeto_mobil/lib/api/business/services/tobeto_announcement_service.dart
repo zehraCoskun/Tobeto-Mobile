@@ -1,5 +1,5 @@
 import 'package:tobeto_mobil/api/repository/tobeto_announcement_repository.dart';
-import 'package:tobeto_mobil/models/firebase_models/tobeto_announcement_model.dart';
+import 'package:tobeto_mobil/models/tobeto_announcement_model.dart';
 
 class TobetoNewsService {
   final TobetoNewsRepository _tobetoNewsRepository;

@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
-import 'package:tobeto_mobil/models/firebase_models/tobeto_announcement_model.dart';
+import 'package:tobeto_mobil/models/tobeto_announcement_model.dart';
 
 @immutable
 abstract class TobetoNewsState {

@@ -1,5 +1,5 @@
 import 'package:tobeto_mobil/api/repository/application_repository.dart';
-import 'package:tobeto_mobil/models/firebase_models/application_model.dart';
+import 'package:tobeto_mobil/models/application_model.dart';
 
 class ApplicationService {
   final ApplicationRepository _applicationRepository;

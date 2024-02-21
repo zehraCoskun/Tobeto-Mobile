@@ -1,4 +1,4 @@
-import 'package:tobeto_mobil/models/firebase_models/user/user_model.dart';
+import 'package:tobeto_mobil/models/user/user_model.dart';
 
 class UserCreateRequest {
   final String id;

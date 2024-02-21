@@ -1,5 +1,5 @@
 import 'package:tobeto_mobil/api/repository/exam_repository.dart';
-import 'package:tobeto_mobil/models/firebase_models/exam_model.dart';
+import 'package:tobeto_mobil/models/exam_model.dart';
 
 class ExamService {
   final ExamRepository _examRepository;

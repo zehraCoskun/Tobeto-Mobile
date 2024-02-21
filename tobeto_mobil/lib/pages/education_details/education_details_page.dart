@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:tobeto_mobil/core/widgets/video_player/video_player_widget.dart';
-import 'package:tobeto_mobil/models/firebase_models/education_model.dart';
+import 'package:tobeto_mobil/models/education/education_model.dart';
 import 'package:tobeto_mobil/pages/education_details/education_details_content_card.dart';
 import 'package:video_player/video_player.dart';
 

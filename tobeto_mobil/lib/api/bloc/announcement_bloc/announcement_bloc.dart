@@ -2,7 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/announcement_bloc/announcement_event.dart';
 import 'package:tobeto_mobil/api/bloc/announcement_bloc/announcement_state.dart';
 import 'package:tobeto_mobil/api/business/services/announcement_service.dart';
-import 'package:tobeto_mobil/models/firebase_models/announcement_model.dart';
+import 'package:tobeto_mobil/models/announcement_model.dart';
 
 class AnnouncementBloc extends Bloc<AnnouncementEvent, AnnouncementState> {
   final AnnouncementService _announcementService;

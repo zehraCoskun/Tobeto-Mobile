@@ -2,7 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/catalog_blog/catalog_event.dart';
 import 'package:tobeto_mobil/api/bloc/catalog_blog/catalog_state.dart';
 import 'package:tobeto_mobil/api/business/services/catalog_service.dart';
-import 'package:tobeto_mobil/models/firebase_models/catalog_model.dart';
+import 'package:tobeto_mobil/models/catalog_model.dart';
 
 class CatalogBloc extends Bloc<CatalogEvent, CatalogState> {
   final CatalogService _catalogService;

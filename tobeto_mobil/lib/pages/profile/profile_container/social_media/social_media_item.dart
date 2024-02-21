@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/constants/pages/profile_text.dart';
-import 'package:tobeto_mobil/models/firebase_models/user/user_model.dart';
+import 'package:tobeto_mobil/models/user/user_model.dart';
 
 enum SocialMediaItem {
   github,

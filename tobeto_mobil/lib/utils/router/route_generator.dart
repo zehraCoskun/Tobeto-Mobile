@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_mobil/models/firebase_models/education_model.dart';
+import 'package:tobeto_mobil/models/education/education_model.dart';
 import 'package:tobeto_mobil/pages/calendar/calendar_page.dart';
 import 'package:tobeto_mobil/pages/catalog/catalog_page.dart';
 import 'package:tobeto_mobil/pages/authentication/login/login_page.dart';

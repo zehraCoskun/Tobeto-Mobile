@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:tobeto_mobil/models/firebase_models/user/user_model.dart';
+import 'package:tobeto_mobil/models/user/user_model.dart';
 import 'package:tobeto_mobil/pages/profile/profile_container/personal_info/personal_info_row_widget.dart';
 
 class PersonalInfoColumnWidget extends StatelessWidget {

@@ -1,9 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart' show immutable;
 import 'package:tobeto_mobil/core/models/entity.dart';
-import 'package:tobeto_mobil/models/firebase_models/education_content_model.dart';
-import 'package:tobeto_mobil/models/firebase_models/enums/classroom.dart';
-import 'package:tobeto_mobil/models/firebase_models/enums/education_category.dart';
+import 'package:tobeto_mobil/models/education/education_content_model.dart';
+import 'package:tobeto_mobil/models/enums/classroom.dart';
+import 'package:tobeto_mobil/models/enums/education_category.dart';
 
 @immutable
 class EducationModel extends Entity {

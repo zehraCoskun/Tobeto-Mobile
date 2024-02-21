@@ -2,7 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/review_bloc/review_event.dart';
 import 'package:tobeto_mobil/api/bloc/review_bloc/review_state.dart';
 import 'package:tobeto_mobil/api/business/services/review_service.dart';
-import 'package:tobeto_mobil/models/firebase_models/review_model.dart';
+import 'package:tobeto_mobil/models/review_model.dart';
 
 class ReviewBloc extends Bloc<ReviewEvent, ReviewState> {
   final ReviewService _reviewService;

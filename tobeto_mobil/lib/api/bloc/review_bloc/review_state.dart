@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_mobil/models/firebase_models/review_model.dart';
+import 'package:tobeto_mobil/models/review_model.dart';
 
 @immutable
 abstract class ReviewState {

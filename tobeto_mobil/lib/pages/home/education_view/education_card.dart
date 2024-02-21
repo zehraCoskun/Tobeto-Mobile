@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:tobeto_mobil/core/widgets/shadows.dart';
-import 'package:tobeto_mobil/models/firebase_models/education_model.dart';
+import 'package:tobeto_mobil/models/education/education_model.dart';
 
 class EducationCard extends StatelessWidget {
   const EducationCard({

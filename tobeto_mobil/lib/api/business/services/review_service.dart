@@ -1,5 +1,5 @@
 import 'package:tobeto_mobil/api/repository/review_repository.dart';
-import 'package:tobeto_mobil/models/firebase_models/review_model.dart';
+import 'package:tobeto_mobil/models/review_model.dart';
 
 class ReviewService {
   final ReviewRepository _reviewRepository;

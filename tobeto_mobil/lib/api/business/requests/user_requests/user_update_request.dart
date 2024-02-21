@@ -1,10 +1,10 @@
 import 'dart:io';
 
-import 'package:tobeto_mobil/models/firebase_models/enums/classroom.dart';
-import 'package:tobeto_mobil/models/firebase_models/user/badge_model.dart';
-import 'package:tobeto_mobil/models/firebase_models/user/certificate_model.dart';
-import 'package:tobeto_mobil/models/firebase_models/user/talent_model.dart';
-import 'package:tobeto_mobil/models/firebase_models/user/user_model.dart';
+import 'package:tobeto_mobil/models/enums/classroom.dart';
+import 'package:tobeto_mobil/models/user/badge_model.dart';
+import 'package:tobeto_mobil/models/user/certificate_model.dart';
+import 'package:tobeto_mobil/models/user/talent_model.dart';
+import 'package:tobeto_mobil/models/user/user_model.dart';
 
 class UserUpdateRequest {
   String id;

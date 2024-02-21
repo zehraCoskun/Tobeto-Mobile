@@ -2,7 +2,7 @@ import 'package:tobeto_mobil/api/business/requests/user_requests/user_create_req
 import 'package:tobeto_mobil/api/business/requests/user_requests/user_update_request.dart';
 import 'package:tobeto_mobil/api/business/services/storage_service.dart';
 import 'package:tobeto_mobil/api/repository/user_repository.dart';
-import 'package:tobeto_mobil/models/firebase_models/user/user_model.dart';
+import 'package:tobeto_mobil/models/user/user_model.dart';
 
 class UserService {
   final UserRepository _userRepository;

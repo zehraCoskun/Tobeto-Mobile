@@ -2,7 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/application_bloc/application_event.dart';
 import 'package:tobeto_mobil/api/bloc/application_bloc/application_state.dart';
 import 'package:tobeto_mobil/api/business/services/application_service.dart';
-import 'package:tobeto_mobil/models/firebase_models/application_model.dart';
+import 'package:tobeto_mobil/models/application_model.dart';
 
 class ApplicationBloc extends Bloc<ApplicationEvent, ApplicationState> {
   final ApplicationService _applicationService;

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/core/widgets/shadows.dart';
-import 'package:tobeto_mobil/models/firebase_models/team_model.dart';
+import 'package:tobeto_mobil/models/team_model.dart';
 
 class MainTeamCard extends StatelessWidget {
   const MainTeamCard({super.key, required this.teamModel});
