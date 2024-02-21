@@ -12,8 +12,28 @@ class EducationDetailsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //final size = MediaQuery.of(context).size;
+    return OrientationBuilder(
+      builder: (context, orientation) {
+        final isPortrait = orientation == Orientation.portrait;
 
+        if (!isPortrait) {
+          return buildFullscreen();
+        }
+        return buildPortrait();
+      },
+    );
+  }
+
+  Widget buildFullscreen() {
+    return Scaffold(
+      body: VideoPlayerWidget(
+        content: education.content,
+        isFullscreen: true,
+      ),
+    );
+  }
+
+  Widget buildPortrait() {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -24,7 +44,7 @@ class EducationDetailsPage extends StatelessWidget {
         title: Text(education.title),
       ),
       body: VideoPlayerWidget(
-        url: education.content,
+        content: education.content,
       ),
     );
   }

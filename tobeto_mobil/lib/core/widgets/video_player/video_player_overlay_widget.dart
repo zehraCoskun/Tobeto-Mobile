@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:video_player/video_player.dart';
 
 class VideoPlayerOverlayWidget extends StatelessWidget {
@@ -34,7 +33,13 @@ class VideoPlayerOverlayWidget extends StatelessWidget {
           Positioned(
             left: 8,
             bottom: 28,
-            child: Text(getPosition()),
+            child: AnimatedOpacity(
+              opacity: controller.value.isPlaying ? 0 : 1,
+              duration: controller.value.isPlaying
+                  ? const Duration(seconds: 1)
+                  : const Duration(),
+              child: Text(getPosition()),
+            ),
           ),
           Positioned(
             bottom: 0,
@@ -95,3 +100,4 @@ class VideoPlayerOverlayWidget extends StatelessWidget {
           );
   }
 }
+

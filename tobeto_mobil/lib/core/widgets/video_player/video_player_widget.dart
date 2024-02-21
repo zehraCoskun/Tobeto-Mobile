@@ -6,10 +6,12 @@ import 'package:video_player/video_player.dart';
 class VideoPlayerWidget extends StatefulWidget {
   const VideoPlayerWidget({
     Key? key,
-    required this.url,
+    required this.content,
+    this.isFullscreen = false,
   }) : super(key: key);
 
-  final String url;
+  final String content;
+  final bool isFullscreen;
 
   @override
   State<VideoPlayerWidget> createState() => _VideoPlayerWidgetState();
@@ -17,17 +19,15 @@ class VideoPlayerWidget extends StatefulWidget {
 
 class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
   late VideoPlayerController controller;
-  double opacity = 0;
-  bool isFullscreen = false;
-  Orientation target = Orientation.portrait;
 
   @override
   void initState() {
     super.initState();
-    controller = VideoPlayerController.networkUrl(Uri.parse(widget.url))
-      ..addListener(() => setState(() {}))
-      ..setLooping(false)
-      ..initialize();
+    controller =
+        VideoPlayerController.networkUrl(Uri.parse(widget.content))
+          ..addListener(() => setState(() {}))
+          ..setLooping(false)
+          ..initialize();
   }
 
   @override
@@ -50,40 +50,21 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return OrientationBuilder(
-      builder: (context, orientation) {
-        final isPortrait = orientation == Orientation.portrait;
-
-        setOrientation(isPortrait);
-
-        return Stack(
-          fit: isPortrait ? StackFit.loose : StackFit.expand,
-          children: <Widget>[
-            buildVideoPlayer(),
-            Positioned.fill(
-              child: VideoPlayerOverlayWidget(
-                controller: controller,
-                onClickedFullScreen: () {
-                  target =
-                      isPortrait ? Orientation.landscape : Orientation.portrait;
-
-                  if (isPortrait) {
-                    SystemChrome.setPreferredOrientations([
-                      DeviceOrientation.landscapeLeft,
-                      DeviceOrientation.landscapeRight,
-                    ]);
-                  } else {
-                    SystemChrome.setPreferredOrientations([
-                      DeviceOrientation.portraitUp,
-                      DeviceOrientation.portraitDown,
-                    ]);
-                  }
-                },
-              ),
-            ),
-          ],
-        );
-      },
+    return Stack(
+      fit: widget.isFullscreen ? StackFit.expand : StackFit.loose,
+      children: <Widget>[
+        buildVideoPlayer(),
+        Positioned.fill(
+          child: VideoPlayerOverlayWidget(
+            controller: controller,
+            onClickedFullScreen: () {
+              setOrientation(
+                isFullscreen: !widget.isFullscreen,
+              );
+            },
+          ),
+        ),
+      ],
     );
   }
 
@@ -94,17 +75,25 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
     );
   }
 
-  void setOrientation(bool isPortrait) {
-    if (isPortrait) {
-      SystemChrome.setEnabledSystemUIMode(
-        SystemUiMode.manual,
-        overlays: SystemUiOverlay.values,
-      );
-    } else {
+  void setOrientation({required bool isFullscreen}) {
+    if (isFullscreen) {
       SystemChrome.setEnabledSystemUIMode(
         SystemUiMode.manual,
         overlays: [],
       );
+      SystemChrome.setPreferredOrientations([
+        DeviceOrientation.landscapeLeft,
+        DeviceOrientation.landscapeRight,
+      ]);
+    } else {
+      SystemChrome.setEnabledSystemUIMode(
+        SystemUiMode.manual,
+        overlays: SystemUiOverlay.values,
+      );
+      SystemChrome.setPreferredOrientations([
+        DeviceOrientation.portraitUp,
+        DeviceOrientation.portraitDown,
+      ]);
     }
   }
 }
