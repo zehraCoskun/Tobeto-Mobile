@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart' show immutable;
 import 'package:tobeto_mobil/core/models/entity.dart';
+import 'package:tobeto_mobil/models/firebase_models/education_content_model.dart';
 import 'package:tobeto_mobil/models/firebase_models/enums/classroom.dart';
 import 'package:tobeto_mobil/models/firebase_models/enums/education_category.dart';
 
@@ -10,7 +11,7 @@ class EducationModel extends Entity {
   final String title;
   final String thumbnail;
   final String totalDuration;
-  final String content;
+  final List<EducationContentModel> content;
   final EducationCategory category;
   final DateTime releaseDate;
   final DateTime startDate;
@@ -38,7 +39,9 @@ class EducationModel extends Entity {
       title: map["title"] as String,
       thumbnail: map["thumbnail"] as String,
       totalDuration: map["total_duration"] as String,
-      content: map["content"] as String,
+      content: (map["content"] as List<dynamic>)
+          .map((content) => EducationContentModel.fromMap(content))
+          .toList(),
       category: EducationCategory.values.firstWhere(
         (element) => element.name == (map["category"] as String),
       ),
@@ -73,7 +76,7 @@ class EducationModel extends Entity {
       "title": title,
       "thumbnail": thumbnail,
       "total_duration": totalDuration,
-      "content": content,
+      "content": content.map((e) => e.toMap()),
       "category": category.name,
       "release_date": releaseDate,
       "start_date": startDate,

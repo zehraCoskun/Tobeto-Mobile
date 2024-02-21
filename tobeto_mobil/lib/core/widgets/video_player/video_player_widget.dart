@@ -8,46 +8,18 @@ class VideoPlayerWidget extends StatefulWidget {
     Key? key,
     required this.content,
     this.isFullscreen = false,
+    required this.controller,
   }) : super(key: key);
 
   final String content;
   final bool isFullscreen;
+  final VideoPlayerController controller;
 
   @override
   State<VideoPlayerWidget> createState() => _VideoPlayerWidgetState();
 }
 
 class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
-  late VideoPlayerController controller;
-
-  @override
-  void initState() {
-    super.initState();
-    controller =
-        VideoPlayerController.networkUrl(Uri.parse(widget.content))
-          ..addListener(() => setState(() {}))
-          ..setLooping(false)
-          ..initialize();
-  }
-
-  @override
-  void dispose() {
-    controller.dispose();
-    _dispose();
-    super.dispose();
-  }
-
-  void _dispose() async {
-    await SystemChrome.setPreferredOrientations([
-      DeviceOrientation.portraitUp,
-      DeviceOrientation.portraitDown,
-    ]);
-    await SystemChrome.setEnabledSystemUIMode(
-      SystemUiMode.manual,
-      overlays: SystemUiOverlay.values,
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -56,7 +28,7 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
         buildVideoPlayer(),
         Positioned.fill(
           child: VideoPlayerOverlayWidget(
-            controller: controller,
+            controller: widget.controller,
             onClickedFullScreen: () {
               setOrientation(
                 isFullscreen: !widget.isFullscreen,
@@ -70,8 +42,8 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
 
   Widget buildVideoPlayer() {
     return AspectRatio(
-      aspectRatio: controller.value.aspectRatio,
-      child: VideoPlayer(controller),
+      aspectRatio: widget.controller.value.aspectRatio,
+      child: VideoPlayer(widget.controller),
     );
   }
 
@@ -97,3 +69,8 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
     }
   }
 }
+
+
+
+
+

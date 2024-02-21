@@ -100,4 +100,3 @@ class VideoPlayerOverlayWidget extends StatelessWidget {
           );
   }
 }
-
