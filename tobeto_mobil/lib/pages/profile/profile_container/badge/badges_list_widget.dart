@@ -5,23 +5,26 @@ import 'package:tobeto_mobil/pages/profile/profile_container/badge/badge_widget.
 
 class BadgesListWidget extends StatelessWidget {
   const BadgesListWidget({
-    super.key, this.badges,
+    super.key,
+    this.badges,
   });
   final List<BadgeModel>? badges;
 
   @override
   Widget build(BuildContext context) {
-    return AspectRatio(
-      aspectRatio: 2 / 1,
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        itemCount: badges?.length ?? 0,
-        itemBuilder: (context, index) {
-          return BadgeWidget(
-            badge: badges![index],
+    return badges == null || badges!.isEmpty
+        ? const SizedBox()
+        : AspectRatio(
+            aspectRatio: 2 / 1,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: badges?.length ?? 0,
+              itemBuilder: (context, index) {
+                return BadgeWidget(
+                  badge: badges![index],
+                );
+              },
+            ),
           );
-        },
-      ),
-    );
   }
 }
