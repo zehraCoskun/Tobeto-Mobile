@@ -19,10 +19,7 @@
 
 
   
-- # home screen #
-
--  ## home screen ##
- - baştan yapılacak  
+# home screen #
 
 - ## announcement screen ##
 
@@ -61,10 +58,10 @@
   
 - ## reviews screen ##   
  - ~~değerlendirilmeler sayfası yapılacak~~
- - sınav sayfası eklenecek mi? tarayıcıya mı yönlendirsin?
+ - ~~sınav sayfası eklenecek mi? tarayıcıya mı yönlendirsin?~~
 
 - ## calender screen ##
-  - küçültülecek
+ - küçültülecek
    
 - ## catalog screen ##
  - filtrelerin fonksiyonları eklenecek 

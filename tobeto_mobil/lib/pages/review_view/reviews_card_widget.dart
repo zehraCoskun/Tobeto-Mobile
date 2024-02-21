@@ -17,7 +17,7 @@ class ReviewsCard extends StatelessWidget {
           context: context,
           builder: (BuildContext context) {
             return AlertDialog(
-              backgroundColor: TobetoDarkColors.lacivert,
+              backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
               title: Text(
                 noReview,
                 style: Theme.of(context).textTheme.titleLarge,
@@ -42,7 +42,7 @@ class ReviewsCard extends StatelessWidget {
       width: MediaQuery.of(context).size.width,
       margin: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: TobetoDarkColors.krem,
         borderRadius: BorderRadius.circular(16),
         boxShadow: [containerBasicShadow(), containerBasicShadow(), containerBasicShadow()],
       ),

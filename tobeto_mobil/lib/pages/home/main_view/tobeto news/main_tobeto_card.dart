@@ -35,7 +35,7 @@ class MainTobetoCard extends StatelessWidget {
                     wordSpacing: 1.5,
                     height: 1.5,
                     shadows: [
-                      newsTitleShadow(),
+                      whiteTitleShadow(),
                     ],
                   )),
             ),
