@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/pages/home/education_view/education_category/education_category_body.dart';
 import 'package:tobeto_mobil/pages/home/education_view/education_category/education_category_header.dart';
 
-class EducationCategory extends StatefulWidget {
-  const EducationCategory({
+class EducationCategoryCard extends StatefulWidget {
+  const EducationCategoryCard({
     Key? key,
     required this.title,
     required this.educationCategory,
@@ -13,10 +13,10 @@ class EducationCategory extends StatefulWidget {
   final String educationCategory;
   
   @override
-  State<EducationCategory> createState() => _EducationCategoryState();
+  State<EducationCategoryCard> createState() => _EducationCategoryCardState();
 }
 
-class _EducationCategoryState extends State<EducationCategory>
+class _EducationCategoryCardState extends State<EducationCategoryCard>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   bool isVisible = true;

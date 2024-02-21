@@ -5,8 +5,8 @@ import 'package:tobeto_mobil/api/bloc/application_bloc/application_event.dart';
 import 'package:tobeto_mobil/api/bloc/application_bloc/application_state.dart';
 import 'package:tobeto_mobil/pages/home/application_view/application_card.dart';
 
-class ApplicationList extends StatelessWidget {
-  const ApplicationList({
+class ApplicationView extends StatelessWidget {
+  const ApplicationView({
     Key? key,
   }) : super(key: key);
 

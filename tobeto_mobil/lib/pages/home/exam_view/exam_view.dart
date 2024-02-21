@@ -5,8 +5,8 @@ import 'package:tobeto_mobil/api/bloc/exam_bloc/exam_event.dart';
 import 'package:tobeto_mobil/api/bloc/exam_bloc/exam_state.dart';
 import 'package:tobeto_mobil/pages/home/exam_view/exam_card.dart';
 
-class ExamList extends StatelessWidget {
-  const ExamList({
+class ExamView extends StatelessWidget {
+  const ExamView({
     Key? key,
   }) : super(key: key);
 

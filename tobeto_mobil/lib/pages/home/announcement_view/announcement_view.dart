@@ -5,8 +5,8 @@ import 'package:tobeto_mobil/api/bloc/announcement_bloc/announcement_event.dart'
 import 'package:tobeto_mobil/api/bloc/announcement_bloc/announcement_state.dart';
 import 'package:tobeto_mobil/pages/home/announcement_view/announcement_card.dart';
 
-class AnnouncementList extends StatelessWidget {
-  const AnnouncementList({
+class AnnouncementView extends StatelessWidget {
+  const AnnouncementView({
     Key? key,
   }) : super(key: key);
 

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:tobeto_mobil/constants/pages/home_page.dart';
 
-class NoSurveysCard extends StatelessWidget {
-  const NoSurveysCard({
+class NoSurveyCard extends StatelessWidget {
+  const NoSurveyCard({
     Key? key,
   }) : super(key: key);
 

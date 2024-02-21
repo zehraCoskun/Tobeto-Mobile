@@ -31,8 +31,7 @@ class EducationCard extends StatelessWidget {
               containerBasicShadow(),
             ],
           ),
-          child: ListView(
-            primary: false,
+          child: Column(
             children: <Widget>[
               buildHeader(context),
               buildBody(context),
@@ -98,6 +97,8 @@ class EducationCard extends StatelessWidget {
         children: <Widget>[
           Text(
             education.title,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
             style: Theme.of(context).textTheme.titleLarge,
           ),
           Row(

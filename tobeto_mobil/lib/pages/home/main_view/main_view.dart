@@ -14,14 +14,14 @@ import 'package:tobeto_mobil/pages/home/main_view/tobeto_social_media/tobeto_soc
 import 'package:tobeto_mobil/pages/profile/profile_container/social_media/social_media_item.dart';
 import 'package:tobeto_mobil/utils/theme/theme_ios.dart';
 
-class MainPage extends StatefulWidget {
-  const MainPage({super.key});
+class MainView extends StatefulWidget {
+  const MainView({super.key});
 
   @override
-  State<MainPage> createState() => _MainPageState();
+  State<MainView> createState() => _MainViewState();
 }
 
-class _MainPageState extends State<MainPage> {
+class _MainViewState extends State<MainView> {
   @override
   Widget build(BuildContext context) {
     final state = context.watch<UserBloc>().state as UserStateFetched;
