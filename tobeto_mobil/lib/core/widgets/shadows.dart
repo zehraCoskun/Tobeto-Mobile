@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-BoxShadow announcementTitleShadow() {
+BoxShadow blackTitleShadow() {
   return const BoxShadow(
     color: Colors.black,
     spreadRadius: 2,
@@ -8,7 +8,7 @@ BoxShadow announcementTitleShadow() {
   );
 }
 
-BoxShadow newsTitleShadow() {
+BoxShadow whiteTitleShadow() {
   return const BoxShadow(
     color: Colors.white,
     spreadRadius: 1,
@@ -31,14 +31,5 @@ BoxShadow purpleShadow() {
     spreadRadius: 2,
     blurRadius: 4,
     offset: const Offset(2, 2),
-  );
-}
-
-BoxShadow otherShadow() {
-  return BoxShadow(
-    color: Colors.purple.withOpacity(0.5),
-    spreadRadius: 2,
-    blurRadius: 5,
-    offset: const Offset(0, 5), // Gölgelendirme boyut ve konumu
   );
 }

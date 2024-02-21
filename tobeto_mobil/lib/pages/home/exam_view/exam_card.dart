@@ -19,14 +19,14 @@ class ExamCard extends StatelessWidget {
           context: context,
           builder: (BuildContext context) {
             return AlertDialog(
-              backgroundColor: TobetoDarkColors.lacivert,
+              backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
               title: Text(
                 exam.isExpire ? examIsDone : examIsNotDone,
                 style: Theme.of(context).textTheme.titleLarge,
               ),
               actions: [
                 TextButton(
-                  child: const Text(ok),
+                  child: Text(ok),
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
@@ -55,7 +55,10 @@ class ExamCard extends StatelessWidget {
 
   Widget buildHeader(BuildContext context) {
     return Expanded(
-      child: Text(exam.title, style: Theme.of(context).textTheme.titleLarge?.copyWith(fontSize: 18)),
+      child: Text(
+        exam.title,
+        style: Theme.of(context).textTheme.titleLarge?.copyWith(fontSize: 18),
+      ),
     );
   }
 

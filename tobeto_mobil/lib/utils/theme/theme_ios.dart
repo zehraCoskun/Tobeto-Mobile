@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tobeto_mobil/core/widgets/shadows.dart';
 
 class TobetoLightColors {
   static Color mor = const Color(0xFF7743DB);
@@ -46,7 +47,12 @@ final iosLightTheme = ThemeData(
     headlineMedium: TextStyle(color: TobetoLightColors.mor, fontSize: 30, fontWeight: FontWeight.w700),
     titleSmall: TextStyle(color: TobetoLightColors.lacivert), //!
     titleMedium: TextStyle(color: TobetoLightColors.lacivert), //!
-    titleLarge: TextStyle(color: TobetoLightColors.yesil),
+    titleLarge: TextStyle(
+      color: TobetoLightColors.lacivert,
+      fontWeight: FontWeight.bold,
+      height: 2,
+      shadows: [whiteTitleShadow()],
+    ),
     bodySmall: TextStyle(color: TobetoLightColors.acikSiyah, fontStyle: FontStyle.italic, fontSize: 16),
     bodyMedium: TextStyle(color: TobetoLightColors.beyaz, fontSize: 20.0), //!
     bodyLarge: TextStyle(color: TobetoLightColors.siyah, fontSize: 16.0, fontWeight: FontWeight.w400),
@@ -148,7 +154,15 @@ final iosDarkTheme = ThemeData(
     headlineMedium: TextStyle(color: TobetoDarkColors.mor, fontSize: 30),
     titleSmall: TextStyle(color: TobetoDarkColors.krem),
     titleMedium: TextStyle(color: TobetoDarkColors.beyaz),
-    titleLarge: TextStyle(color: TobetoDarkColors.yesil),
+    titleLarge: TextStyle(
+      color: TobetoDarkColors.beyaz,
+      fontWeight: FontWeight.bold,
+      height: 2,
+      shadows: [
+        blackTitleShadow(),
+        blackTitleShadow(),
+      ],
+    ),
     bodySmall: TextStyle(color: TobetoLightColors.krem, fontStyle: FontStyle.italic, fontSize: 16),
     bodyMedium: TextStyle(color: TobetoDarkColors.krem, fontSize: 20.0), //!
     bodyLarge: TextStyle(color: TobetoDarkColors.siyah, fontSize: 16.0, fontWeight: FontWeight.w400),

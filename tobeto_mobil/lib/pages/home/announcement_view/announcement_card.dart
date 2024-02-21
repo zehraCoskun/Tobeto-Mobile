@@ -34,16 +34,7 @@ class AnnouncementCard extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(announcement.type,
-            style: TextStyle(
-              color: TobetoDarkColors.beyaz,
-              fontWeight: FontWeight.bold,
-              height: 2,
-              shadows: [
-                announcementTitleShadow(),
-                announcementTitleShadow(),
-              ],
-            )),
+        Text(announcement.type, style: Theme.of(context).textTheme.titleLarge),
         Text(
           announcement.organisation,
           style: Theme.of(context).textTheme.titleSmall,
@@ -73,7 +64,7 @@ class AnnouncementCard extends StatelessWidget {
               context: context,
               builder: (BuildContext context) {
                 return AlertDialog(
-                  backgroundColor: TobetoDarkColors.lacivert,
+                  backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
                   title: Text(
                     announcement.title,
                     style: Theme.of(context).textTheme.titleLarge,
@@ -81,7 +72,7 @@ class AnnouncementCard extends StatelessWidget {
                   content: SingleChildScrollView(
                     child: Text(
                       announcement.content,
-                      style: Theme.of(context).textTheme.bodyMedium,
+                      style: Theme.of(context).textTheme.titleMedium,
                     ),
                   ),
                   actions: [
