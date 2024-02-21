@@ -20,38 +20,41 @@ class MainTeamCard extends StatelessWidget {
           containerBasicShadow(),
         ],
       ),
-      child: Column(children: [
-        Container(
-          width: 120,
-          height: 120,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            boxShadow: [containerBasicShadow(), purpleShadow()],
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Container(
+            width: 120,
+            height: 120,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              boxShadow: [containerBasicShadow(), purpleShadow()],
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(60),
+              child: Image.network(teamModel.imageUrl),
+            ),
           ),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(60),
-            child: Image.network(teamModel.imageUrl),
+          Padding(
+            padding: const EdgeInsets.only(top: 6),
+            child: Text(
+              teamModel.name,
+              softWrap: true,
+              style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                    fontSize: 15,
+                  ),
+            ),
           ),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(top: 6),
-          child: Text(
-            teamModel.name,
+          Text(
+            teamModel.title,
             softWrap: true,
             style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                  fontSize: 15,
+                  fontSize: 14,
                 ),
+            textAlign: TextAlign.center,
           ),
-        ),
-        Text(
-          teamModel.title,
-          softWrap: true,
-          style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                fontSize: 14,
-              ),
-          textAlign: TextAlign.center,
-        ),
-      ]),
+        ],
+      ),
     );
   }
 }

@@ -5,15 +5,15 @@ import 'package:tobeto_mobil/api/business/services/tobeto_announcement_service.d
 import 'package:tobeto_mobil/models/firebase_models/tobeto_announcement_model.dart';
 
 class TobetoNewsBloc extends Bloc<TobetoNewsEvent, TobetoNewsState> {
-  final TobetoNewsService _TobetoNewsService;
-  TobetoNewsBloc(this._TobetoNewsService) : super(const TobetoNewsStateInitial()) {
+  final TobetoNewsService _tobetoNewsService;
+  TobetoNewsBloc(this._tobetoNewsService) : super(const TobetoNewsStateInitial()) {
     on<TobetoNewsEventFetch>((event, emit) => _onFetchTobetoNews(event, emit));
   }
 
   Future<void> _onFetchTobetoNews(TobetoNewsEventFetch event, Emitter<TobetoNewsState> emit) async {
     emit(const TobetoNewsStateLoading(isLoading: true));
     try {
-      final List<TobetoNewsModel> tobetoNews = await _TobetoNewsService.getAllNews();
+      final List<TobetoNewsModel> tobetoNews = await _tobetoNewsService.getAllNews();
       emit(TobetoNewsStateLoaded(tobetoNews));
     } catch (e) {
       emit(TobetoNewsStateError(errorMessage: e.toString()));

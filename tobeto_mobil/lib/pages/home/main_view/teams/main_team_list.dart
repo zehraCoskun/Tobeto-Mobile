@@ -62,7 +62,7 @@ class _MainTeamListState extends State<MainTeamList> {
         if (state is TeamStateLoaded) {
           state.teams.sort((a, b) => a.sortNumber.compareTo(b.sortNumber));
           return AspectRatio(
-            aspectRatio: 1.5 / 1,
+            aspectRatio: 1.65 / 1,
             child: ListView.builder(
               controller: _controller,
               scrollDirection: Axis.horizontal,

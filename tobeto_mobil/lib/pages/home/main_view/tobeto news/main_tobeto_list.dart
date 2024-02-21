@@ -13,13 +13,19 @@ class MainTobetoList extends StatefulWidget {
   State<MainTobetoList> createState() => _MainTobetoListState();
 }
 
-class _MainTobetoListState extends State<MainTobetoList> {
+class _MainTobetoListState extends State<MainTobetoList> with TickerProviderStateMixin {
+  late AnimationController _animationController;
   late int _currentIndex;
   late int itemCount;
+
   @override
   void initState() {
     super.initState();
     _currentIndex = 0;
+    _animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 5),
+    );
   }
 
   void _startAnimation(BuildContext context, int itemCount) {
@@ -34,6 +40,12 @@ class _MainTobetoListState extends State<MainTobetoList> {
   }
 
   @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return BlocBuilder<TobetoNewsBloc, TobetoNewsState>(
       builder: (context, state) {
@@ -44,15 +56,13 @@ class _MainTobetoListState extends State<MainTobetoList> {
           itemCount = state.tobetoNews.length;
           _startAnimation(context, itemCount);
           return AspectRatio(
-            aspectRatio: 2 / 1,
-            child: AnimatedSwitcher(
-              duration: const Duration(milliseconds: 500),
-              child: MainTobetoCard(
-                key: UniqueKey(),
-                tobetoNewsModel: state.tobetoNews[_currentIndex],
-              ),
-            ),
-          );
+              aspectRatio: 2 / 1,
+              child: AnimatedBuilder(
+                animation: _animationController,
+                builder: (context, child) {
+                  return MainTobetoCard(tobetoNewsModel: state.tobetoNews[_currentIndex]);
+                },
+              ));
         }
         return const Center(
           child: CircularProgressIndicator(),

@@ -41,12 +41,7 @@ class _MainPageState extends State<MainPage> {
   }
 
   Widget buildHeader(String firstName) {
-    return SizedBox(
-      height: 120,
-      child: MainHeaderContainer(
-        title: "$mainHeaderTitle $firstName !",
-      ),
-    );
+    return MainHeaderContainer(firstName: firstName);
   }
 
   Flexible buildBody() {
@@ -61,7 +56,7 @@ class _MainPageState extends State<MainPage> {
             MainBodyTitle(context: context, title: mainAnnouncementTitle),
             const MainAnnouncementList(),
             MainBodyTitle(context: context, title: mainTeamsTitle),
-            const MainTeamList(),
+            // const MainTeamList(),
           ],
         ),
       ),
@@ -72,11 +67,12 @@ class _MainPageState extends State<MainPage> {
     return Flexible(
       flex: 1,
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           SizedBox(
             height: 60,
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 TobetoSocialMediaButton(logo: logoT, url: tobetoUrl, color: TobetoDarkColors.mor),
                 ...SocialMediaItem.values.map((item) {

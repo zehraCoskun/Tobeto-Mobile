@@ -33,3 +33,12 @@ BoxShadow purpleShadow() {
     offset: const Offset(2, 2),
   );
 }
+
+BoxShadow otherShadow() {
+  return BoxShadow(
+    color: Colors.purple.withOpacity(0.5),
+    spreadRadius: 2,
+    blurRadius: 5,
+    offset: const Offset(0, 5), // Gölgelendirme boyut ve konumu
+  );
+}
