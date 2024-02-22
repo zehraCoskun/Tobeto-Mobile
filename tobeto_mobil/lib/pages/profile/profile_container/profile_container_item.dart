@@ -5,7 +5,7 @@ import 'package:tobeto_mobil/pages/profile/profile_container/badge/badges_list_w
 import 'package:tobeto_mobil/pages/profile/profile_container/certificate/certificates_list_widget.dart';
 import 'package:tobeto_mobil/pages/profile/profile_container/personal_info/personal_info_column_widget.dart';
 import 'package:tobeto_mobil/pages/profile/profile_container/social_media/social_media_widget.dart';
-import 'package:tobeto_mobil/pages/profile/profile_container/talents/competence_list_widget.dart';
+import 'package:tobeto_mobil/pages/profile/profile_container/talents/talent_list_widget.dart';
 
 enum ProfileContainerItem {
   info,
