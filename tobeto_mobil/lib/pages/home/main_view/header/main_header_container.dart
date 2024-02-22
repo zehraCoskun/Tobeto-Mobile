@@ -14,6 +14,7 @@ class MainHeaderContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: MediaQuery.of(context).size.width - 10,
       margin: const EdgeInsets.all(8),
       decoration: BoxDecoration(
         gradient: LinearGradient(
@@ -24,7 +25,6 @@ class MainHeaderContainer extends StatelessWidget {
         borderRadius: const BorderRadius.all(Radius.circular(30.0)),
         boxShadow: [containerBasicShadow(), purpleShadow(), containerBasicShadow()],
       ),
-      padding: const EdgeInsets.symmetric(vertical: 20.0),
       child: Text(
         "$mainHeaderTitle $firstName!",
         textAlign: TextAlign.center,

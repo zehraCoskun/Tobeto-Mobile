@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/tobeto_news_bloc/tobeto_news_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/tobeto_news_bloc/tobeto_news_event.dart';
 import 'package:tobeto_mobil/api/bloc/tobeto_news_bloc/tobeto_news_state.dart';
-import 'package:tobeto_mobil/pages/home/main_view/tobeto%20news/main_tobeto_card.dart';
+import 'package:tobeto_mobil/pages/home/main_view/tobeto_news/main_tobeto_card.dart';
 
 class MainTobetoList extends StatefulWidget {
   const MainTobetoList({
@@ -14,7 +14,6 @@ class MainTobetoList extends StatefulWidget {
 }
 
 class _MainTobetoListState extends State<MainTobetoList> with TickerProviderStateMixin {
-  late AnimationController _animationController;
   late int _currentIndex;
   late int itemCount;
 
@@ -22,10 +21,6 @@ class _MainTobetoListState extends State<MainTobetoList> with TickerProviderStat
   void initState() {
     super.initState();
     _currentIndex = 0;
-    _animationController = AnimationController(
-      vsync: this,
-      duration: const Duration(seconds: 5),
-    );
   }
 
   void _startAnimation(BuildContext context, int itemCount) {
@@ -33,16 +28,9 @@ class _MainTobetoListState extends State<MainTobetoList> with TickerProviderStat
       if (context.mounted) {
         setState(() {
           _currentIndex = ((_currentIndex + 1) % itemCount);
-          _startAnimation(context, itemCount);
         });
       }
     });
-  }
-
-  @override
-  void dispose() {
-    _animationController.dispose();
-    super.dispose();
   }
 
   @override
@@ -55,14 +43,7 @@ class _MainTobetoListState extends State<MainTobetoList> with TickerProviderStat
         if (state is TobetoNewsStateLoaded) {
           itemCount = state.tobetoNews.length;
           _startAnimation(context, itemCount);
-          return AspectRatio(
-              aspectRatio: 2 / 1,
-              child: AnimatedBuilder(
-                animation: _animationController,
-                builder: (context, child) {
-                  return MainTobetoCard(tobetoNewsModel: state.tobetoNews[_currentIndex]);
-                },
-              ));
+          return AspectRatio(aspectRatio: 2 / 1, child: MainTobetoCard(tobetoNewsModel: state.tobetoNews[_currentIndex]));
         }
         return const Center(
           child: CircularProgressIndicator(),

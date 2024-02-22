@@ -20,7 +20,7 @@
 
   
 # home screen #
-
+    - text olan her yerde kontrol yapılacak
 - ## announcement screen ##
 
 - ## application screen ##
@@ -38,7 +38,8 @@
  - ~~süresi geçmemiş bir sınav eklenecek~~
 
 - ## main screen ##
- - tasarım seçilecek, oluşturulacak
+ - ~~tasarım seçilecek, oluşturulacak~~
+ - teams scroll çözülecek
 
 - ## survey screen ##
 

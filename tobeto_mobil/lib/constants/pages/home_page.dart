@@ -3,7 +3,7 @@ const errorMessage = "Beklenmedik bir durumla karşılaştık";
 const ok = "Tamam";
 
 //main page
-const mainHeaderTitle = "İstanbul Kodluyor'a Hoşgeldin";
+const mainHeaderTitle = "Hoşgeldin";
 const mainAnnouncementTitle = " İstanbul Kodluyor Son Duyurular";
 const mainTobetoNewsTitle = " Tobeto ile Geleceğini Keşfet";
 const mainTeamsTitle = " Biz Kimiz?";
