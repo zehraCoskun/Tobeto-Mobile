@@ -1,44 +1,69 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_mobil/pages/catalog/catalog_filter/catalog_filter_item.dart';
+import 'package:tobeto_mobil/constants/pages/catalog_text.dart';
+import 'package:tobeto_mobil/pages/catalog/catalog_filter/catalog_order/catalog_order_item.dart';
 import 'package:tobeto_mobil/utils/theme/theme_ios.dart';
 
-class CatalogFilterBody extends StatefulWidget {
-  const CatalogFilterBody({
-    Key? key,
-  }) : super(key: key);
+class CatalogOrderWidget extends StatefulWidget {
+  const CatalogOrderWidget({
+    super.key,
+    required this.context,
+  });
+
+  final BuildContext context;
 
   @override
-  State<CatalogFilterBody> createState() => _CatalogFilterBodyState();
+  State<CatalogOrderWidget> createState() => _CatalogOrderWidgetState();
 }
 
-class _CatalogFilterBodyState extends State<CatalogFilterBody> {
+class _CatalogOrderWidgetState extends State<CatalogOrderWidget> {
   String? selectedItem;
   @override
   Widget build(BuildContext context) {
-    return Flexible(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8.0),
-        child: SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Row(
-            children: <Widget>[
-              ...CatalogFilterItem.values.map((item) {
-                return buildFilterItem(item, context);
-              }),
-            ],
-          ),
+    return Expanded(
+      flex: 3,
+      child: InkWell(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            const Spacer(
+              flex: 3,
+            ),
+            Icon(
+              Icons.thumbs_up_down_outlined,
+              size: 20,
+              color: Theme.of(context).colorScheme.outline,
+            ),
+            const Spacer(
+              flex: 1,
+            ),
+            Text(
+              catalogHeaderOrderText,
+              style: Theme.of(context).textTheme.bodyLarge,
+            ),
+            const Spacer(
+              flex: 3,
+            ),
+          ],
         ),
+        onTap: () {
+          showModalBottomSheet<void>(
+            context: context,
+            builder: (BuildContext context) {
+              return buildOrderBottomSheet();
+            },
+          );
+        },
       ),
     );
   }
 
-  Widget buildFilterItem(CatalogFilterItem catalogFilterItem, BuildContext context) {
+  Widget buildOrderItem(CatalogOrderItem catalogOrderItem, BuildContext context) {
     return GestureDetector(
       onTap: () {
         showModalBottomSheet<void>(
           context: context,
           builder: (BuildContext context) {
-            return buildBottomSheet(catalogFilterItem);
+            return buildOrderBottomSheet();
           },
         );
       },
@@ -57,7 +82,7 @@ class _CatalogFilterBodyState extends State<CatalogFilterBody> {
             color: Colors.white,
           ),
           child: Text(
-            catalogFilterItem.toString(),
+            catalogOrderItem.toString(),
             style: Theme.of(context).textTheme.bodyLarge,
           ),
         ),
@@ -65,9 +90,8 @@ class _CatalogFilterBodyState extends State<CatalogFilterBody> {
     );
   }
 
-  Widget buildBottomSheet(CatalogFilterItem catalogFilterItem) {
-    List<String> itemList = catalogFilterItem.toList();
-
+  Widget buildOrderBottomSheet() {
+    List<String> itemList = CatalogOrderItem.getAllOrderItems();
     return Material(
       color: TobetoLightColors.krem,
       borderRadius: BorderRadius.circular(16),
@@ -85,7 +109,7 @@ class _CatalogFilterBodyState extends State<CatalogFilterBody> {
                       selectedItem = value;
                       //burada filtrelemeyi de yapması lazım
                     });
-                    Navigator.pop(context);
+                    Navigator.pop(widget.context);
                   },
                 ),
                 Expanded(
@@ -99,3 +123,9 @@ class _CatalogFilterBodyState extends State<CatalogFilterBody> {
     );
   }
 }
+/* showModalBottomSheet<void>(
+            context: context,
+            builder: (BuildContext context) {
+              return buildOrderBottomSheet();
+            },
+          );*/

@@ -7,8 +7,8 @@ import 'package:tobeto_mobil/core/screens/global_scaffold.dart';
 import 'package:tobeto_mobil/core/widgets/background/secondary_background.dart';
 import 'package:tobeto_mobil/pages/catalog/catalog_body.dart';
 import 'package:tobeto_mobil/pages/catalog/catalog_category/catalog_search_bar.dart';
-import 'package:tobeto_mobil/pages/catalog/catalog_filter/catalog_filter_body.dart';
-import 'package:tobeto_mobil/pages/catalog/catalog_filter/catalog_filter_header.dart';
+import 'package:tobeto_mobil/pages/catalog/catalog_filter/catalog_filter_option/catalog_filter_option_body.dart';
+import 'package:tobeto_mobil/pages/catalog/catalog_filter/catalog_order_filter.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 
 class CatalogPage extends StatefulWidget {
@@ -63,9 +63,9 @@ class _CatalogPageState extends State<CatalogPage> {
           return Column(
             children: <Widget>[
               const SizedBox(height: 8),
-              if (!_isKeyboardVisible) const CatalogFilterHeader(),
+              if (!_isKeyboardVisible) const CatalogOrderAndFilter(),
               const SizedBox(height: 5),
-              if (!_isKeyboardVisible) const CatalogFilterBody(),
+              if (!_isKeyboardVisible) const CatalogFilterOptionWidget(),
               CatalogBody(catalogs: filteredCatalogs),
             ],
           );
