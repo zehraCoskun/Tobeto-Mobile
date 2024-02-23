@@ -15,7 +15,7 @@ class EducationView extends StatelessWidget {
         ...EducationCategoryItem.values.map((category) {
           return EducationCategoryCard(
             title: category.toTitle(),
-            educationCategory: category.toString(),
+            educationCategory: category,
           );
         }),
       ],

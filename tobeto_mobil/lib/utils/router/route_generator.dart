@@ -3,7 +3,9 @@ import 'package:tobeto_mobil/models/education/education_model.dart';
 import 'package:tobeto_mobil/pages/calendar/calendar_page.dart';
 import 'package:tobeto_mobil/pages/catalog/catalog_page.dart';
 import 'package:tobeto_mobil/pages/authentication/login/login_page.dart';
+import 'package:tobeto_mobil/pages/education_category/category_page.dart';
 import 'package:tobeto_mobil/pages/education_details/education_details_page.dart';
+import 'package:tobeto_mobil/pages/home/education_view/education_category/education_category_item.dart';
 import 'package:tobeto_mobil/pages/home/home_page.dart';
 import 'package:tobeto_mobil/pages/profile/profile_page.dart';
 import 'package:tobeto_mobil/pages/profile_edit/profile_edit_page.dart';
@@ -32,6 +34,10 @@ class RouteGenerator {
       case "/details":
         return defaultRouteTransition(
           EducationDetailsPage(education: settings.arguments as EducationModel),
+        );
+      case "/category":
+        return defaultRouteTransition(
+          CategoryPage(category: settings.arguments as EducationCategoryItem),
         );
       default:
         return defaultRouteTransition(const HomePage());

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/pages/home/education_view/education_category/education_category_body.dart';
 import 'package:tobeto_mobil/pages/home/education_view/education_category/education_category_header.dart';
+import 'package:tobeto_mobil/pages/home/education_view/education_category/education_category_item.dart';
 
 class EducationCategoryCard extends StatefulWidget {
   const EducationCategoryCard({
@@ -10,14 +11,13 @@ class EducationCategoryCard extends StatefulWidget {
   }) : super(key: key);
 
   final String title;
-  final String educationCategory;
-  
+  final EducationCategoryItem educationCategory;
+
   @override
   State<EducationCategoryCard> createState() => _EducationCategoryCardState();
 }
 
-class _EducationCategoryCardState extends State<EducationCategoryCard>
-    with SingleTickerProviderStateMixin {
+class _EducationCategoryCardState extends State<EducationCategoryCard> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   bool isVisible = true;
 
@@ -58,6 +58,7 @@ class _EducationCategoryCardState extends State<EducationCategoryCard>
               handleVisibility();
             },
             child: EducationCategoryHeader(
+              category: widget.educationCategory,
               title: widget.title,
               isDown: !isVisible,
             ),
@@ -68,7 +69,7 @@ class _EducationCategoryCardState extends State<EducationCategoryCard>
             child: Visibility(
               visible: isVisible,
               child: EducationCategoryBody(
-                educationCategory: widget.educationCategory,
+                educationCategory: widget.educationCategory.toString(),
               ),
             ),
           ),

@@ -25,20 +25,18 @@ class EducationCategoryBody extends StatelessWidget {
         } else if (state is EducationStateLoading) {
           return const CircularProgressIndicator();
         } else if (state is EducationStateLoaded) {
-          final softEducations = state.educations
-              .where((education) => education.category.name == educationCategory)
-              .toList();
+          final educations = state.educations.where((education) => education.category.name == educationCategory).toList();
           return SizedBox(
             height: size * 0.4,
             child: ListView.builder(
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
-              itemCount: softEducations.length,
+              itemCount: educations.length,
               itemBuilder: (context, index) {
                 return Padding(
                   padding: const EdgeInsets.all(2.0),
                   child: EducationCard(
-                    education: softEducations[index],
+                    education: educations[index],
                   ),
                 );
               },
