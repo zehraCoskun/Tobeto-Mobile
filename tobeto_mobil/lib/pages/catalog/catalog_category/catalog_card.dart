@@ -15,7 +15,7 @@ class CatalogCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       child: Card(
-        color: Colors.white10, //!
+        color: Colors.white10,
         elevation: 4,
         margin: const EdgeInsets.all(8),
         shape: RoundedRectangleBorder(

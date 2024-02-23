@@ -50,6 +50,7 @@ dependencies:
   firebase_storage: ^11.6.0
   uuid: ^4.3.3
   chewie: ^1.7.5
+  speech_to_text: ^6.6.0
 
 dev_dependencies:
   flutter_test:

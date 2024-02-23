@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/constants/pages/catalog_text.dart';
 
-class CatalogHeader extends StatelessWidget {
-  const CatalogHeader({
+class CatalogSearchBar extends StatelessWidget {
+  final void Function(String) onChanged;
+
+  const CatalogSearchBar({
     Key? key,
+    required this.onChanged,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final controller = TextEditingController();
-
     return SearchBar(
       backgroundColor: const MaterialStatePropertyAll(Colors.white),
       leading: const Padding(
@@ -17,14 +18,15 @@ class CatalogHeader extends StatelessWidget {
         child: Icon(Icons.search),
       ),
       hintText: catalogSearchBarHintText,
-      controller: controller,
+      onChanged: onChanged,
       trailing: [
         IconButton(
           onPressed: () {},
-          icon: const Icon(
+          icon: Icon(
             Icons.keyboard_voice_outlined,
+            color: Theme.of(context).appBarTheme.backgroundColor,
           ),
-        )
+        ),
       ],
     );
   }

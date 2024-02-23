@@ -1,4 +1,0 @@
-enum CatalogCategory {
-  paid,
-  free
-}
