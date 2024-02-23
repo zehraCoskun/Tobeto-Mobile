@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
-import 'package:tobeto_mobil/models/calendar/enums/calendar_drawer_filter_item.dart';
-import 'package:tobeto_mobil/models/calendar/enums/calendar_drawer_view_item.dart';
 import 'package:tobeto_mobil/pages/calendar/calendar_drawer/calendar_drawer_tile.dart';
+import 'package:tobeto_mobil/pages/calendar/calendar_drawer/calendar_drawer_view_item.dart';
 
 class CalendarDrawer extends StatelessWidget {
   const CalendarDrawer({
@@ -15,34 +14,16 @@ class CalendarDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      child: ListView(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
+          const SizedBox(height: 50),
           const Text(
             "Tobeto Calendar",
             textAlign: TextAlign.center,
           ),
-
           ...buildDrawerViewTiles(context),
-          buildDivider(),
-
-          //bu listtile icon yerine kisinin icon boyutundaki profil fotografi olucak ve email adresi olucak
-          // const ListTile(
-          //   leading: Icon(
-          //     Icons.person,
-          //     color: Colors.white,
-          //   ),
-          //   title: Text(
-          //     "cemguven4108@gmail.com",
-          //     style: TextStyle(
-          //       color: Colors.white,
-          //       fontSize: 15,
-          //     ),
-          //   ),
-          // ),
-
-          ...buildDrawerFilterTiles(),
-          buildDivider(),
-
+          const Spacer(),
           ...buildDrawerFooter(context),
         ],
       ),
@@ -66,23 +47,14 @@ class CalendarDrawer extends StatelessWidget {
     });
   }
 
-  Iterable<Widget> buildDrawerFilterTiles() {
-    return CalendarDrawerFilterItem.values.map(
-      (item) {
-        return CalendarDrawerTile(
-          iconData: Icons.check_box,
-          color: item.toColor(),
-          title: item.toString(),
-        );
-      },
-    );
-  }
-
   Iterable<Widget> buildDrawerFooter(BuildContext context) {
     return [
-      const CalendarDrawerTile(
-        iconData: Icons.settings_outlined,
-        title: "Settings",
+      InkWell(
+        onTap: () {},
+        child: const CalendarDrawerTile(
+          iconData: Icons.settings_outlined,
+          title: "Settings",
+        ),
       ),
       InkWell(
         onTap: () {
@@ -98,29 +70,5 @@ class CalendarDrawer extends StatelessWidget {
         ),
       ),
     ];
-  }
-
-  Widget buildRefresh() {
-    return const ListTile(
-      leading: Icon(
-        Icons.refresh_outlined,
-        color: Colors.white,
-      ),
-      title: Text(
-        "Refresh",
-        style: TextStyle(
-          color: Colors.white,
-        ),
-      ),
-      style: ListTileStyle.drawer,
-    );
-  }
-
-  Widget buildDivider({double? indent}) {
-    return Divider(
-      color: Colors.white30,
-      indent: indent,
-      thickness: 0.3,
-    );
   }
 }

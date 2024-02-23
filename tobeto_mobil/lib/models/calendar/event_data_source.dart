@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
-import 'package:tobeto_mobil/models/calendar/meeting_model.dart';
+import 'package:tobeto_mobil/models/calendar/event_model.dart';
 
-class MeetingDataSource extends CalendarDataSource {
-  MeetingDataSource(List<MeetingModel> source) {
-    appointments = source;
+class EventDataSource extends CalendarDataSource {
+  EventDataSource(List<EventModel> appointments) {
+    this.appointments = appointments;
   }
 
   @override
@@ -19,12 +19,12 @@ class MeetingDataSource extends CalendarDataSource {
 
   @override
   String getSubject(int index) {
-    return appointments![index].eventName as String;
+    return appointments![index].title as String;
   }
 
   @override
   Color getColor(int index) {
-    return appointments![index].background as Color;
+    return appointments![index].backgroundColor as Color;
   }
 
   @override

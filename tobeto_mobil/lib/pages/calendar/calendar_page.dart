@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
+import 'package:tobeto_mobil/api/bloc/calendar_bloc/calendar_bloc.dart';
+import 'package:tobeto_mobil/api/bloc/calendar_bloc/calendar_event.dart';
+import 'package:tobeto_mobil/api/bloc/calendar_bloc/calendar_state.dart';
+import 'package:tobeto_mobil/api/bloc/user_bloc/user_bloc.dart';
+import 'package:tobeto_mobil/api/bloc/user_bloc/user_state.dart';
 import 'package:tobeto_mobil/constants/image_text.dart';
 import 'package:tobeto_mobil/pages/calendar/calendar_drawer/calendar_drawer.dart';
-import 'package:tobeto_mobil/models/calendar/meeting_data_source.dart';
-import 'package:tobeto_mobil/models/calendar/meeting_model.dart';
+import 'package:tobeto_mobil/models/calendar/event_data_source.dart';
+import 'package:tobeto_mobil/pages/calendar/calendar_event/calendar_event_page.dart';
 
 class CalendarPage extends StatelessWidget {
   const CalendarPage({
@@ -12,27 +18,54 @@ class CalendarPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final userState = context.watch<UserBloc>().state;
     final calendarController = CalendarController();
 
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        actions: buildAppBarActions(userState),
+      ),
       drawer: CalendarDrawer(calendarController: calendarController),
-      body: SfCalendar(
-        controller: calendarController,
-        firstDayOfWeek: 1,
-        showWeekNumber: true,
-        showNavigationArrow: true,
-        showDatePickerButton: true,
-        initialSelectedDate: DateTime.now(),
-        view: CalendarView.schedule,
-        dataSource: MeetingDataSource(getDataSource()),
-        weekNumberStyle: WeekNumberStyle(
-          backgroundColor: Colors.grey.shade600,
-        ),
-        monthViewSettings: buildMonthViewSettings(),
-        scheduleViewSettings: buildScheduleViewSettings(),
-        scheduleViewMonthHeaderBuilder: (context, details) =>
-            buildMonthViewHeader(details),
+      body: BlocBuilder<CalendarBloc, CalendarState>(
+        builder: (context, state) {
+          if (state is CalendarStateInitialize) {
+            context.read<CalendarBloc>().add(
+                  const CalendarEventFetch(userId: ""),
+                );
+          }
+          if (state is CalendarStateFetched) {
+            return SfCalendar(
+              controller: calendarController,
+              firstDayOfWeek: 1,
+              showWeekNumber: true,
+              showNavigationArrow: true,
+              showDatePickerButton: true,
+              initialSelectedDate: DateTime.now(),
+              view: CalendarView.schedule,
+              dataSource: EventDataSource(state.events),
+              weekNumberStyle: WeekNumberStyle(
+                backgroundColor: Colors.grey.shade600,
+              ),
+              monthViewSettings: buildMonthViewSettings(),
+              scheduleViewSettings: buildScheduleViewSettings(),
+              scheduleViewMonthHeaderBuilder: (context, details) {
+                return buildMonthViewHeader(details);
+              },
+            );
+          }
+
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        },
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => const CalendarEventPage(),
+          ));
+        },
+        child: const Icon(Icons.add),
       ),
     );
   }
@@ -60,34 +93,30 @@ class CalendarPage extends StatelessWidget {
     );
   }
 
-  List<MeetingModel> getDataSource() {
-    final List<MeetingModel> meetings = <MeetingModel>[];
-    final DateTime today = DateTime.now();
+  List<Widget> buildAppBarActions(UserState state) {
+    return [
+      IconButton(
+        onPressed: () {},
+        icon: const Icon(Icons.search),
+      ),
+      if (state is UserStateFetched)
+        buildUserAvatar(state.userModel.imageUrl)
+      else
+        buildUserAvatar(null)
+    ];
+  }
 
-    meetings.addAll([
-      MeetingModel(
-        eventName: "Freelance Work",
-        from: DateTime.now(),
-        to: DateTime(today.year, today.month, today.day + 2),
-        background: const Color.fromARGB(255, 207, 27, 27),
-        isAllDay: true,
+  Widget buildUserAvatar(String? imageUrl) {
+    return Padding(
+      padding: const EdgeInsets.only(right: 8),
+      child: GestureDetector(
+        child: imageUrl != null
+            ? CircleAvatar(
+                radius: 18,
+                backgroundImage: NetworkImage(imageUrl),
+              )
+            : const Icon(Icons.person, size: 36),
       ),
-      MeetingModel(
-        eventName: "Conference",
-        from: DateTime(today.year, today.month, today.day, 9, 0, 0),
-        to: DateTime(today.year, today.month, today.day, 11, 0, 0),
-        background: const Color(0xFF0F8644),
-        isAllDay: false,
-      ),
-      MeetingModel(
-        eventName: "Meeting",
-        from: DateTime(today.year, today.month, today.day, 13, 0, 0),
-        to: DateTime(today.year, today.month, today.day, 14, 0, 0),
-        background: const Color(0xFF0F8644),
-        isAllDay: false,
-      ),
-    ]);
-
-    return meetings;
+    );
   }
 }

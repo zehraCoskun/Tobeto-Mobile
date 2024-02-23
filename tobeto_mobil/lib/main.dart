@@ -23,6 +23,7 @@ void main() async {
       providers: [
         authBlocProvider,
         userBlocProvider,
+        calendarBlocProvider,
         announcementBlocProvider,
         applicationBlocProvider,
         examBlocProvider,
