@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tobeto_mobil/constants/pages/catalog_text.dart';
 
 class CatalogHeader extends StatelessWidget {
   const CatalogHeader({
@@ -15,7 +16,7 @@ class CatalogHeader extends StatelessWidget {
         padding: EdgeInsets.all(8.0),
         child: Icon(Icons.search),
       ),
-      hintText: "Search",
+      hintText: catalogSearchBarHintText,
       controller: controller,
       trailing: [
         IconButton(

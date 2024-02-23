@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tobeto_mobil/constants/pages/catalog_text.dart';
 
 class CatalogFilterHeader extends StatelessWidget {
   const CatalogFilterHeader({
@@ -15,13 +16,11 @@ class CatalogFilterHeader extends StatelessWidget {
           color: Colors.white,
           borderRadius: BorderRadius.circular(5),
           border: Border.all(
-            color: Theme.of(context).colorScheme.outline, //Colors.black26,
+            color: Theme.of(context).colorScheme.outline,
           ),
         ),
         child: Row(
           children: <Widget>[
-            buildShareSection(context),
-            buildDivider(context),
             buildOrderBySection(context),
             buildDivider(context),
             buildFilterSection(context),
@@ -33,23 +32,8 @@ class CatalogFilterHeader extends StatelessWidget {
 
   Widget buildDivider(BuildContext context) {
     return VerticalDivider(
-      color: Theme.of(context).colorScheme.outline, //Colors.black54,
+      color: Theme.of(context).colorScheme.outline,
       thickness: 0.8,
-    );
-  }
-
-  Widget buildShareSection(BuildContext context) {
-    return Expanded(
-      child: InkWell(
-        child: Container(
-          alignment: Alignment.center,
-          child: Icon(
-            Icons.favorite_border_outlined,
-            size: 20,
-            color: Theme.of(context).colorScheme.outline,
-          ),
-        ),
-      ),
     );
   }
 
@@ -72,7 +56,7 @@ class CatalogFilterHeader extends StatelessWidget {
               flex: 1,
             ),
             Text(
-              "Sirala",
+              catalogHeaderOrderText,
               style: Theme.of(context).textTheme.bodyLarge,
             ),
             const Spacer(
@@ -103,7 +87,7 @@ class CatalogFilterHeader extends StatelessWidget {
               flex: 1,
             ),
             Text(
-              "Filtrele",
+              catalogHeaderFilterText,
               style: Theme.of(context).textTheme.bodyLarge,
             ),
             const Spacer(

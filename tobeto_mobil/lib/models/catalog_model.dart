@@ -5,23 +5,26 @@ class CatalogModel {
   final String thumbnail; // listedeki kapak resmi
   final String totalDuration; //eğitimin süresi
   final DateTime releaseDate; //yayınlanma tarihi
-  final String category; //
-  final String? mainHeadline; //bir dersin içindeki diğer eğitimleri bir arada toplayan başlık
-  final String content; //buraya video linki gelecek sanırım
+  final String url; //video linki
   final DateTime startDate; //derslerin kullanılabileceği başlangıç tarihi
   final DateTime endDate;
-  final String trainer; //eğitmen(burada birden fazla da olabiliyor sitesinde ama bence gerek yok)
+
+  final String category; // free - paid
+  final String education; // software- softskill
+  final String level; // beginner - intermediate - advanced
+  final String trainer; //eğitmen isimleri
 
   CatalogModel({
     required this.title,
     required this.thumbnail,
     required this.totalDuration,
     required this.releaseDate,
-    required this.category,
-    this.mainHeadline,
-    required this.content,
+    required this.url,
     required this.startDate,
     required this.endDate,
+    required this.category,
+    required this.education,
+    required this.level,
     required this.trainer,
   });
 
@@ -29,13 +32,14 @@ class CatalogModel {
     return CatalogModel(
       title: map["title"] as String,
       thumbnail: map["thumbnail"] as String,
-      totalDuration: map["totalDuration"] as String,
-      releaseDate: (map["releaseDate"] as Timestamp).toDate(),
-      mainHeadline: map["mainHeadline"] as String?,
+      totalDuration: map["total_duration"] as String,
+      releaseDate: (map["release_date"] as Timestamp).toDate(),
+      url: map["url"] as String,
+      startDate: (map["start_date"] as Timestamp).toDate(),
+      endDate: (map["end_date"] as Timestamp).toDate(),
       category: map["category"] as String,
-      content: map["content"] as String,
-      startDate: (map["startDate"] as Timestamp).toDate(),
-      endDate: (map["endDate"] as Timestamp).toDate(),
+      education: map["education"] as String,
+      level: map["level"] as String,
       trainer: map["trainer"] as String,
     );
   }
