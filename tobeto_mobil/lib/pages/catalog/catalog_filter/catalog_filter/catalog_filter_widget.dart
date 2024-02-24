@@ -20,15 +20,10 @@ class CatalogFilterWidget extends StatelessWidget {
             const Spacer(
               flex: 3,
             ),
-            IconButton(
-              icon: Icon(
-                Icons.filter_alt_outlined,
-                size: 20,
-                color: Theme.of(context).colorScheme.outline,
-              ),
-              onPressed: () {
-                //burada filtrelemeye ne ekleyeceğiz?
-              },
+            Icon(
+              Icons.filter_alt_outlined,
+              size: 20,
+              color: Theme.of(context).colorScheme.outline,
             ),
             const Spacer(
               flex: 1,
@@ -42,8 +37,8 @@ class CatalogFilterWidget extends StatelessWidget {
             ),
           ],
         ),
+        onTap: () {},
       ),
     );
   }
 }
-

@@ -22,7 +22,11 @@ class CatalogBody extends StatelessWidget {
         itemBuilder: (context, index) {
           return InkWell(
             child: CatalogCard(catalog: catalogs[index]),
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).pushNamed(
+                "/catalogDetail",
+              );
+            },
           );
         },
       ),
