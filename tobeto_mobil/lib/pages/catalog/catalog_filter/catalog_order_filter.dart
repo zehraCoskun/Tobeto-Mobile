@@ -6,7 +6,6 @@ class CatalogOrderAndFilter extends StatefulWidget {
   const CatalogOrderAndFilter({
     Key? key,
   }) : super(key: key);
-
   @override
   State<CatalogOrderAndFilter> createState() => _CatalogOrderAndFilterState();
 }

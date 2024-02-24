@@ -8,7 +8,6 @@ class CatalogOrderWidget extends StatefulWidget {
     super.key,
     required this.context,
   });
-
   final BuildContext context;
 
   @override
@@ -107,7 +106,6 @@ class _CatalogOrderWidgetState extends State<CatalogOrderWidget> {
                   onChanged: (value) {
                     setState(() {
                       selectedItem = value;
-                      //burada filtrelemeyi de yapması lazım
                     });
                     Navigator.pop(widget.context);
                   },
@@ -123,9 +121,3 @@ class _CatalogOrderWidgetState extends State<CatalogOrderWidget> {
     );
   }
 }
-/* showModalBottomSheet<void>(
-            context: context,
-            builder: (BuildContext context) {
-              return buildOrderBottomSheet();
-            },
-          );*/

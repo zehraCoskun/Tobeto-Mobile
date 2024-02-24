@@ -25,6 +25,7 @@ class CatalogBody extends StatelessWidget {
             onTap: () {
               Navigator.of(context).pushNamed(
                 "/catalogDetail",
+                arguments: catalogs[index]
               );
             },
           );

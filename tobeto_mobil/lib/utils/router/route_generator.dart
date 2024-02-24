@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:tobeto_mobil/models/catalog_model.dart';
 import 'package:tobeto_mobil/models/education/education_model.dart';
 import 'package:tobeto_mobil/pages/calendar/calendar_page.dart';
-import 'package:tobeto_mobil/pages/catalog/catalog_detail/catalog_detail_view.dart';
+import 'package:tobeto_mobil/pages/catalog/catalog_detail/catalog_details_view.dart';
 import 'package:tobeto_mobil/pages/catalog/catalog_page.dart';
 import 'package:tobeto_mobil/pages/authentication/login/login_page.dart';
 import 'package:tobeto_mobil/pages/education_category/category_page.dart';
@@ -41,7 +42,9 @@ class RouteGenerator {
           CategoryPage(category: settings.arguments as EducationCategoryItem),
         );
       case "/catalogDetail":
-        return defaultRouteTransition(CatalogDetailView());
+        return defaultRouteTransition(CatalogDetailsPage(
+          catalog: settings.arguments as CatalogModel,
+        ));
       default:
         return defaultRouteTransition(const HomePage());
     }
