@@ -69,6 +69,7 @@ class _CalendarEventPageState extends State<CalendarEventPage> {
 
   Future saveForm() async {
     final isValid = _formKey.currentState!.validate();
+    _formKey.currentState!.save();
 
     final authState = context.read<AuthBloc>().state as AuthStateLoggedIn;
 
@@ -84,6 +85,7 @@ class _CalendarEventPageState extends State<CalendarEventPage> {
       );
 
       context.read<CalendarBloc>().add(CalendarEventUpdate(request: event));
+      Navigator.of(context).pop();
     }
   }
 
@@ -104,6 +106,7 @@ class _CalendarEventPageState extends State<CalendarEventPage> {
 
   Widget buildTitle() {
     return TextFormField(
+      controller: titleController,
       style: const TextStyle(fontSize: 24),
       decoration: const InputDecoration(
         border: UnderlineInputBorder(),
