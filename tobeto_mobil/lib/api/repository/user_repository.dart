@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:tobeto_mobil/constants/collection_names.dart';
 
 class UserRepository {
   final CollectionReference<Map<String, dynamic>> _collection;
@@ -6,7 +7,7 @@ class UserRepository {
   const UserRepository._private(this._collection);
 
   static final _instance = UserRepository._private(
-    FirebaseFirestore.instance.collection("users"),
+    FirebaseFirestore.instance.collection(Collections.USERS),
   );
 
   factory UserRepository.instance() {

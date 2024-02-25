@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:tobeto_mobil/constants/collection_names.dart';
 
 class CalendarRepository {
   final CollectionReference<Map<String, dynamic>> _collection;
@@ -6,18 +7,22 @@ class CalendarRepository {
   const CalendarRepository._private(this._collection);
 
   static final _instance = CalendarRepository._private(
-    FirebaseFirestore.instance.collection("calendars"),
+    FirebaseFirestore.instance.collection(Collections.EVENTS),
   );
 
   factory CalendarRepository.instance() {
     return _instance;
   }
 
-  Future<void> update(String docId, Map<String, dynamic> data) async {
-    await _collection.doc(docId).update(data);
-  }
+  // void _create(Map<String, dynamic> map) async {
+  //   await _collection.add(map);
+  // }
 
-  Future<DocumentSnapshot<Map<String, dynamic>>> findOne(String docId) async {
-    return await _collection.doc(docId).get();
+  // void _update(String docId, Map<String, dynamic> map) async {
+  //   await _collection.doc(docId).update(map);
+  // }
+
+  Stream<QuerySnapshot<Map<String, dynamic>>> stream() {
+    return _collection.snapshots();
   }
 }

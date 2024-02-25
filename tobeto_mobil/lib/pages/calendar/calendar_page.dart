@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
-import 'package:tobeto_mobil/api/bloc/auth_bloc/auth_bloc.dart';
-import 'package:tobeto_mobil/api/bloc/auth_bloc/auth_state.dart';
 import 'package:tobeto_mobil/api/bloc/calendar_bloc/calendar_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/calendar_bloc/calendar_event.dart';
 import 'package:tobeto_mobil/api/bloc/calendar_bloc/calendar_state.dart';
 import 'package:tobeto_mobil/api/bloc/user_bloc/user_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/user_bloc/user_state.dart';
+import 'package:tobeto_mobil/api/business/services/calendar_service.dart';
 import 'package:tobeto_mobil/constants/image_text.dart';
 import 'package:tobeto_mobil/pages/calendar/calendar_drawer/calendar_drawer.dart';
 import 'package:tobeto_mobil/models/calendar/event_data_source.dart';
-import 'package:tobeto_mobil/pages/calendar/calendar_event/calendar_event_page.dart';
 
 class CalendarPage extends StatelessWidget {
   const CalendarPage({
@@ -23,52 +21,44 @@ class CalendarPage extends StatelessWidget {
     final userState = context.watch<UserBloc>().state;
     final calendarController = CalendarController();
 
-    return Scaffold(
-      appBar: AppBar(
-        actions: buildAppBarActions(userState),
-      ),
-      drawer: CalendarDrawer(calendarController: calendarController),
-      body: BlocBuilder<CalendarBloc, CalendarState>(
-        builder: (context, state) {
-          if (state is CalendarStateInitialize || state is CalendarStateUpdated) {
-            final auth = context.read<AuthBloc>().state as AuthStateLoggedIn;
-            context.read<CalendarBloc>().add(
-                  CalendarEventFetch(userId: auth.user.uid),
-                );
-          }
-          if (state is CalendarStateFetched) {
-            return SfCalendar(
-              controller: calendarController,
-              firstDayOfWeek: 1,
-              showWeekNumber: true,
-              showNavigationArrow: true,
-              showDatePickerButton: true,
-              initialSelectedDate: DateTime.now(),
-              view: CalendarView.schedule,
-              dataSource: EventDataSource(state.calendar.events!),
-              weekNumberStyle: WeekNumberStyle(
-                backgroundColor: Colors.grey.shade600,
-              ),
-              monthViewSettings: buildMonthViewSettings(),
-              scheduleViewSettings: buildScheduleViewSettings(),
-              scheduleViewMonthHeaderBuilder: (context, details) {
-                return buildMonthViewHeader(details);
-              },
-            );
-          }
+    return BlocProvider<CalendarBloc>(
+      create: (context) => CalendarBloc(CalendarService.instance()),
+      child: Scaffold(
+        appBar: AppBar(
+          actions: buildAppBarActions(userState),
+        ),
+        drawer: CalendarDrawer(calendarController: calendarController),
+        body: BlocBuilder<CalendarBloc, CalendarState>(
+          builder: (context, state) {
+            if (state is CalendarStateInitialize) {
+              context.read<CalendarBloc>().add(const CalendarEventFetch());
+            }
+            if (state is CalendarStateFetched) {
+              return SfCalendar(
+                controller: calendarController,
+                firstDayOfWeek: 1,
+                showWeekNumber: true,
+                showNavigationArrow: true,
+                showDatePickerButton: true,
+                initialSelectedDate: DateTime.now(),
+                view: CalendarView.schedule,
+                dataSource: EventDataSource(state.events),
+                weekNumberStyle: WeekNumberStyle(
+                  backgroundColor: Colors.grey.shade600,
+                ),
+                monthViewSettings: buildMonthViewSettings(),
+                scheduleViewSettings: buildScheduleViewSettings(),
+                scheduleViewMonthHeaderBuilder: (context, details) {
+                  return buildMonthViewHeader(details);
+                },
+              );
+            }
 
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
-        },
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => const CalendarEventPage(),
-          ));
-        },
-        child: const Icon(Icons.add),
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          },
+        ),
       ),
     );
   }
