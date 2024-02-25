@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
+import 'package:tobeto_mobil/api/bloc/auth_bloc/auth_bloc.dart';
+import 'package:tobeto_mobil/api/bloc/auth_bloc/auth_state.dart';
 import 'package:tobeto_mobil/api/bloc/calendar_bloc/calendar_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/calendar_bloc/calendar_event.dart';
+import 'package:tobeto_mobil/api/business/requests/calendar_requests/calendar_update_request.dart';
 import 'package:tobeto_mobil/models/calendar/event_model.dart';
 
 class CalendarEventPage extends StatefulWidget {
@@ -67,16 +70,20 @@ class _CalendarEventPageState extends State<CalendarEventPage> {
   Future saveForm() async {
     final isValid = _formKey.currentState!.validate();
 
+    final authState = context.read<AuthBloc>().state as AuthStateLoggedIn;
+
     if (isValid) {
-      final event = EventModel(
-        title: titleController.text,
-        description: "Description",
-        from: fromDate,
-        to: toDate,
-        isAllDay: false,
+      final event = CalendarUpdateRequest(
+        userId: authState.user.uid,
+        event: EventModel(
+          title: titleController.text,
+          description: "Description",
+          from: fromDate,
+          to: toDate,
+        ),
       );
 
-      context.read<CalendarBloc>().add(CalendarEventCreate(event: event));
+      context.read<CalendarBloc>().add(CalendarEventUpdate(request: event));
     }
   }
 

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
+import 'package:tobeto_mobil/api/bloc/auth_bloc/auth_bloc.dart';
+import 'package:tobeto_mobil/api/bloc/auth_bloc/auth_state.dart';
 import 'package:tobeto_mobil/api/bloc/calendar_bloc/calendar_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/calendar_bloc/calendar_event.dart';
 import 'package:tobeto_mobil/api/bloc/calendar_bloc/calendar_state.dart';
@@ -28,9 +30,10 @@ class CalendarPage extends StatelessWidget {
       drawer: CalendarDrawer(calendarController: calendarController),
       body: BlocBuilder<CalendarBloc, CalendarState>(
         builder: (context, state) {
-          if (state is CalendarStateInitialize) {
+          if (state is CalendarStateInitialize || state is CalendarStateUpdated) {
+            final auth = context.read<AuthBloc>().state as AuthStateLoggedIn;
             context.read<CalendarBloc>().add(
-                  const CalendarEventFetch(userId: ""),
+                  CalendarEventFetch(userId: auth.user.uid),
                 );
           }
           if (state is CalendarStateFetched) {
@@ -42,7 +45,7 @@ class CalendarPage extends StatelessWidget {
               showDatePickerButton: true,
               initialSelectedDate: DateTime.now(),
               view: CalendarView.schedule,
-              dataSource: EventDataSource(state.events),
+              dataSource: EventDataSource(state.calendar.events!),
               weekNumberStyle: WeekNumberStyle(
                 backgroundColor: Colors.grey.shade600,
               ),

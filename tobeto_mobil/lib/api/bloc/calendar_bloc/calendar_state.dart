@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart' show immutable;
-import 'package:tobeto_mobil/models/calendar/event_model.dart';
+import 'package:tobeto_mobil/models/calendar/calendar_model.dart';
 
 @immutable
 abstract class CalendarState {
@@ -15,13 +15,13 @@ class CalendarStateLoading extends CalendarState {
 }
 
 class CalendarStateFetched extends CalendarState {
-  final List<EventModel> events;
+  final CalendarModel calendar;
 
   const CalendarStateFetched({
-    required this.events,
+    required this.calendar,
   });
 }
 
-class CalendarStateUpdate extends CalendarState {
-  const CalendarStateUpdate();
+class CalendarStateUpdated extends CalendarState {
+  const CalendarStateUpdated();
 }

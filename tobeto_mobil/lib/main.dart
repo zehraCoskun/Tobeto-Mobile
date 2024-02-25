@@ -56,7 +56,6 @@ void main() async {
             } else if (state is AuthStateLoggedOut || state is AuthStateRegistered) {
               return const LoginPage();
             }
-
             return Container();
           },
         ),

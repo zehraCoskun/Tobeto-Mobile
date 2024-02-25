@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart' show immutable;
-import 'package:tobeto_mobil/models/calendar/event_model.dart';
+import 'package:tobeto_mobil/api/business/requests/calendar_requests/calendar_update_request.dart';
 
 @immutable
 abstract class CalendarEvent {
@@ -14,10 +14,10 @@ class CalendarEventFetch implements CalendarEvent {
   });
 }
 
-class CalendarEventCreate implements CalendarEvent {
-  final EventModel event;
+class CalendarEventUpdate implements CalendarEvent {
+  final CalendarUpdateRequest request;
 
-  const CalendarEventCreate({
-    required this.event,
+  const CalendarEventUpdate({
+    required this.request,
   });
 }

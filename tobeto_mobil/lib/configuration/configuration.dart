@@ -13,6 +13,7 @@ import 'package:tobeto_mobil/api/bloc/tobeto_news_bloc/tobeto_news_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/user_bloc/user_bloc.dart';
 import 'package:tobeto_mobil/api/business/services/announcement_service.dart';
 import 'package:tobeto_mobil/api/business/services/application_service.dart';
+import 'package:tobeto_mobil/api/business/services/calendar_service.dart';
 import 'package:tobeto_mobil/api/business/services/catalog_service.dart';
 import 'package:tobeto_mobil/api/business/services/education_service.dart';
 import 'package:tobeto_mobil/api/business/services/exam_service.dart';
@@ -44,7 +45,9 @@ final userBlocProvider = BlocProvider(
 );
 
 final calendarBlocProvider = BlocProvider(
-  create: (context) => CalendarBloc(),
+  create: (context) => CalendarBloc(
+    CalendarService.instance(),
+  ),
 );
 
 final announcementBlocProvider = BlocProvider(
