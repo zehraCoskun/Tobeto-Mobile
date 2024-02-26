@@ -29,7 +29,6 @@ void main() async {
         reviewBlocProvider,
         educationBlocProvider,
         catalogBlocProvider,
-        tobetoNewsBlocProvider,
         teamBlocProvider,
       ],
       child: MaterialApp(
