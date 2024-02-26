@@ -1,7 +1,7 @@
 # TODO : # 
 - ## genel ##
  - font bulunacak ve eklenecek, 3 boyutta ayrı fontlar
- - textlerin tamamı constlara atılacak
+ - ~~textlerin tamamı constlara atılacak~~
 
  - ## read.me ##
  - ~~taslak oluşturulacak~~
@@ -20,18 +20,18 @@
 
   
 # home screen #
-    - text olan her yerde kontrol yapılacak
+    - ~~text olan her yerde kontrol yapılacak~~
 - ## announcement screen ##
 
 - ## application screen ##
  - ~~kabul edilmeyen başvuru eklenecek~~ 
 
 - ## education screen ##
- - kategori listesi eklenecek
+ - ~~kategori listesi eklenecek~~
     
 - ## education detail screen ## 
- - video oynatıcı eklenecek, kalp icon button olacak
- - kategorinin tamamının açılacağı sayfa eklenecek
+ - ~~video oynatıcı eklenecek~~
+ - ~~kategorinin tamamının açılacağı sayfa eklenecek~~
  - progress bar eklenebilir(opsiyonel)
 
 - ## exam screen ##
@@ -40,6 +40,7 @@
 - ## main screen ##
  - ~~tasarım seçilecek, oluşturulacak~~
  - teams scroll çözülecek
+ - ~~teams bloc silinecek~~
 
 - ## survey screen ##
 

@@ -69,20 +69,8 @@ class _CatalogPageState extends State<CatalogPage> {
               CatalogBody(catalogs: filteredCatalogs),
             ],
           );
-        } else if (state is CatalogStateError) {
-          return Center(
-            child: Text(
-              state.errorMessage,
-              style: const TextStyle(color: Colors.red),
-            ),
-          );
         } else {
-          return Center(
-            child: Text(
-              state.toString(),
-              style: const TextStyle(color: Colors.red),
-            ),
-          );
+          return const Center(child: CircularProgressIndicator());
         }
       })),
     );

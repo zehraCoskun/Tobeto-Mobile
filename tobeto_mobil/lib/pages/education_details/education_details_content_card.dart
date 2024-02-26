@@ -16,12 +16,13 @@ class EducationDetailsContentCard extends StatelessWidget {
     return GestureDetector(
       onTap: () => onTap(content.url),
       child: Card(
+        color: Theme.of(context).appBarTheme.backgroundColor,
         child: ListTile(
           title: Text(
             content.title,
-          ),
-          titleTextStyle: const TextStyle(
-            color: Colors.white,
+            style: Theme.of(context).textTheme.titleLarge,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
           ),
         ),
       ),

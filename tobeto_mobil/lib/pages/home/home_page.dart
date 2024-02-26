@@ -6,7 +6,7 @@ import 'package:tobeto_mobil/api/bloc/user_bloc/user_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/user_bloc/user_event.dart';
 import 'package:tobeto_mobil/api/bloc/user_bloc/user_state.dart';
 import 'package:tobeto_mobil/core/screens/global_scaffold.dart';
-import 'package:tobeto_mobil/core/widgets/background/new_background.dart';
+import 'package:tobeto_mobil/core/widgets/background/animated_secondary_background.dart';
 import 'package:tobeto_mobil/pages/home/home_body.dart';
 import 'package:tobeto_mobil/pages/home/home_header.dart';
 
@@ -17,8 +17,7 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage>
-    with SingleTickerProviderStateMixin {
+class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin {
   late TabController _tabController;
 
   @override
@@ -33,16 +32,13 @@ class _HomePageState extends State<HomePage>
       appBar: HomeHeader(
         tabController: _tabController,
       ),
-      body: NewBackground(
+      body: AnimatedSecondaryBackground(
         children: [
           BlocBuilder<UserBloc, UserState>(
             builder: (context, state) {
               if (state is UserStateInitial || state is UserStateUpdated) {
-                final state =
-                    context.read<AuthBloc>().state as AuthStateLoggedIn;
-                context
-                    .read<UserBloc>()
-                    .add(UserEventFetch(id: state.user.uid));
+                final state = context.read<AuthBloc>().state as AuthStateLoggedIn;
+                context.read<UserBloc>().add(UserEventFetch(id: state.user.uid));
               }
               if (state is UserStateFetched) {
                 return HomeBody(

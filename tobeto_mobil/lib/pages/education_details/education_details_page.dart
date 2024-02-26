@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:tobeto_mobil/core/widgets/background/secondary_background.dart';
 import 'package:tobeto_mobil/core/widgets/video_player/video_player_widget.dart';
 import 'package:tobeto_mobil/models/education/education_model.dart';
 import 'package:tobeto_mobil/pages/education_details/education_details_content_card.dart';
@@ -23,8 +24,7 @@ class _EducationDetailsPageState extends State<EducationDetailsPage> {
   @override
   void initState() {
     super.initState();
-    controller = VideoPlayerController.networkUrl(
-        Uri.parse(widget.education.content.first.url))
+    controller = VideoPlayerController.networkUrl(Uri.parse(widget.education.content.first.url))
       ..addListener(() => setState(() {}))
       ..setLooping(false)
       ..initialize();
@@ -90,25 +90,27 @@ class _EducationDetailsPageState extends State<EducationDetailsPage> {
         ),
         title: Text(widget.education.title),
       ),
-      body: Column(
-        children: <Widget>[
-          VideoPlayerWidget(
-            content: widget.education.content.first.url,
-            controller: controller,
-          ),
-          const Divider(),
-          Expanded(
-            child: ListView.builder(
-              itemCount: widget.education.content.length,
-              itemBuilder: (context, index) {
-                return EducationDetailsContentCard(
-                  content: widget.education.content[index],
-                  onTap: setSource,
-                );
-              },
+      body: SecondaryBackgroundWidget(
+        child: Column(
+          children: <Widget>[
+            VideoPlayerWidget(
+              content: widget.education.content.first.url,
+              controller: controller,
             ),
-          ),
-        ],
+            const Divider(),
+            Expanded(
+              child: ListView.builder(
+                itemCount: widget.education.content.length,
+                itemBuilder: (context, index) {
+                  return EducationDetailsContentCard(
+                    content: widget.education.content[index],
+                    onTap: setSource,
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

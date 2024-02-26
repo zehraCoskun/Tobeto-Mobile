@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 // Animasyonlu ArkaPlan
 
-class NewBackground extends StatefulWidget {
-  const NewBackground({super.key, required this.children});
+class AnimatedSecondaryBackground extends StatefulWidget {
+  const AnimatedSecondaryBackground({super.key, required this.children});
   final List<Widget> children;
   @override
-  State<NewBackground> createState() => _NewBackgroundState();
+  State<AnimatedSecondaryBackground> createState() => _AnimatedSecondaryBackgroundState();
 }
 
-class _NewBackgroundState extends State<NewBackground> with SingleTickerProviderStateMixin {
+class _AnimatedSecondaryBackgroundState extends State<AnimatedSecondaryBackground> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<Alignment> _topAligmentAnimation;
   late Animation<Alignment> _bottomAligmentAnimation;
@@ -60,7 +60,7 @@ class _NewBackgroundState extends State<NewBackground> with SingleTickerProvider
 
   @override
   void dispose() {
-    _controller.dispose(); 
+    _controller.dispose();
     super.dispose();
   }
 
