@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 import 'package:tobeto_mobil/core/widgets/video_player/video_player_widget.dart';
-import 'package:tobeto_mobil/models/catalog_model.dart';
+import 'package:tobeto_mobil/models/catalog/catalog_model.dart';
 import 'package:video_player/video_player.dart';
 
 class CatalogDetailsPage extends StatefulWidget {

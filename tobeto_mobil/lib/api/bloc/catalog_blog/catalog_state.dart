@@ -1,31 +1,28 @@
+
 import 'package:flutter/material.dart';
-import 'package:tobeto_mobil/models/catalog_model.dart';
+import 'package:tobeto_mobil/models/catalog/catalog_model.dart';
 
 
 @immutable
 abstract class CatalogState {
-  final bool isLoading;
-  const CatalogState({this.isLoading = false});
+  const CatalogState();
 }
 
 @immutable
 class CatalogStateInitial extends CatalogState {
-  const CatalogStateInitial({
-    bool isLoading = false,
-  }) : super(isLoading: isLoading);
+  const CatalogStateInitial();
 }
 
 @immutable
 class CatalogStateLoading extends CatalogState {
-  const CatalogStateLoading({
-    bool isLoading = false,
-  }) : super(isLoading: isLoading);
+  const CatalogStateLoading();
 }
 
 
 @immutable
 class CatalogStateLoaded extends CatalogState {
   final List<CatalogModel> catalogs;
+  
   const CatalogStateLoaded(this.catalogs);
 }
 
@@ -35,7 +32,7 @@ class CatalogStateError extends CatalogState {
 
   const CatalogStateError({
     required this.errorMessage,
-  }) : super(isLoading: false);
+  });
 
   @override
   bool operator ==(Object other) {
@@ -46,3 +43,5 @@ class CatalogStateError extends CatalogState {
   @override
   int get hashCode => errorMessage.hashCode;
 }
+
+

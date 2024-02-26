@@ -27,24 +27,27 @@ class _MainTeamListState extends State<MainTeamList> {
   }
 
   void _startAutoScroll() {
-    Future.delayed(const Duration(seconds: 8), () {
-      if (context.mounted) {
-        _controller
-            .animateTo(
-          _controller.position.maxScrollExtent,
-          duration: const Duration(seconds: 8),
-          curve: Curves.linear,
-        )
-            .then((_) {
-          _controller.animateTo(
-            0,
-            duration: const Duration(seconds: 4),
+    if (context.mounted) {
+      Future.delayed(const Duration(seconds: 8), () {
+        if (_controller.hasClients) {
+          _controller
+              .animateTo(
+            _controller.position.maxScrollExtent,
+            duration: const Duration(seconds: 8),
             curve: Curves.linear,
-          );
-          _startAutoScroll();
-        });
-      }
-    });
+          )
+              .then((_) {
+            _controller.animateTo(
+              0,
+              duration: const Duration(seconds: 4),
+              curve: Curves.linear,
+            );
+            _startAutoScroll();
+          });
+        }
+      });
+    }
+    ;
   }
 
   @override
@@ -69,7 +72,9 @@ class _MainTeamListState extends State<MainTeamList> {
               scrollDirection: Axis.horizontal,
               itemCount: state.teams.length,
               itemBuilder: (context, index) {
-                return SizedBox(width: 180, child: MainTeamCard(teamModel: state.teams[index]));
+                return SizedBox(
+                    width: 180,
+                    child: MainTeamCard(teamModel: state.teams[index]));
               },
             ),
           );

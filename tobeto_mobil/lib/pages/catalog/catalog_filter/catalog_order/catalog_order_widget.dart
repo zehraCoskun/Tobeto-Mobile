@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tobeto_mobil/api/bloc/catalog_blog/catalog_bloc.dart';
+import 'package:tobeto_mobil/api/bloc/catalog_blog/catalog_state.dart';
 import 'package:tobeto_mobil/constants/pages/catalog_text.dart';
 import 'package:tobeto_mobil/pages/catalog/catalog_filter/catalog_order/catalog_order_item.dart';
 import 'package:tobeto_mobil/utils/theme/theme_ios.dart';
@@ -21,6 +24,14 @@ class _CatalogOrderWidgetState extends State<CatalogOrderWidget> {
     return Expanded(
       flex: 3,
       child: InkWell(
+        onTap: () {
+          showModalBottomSheet<void>(
+            context: context,
+            builder: (BuildContext context) {
+              return buildOrderBottomSheet();
+            },
+          );
+        },
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
@@ -44,19 +55,14 @@ class _CatalogOrderWidgetState extends State<CatalogOrderWidget> {
             ),
           ],
         ),
-        onTap: () {
-          showModalBottomSheet<void>(
-            context: context,
-            builder: (BuildContext context) {
-              return buildOrderBottomSheet();
-            },
-          );
-        },
       ),
     );
   }
 
-  Widget buildOrderItem(CatalogOrderItem catalogOrderItem, BuildContext context) {
+  Widget buildOrderItem(
+    CatalogOrderItem catalogOrderItem,
+    BuildContext context,
+  ) {
     return GestureDetector(
       onTap: () {
         showModalBottomSheet<void>(
@@ -90,7 +96,8 @@ class _CatalogOrderWidgetState extends State<CatalogOrderWidget> {
   }
 
   Widget buildOrderBottomSheet() {
-    List<String> itemList = CatalogOrderItem.getAllOrderItems();
+    const itemList = CatalogOrderItem.values;
+
     return Material(
       color: TobetoLightColors.krem,
       borderRadius: BorderRadius.circular(16),
@@ -98,24 +105,9 @@ class _CatalogOrderWidgetState extends State<CatalogOrderWidget> {
         mainAxisSize: MainAxisSize.min,
         children: itemList.map((item) {
           return ListTile(
-            title: Row(
-              children: [
-                Radio<String>(
-                  value: item,
-                  groupValue: selectedItem,
-                  onChanged: (value) {
-                    setState(() {
-                      selectedItem = value;
-                    });
-                    Navigator.pop(widget.context);
-                  },
-                ),
-                Expanded(
-                  child: Text(item),
-                ),
-              ],
-            ),
-          );
+              onTap: () {},
+              leading: const Icon(Icons.radio_button_off_outlined),
+              title: Text(item.toString()));
         }).toList(),
       ),
     );

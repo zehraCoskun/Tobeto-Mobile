@@ -13,4 +13,8 @@ class CatalogRepository {
   Future<QuerySnapshot<Map<String, dynamic>>> getAllCatalog() async {
     return await _collection.get();
   }
+
+  Future<QuerySnapshot<Map<String, dynamic>>> getFilteredCatalog(Filter filter) async {
+    return await _collection.where(filter).get();
+  }
 }

@@ -2,15 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/pages/catalog/catalog_filter/catalog_filter/catalog_filter_widget.dart';
 import 'package:tobeto_mobil/pages/catalog/catalog_filter/catalog_order/catalog_order_widget.dart';
 
-class CatalogOrderAndFilter extends StatefulWidget {
+class CatalogOrderAndFilter extends StatelessWidget {
   const CatalogOrderAndFilter({
     Key? key,
   }) : super(key: key);
-  @override
-  State<CatalogOrderAndFilter> createState() => _CatalogOrderAndFilterState();
-}
-
-class _CatalogOrderAndFilterState extends State<CatalogOrderAndFilter> {
   @override
   Widget build(BuildContext context) {
     return Flexible(

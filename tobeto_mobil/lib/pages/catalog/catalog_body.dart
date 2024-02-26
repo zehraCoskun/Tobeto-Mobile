@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_mobil/models/catalog_model.dart';
+import 'package:tobeto_mobil/models/catalog/catalog_model.dart';
 import 'package:tobeto_mobil/pages/catalog/catalog_category/catalog_card.dart';
 
 class CatalogBody extends StatelessWidget {

@@ -12,6 +12,15 @@ enum CatalogOrderItem {
     }
   }
 
+  String get field {
+    switch (this) {
+      case CatalogOrderItem.title:
+        return "title";
+      case CatalogOrderItem.totalDuration:
+        return "total_duration";
+    }
+  }
+
   static List<String> getAllOrderItems() {
     return CatalogOrderItem.values.map((item) => item.toString()).toList();
   }

@@ -20,7 +20,6 @@ import 'package:tobeto_mobil/api/business/services/user_service.dart';
 import 'package:tobeto_mobil/api/repository/announcement_repository.dart';
 import 'package:tobeto_mobil/api/repository/application_repository.dart';
 import 'package:tobeto_mobil/api/repository/auth_repository.dart';
-import 'package:tobeto_mobil/api/repository/catalog_repository.dart';
 import 'package:tobeto_mobil/api/repository/education_repository.dart';
 import 'package:tobeto_mobil/api/repository/exam_repository.dart';
 import 'package:tobeto_mobil/api/repository/review_repository.dart';
@@ -81,9 +80,7 @@ final educationBlocProvider = BlocProvider(
 
 final catalogBlocProvider = BlocProvider(
   create: (context) => CatalogBloc(
-    CatalogService(
-      CatalogRepository.instance(),
-    ),
+    CatalogService.instance(),
   ),
 );
 
