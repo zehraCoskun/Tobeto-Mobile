@@ -26,7 +26,7 @@ class ExamCard extends StatelessWidget {
               ),
               actions: [
                 TextButton(
-                  child: Text(ok),
+                  child: const Text(ok),
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
@@ -56,6 +56,8 @@ class ExamCard extends StatelessWidget {
   Widget buildHeader(BuildContext context) {
     return Expanded(
       child: Text(
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
         exam.title,
         style: Theme.of(context).textTheme.titleLarge?.copyWith(fontSize: 18),
       ),
@@ -63,7 +65,12 @@ class ExamCard extends StatelessWidget {
   }
 
   Widget buildBody(BuildContext context) {
-    return Text(exam.detail, style: Theme.of(context).textTheme.titleMedium);
+    return Text(
+      maxLines: 2,
+      overflow: TextOverflow.ellipsis,
+      exam.detail,
+      style: Theme.of(context).textTheme.titleMedium,
+    );
   }
 
   Widget buildFooter(BuildContext context) {

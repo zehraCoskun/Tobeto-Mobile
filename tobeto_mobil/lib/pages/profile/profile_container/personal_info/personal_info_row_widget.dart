@@ -50,6 +50,8 @@ class PersonalInfoRowWidget extends StatelessWidget {
                     ),
               ),
               Text(
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
                 content,
                 style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                       fontWeight: FontWeight.bold,

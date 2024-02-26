@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/constants/pages/catalog_text.dart';
+import 'package:tobeto_mobil/utils/theme/theme_ios.dart';
 
 class CatalogSearchBar extends StatelessWidget {
   final void Function(String) onChanged;
@@ -24,7 +25,7 @@ class CatalogSearchBar extends StatelessWidget {
           onPressed: () {},
           icon: Icon(
             Icons.keyboard_voice_outlined,
-            color: Theme.of(context).appBarTheme.backgroundColor,
+            color: TobetoDarkColors.lacivert,
           ),
         ),
       ],

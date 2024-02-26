@@ -32,11 +32,24 @@ class AnnouncementCard extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(announcement.type, style: Theme.of(context).textTheme.titleLarge),
-        Text(
-          announcement.organisation,
-          style: Theme.of(context).textTheme.titleSmall,
-        )
+        Flexible(
+          flex: 1,
+          child: Text(
+            announcement.type,
+            style: Theme.of(context).textTheme.titleLarge,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+          ),
+        ),
+        Flexible(
+          flex: 1,
+          child: Text(
+            announcement.organisation,
+            style: Theme.of(context).textTheme.titleSmall,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+          ),
+        ),
       ],
     );
   }
@@ -45,6 +58,8 @@ class AnnouncementCard extends StatelessWidget {
     return Text(
       announcement.title,
       style: Theme.of(context).textTheme.titleMedium,
+      maxLines: 1,
+      overflow: TextOverflow.ellipsis,
     );
   }
 

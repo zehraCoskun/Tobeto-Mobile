@@ -30,6 +30,8 @@ class MainTobetoCard extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 12.0),
               child: Text(tobetoNewsModel.content,
+                  maxLines: 7,
+                  overflow: TextOverflow.ellipsis,
                   softWrap: true,
                   style: Theme.of(context).textTheme.titleMedium!.copyWith(
                     wordSpacing: 1.5,

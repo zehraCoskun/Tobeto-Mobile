@@ -53,7 +53,7 @@ class _CatalogPageState extends State<CatalogPage> {
           context.read<CatalogBloc>().add(const CatalogEventFetch());
           return const CircularProgressIndicator();
         } else if (state is CatalogStateLoading) {
-          return const CircularProgressIndicator();
+          return const Center(child: CircularProgressIndicator());
         } else if (state is CatalogStateLoaded) {
           final filteredCatalogs = state.catalogs
               .where(

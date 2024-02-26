@@ -59,6 +59,8 @@ class CardContent extends StatelessWidget {
           color: Theme.of(context).colorScheme.outline.withOpacity(0.4),
         ),
         Text(
+          maxLines: 5,
+          overflow: TextOverflow.ellipsis,
           catalog.title,
           style: Theme.of(context).textTheme.titleSmall?.copyWith(
             color: TobetoLightColors.beyaz,

@@ -46,6 +46,8 @@ class MainAnnouncementCard extends StatelessWidget {
                 announcement!.title,
                 softWrap: true,
                 style: Theme.of(context).textTheme.titleMedium,
+                maxLines: 5,
+                overflow: TextOverflow.ellipsis,
               ),
             ),
           )

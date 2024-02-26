@@ -36,6 +36,8 @@ class ApplicationCard extends StatelessWidget {
         Text(
           application.title,
           style: Theme.of(context).textTheme.titleLarge,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
         ),
       ],
     );
@@ -96,6 +98,8 @@ class InfoLine extends StatelessWidget {
         isPass ? const CheckIcon() : const CancelIcon(),
         Expanded(
           child: Text(
+            maxLines: 3,
+            overflow: TextOverflow.ellipsis,
             infoText,
             style: Theme.of(context).textTheme.titleMedium,
           ),
