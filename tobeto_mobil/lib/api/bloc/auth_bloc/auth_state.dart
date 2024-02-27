@@ -7,6 +7,15 @@ abstract class AuthState {
 }
 
 @immutable
+class AuthStateInitial extends AuthState {
+  final User? user;
+  
+  const AuthStateInitial({
+    this.user,
+  });
+}
+
+@immutable
 class AuthStateLoading extends AuthState {
   const AuthStateLoading();
 }
@@ -41,4 +50,9 @@ class AuthStateRecovered extends AuthState {
 @immutable
 class AuthStateLoggedOut extends AuthState {
   const AuthStateLoggedOut();
+}
+
+@immutable
+class AuthStateNoConnection extends AuthState {
+  const AuthStateNoConnection();
 }

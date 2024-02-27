@@ -2,7 +2,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/announcement_bloc/announcement_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/application_bloc/application_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/auth_bloc/auth_bloc.dart';
-import 'package:tobeto_mobil/api/bloc/auth_bloc/auth_event.dart';
 import 'package:tobeto_mobil/api/bloc/catalog_blog/catalog_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/education_bloc/education_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/exam_bloc/exam_bloc.dart';
@@ -29,7 +28,7 @@ final authBlocProvider = BlocProvider(
   create: (context) => AuthBloc(
     AuthRepository.instance(),
     UserService.instance(),
-  )..add(const AuthEventInitialize()),
+  ),
 );
 
 final userBlocProvider = BlocProvider(

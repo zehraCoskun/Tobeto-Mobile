@@ -45,7 +45,10 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
                   controller: _tabController,
                 );
               }
-              return Container();
+
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
             },
           ),
         ],

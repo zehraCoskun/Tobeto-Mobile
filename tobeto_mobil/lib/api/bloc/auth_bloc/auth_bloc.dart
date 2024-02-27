@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/auth_bloc/auth_event.dart';
@@ -11,7 +13,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final UserService _userService;
 
   AuthBloc(this._authRepository, this._userService)
-      : super(const AuthStateLoggedOut()) {
+      : super(const AuthStateInitial()) {
     on<AuthEventInitialize>((event, emit) => _onInitialize(event, emit));
     on<AuthEventLogIn>((event, emit) => _onLogin(event, emit));
     on<AuthEventRegister>((event, emit) => _onRegister(event, emit));
@@ -22,10 +24,13 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     AuthEventInitialize event,
     Emitter<AuthState> emit,
   ) async {
-    final user = _authRepository.currentUser();
+    if (!await _hasNetwork()) {
+      emit(const AuthStateNoConnection());
+      return;
+    }
 
-    if (user != null) {
-      emit(AuthStateLoggedIn(user: user));
+    if (event.user != null) {
+      emit(AuthStateLoggedIn(user: event.user!));
     } else {
       emit(const AuthStateLoggedOut());
     }
@@ -42,7 +47,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         event.email,
         event.password,
       );
-      emit(AuthStateLoggedIn(user: credential.user!));
+      emit(AuthStateInitial(user: credential.user!));
     } on FirebaseAuthException catch (_) {
       emit(const AuthStateLoggedOut());
     }
@@ -65,7 +70,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           fullName: event.fullName,
           email: event.email,
         ));
-        emit(AuthStateRegistered(user: credential.user!));
+        emit(AuthStateInitial(user: credential.user!));
       }
     } on FirebaseAuthException catch (_) {
       await _authRepository.login(
@@ -73,7 +78,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         event.password,
       );
       await _authRepository.delete();
-      emit(const AuthStateLoggedOut());
+      emit(const AuthStateInitial());
     }
   }
 
@@ -85,6 +90,15 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
     await _authRepository.logout();
 
-    emit(const AuthStateLoggedOut());
+    emit(const AuthStateInitial());
+  }
+}
+
+Future<bool> _hasNetwork() async {
+  try {
+    final result = await InternetAddress.lookup("google.com");
+    return result.isNotEmpty && result[0].rawAddress.isNotEmpty;
+  } on SocketException catch (_) {
+    return false;
   }
 }

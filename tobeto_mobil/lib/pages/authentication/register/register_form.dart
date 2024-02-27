@@ -159,6 +159,7 @@ class _RegisterFormState extends State<RegisterForm> {
                   password: passwordController.text,
                 ),
               );
+          Navigator.of(context).pop();
         }
       },
       child: const Text(authRegisterButtonText),
