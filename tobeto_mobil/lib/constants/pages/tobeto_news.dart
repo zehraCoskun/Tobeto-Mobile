@@ -1,4 +1,4 @@
-import 'package:tobeto_mobil/models/tobeto_announcement_model.dart';
+import 'package:tobeto_mobil/models/tobeto_news_model.dart';
 
 final List<TobetoNewsModel> tobetoNews = [
   TobetoNewsModel(

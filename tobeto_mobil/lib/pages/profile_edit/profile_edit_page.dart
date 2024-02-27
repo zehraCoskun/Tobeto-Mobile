@@ -7,6 +7,7 @@ import 'package:tobeto_mobil/api/bloc/user_bloc/user_event.dart';
 import 'package:tobeto_mobil/api/bloc/user_bloc/user_state.dart';
 import 'package:tobeto_mobil/api/business/requests/user_requests/user_update_request.dart';
 import 'package:tobeto_mobil/constants/image_text.dart';
+import 'package:tobeto_mobil/constants/pages/profile_text.dart';
 import 'package:tobeto_mobil/core/widgets/background/secondary_background.dart';
 import 'package:tobeto_mobil/models/user/talent_model.dart';
 import 'package:tobeto_mobil/models/user/user_model.dart';
@@ -62,7 +63,7 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
         actions: [
           TextButton(
             onPressed: () => save(),
-            child: const Text("Save"),
+            child: const Text("Kaydet"),
           ),
         ],
       ),
@@ -80,7 +81,7 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
                   ),
                   ProfileEditFormField(
                     initialValue: user?.fullName,
-                    label: const Text("Full Name"),
+                    label: const Text(profileFullName),
                     onSaved: (value) => request.fullName = value,
                   ),
                   ProfileEditFormDateField(
@@ -90,12 +91,12 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
                   ),
                   ProfileEditFormField(
                     initialValue: user?.email,
-                    label: const Text("Email"),
+                    label: const Text(profileMail),
                     onSaved: (value) => request.email = value,
                   ),
                   ProfileEditFormField(
                     initialValue: user?.phoneNumber,
-                    label: const Text("Telefon Numarası"),
+                    label: const Text(profilePhone),
                     onSaved: (value) {
                       if (value == null || value.isEmpty) {
                         request.phoneNumber = null;

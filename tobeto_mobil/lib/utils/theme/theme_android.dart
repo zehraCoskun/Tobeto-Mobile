@@ -27,9 +27,8 @@ final androidLightTheme = ThemeData(
   tabBarTheme: TabBarTheme(
     dividerColor: TobetoLightColors.siyah,
     labelColor: TobetoLightColors.mor, // Seçili tabın yazı rengi
-    indicatorColor: TobetoLightColors.yesil, //_tobetoLightColors.mor, // Tab'ın altındaki gösterge rengi
+    indicatorColor: TobetoLightColors.yesil, // Tab'ın altındaki gösterge rengi
     unselectedLabelColor: TobetoLightColors.acikSiyah,
-    // Seçili olmayan tabların yazı rengi
   ),
 
   //TextTheme Ayarları
@@ -45,7 +44,7 @@ final androidLightTheme = ThemeData(
       shadows: [whiteTitleShadow()],
     ),
     bodySmall: TextStyle(color: TobetoLightColors.acikSiyah, fontStyle: FontStyle.italic, fontSize: 16),
-    bodyMedium: TextStyle(color: TobetoLightColors.beyaz, fontSize: 20.0), //!
+    bodyMedium: TextStyle(color: TobetoLightColors.beyaz, fontSize: 20.0),
     bodyLarge: TextStyle(color: TobetoLightColors.siyah, fontSize: 16.0, fontWeight: FontWeight.w400),
   ),
 
@@ -56,16 +55,17 @@ final androidLightTheme = ThemeData(
           Colors.transparent,
         ),
         textStyle: MaterialStatePropertyAll(
-          TextStyle(fontWeight: FontWeight.bold // Yazının kalınlığı
-              ),
+          TextStyle(fontWeight: FontWeight.bold),
         )),
   ),
+
   //IconButton Ayarları
   iconButtonTheme: IconButtonThemeData(
     style: ButtonStyle(
       iconColor: MaterialStatePropertyAll(TobetoLightColors.mor),
     ),
   ),
+
 //Drawer Ayarları
   drawerTheme: DrawerThemeData(
     backgroundColor: TobetoLightColors.krem,
@@ -82,36 +82,32 @@ final androidLightTheme = ThemeData(
       textStyle: const MaterialStatePropertyAll(
         TextStyle(fontSize: 20),
       ),
-      foregroundColor: MaterialStatePropertyAll(TobetoLightColors.beyaz), //text color
+      foregroundColor: MaterialStatePropertyAll(TobetoLightColors.beyaz), 
       backgroundColor: MaterialStatePropertyAll(TobetoLightColors.mor),
     ),
   ),
 
-  //InputDecoration Ayarlari
+  //InputDecoration ayarları
   inputDecorationTheme: InputDecorationTheme(
     prefixIconColor: TobetoLightColors.siyah,
     iconColor: TobetoLightColors.siyah,
 
-    //text field tiklandiginda yani focuslandiginda cikacak border ayarlari
+    //text field tıklandığında çıkacak border ayarları
     focusedBorder: OutlineInputBorder(
-      //borderRadius = BorderRadius. yazarak istediginizi verebilirsiniz koselerinin seklini cizer
       borderRadius: BorderRadius.circular(16),
-
-      //borderSide = BoderSide() olarak verebilirsiniz etrafindaki
-      //borderin kalinligini, rengini vb. ayarlayabilirisiniz
       borderSide: BorderSide(
         color: TobetoLightColors.siyah,
         width: 2,
       ),
     ),
 
-    //text field tiklanmamis haldeykenki cikacak border ayarlari
+    //text field tıklanmamış haldeyken çıkacak border ayarları
     enabledBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(16),
       borderSide: BorderSide(color: TobetoLightColors.acikSiyah, width: 1.5),
     ),
 
-    //text field icerisindeki string de hata oldugundaki cikacak border ayarlari
+    //text field içindeki stringte hata olduğunda çıkacakacak border ayarları
     errorBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(16),
       borderSide: BorderSide(color: TobetoLightColors.kirmizi, width: 2),
@@ -121,8 +117,6 @@ final androidLightTheme = ThemeData(
 
 //! DARK THEME
 final androidDarkTheme = ThemeData(
-  //useMaterial3: true,
-
   //ColorScheme Ayarlari
   colorScheme: ColorScheme(
     brightness: Brightness.dark,
@@ -170,7 +164,7 @@ final androidDarkTheme = ThemeData(
     bodyLarge: TextStyle(color: TobetoDarkColors.siyah, fontSize: 16.0, fontWeight: FontWeight.w400), //!
   ),
 
-  //TextButton Ayarlari
+  //TextButton Ayarları
   textButtonTheme: const TextButtonThemeData(
     style: ButtonStyle(
         backgroundColor: MaterialStatePropertyAll(
@@ -182,14 +176,15 @@ final androidDarkTheme = ThemeData(
           ),
         )),
   ),
+
   //IconButton Ayarları
   iconButtonTheme: IconButtonThemeData(style: ButtonStyle(iconColor: MaterialStatePropertyAll(TobetoDarkColors.krem))),
-//Drawer ayarları
+  //Drawer ayarları
   drawerTheme: DrawerThemeData(
     backgroundColor: TobetoDarkColors.lacivert,
   ),
 
-  //ElevatedButton Ayarlari
+  //ElevatedButton Ayarları
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ButtonStyle(
       padding: const MaterialStatePropertyAll(
@@ -198,12 +193,12 @@ final androidDarkTheme = ThemeData(
         ),
       ),
       textStyle: const MaterialStatePropertyAll(TextStyle(fontSize: 20)),
-      foregroundColor: MaterialStatePropertyAll(TobetoDarkColors.beyaz), //text color
+      foregroundColor: MaterialStatePropertyAll(TobetoDarkColors.beyaz),
       backgroundColor: MaterialStatePropertyAll(TobetoDarkColors.mor),
     ),
   ),
 
-  //InputDecoration Ayarlari
+  //InputDecoration Ayarları
   inputDecorationTheme: InputDecorationTheme(
     prefixIconColor: TobetoDarkColors.siyah,
     labelStyle: TextStyle(color: TobetoDarkColors.siyah),

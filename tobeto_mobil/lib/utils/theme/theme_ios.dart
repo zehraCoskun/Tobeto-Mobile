@@ -45,8 +45,8 @@ final iosLightTheme = ThemeData(
   textTheme: TextTheme(
     headlineSmall: TextStyle(color: TobetoLightColors.acikSiyah, letterSpacing: 1.0, fontWeight: FontWeight.w700),
     headlineMedium: TextStyle(color: TobetoLightColors.mor, fontSize: 30, fontWeight: FontWeight.w700),
-    titleSmall: TextStyle(color: TobetoLightColors.lacivert), //!
-    titleMedium: TextStyle(color: TobetoLightColors.lacivert), //!
+    titleSmall: TextStyle(color: TobetoLightColors.lacivert),
+    titleMedium: TextStyle(color: TobetoLightColors.lacivert), 
     titleLarge: TextStyle(
       color: TobetoLightColors.lacivert,
       fontWeight: FontWeight.bold,
@@ -54,7 +54,7 @@ final iosLightTheme = ThemeData(
       shadows: [whiteTitleShadow()],
     ),
     bodySmall: TextStyle(color: TobetoLightColors.acikSiyah, fontStyle: FontStyle.italic, fontSize: 16),
-    bodyMedium: TextStyle(color: TobetoLightColors.beyaz, fontSize: 20.0), //!
+    bodyMedium: TextStyle(color: TobetoLightColors.beyaz, fontSize: 20.0),
     bodyLarge: TextStyle(color: TobetoLightColors.siyah, fontSize: 16.0, fontWeight: FontWeight.w400),
   ),
 
@@ -132,7 +132,7 @@ final iosDarkTheme = ThemeData(
     surface: TobetoDarkColors.siyah,
     background: TobetoDarkColors.krem,
     onPrimary: TobetoDarkColors.siyah,
-    onSecondary: TobetoDarkColors.krem, //!
+    onSecondary: TobetoDarkColors.krem,
     onSurface: TobetoDarkColors.siyah,
     outline: TobetoLightColors.lacivert,
   ),
@@ -164,10 +164,10 @@ final iosDarkTheme = ThemeData(
       ],
     ),
     bodySmall: TextStyle(color: TobetoLightColors.krem, fontStyle: FontStyle.italic, fontSize: 16),
-    bodyMedium: TextStyle(color: TobetoDarkColors.krem, fontSize: 20.0), //!
+    bodyMedium: TextStyle(color: TobetoDarkColors.krem, fontSize: 20.0),
     bodyLarge: TextStyle(color: TobetoDarkColors.siyah, fontSize: 16.0, fontWeight: FontWeight.w400),
   ),
-  //TextButton Ayarlari
+  //TextButton Ayarları
   textButtonTheme: const TextButtonThemeData(
     style: ButtonStyle(
         backgroundColor: MaterialStatePropertyAll(Colors.transparent),
@@ -184,7 +184,7 @@ final iosDarkTheme = ThemeData(
     backgroundColor: TobetoDarkColors.lacivert,
   ),
 
-  //ElevatedButton Ayarlari
+  //ElevatedButton Ayarları
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ButtonStyle(
       padding: const MaterialStatePropertyAll(
