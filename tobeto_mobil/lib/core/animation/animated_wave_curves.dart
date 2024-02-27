@@ -25,7 +25,9 @@ class _AnimatedWavesCurves extends State<AnimatedWaveCurves> with SingleTickerPr
     });
   }
 
-  @override //dispose metodu, widget artık kullanılmadığında animasyon kontrolcüsünü temizlemek için kullanılıyor, bellek sızıntılarını önler.
+  @override 
+  //dispose metodu, widget artık kullanılmadığında animasyon kontrolcüsünü temizlemek için kullanılıyor, 
+  //bellek sızıntılarını önler.
   void dispose() {
     _controller.dispose();
     super.dispose();

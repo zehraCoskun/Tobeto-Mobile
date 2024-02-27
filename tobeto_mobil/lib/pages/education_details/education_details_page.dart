@@ -85,10 +85,12 @@ class _EducationDetailsPageState extends State<EducationDetailsPage> {
       appBar: AppBar(
         centerTitle: true,
         titleTextStyle: const TextStyle(
-          fontSize: 18,
           overflow: TextOverflow.fade,
         ),
-        title: Text(widget.education.title),
+        title: Text(
+          widget.education.title,
+          style: Theme.of(context).textTheme.titleMedium,
+        ),
       ),
       body: SecondaryBackgroundWidget(
         child: Column(
