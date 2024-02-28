@@ -50,6 +50,7 @@ class DrawerHead extends StatelessWidget {
           borderRadius: BorderRadius.circular(60),
           child: user?.imageUrl != null
               ? Image.network(
+                  fit: BoxFit.fill,
                   user!.imageUrl!,
                   height: 120,
                   width: 120,

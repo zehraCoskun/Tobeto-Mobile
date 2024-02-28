@@ -39,7 +39,13 @@ Demoya için gif viode vs eklenecek
 | buton rengi | ![#7743DB](https://via.placeholder.com/20/7743DB?text=+) #7743DB | 
 ## Çıkarılan Dersler
 
-Bu projeyi inşa ederken neler öğrendiniz? Ne tür zorluklarla karşılaştınız ve bunları nasıl aştınız?
+- ### Kullanıcı Deneyimi İyileştirmeleri:
+
+Uygulama geliştirme sürecinde, kullanıcıların kolayca gezinebilmesi ve içeriklere erişebilmesi için arayüzde çeşitli iyileştirmeler yapıldı. Örneğin, menülerin yeniden düzenlenmesi, arama işlevinin geliştirilmesi gibi adımlar atıldı. Bu süreç, kullanıcı deneyimini geliştirmek için ne tür adımların etkili olduğunu gösterdi.
+- ### Performans Optimizasyonları:
+Uygulamanın daha hızlı ve verimli çalışması için çeşitli performans optimizasyonları yapıldı. Örneğin, gereksiz ağ isteklerinin azaltılması, bellek yönetiminin optimize edilmesi gibi adımların ardından uygulamanın yanıt sürelerinde belirgin bir iyileşme sağlandı. Bu süreç, mobil uygulama geliştirme sürecinde performansın nasıl artırılabileceğine dair önemli bilgiler verdi.
+- ### Kod Kalitesi ve Bakımı:
+Uygulama kod tabanının temiz tutulması ve bakımının düzenli yapılması için çeşitli stratejiler ve pratikler uygulandı. Örneğin, düzenli kod incelemeleri, kod standartlarının uygulanması gibi adımların ardından uygulamanın geliştirme ve bakım süreçlerinde daha verimli olundu. Bu süreç, kod kalitesinin neden önemli olduğunu ve nasıl sağlanabileceğini gösterdi.
 
   
 ## Yazarlar ve Teşekkür
