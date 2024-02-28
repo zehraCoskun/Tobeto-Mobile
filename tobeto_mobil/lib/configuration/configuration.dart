@@ -1,12 +1,15 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/announcement_bloc/announcement_bloc.dart';
+import 'package:tobeto_mobil/api/bloc/announcement_bloc/announcement_event.dart';
 import 'package:tobeto_mobil/api/bloc/application_bloc/application_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/auth_bloc/auth_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/catalog_blog/catalog_bloc.dart';
+import 'package:tobeto_mobil/api/bloc/catalog_blog/catalog_event.dart';
 import 'package:tobeto_mobil/api/bloc/education_bloc/education_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/exam_bloc/exam_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/review_bloc/review_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/team_bloc/team_bloc.dart';
+import 'package:tobeto_mobil/api/bloc/team_bloc/team_event.dart';
 import 'package:tobeto_mobil/api/bloc/user_bloc/user_bloc.dart';
 import 'package:tobeto_mobil/api/business/services/announcement_service.dart';
 import 'package:tobeto_mobil/api/business/services/application_service.dart';
@@ -42,7 +45,7 @@ final announcementBlocProvider = BlocProvider(
     AnnouncementService(
       AnnouncementRepository.instance(),
     ),
-  ),
+  )..add(const AnnouncementEventFetch()),
 );
 
 final applicationBlocProvider = BlocProvider(
@@ -80,7 +83,7 @@ final educationBlocProvider = BlocProvider(
 final catalogBlocProvider = BlocProvider(
   create: (context) => CatalogBloc(
     CatalogService.instance(),
-  ),
+  )..add(const CatalogEventFetch()),
 );
 
 final teamBlocProvider = BlocProvider(
@@ -88,5 +91,5 @@ final teamBlocProvider = BlocProvider(
     TeamService(
       TeamRepository.instance(),
     ),
-  ),
+  )..add(const TeamEventFetch()),
 );

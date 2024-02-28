@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart' show immutable;
 
 @immutable
@@ -6,11 +5,7 @@ abstract class AuthEvent {}
 
 @immutable
 class AuthEventInitialize implements AuthEvent {
-  final User? user;
-
-  const AuthEventInitialize({
-    this.user,
-  });
+  const AuthEventInitialize();
 }
 
 // LOGIN

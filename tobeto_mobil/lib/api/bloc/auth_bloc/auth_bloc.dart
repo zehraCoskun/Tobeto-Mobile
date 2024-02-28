@@ -30,8 +30,10 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       return;
     }
 
-    if (event.user != null) {
-      emit(AuthStateLoggedIn(user: event.user!));
+    final user = _authRepository.currentUser();
+
+    if (user != null) {
+      emit(AuthStateLoggedIn(user: user));
     } else {
       emit(const AuthStateLoggedOut());
     }
@@ -44,11 +46,11 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     emit(const AuthStateLoading());
 
     try {
-      final credential = await _authRepository.login(
+      await _authRepository.login(
         event.email,
         event.password,
       );
-      emit(AuthStateInitial(user: credential.user!));
+      emit(const AuthStateInitial());
     } on FirebaseAuthException catch (_) {
       emit(const AuthStateLoggedOut());
     }

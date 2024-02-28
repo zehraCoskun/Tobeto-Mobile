@@ -41,6 +41,7 @@ void main() async {
         onGenerateRoute: (route) => RouteGenerator.onGenerateRoute(route),
         home: BlocConsumer<AuthBloc, AuthState>(
           listener: (context, state) {
+            print(state);
             if (state is AuthStateLoading) {
               LoadingStateWidget.instance().show(
                 context: context,
@@ -63,8 +64,9 @@ void main() async {
           builder: (context, state) {
             if (state is AuthStateInitial) {
               context.read<AuthBloc>().add(
-                    AuthEventInitialize(user: state.user),
+                    const AuthEventInitialize(),
                   );
+              return Container();
             }
             if (state is AuthStateNoConnection) {
               return const NoConnectionPage();

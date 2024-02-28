@@ -8,11 +8,7 @@ abstract class AuthState {
 
 @immutable
 class AuthStateInitial extends AuthState {
-  final User? user;
-  
-  const AuthStateInitial({
-    this.user,
-  });
+  const AuthStateInitial();
 }
 
 @immutable
