@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:tobeto_mobil/api/repository/storage_repository.dart';
 
 class StorageService {
@@ -21,6 +22,10 @@ class StorageService {
 
   Future<String> updateImage(String id, File file, String url) async {
     return await _storageRepository.updateImage(id, file, url);
+  }
+
+  Future<Reference> putFile(String id, File file) async {
+    return await _storageRepository.putFile(id, file);
   }
 
   Future<void> deleteFile(String url) async {

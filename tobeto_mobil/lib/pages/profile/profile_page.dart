@@ -1,7 +1,14 @@
+import 'dart:io';
+
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tobeto_mobil/api/bloc/auth_bloc/auth_bloc.dart';
+import 'package:tobeto_mobil/api/bloc/auth_bloc/auth_state.dart';
 import 'package:tobeto_mobil/api/bloc/user_bloc/user_bloc.dart';
+import 'package:tobeto_mobil/api/bloc/user_bloc/user_event.dart';
 import 'package:tobeto_mobil/api/bloc/user_bloc/user_state.dart';
+import 'package:tobeto_mobil/api/business/requests/user_requests/user_update_request.dart';
 import 'package:tobeto_mobil/constants/image_text.dart';
 import 'package:tobeto_mobil/constants/route_names.dart';
 import 'package:tobeto_mobil/core/widgets/background/secondary_background.dart';
@@ -47,6 +54,20 @@ class ProfilePage extends StatelessWidget {
                     ...ProfileContainerItem.values.map((item) {
                       return ProfileContainer(
                         title: item.toString(),
+                        trailing: item == ProfileContainerItem.certificates
+                            ? GestureDetector(
+                                onTap: () {
+                                  final auth = context.read<AuthBloc>().state
+                                      as AuthStateLoggedIn;
+                                  final userBloc = context.read<UserBloc>();
+                                  pickFile(auth.user.uid, userBloc);
+                                },
+                                child: Icon(
+                                  Icons.add,
+                                  color: Theme.of(context).iconTheme.color,
+                                ),
+                              )
+                            : null,
                         child: item.toChild(state.userModel),
                       );
                     }),
@@ -61,5 +82,22 @@ class ProfilePage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void pickFile(String id, UserBloc bloc) async {
+    FilePickerResult? result = await FilePicker.platform.pickFiles();
+
+    if (result != null) {
+      final files = result.paths.map((path) => File(path!)).toList().first;
+
+      bloc.add(
+        UserEventUpdate(
+          request: UserUpdateRequest(
+            id: id,
+            certificateFile: files,
+          ),
+        ),
+      );
+    }
   }
 }

@@ -1,11 +1,16 @@
 class CertificateModel {
   final String name;
+  final String fileUrl;
 
-  const CertificateModel({required this.name});
+  const CertificateModel({
+    required this.name,
+    required this.fileUrl,
+  });
 
   factory CertificateModel.fromMap(Map<String, dynamic> map) {
     return CertificateModel(
       name: map["name"] as String,
+      fileUrl: map["file_url"] as String,
     );
   }
 
@@ -25,6 +30,7 @@ class CertificateModel {
   Map<String, dynamic> _createClassMap() {
     return {
       "name": name,
+      "file_url": fileUrl,
     };
   }
 }

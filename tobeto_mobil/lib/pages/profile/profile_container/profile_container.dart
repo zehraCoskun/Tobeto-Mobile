@@ -5,12 +5,14 @@ class ProfileContainer extends StatelessWidget {
     Key? key,
     required this.title,
     required this.child,
+    this.trailing,
     this.height,
   }) : super(key: key);
 
   final Widget child;
   final double? height;
   final String title;
+  final Widget? trailing;
 
   @override
   Widget build(BuildContext context) {
@@ -34,12 +36,18 @@ class ProfileContainer extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              title,
-              style: Theme.of(context)
-                  .textTheme
-                  .bodyLarge!
-                  .copyWith(fontWeight: FontWeight.bold),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  title,
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyLarge!
+                      .copyWith(fontWeight: FontWeight.bold),
+                ),
+                if (trailing != null) trailing!,
+              ],
             ),
             const Divider(),
             child,

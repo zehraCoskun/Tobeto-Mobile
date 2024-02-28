@@ -36,34 +36,9 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
   File? _selectedImage;
   final _formKey = GlobalKey<FormState>();
 
-  void save() {
-    final auth = context.read<AuthBloc>().state as AuthStateLoggedIn;
-    request = UserUpdateRequest(id: auth.user.uid);
-
-    if (_selectedImage != null) {
-      request.file = _selectedImage;
-    }
-
-    _formKey.currentState!.save();
-    context.read<UserBloc>().add(
-          UserEventUpdate(request: request),
-        );
-    Navigator.of(context).pop();
-  }
-
-  void _pickImage() async {
-    final image = await ImagePicker().pickImage(source: ImageSource.gallery);
-
-    if (image != null) {
-      setState(() {
-        _selectedImage = File(image.path);
-      });
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
-    final state = (context.watch<UserBloc>().state);
+    final state = context.watch<UserBloc>().state;
 
     if (state is UserStateFetched) {
       user = state.userModel;
@@ -89,72 +64,25 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
         child: SecondaryBackgroundWidget(
           child: Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Form(
-              key: _formKey,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  buildProfileImage(context),
-                  const ProfileEditHeader(
-                    title: "Profil Bilgilerim",
-                  ),
-                  ProfileEditFormField(
-                    initialValue: user?.fullName,
-                    label: const Text(profileFullName),
-                    onSaved: (value) => request.fullName = value,
-                  ),
-                  ProfileEditFormDateField(
-                    initialValue: user?.birthDate,
-                    onSaved: (value) =>
-                        request.birthDate = DateTime.parse(value!),
-                  ),
-                  ProfileEditFormField(
-                    initialValue: user?.email,
-                    label: const Text(profileMail),
-                    onSaved: (value) => request.email = value,
-                  ),
-                  ProfileEditFormField(
-                    initialValue: user?.phoneNumber,
-                    label: const Text(profilePhone),
-                    onSaved: (value) {
-                      if (value == null || value.isEmpty) {
-                        request.phoneNumber = null;
-                      } else {
-                        request.phoneNumber = value;
-                      }
-                    },
-                  ),
-                  ...SocialMediaItem.values.map((item) {
-                    return ProfileEditFormField(
-                      initialValue: item.toValue(user),
-                      label: Text(
-                        item.toString(),
-                      ),
-                      icon: Image.asset(
-                        item.toIcon(),
-                        height: 32,
-                        width: 32,
-                      ),
-                    );
-                  }),
-                  // ProfileEditHeader(
-                  //   title: "Yetkinliklerim",
-                  //   icon: IconButton(
-                  //     onPressed: () => profileEditBottomSheet(
-                  //       context,
-                  //       user?.talents,
-                  //     ),
-                  //     icon: Icon(
-                  //       Icons.add,
-                  //       color: TobetoDarkColors.siyah,
-                  //     ),
-                  //   ),
-                  // ),
-                ],
-              ),
-            ),
+            child: buildForm(),
           ),
         ),
+      ),
+    );
+  }
+
+  Widget buildForm() {
+    return Form(
+      key: _formKey,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          buildProfileImage(context),
+          const ProfileEditHeader(
+            title: "Profil Bilgilerim",
+          ),
+          ...buildFields(),
+        ],
       ),
     );
   }
@@ -203,6 +131,49 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
     );
   }
 
+  List<Widget> buildFields() {
+    return [
+      ProfileEditFormField(
+        initialValue: user?.fullName,
+        label: const Text(profileFullName),
+        onSaved: (value) => request.fullName = value,
+      ),
+      ProfileEditFormDateField(
+        initialValue: user?.birthDate,
+        onSaved: (value) => request.birthDate = DateTime.parse(value!),
+      ),
+      ProfileEditFormField(
+        initialValue: user?.email,
+        label: const Text(profileMail),
+        onSaved: (value) => request.email = value,
+      ),
+      ProfileEditFormField(
+        initialValue: user?.phoneNumber,
+        label: const Text(profilePhone),
+        onSaved: (value) {
+          if (value == null || value.isEmpty) {
+            request.phoneNumber = null;
+          } else {
+            request.phoneNumber = value;
+          }
+        },
+      ),
+      ...SocialMediaItem.values.map((item) {
+        return ProfileEditFormField(
+          initialValue: item.toValue(user),
+          label: Text(
+            item.toString(),
+          ),
+          icon: Image.asset(
+            item.toIcon(),
+            height: 32,
+            width: 32,
+          ),
+        );
+      }),
+    ];
+  }
+
   Future<dynamic> profileEditBottomSheet(
     BuildContext context,
     List<TalentModel>? talents,
@@ -217,5 +188,30 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
         );
       },
     );
+  }
+
+  void save() {
+    final auth = context.read<AuthBloc>().state as AuthStateLoggedIn;
+    request = UserUpdateRequest(id: auth.user.uid);
+
+    if (_selectedImage != null) {
+      request.imageFile = _selectedImage;
+    }
+
+    _formKey.currentState!.save();
+    context.read<UserBloc>().add(
+          UserEventUpdate(request: request),
+        );
+    Navigator.of(context).pop();
+  }
+
+  void _pickImage() async {
+    final image = await ImagePicker().pickImage(source: ImageSource.gallery);
+
+    if (image != null) {
+      setState(() {
+        _selectedImage = File(image.path);
+      });
+    }
   }
 }

@@ -33,8 +33,14 @@ final androidLightTheme = ThemeData(
 
   //TextTheme Ayarları
   textTheme: TextTheme(
-    headlineSmall: TextStyle(color: TobetoLightColors.acikSiyah, letterSpacing: 1.0, fontWeight: FontWeight.w700),
-    headlineMedium: TextStyle(color: TobetoLightColors.mor, fontSize: 30, fontWeight: FontWeight.w700),
+    headlineSmall: TextStyle(
+        color: TobetoLightColors.acikSiyah,
+        letterSpacing: 1.0,
+        fontWeight: FontWeight.w700),
+    headlineMedium: TextStyle(
+        color: TobetoLightColors.mor,
+        fontSize: 30,
+        fontWeight: FontWeight.w700),
     titleSmall: TextStyle(color: TobetoLightColors.lacivert),
     titleMedium: TextStyle(color: TobetoLightColors.lacivert),
     titleLarge: TextStyle(
@@ -43,9 +49,15 @@ final androidLightTheme = ThemeData(
       height: 2,
       shadows: [whiteTitleShadow()],
     ),
-    bodySmall: TextStyle(color: TobetoLightColors.acikSiyah, fontStyle: FontStyle.italic, fontSize: 16),
+    bodySmall: TextStyle(
+        color: TobetoLightColors.acikSiyah,
+        fontStyle: FontStyle.italic,
+        fontSize: 16),
     bodyMedium: TextStyle(color: TobetoLightColors.beyaz, fontSize: 20.0),
-    bodyLarge: TextStyle(color: TobetoLightColors.siyah, fontSize: 16.0, fontWeight: FontWeight.w400),
+    bodyLarge: TextStyle(
+        color: TobetoLightColors.siyah,
+        fontSize: 16.0,
+        fontWeight: FontWeight.w400),
   ),
 
   //TextButton Ayarları
@@ -66,7 +78,12 @@ final androidLightTheme = ThemeData(
     ),
   ),
 
-//Drawer Ayarları
+  //Icon Ayarlari
+  iconTheme: IconThemeData(
+    color: TobetoDarkColors.siyah,
+  ),
+
+  //Drawer Ayarları
   drawerTheme: DrawerThemeData(
     backgroundColor: TobetoLightColors.krem,
   ),
@@ -82,7 +99,7 @@ final androidLightTheme = ThemeData(
       textStyle: const MaterialStatePropertyAll(
         TextStyle(fontSize: 20),
       ),
-      foregroundColor: MaterialStatePropertyAll(TobetoLightColors.beyaz), 
+      foregroundColor: MaterialStatePropertyAll(TobetoLightColors.beyaz),
       backgroundColor: MaterialStatePropertyAll(TobetoLightColors.mor),
     ),
   ),
@@ -159,9 +176,15 @@ final androidDarkTheme = ThemeData(
         blackTitleShadow(),
       ],
     ),
-    bodySmall: TextStyle(color: TobetoLightColors.krem, fontStyle: FontStyle.italic, fontSize: 16),
+    bodySmall: TextStyle(
+        color: TobetoLightColors.krem,
+        fontStyle: FontStyle.italic,
+        fontSize: 16),
     bodyMedium: TextStyle(color: TobetoDarkColors.krem, fontSize: 20.0),
-    bodyLarge: TextStyle(color: TobetoDarkColors.siyah, fontSize: 16.0, fontWeight: FontWeight.w400), //!
+    bodyLarge: TextStyle(
+        color: TobetoDarkColors.siyah,
+        fontSize: 16.0,
+        fontWeight: FontWeight.w400), //!
   ),
 
   //TextButton Ayarları
@@ -178,7 +201,17 @@ final androidDarkTheme = ThemeData(
   ),
 
   //IconButton Ayarları
-  iconButtonTheme: IconButtonThemeData(style: ButtonStyle(iconColor: MaterialStatePropertyAll(TobetoDarkColors.krem))),
+  iconButtonTheme: IconButtonThemeData(
+    style: ButtonStyle(
+      iconColor: MaterialStatePropertyAll(TobetoDarkColors.krem),
+    ),
+  ),
+
+  //Icon Ayarlari
+  iconTheme: IconThemeData(
+    color: TobetoDarkColors.lacivert,
+  ),
+
   //Drawer ayarları
   drawerTheme: DrawerThemeData(
     backgroundColor: TobetoDarkColors.lacivert,

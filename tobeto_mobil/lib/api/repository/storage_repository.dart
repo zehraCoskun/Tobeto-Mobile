@@ -31,6 +31,17 @@ class StorageRepository {
     return await putImage(id, file);
   }
 
+  Future<Reference> putFile(String id, File file) async {
+    final result = await _firebaseStorage
+        .ref()
+        .child("certificates")
+        .child(id)
+        .child(file.uri.pathSegments.last)
+        .putFile(file);
+
+    return result.ref;
+  }
+
   Future<void> deleteFile(String url) async {
     await _firebaseStorage.refFromURL(url).delete();
   }

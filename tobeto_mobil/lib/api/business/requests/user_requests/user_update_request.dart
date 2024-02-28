@@ -8,7 +8,8 @@ import 'package:tobeto_mobil/models/user/user_model.dart';
 
 class UserUpdateRequest {
   String id;
-  File? file;
+  File? imageFile;
+  File? certificateFile;
   String? fullName;
   String? email;
   DateTime? birthDate;
@@ -27,7 +28,8 @@ class UserUpdateRequest {
 
   UserUpdateRequest({
     required this.id,
-    this.file,
+    this.imageFile,
+    this.certificateFile,
     this.fullName,
     this.email,
     this.birthDate,

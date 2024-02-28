@@ -2,6 +2,7 @@ import 'package:tobeto_mobil/api/business/requests/user_requests/user_create_req
 import 'package:tobeto_mobil/api/business/requests/user_requests/user_update_request.dart';
 import 'package:tobeto_mobil/api/business/services/storage_service.dart';
 import 'package:tobeto_mobil/api/repository/user_repository.dart';
+import 'package:tobeto_mobil/models/user/certificate_model.dart';
 import 'package:tobeto_mobil/models/user/user_model.dart';
 
 class UserService {
@@ -24,24 +25,12 @@ class UserService {
   }
 
   Future<void> update(UserUpdateRequest request) async {
-    if (request.file != null) {
-      final user = await get(request.id);
-      final String downloadUrl;
+    if (request.imageFile != null) {
+      request.imageUrl = await _processImageFile(request);
+    }
 
-      if (user.imageUrl != null) {
-        downloadUrl = await _storageService.updateImage(
-          request.id,
-          request.file!,
-          user.imageUrl!,
-        );
-      } else {
-        downloadUrl = await _storageService.putImage(
-          request.id,
-          request.file!,
-        );
-      }
-
-      request.imageUrl = downloadUrl;
+    if (request.certificateFile != null) {
+      request.certificates = await _processCertificates(request);
     }
 
     await _userRepository.update(request.id, request.toMap());
@@ -51,5 +40,53 @@ class UserService {
     final snapshot = await _userRepository.getUser(id);
 
     return UserModel.fromMap(snapshot.data()!);
+  }
+
+  Future<String> _processImageFile(
+    UserUpdateRequest request,
+  ) async {
+    late String downloadUrl;
+
+    final user = await get(request.id);
+
+    if (user.imageUrl != null) {
+      downloadUrl = await _storageService.updateImage(
+        request.id,
+        request.imageFile!,
+        user.imageUrl!,
+      );
+    } else {
+      downloadUrl = await _storageService.putImage(
+        request.id,
+        request.imageFile!,
+      );
+    }
+
+    return downloadUrl;
+  }
+
+  Future<List<CertificateModel>> _processCertificates(
+      UserUpdateRequest request) async {
+    List<CertificateModel> certificates = [];
+
+    final user = await get(request.id);
+
+    if (user.certificates != null) {
+      certificates.addAll(user.certificates!);
+    }
+
+    final ref = await _storageService.putFile(
+      request.id,
+      request.certificateFile!,
+    );
+
+    certificates.add(
+      CertificateModel(
+        name: ref.name,
+        fileUrl: await ref.getDownloadURL(),
+      ),
+    );
+
+    return certificates;
   }
 }
