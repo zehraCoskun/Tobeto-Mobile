@@ -1,5 +1,6 @@
 
-# Tobeto Mobile App
+# <img src="https://github.com/zehraCoskun/tobeto-mobile/assets/110024096/55d538de-05b7-400e-809d-d1026722f478" alt="App Icon" width="30" height="30"> Tobeto Mobile App 
+
 
 [Tobeto](https://tobeto.com) , eğitim ve öğrenme deneyimini dijital dünyada dönüştüren bir eğitim platformudur. Bu proje, Tobeto'nun kullanıcılarına sunulan zengin içeriği, öğrenme araçlarını ve kişiselleştirilmiş öğrenme deneyimini mobil cihazlara taşıyan bir uygulamadır.
 
@@ -24,10 +25,6 @@ Hem iOS hem de Android platformları için ayrı temalar oluşturulur, her platf
 
 
 
-  
-## Demo
-
-Demoya için gif viode vs eklenecek
 
   ## Renk Referansı
 
@@ -70,8 +67,8 @@ Lütfen bu projenin `davranış kurallarına` uyun.
   
 ## Ekran Görüntüleri
 
-![Uygulama Ekran Görüntüsü](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![Gif yüklenemedi](tobeto_mobil/assets/readme/login.gif)
 
   
 
-![AppIcon-60@2x~car](https://github.com/zehraCoskun/tobeto-mobile/assets/110024096/55d538de-05b7-400e-809d-d1026722f478)
+
