@@ -18,6 +18,7 @@ class LoadingStateWidget {
   void show({
     required BuildContext context,
     required String text,
+    void Function()? onClose,
   }) {
     if (controller?.update(text) ?? false) {
       return;
@@ -25,6 +26,7 @@ class LoadingStateWidget {
       controller = showOverlay(
         context: context,
         text: text,
+        onClose: onClose,
       );
     }
   }
@@ -37,6 +39,7 @@ class LoadingStateWidget {
   LoadingStateWidgetController showOverlay({
     required BuildContext context,
     required String text,
+    void Function()? onClose,
   }) {
     final _text = StreamController<String>();
     _text.add(text);
@@ -68,7 +71,7 @@ class LoadingStateWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       const SizedBox(height: 10),
-                      const CircularProgressIndicator(),
+                      if (onClose == null) const CircularProgressIndicator(),
                       const SizedBox(height: 20),
                       StreamBuilder(
                         stream: _text.stream,
@@ -76,6 +79,7 @@ class LoadingStateWidget {
                           if (snapshot.hasData) {
                             return Text(
                               snapshot.data as String,
+                              style: Theme.of(context).textTheme.labelLarge,
                               textAlign: TextAlign.center,
                             );
                           } else {
@@ -83,6 +87,11 @@ class LoadingStateWidget {
                           }
                         },
                       ),
+                      if (onClose != null)
+                        ElevatedButton(
+                          onPressed: onClose,
+                          child: const Text("Close"),
+                        )
                     ],
                   ),
                 ),

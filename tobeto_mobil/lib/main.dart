@@ -46,6 +46,16 @@ void main() async {
                 context: context,
                 text: "Loading...",
               );
+            } else if (state is AuthStateRecoverLinkSent) {
+              LoadingStateWidget.instance().hide();
+              LoadingStateWidget.instance().show(
+                context: context,
+                text: "Password Reset Email Sent",
+                onClose: () {
+                  Navigator.of(context).pushReplacementNamed("/login");
+                  LoadingStateWidget.instance().hide();
+                },
+              );
             } else {
               LoadingStateWidget.instance().hide();
             }

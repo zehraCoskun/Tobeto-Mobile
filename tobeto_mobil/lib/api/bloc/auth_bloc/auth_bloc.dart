@@ -17,6 +17,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<AuthEventInitialize>((event, emit) => _onInitialize(event, emit));
     on<AuthEventLogIn>((event, emit) => _onLogin(event, emit));
     on<AuthEventRegister>((event, emit) => _onRegister(event, emit));
+    on<AuthEventRecover>((event, emit) => _onRecover(event, emit));
     on<AuthEventLogOut>((event, emit) => _onLogout(event, emit));
   }
 
@@ -70,7 +71,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           fullName: event.fullName,
           email: event.email,
         ));
-        emit(AuthStateInitial(user: credential.user!));
+        emit(AuthStateRegistered(user: credential.user!));
       }
     } on FirebaseAuthException catch (_) {
       await _authRepository.login(
@@ -80,6 +81,16 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       await _authRepository.delete();
       emit(const AuthStateInitial());
     }
+  }
+
+  Future<void> _onRecover(
+    AuthEventRecover event,
+    Emitter<AuthState> emit,
+  ) async {
+    emit(const AuthStateLoading());
+
+    await _authRepository.recover(event.email);
+    emit(const AuthStateRecoverLinkSent());
   }
 
   Future<void> _onLogout(

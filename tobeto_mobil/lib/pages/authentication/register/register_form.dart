@@ -154,9 +154,11 @@ class _RegisterFormState extends State<RegisterForm> {
           _formKey.currentState!.save();
           context.read<AuthBloc>().add(
                 AuthEventRegister(
-                  fullName: "${nameController.text} ${surnameController.text}".toTitleCase(),
-                  email: emailController.text,
-                  password: passwordController.text,
+                  fullName:
+                      "${nameController.text.trim()} ${surnameController.text.trim()}"
+                          .toTitleCase(),
+                  email: emailController.text.trim(),
+                  password: passwordController.text.trim(),
                 ),
               );
           Navigator.of(context).pop();

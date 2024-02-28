@@ -5,56 +5,10 @@ import 'package:tobeto_mobil/api/bloc/team_bloc/team_event.dart';
 import 'package:tobeto_mobil/api/bloc/team_bloc/team_state.dart';
 import 'package:tobeto_mobil/pages/home/main_view/teams/main_team_card.dart';
 
-class MainTeamList extends StatefulWidget {
+class MainTeamList extends StatelessWidget {
   const MainTeamList({
     Key? key,
   }) : super(key: key);
-
-  @override
-  State<MainTeamList> createState() => _MainTeamListState();
-}
-
-class _MainTeamListState extends State<MainTeamList> {
-  late ScrollController _controller;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = ScrollController();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      _startAutoScroll();
-    });
-  }
-
-  void _startAutoScroll() {
-    if (context.mounted) {
-      Future.delayed(const Duration(seconds: 8), () {
-        if (_controller.hasClients) {
-          _controller
-              .animateTo(
-            _controller.position.maxScrollExtent,
-            duration: const Duration(seconds: 8),
-            curve: Curves.linear,
-          )
-              .then((_) {
-            _controller.animateTo(
-              0,
-              duration: const Duration(seconds: 4),
-              curve: Curves.linear,
-            );
-            _startAutoScroll();
-          });
-        }
-      });
-    }
-    ;
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -68,13 +22,15 @@ class _MainTeamListState extends State<MainTeamList> {
           return AspectRatio(
             aspectRatio: 1.65 / 1,
             child: ListView.builder(
-              controller: _controller,
               scrollDirection: Axis.horizontal,
               itemCount: state.teams.length,
               itemBuilder: (context, index) {
                 return SizedBox(
-                    width: 180,
-                    child: MainTeamCard(teamModel: state.teams[index]));
+                  width: 180,
+                  child: MainTeamCard(
+                    teamModel: state.teams[index],
+                  ),
+                );
               },
             ),
           );

@@ -53,6 +53,8 @@ class _RecoveryPageState extends State<RecoveryPage> {
                 prefixIcon: const Icon(
                   Icons.email_outlined,
                 ),
+                validator: (value) =>
+                    value != null ? "Field Can't be empty" : null,
                 onChanged: (newValue) => emailController.text = newValue,
               ),
             ),
@@ -60,7 +62,7 @@ class _RecoveryPageState extends State<RecoveryPage> {
               onPressed: () {
                 context.read<AuthBloc>().add(
                       AuthEventRecover(
-                        email: emailController.text,
+                        email: emailController.text.trim(),
                       ),
                     );
               },

@@ -10,7 +10,8 @@ class MainTobetoList extends StatefulWidget {
   State<MainTobetoList> createState() => _MainTobetoListState();
 }
 
-class _MainTobetoListState extends State<MainTobetoList> with TickerProviderStateMixin {
+class _MainTobetoListState extends State<MainTobetoList>
+    with TickerProviderStateMixin {
   late int _currentIndex;
   late int itemCount;
 
@@ -20,20 +21,25 @@ class _MainTobetoListState extends State<MainTobetoList> with TickerProviderStat
     _currentIndex = 0;
   }
 
-  void _startAnimation(BuildContext context, int itemCount) {
-    Future.delayed(const Duration(seconds: 5), () {
-      if (context.mounted) {
-        setState(() {
-          _currentIndex = ((_currentIndex + 1) % itemCount);
-        });
-      }
-    });
-  }
+  // void _startAnimation(BuildContext context, int itemCount) {
+  //   Future.delayed(const Duration(seconds: 5), () {
+  //     if (context.mounted) {
+  //       setState(() {
+  //         _currentIndex = ((_currentIndex + 1) % itemCount);
+  //       });
+  //     }
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
     itemCount = tobetoNews.length;
-    _startAnimation(context, itemCount);
-    return AspectRatio(aspectRatio: 2 / 1, child: MainTobetoCard(tobetoNewsModel: tobetoNews[_currentIndex]));
+    //_startAnimation(context, itemCount);
+    return AspectRatio(
+      aspectRatio: 2 / 1,
+      child: MainTobetoCard(
+        tobetoNewsModel: tobetoNews[_currentIndex],
+      ),
+    );
   }
 }

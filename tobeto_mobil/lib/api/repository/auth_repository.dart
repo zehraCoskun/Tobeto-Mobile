@@ -27,6 +27,11 @@ class AuthRepository {
     );
   }
 
+  Future<void> recover(String email) async {
+    await _authentication.sendPasswordResetEmail(email: email);
+
+  }
+
   Future<void> logout() async {
     await _authentication.signOut();
   }

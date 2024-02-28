@@ -42,6 +42,11 @@ class AuthStateRegistered extends AuthState {
 
 // RECOVERY
 @immutable
+class AuthStateRecoverLinkSent extends AuthState {
+  const AuthStateRecoverLinkSent();
+}
+
+@immutable
 class AuthStateRecovered extends AuthState {
   const AuthStateRecovered();
 }
