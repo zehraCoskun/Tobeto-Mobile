@@ -140,7 +140,7 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
       ),
       ProfileEditFormDateField(
         initialValue: user?.birthDate,
-        onSaved: (value) => request.birthDate = DateTime.parse(value!),
+        onSaved: (value) {},
       ),
       ProfileEditFormField(
         initialValue: user?.email,

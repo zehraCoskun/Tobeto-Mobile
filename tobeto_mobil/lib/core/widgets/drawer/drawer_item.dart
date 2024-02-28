@@ -1,5 +1,6 @@
+import 'package:tobeto_mobil/constants/route_names.dart';
+
 enum DrawerItem {
-  home,
   reviews,
   profile,
   catalog,
@@ -7,8 +8,6 @@ enum DrawerItem {
 
   String getString() {
     switch (this) {
-      case DrawerItem.home:
-        return "🏠 Anasayfa";
       case DrawerItem.reviews:
         return "🖊️ Değerlendirmeler";
       case DrawerItem.profile:
@@ -21,6 +20,15 @@ enum DrawerItem {
   }
 
   String getRouteName() {
-    return "/$name";
+    switch (this) {
+      case DrawerItem.reviews:
+        return Routes.REVIEWS;
+      case DrawerItem.profile:
+        return Routes.PROFILE;
+      case DrawerItem.catalog:
+        return Routes.CATALOG;
+      case DrawerItem.calendar:
+        return Routes.CALENDAR;
+    }
   }
 }

@@ -7,6 +7,7 @@ import 'package:tobeto_mobil/api/bloc/user_bloc/user_event.dart';
 import 'package:tobeto_mobil/api/bloc/user_bloc/user_state.dart';
 import 'package:tobeto_mobil/core/screens/global_scaffold.dart';
 import 'package:tobeto_mobil/core/widgets/background/animated_secondary_background.dart';
+import 'package:tobeto_mobil/core/widgets/drawer/drawer_widget.dart';
 import 'package:tobeto_mobil/pages/home/home_body.dart';
 import 'package:tobeto_mobil/pages/home/home_header.dart';
 
@@ -32,6 +33,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
       appBar: HomeHeader(
         tabController: _tabController,
       ),
+      drawer: const DrawerWidget(),
       body: AnimatedSecondaryBackground(
         children: [
           BlocBuilder<UserBloc, UserState>(

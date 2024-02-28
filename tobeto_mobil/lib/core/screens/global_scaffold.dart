@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_mobil/models/user/user_model.dart';
-import 'package:tobeto_mobil/core/widgets/drawer/drawer_widget.dart';
 
 //login screen disinda suan icin Scaffold yerine her sayfada kullanilacak
 //persistent drawer icin appbar suan icin optional ancak bize appbar verilmesse
@@ -10,17 +8,17 @@ class GlobalScaffold extends StatelessWidget {
     Key? key,
     this.appBar,
     this.body,
-    this.userModel,
+    this.drawer,
   }) : super(key: key);
 
   final PreferredSizeWidget? appBar;
   final Widget? body;
-  final UserModel? userModel;
+  final Widget? drawer;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const DrawerWidget(),
+      drawer: drawer,
       appBar: appBar ??
           AppBar(
             //automaticallyImplyLeading: false,

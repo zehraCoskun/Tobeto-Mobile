@@ -6,9 +6,11 @@ class DateFieldWidget extends StatefulWidget {
   const DateFieldWidget({
     Key? key,
     this.initialValue,
+    required this.onSaved,
   }) : super(key: key);
 
   final DateTime? initialValue;
+  final void Function(DateTime? value) onSaved;
 
   @override
   State<DateFieldWidget> createState() => _DateFieldWidgetState();
@@ -21,6 +23,10 @@ class _DateFieldWidgetState extends State<DateFieldWidget> {
   void initState() {
     super.initState();
     _selectedDate = widget.initialValue;
+  }
+
+  void onSaved() {
+    widget.onSaved(_selectedDate);
   }
 
   @override

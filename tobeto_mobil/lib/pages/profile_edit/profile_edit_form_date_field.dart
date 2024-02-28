@@ -6,16 +6,15 @@ class ProfileEditFormDateField extends StatelessWidget {
   const ProfileEditFormDateField({
     Key? key,
     this.initialValue,
-    this.onSaved,
+    required this.onSaved,
   }) : super(key: key);
 
   final DateTime? initialValue;
-  final void Function(String? value)? onSaved;
+  final void Function(DateTime? value) onSaved;
 
   @override
   Widget build(BuildContext context) {
     return ProfileEditFormField(
-      onSaved: onSaved,
       child: Container(
         padding: const EdgeInsets.all(6),
         decoration: BoxDecoration(
@@ -27,6 +26,7 @@ class ProfileEditFormDateField extends StatelessWidget {
         ),
         child: DateFieldWidget(
           initialValue: initialValue,
+          onSaved: onSaved,
         ),
       ),
     );
