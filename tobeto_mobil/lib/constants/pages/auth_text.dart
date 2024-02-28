@@ -22,7 +22,8 @@ const loginButtonText = "Giriş Yap";
 const registerNameLabel = "İsim";
 const registerSurnameLabel = "Soyisim";
 const registerRepeatPasswordLabel = "Parola Tekrar";
+const registerRegisteredText = "Registration complete";
 
 // RECOVERY
 const recoverySendText = "Gönder";
-
+const recoveryLinkSentText = "Password Reset Email Sent";

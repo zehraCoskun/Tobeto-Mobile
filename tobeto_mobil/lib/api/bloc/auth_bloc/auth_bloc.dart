@@ -73,7 +73,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           fullName: event.fullName,
           email: event.email,
         ));
-        emit(AuthStateRegistered(user: credential.user!));
+        emit(const AuthStateInitial());
       }
     } on FirebaseAuthException catch (_) {
       await _authRepository.login(
@@ -92,6 +92,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     emit(const AuthStateLoading());
 
     await _authRepository.recover(event.email);
+    
     emit(const AuthStateRecoverLinkSent());
   }
 

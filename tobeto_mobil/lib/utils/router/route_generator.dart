@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:tobeto_mobil/constants/route_names.dart';
 import 'package:tobeto_mobil/models/catalog/catalog_model.dart';
 import 'package:tobeto_mobil/models/education/education_model.dart';
+import 'package:tobeto_mobil/pages/authentication/recovery/recovery_page.dart';
+import 'package:tobeto_mobil/pages/authentication/register/register_page.dart';
 import 'package:tobeto_mobil/pages/calendar/calendar_page.dart';
 import 'package:tobeto_mobil/pages/catalog/catalog_detail/catalog_details_view.dart';
 import 'package:tobeto_mobil/pages/catalog/catalog_page.dart';
@@ -19,29 +22,33 @@ class RouteGenerator {
 
   static Route onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
-      case "/login":
+      case Routes.LOGIN:
         return defaultRouteTransition(const LoginPage());
-      case "/home":
+      case Routes.HOME:
         return defaultRouteTransition(const HomePage());
-      case "/reviews":
+      case Routes.REVIEWS:
         return defaultRouteTransition(const ReviewsPage());
-      case "/profile":
+      case Routes.PROFILE:
         return defaultRouteTransition(const ProfilePage());
-      case "/catalog":
+      case Routes.CATALOG:
         return defaultRouteTransition(const CatalogPage());
-      case "/calendar":
+      case Routes.CALENDAR:
         return defaultRouteTransition(const CalendarPage());
-      case "/profileEdit":
+      case Routes.PROFILEEDIT:
         return defaultRouteTransition(const ProfileEditPage());
-      case "/details":
+      case Routes.RECOVERY:
+        return defaultRouteTransition(const RecoveryPage());
+      case Routes.REGISTER:
+        return defaultRouteTransition(const RegisterPage());
+      case Routes.EDUCATIONDETAILS:
         return defaultRouteTransition(
           EducationDetailsPage(education: settings.arguments as EducationModel),
         );
-      case "/category":
+      case Routes.CATEGORY:
         return defaultRouteTransition(
           CategoryPage(category: settings.arguments as EducationCategoryItem),
         );
-      case "/catalogDetail":
+      case Routes.CATALOGDETAILS:
         return defaultRouteTransition(CatalogDetailsPage(
           catalog: settings.arguments as CatalogModel,
         ));

@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:tobeto_mobil/api/bloc/auth_bloc/auth_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/auth_bloc/auth_state.dart';
 import 'package:tobeto_mobil/api/bloc/user_bloc/user_bloc.dart';
@@ -30,17 +33,32 @@ class ProfileEditPage extends StatefulWidget {
 class _ProfileEditPageState extends State<ProfileEditPage> {
   late UserUpdateRequest request;
   late UserModel? user;
+  File? _selectedImage;
   final _formKey = GlobalKey<FormState>();
 
   void save() {
     final auth = context.read<AuthBloc>().state as AuthStateLoggedIn;
     request = UserUpdateRequest(id: auth.user.uid);
 
+    if (_selectedImage != null) {
+      request.file = _selectedImage;
+    }
+
     _formKey.currentState!.save();
     context.read<UserBloc>().add(
           UserEventUpdate(request: request),
         );
     Navigator.of(context).pop();
+  }
+
+  void _pickImage() async {
+    final image = await ImagePicker().pickImage(source: ImageSource.gallery);
+
+    if (image != null) {
+      setState(() {
+        _selectedImage = File(image.path);
+      });
+    }
   }
 
   @override
@@ -76,6 +94,7 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
+                  buildProfileImage(),
                   const ProfileEditHeader(
                     title: "Profil Bilgilerim",
                   ),
@@ -118,25 +137,54 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
                       ),
                     );
                   }),
-                  ProfileEditHeader(
-                    title: "Yetkinliklerim",
-                    icon: IconButton(
-                      onPressed: () => profileEditBottomSheet(
-                        context,
-                        user?.talents,
-                      ),
-                      icon: Icon(
-                        Icons.add,
-                        color: TobetoDarkColors.siyah,
-                      ),
-                    ),
-                  ),
+                  // ProfileEditHeader(
+                  //   title: "Yetkinliklerim",
+                  //   icon: IconButton(
+                  //     onPressed: () => profileEditBottomSheet(
+                  //       context,
+                  //       user?.talents,
+                  //     ),
+                  //     icon: Icon(
+                  //       Icons.add,
+                  //       color: TobetoDarkColors.siyah,
+                  //     ),
+                  //   ),
+                  // ),
                 ],
               ),
             ),
           ),
         ),
       ),
+    );
+  }
+
+  Widget buildProfileImage() {
+    late Widget widget;
+
+    if (user?.imageUrl != null) {
+      widget = CircleAvatar(
+        backgroundImage: NetworkImage(user!.imageUrl!),
+        radius: 60,
+      );
+    } else if (_selectedImage != null) {
+      widget = CircleAvatar(
+        backgroundImage: FileImage(_selectedImage!),
+        radius: 60,
+      );
+    } else {
+      widget = IconButton(
+        onPressed: () => _pickImage(),
+        icon: Icon(
+          Icons.add_a_photo_outlined,
+          color: TobetoDarkColors.lacivert,
+          size: 30,
+        ),
+      );
+    }
+
+    return Center(
+      child: widget,
     );
   }
 

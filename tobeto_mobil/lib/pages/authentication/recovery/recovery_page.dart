@@ -7,6 +7,7 @@ import 'package:tobeto_mobil/constants/image_text.dart';
 import 'package:tobeto_mobil/constants/pages/auth_text.dart';
 import 'package:tobeto_mobil/core/widgets/form_field/form_widget.dart';
 import 'package:tobeto_mobil/core/widgets/background/primary_background.dart';
+import 'package:tobeto_mobil/utils/validators/auth_validator.dart';
 
 class RecoveryPage extends StatefulWidget {
   const RecoveryPage({
@@ -53,8 +54,7 @@ class _RecoveryPageState extends State<RecoveryPage> {
                 prefixIcon: const Icon(
                   Icons.email_outlined,
                 ),
-                validator: (value) =>
-                    value != null ? "Field Can't be empty" : null,
+                validator: (value) => AuthValidator.validateEmail(value),
                 onChanged: (newValue) => emailController.text = newValue,
               ),
             ),

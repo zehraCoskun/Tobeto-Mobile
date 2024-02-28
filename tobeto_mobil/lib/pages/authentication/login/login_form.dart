@@ -3,10 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/auth_bloc/auth_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/auth_bloc/auth_event.dart';
 import 'package:tobeto_mobil/constants/pages/auth_text.dart';
+import 'package:tobeto_mobil/constants/route_names.dart';
 import 'package:tobeto_mobil/core/widgets/form_field/form_widget.dart';
 import 'package:tobeto_mobil/core/widgets/form_field/password_form_widget.dart';
-import 'package:tobeto_mobil/pages/authentication/recovery/recovery_page.dart';
-import 'package:tobeto_mobil/pages/authentication/register/register_page.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({
@@ -77,11 +76,7 @@ class _LoginFormState extends State<LoginForm> {
     return Flexible(
       child: TextButton(
         onPressed: () {
-          Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (context) => const RecoveryPage(),
-            ),
-          );
+          Navigator.of(context).pushNamed(Routes.RECOVERY);
         },
         style: Theme.of(context).textButtonTheme.style,
         child: const Text(
@@ -97,11 +92,7 @@ class _LoginFormState extends State<LoginForm> {
     return Flexible(
       child: TextButton(
         onPressed: () {
-          Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (context) => const RegisterPage(),
-            ),
-          );
+          Navigator.of(context).pushNamed(Routes.REGISTER);
         },
         style: Theme.of(context).textButtonTheme.style,
         child: const Text(
@@ -120,8 +111,8 @@ class _LoginFormState extends State<LoginForm> {
           _formKey.currentState!.save();
           context.read<AuthBloc>().add(
                 AuthEventLogIn(
-                  email: emailController.text,
-                  password: passwordController.text,
+                  email: emailController.text.trim(),
+                  password: passwordController.text.trim(),
                 ),
               );
         },

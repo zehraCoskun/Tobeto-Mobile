@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/user_bloc/user_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/user_bloc/user_state.dart';
 import 'package:tobeto_mobil/constants/image_text.dart';
+import 'package:tobeto_mobil/constants/route_names.dart';
 import 'package:tobeto_mobil/core/widgets/background/secondary_background.dart';
 import 'package:tobeto_mobil/pages/profile/profile_container/profile_container.dart';
 import 'package:tobeto_mobil/pages/profile/profile_container/profile_container_item.dart';
@@ -26,7 +27,7 @@ class ProfilePage extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () {
-              Navigator.of(context).pushNamed("/profileEdit");
+              Navigator.of(context).pushNamed(Routes.PROFILEEDIT);
             },
             icon: const Icon(Icons.edit_outlined),
           )

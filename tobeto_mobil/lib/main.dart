@@ -5,6 +5,8 @@ import 'package:tobeto_mobil/api/bloc/auth_bloc/auth_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/auth_bloc/auth_event.dart';
 import 'package:tobeto_mobil/api/bloc/auth_bloc/auth_state.dart';
 import 'package:tobeto_mobil/configuration/configuration.dart';
+import 'package:tobeto_mobil/constants/global_text.dart';
+import 'package:tobeto_mobil/constants/pages/auth_text.dart';
 import 'package:tobeto_mobil/core/widgets/loading_widget/loading_state_widget.dart';
 import 'package:tobeto_mobil/firebase_options.dart';
 import 'package:tobeto_mobil/pages/authentication/login/login_page.dart';
@@ -41,22 +43,13 @@ void main() async {
         onGenerateRoute: (route) => RouteGenerator.onGenerateRoute(route),
         home: BlocConsumer<AuthBloc, AuthState>(
           listener: (context, state) {
-            print(state);
             if (state is AuthStateLoading) {
               LoadingStateWidget.instance().show(
                 context: context,
-                text: "Loading...",
+                text: loadingStateWidgetLoadingText,
               );
             } else if (state is AuthStateRecoverLinkSent) {
-              LoadingStateWidget.instance().hide();
-              LoadingStateWidget.instance().show(
-                context: context,
-                text: "Password Reset Email Sent",
-                onClose: () {
-                  Navigator.of(context).pushReplacementNamed("/login");
-                  LoadingStateWidget.instance().hide();
-                },
-              );
+              _showOverlay(context, recoveryLinkSentText);
             } else {
               LoadingStateWidget.instance().hide();
             }
@@ -79,5 +72,17 @@ void main() async {
         ),
       ),
     ),
+  );
+}
+
+void _showOverlay(BuildContext context, String text) {
+  LoadingStateWidget.instance().hide();
+  LoadingStateWidget.instance().show(
+    context: context,
+    text: text,
+    onClose: () {
+      Navigator.of(context).pushReplacementNamed("/login");
+      LoadingStateWidget.instance().hide();
+    },
   );
 }

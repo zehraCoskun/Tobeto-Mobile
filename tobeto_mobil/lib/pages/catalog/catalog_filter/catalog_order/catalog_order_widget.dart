@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tobeto_mobil/api/bloc/catalog_blog/catalog_bloc.dart';
-import 'package:tobeto_mobil/api/bloc/catalog_blog/catalog_state.dart';
 import 'package:tobeto_mobil/constants/pages/catalog_text.dart';
 import 'package:tobeto_mobil/pages/catalog/catalog_filter/catalog_order/catalog_order_item.dart';
 import 'package:tobeto_mobil/utils/theme/theme_ios.dart';

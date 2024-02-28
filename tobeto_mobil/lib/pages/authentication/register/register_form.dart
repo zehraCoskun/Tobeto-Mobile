@@ -6,6 +6,7 @@ import 'package:tobeto_mobil/constants/pages/auth_text.dart';
 import 'package:tobeto_mobil/core/widgets/form_field/form_widget.dart';
 import 'package:tobeto_mobil/core/widgets/form_field/password_form_widget.dart';
 import 'package:tobeto_mobil/utils/extensions.dart';
+import 'package:tobeto_mobil/utils/validators/auth_validator.dart';
 
 class RegisterForm extends StatefulWidget {
   const RegisterForm({
@@ -70,12 +71,7 @@ class _RegisterFormState extends State<RegisterForm> {
       prefixIcon: const Icon(Icons.person_outline_outlined),
       labelText: registerNameLabel,
       onSaved: (value) => nameController.text = value ?? "",
-      validator: (value) {
-        if (value!.isEmpty) {
-          return nameEmptyFieldText;
-        }
-        return null;
-      },
+      validator: (value) => AuthValidator.validateName(value),
     );
   }
 
@@ -85,12 +81,7 @@ class _RegisterFormState extends State<RegisterForm> {
       prefixIcon: const Icon(Icons.person_outline_outlined),
       labelText: registerSurnameLabel,
       onSaved: (value) => surnameController.text = value ?? "",
-      validator: (value) {
-        if (value!.isEmpty) {
-          return surNameEmptyFieldText;
-        }
-        return null;
-      },
+      validator: (value) => AuthValidator.validateName(value),
     );
   }
 
@@ -100,18 +91,7 @@ class _RegisterFormState extends State<RegisterForm> {
       prefixIcon: const Icon(Icons.email_outlined),
       labelText: authEmailLabel,
       onSaved: (value) => emailController.text = value ?? "",
-      validator: (value) {
-        if (value!.isEmpty) {
-          return emailEmptyFieldText;
-        }
-        if (!value.contains("@")) {
-          return emailWrongFormatFieldText;
-        }
-        if (value.length < 10) {
-          return emailLengthLessThanXFieldText;
-        }
-        return null;
-      },
+      validator: (value) => AuthValidator.validateEmail(value),
     );
   }
 
@@ -120,12 +100,7 @@ class _RegisterFormState extends State<RegisterForm> {
       controller: passwordController,
       labelText: authPasswordLabel,
       onChanged: (newValue) => passwordController.text = newValue,
-      validator: (value) {
-        if (value!.isEmpty) {
-          return passwordEmptyFieldText;
-        }
-        return null;
-      },
+      validator: (value) => AuthValidator.validatePassword(value),
     );
   }
 
@@ -134,15 +109,10 @@ class _RegisterFormState extends State<RegisterForm> {
       controller: repeatPasswordController,
       labelText: registerRepeatPasswordLabel,
       onChanged: (newValue) => repeatPasswordController.text = newValue,
-      validator: (value) {
-        if (value!.isEmpty) {
-          return passwordEmptyFieldText;
-        }
-        if (value != passwordController.text) {
-          return passwordMismatchFieldText;
-        }
-        return null;
-      },
+      validator: (value) => AuthValidator.validatePassword(
+        passwordController.text,
+        passwordRepeat: value,
+      ),
     );
   }
 
