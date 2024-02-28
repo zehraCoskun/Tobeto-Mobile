@@ -94,7 +94,7 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  buildProfileImage(),
+                  buildProfileImage(context),
                   const ProfileEditHeader(
                     title: "Profil Bilgilerim",
                   ),
@@ -159,7 +159,8 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
     );
   }
 
-  Widget buildProfileImage() {
+  Widget buildProfileImage(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     late Widget widget;
 
     if (user?.imageUrl != null) {
@@ -173,18 +174,32 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
         radius: 60,
       );
     } else {
-      widget = IconButton(
-        onPressed: () => _pickImage(),
-        icon: Icon(
-          Icons.add_a_photo_outlined,
-          color: TobetoDarkColors.lacivert,
-          size: 30,
-        ),
+      widget = Icon(
+        Icons.person,
+        color: Theme.of(context).iconTheme.color,
+        size: 120,
       );
     }
 
-    return Center(
-      child: widget,
+    return SizedBox(
+      width: size.width,
+      child: Stack(
+        alignment: Alignment.bottomRight,
+        children: <Widget>[
+          Center(child: widget),
+          Positioned(
+            top: 0,
+            right: 0,
+            child: IconButton(
+              icon: Icon(
+                Icons.add_a_photo_outlined,
+                color: TobetoDarkColors.lacivert,
+              ),
+              onPressed: () => _pickImage(),
+            ),
+          ),
+        ],
+      ),
     );
   }
 
