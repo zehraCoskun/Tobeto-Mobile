@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:tobeto_mobil/api/bloc/catalog_blog/catalog_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/catalog_blog/catalog_event.dart';
 import 'package:tobeto_mobil/api/bloc/catalog_blog/catalog_state.dart';
@@ -9,7 +10,6 @@ import 'package:tobeto_mobil/pages/catalog/catalog_body.dart';
 import 'package:tobeto_mobil/pages/catalog/catalog_category/catalog_search_bar.dart';
 import 'package:tobeto_mobil/pages/catalog/catalog_filter/catalog_filter_option/catalog_filter_option_body.dart';
 import 'package:tobeto_mobil/pages/catalog/catalog_filter/catalog_order_filter.dart';
-import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 
 class CatalogPage extends StatefulWidget {
   const CatalogPage({
@@ -22,20 +22,23 @@ class CatalogPage extends StatefulWidget {
 
 class _CatalogPageState extends State<CatalogPage> {
   bool _isKeyboardVisible = false;
+  late KeyboardVisibilityController controller;
 
   _CatalogPageState();
   @override
   void initState() {
     super.initState();
-    KeyboardVisibilityController().onChange.listen((bool visible) {
-      setState(() {
-        _isKeyboardVisible = visible;
-      });
-    });
+    controller = KeyboardVisibilityController();
   }
 
   @override
   Widget build(BuildContext context) {
+    controller.onChange.listen((onData) {
+      setState(() {
+        _isKeyboardVisible = onData;
+      });
+    });
+
     return GlobalScaffold(
       appBar: AppBar(
         title: CatalogSearchBar(

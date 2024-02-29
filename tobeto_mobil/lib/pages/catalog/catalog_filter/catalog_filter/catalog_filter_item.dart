@@ -1,9 +1,14 @@
+import 'package:tobeto_mobil/models/catalog/catalog_filter_option.dart';
+import 'package:tobeto_mobil/models/enums/catalog_category.dart';
+import 'package:tobeto_mobil/models/enums/catalog_education.dart';
+import 'package:tobeto_mobil/models/enums/catalog_language.dart';
+import 'package:tobeto_mobil/models/enums/catalog_level.dart';
+
 enum CatalogFilterItem {
   category,
   education,
   level,
-  language,
-  educator;
+  language;
 
   @override
   String toString() {
@@ -16,51 +21,19 @@ enum CatalogFilterItem {
         return "Seviye";
       case CatalogFilterItem.language:
         return "Yazılım Dili";
-      case CatalogFilterItem.educator:
-        return "Eğitmen";
     }
   }
 
-  List<String> toList() {
+  List<CatalogFilterOption> toList() {
     switch (this) {
       case CatalogFilterItem.category:
-        return [
-          "Tüm Eğitimler",
-          "Ücretli Eğitimler",
-          "Ücretsiz Eğitimler",
-        ];
+        return CatalogCategory.values;
       case CatalogFilterItem.education:
-        return [
-          "Tüm Eğitimler",
-          "Dijital Gelişim",
-          "Profesyonel Gelişim",
-        ];
+        return CatalogEducation.values;
       case CatalogFilterItem.level:
-        return [
-          "Tüm Seviyeler",
-          "Başlangıç",
-          "Orta",
-          "İleri",
-        ];
+        return CatalogLevel.values;
       case CatalogFilterItem.language:
-        return [
-          "Tüm Diller",
-          "Flutter",
-          "Swift",
-          "JavaScript",
-          "Java",
-          "C#",
-          "Sql",
-        ];
-      case CatalogFilterItem.educator:
-        return [
-          "Tüm Eğitmenler",
-          "Gürkan İlişen",
-          "Kader Yavuz",
-          "Ali Seyhan",
-          "Engin Demiroğ",
-          "Halit Enes Kalaycı",
-        ];
+        return CatalogLanguage.values;
     }
   }
 }

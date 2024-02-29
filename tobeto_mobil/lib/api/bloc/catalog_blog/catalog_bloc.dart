@@ -18,7 +18,8 @@ class CatalogBloc extends Bloc<CatalogEvent, CatalogState> {
   ) async {
     emit(const CatalogStateLoading());
     try {
-      final List<CatalogModel> catalogs = await _catalogService.getCatalog(event.sortBy);
+      final List<CatalogModel> catalogs =
+          await _catalogService.getCatalog(event.sortBy);
       emit(CatalogStateLoaded(catalogs));
     } catch (e) {
       emit(CatalogStateError(errorMessage: e.toString()));
@@ -31,7 +32,10 @@ class CatalogBloc extends Bloc<CatalogEvent, CatalogState> {
   ) async {
     emit(const CatalogStateLoading());
 
-    final catalogs = await _catalogService.getFilteredCatalog(event.sortBy, event.filter);
+    final catalogs = await _catalogService.getFilteredCatalog(
+      event.sortBy,
+      event.filter,
+    );
 
     emit(CatalogStateLoaded(catalogs));
   }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/constants/pages/catalog_text.dart';
+import 'package:tobeto_mobil/pages/catalog/catalog_filter/catalog_filter/catalog_filter_item.dart';
+import 'package:tobeto_mobil/utils/theme/theme_ios.dart';
 
 class CatalogFilterWidget extends StatelessWidget {
   const CatalogFilterWidget({
@@ -13,7 +15,15 @@ class CatalogFilterWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       flex: 3,
-      child: InkWell(
+      child: GestureDetector(
+        onTap: () {
+          showModalBottomSheet<void>(
+            context: context,
+            builder: (BuildContext context) {
+              return buildOrderBottomSheet();
+            },
+          );
+        },
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -37,7 +47,35 @@ class CatalogFilterWidget extends StatelessWidget {
             ),
           ],
         ),
-        onTap: () {},
+      ),
+    );
+  }
+
+  Widget buildOrderBottomSheet() {
+    const itemList = CatalogFilterItem.values;
+
+    return Material(
+      color: TobetoLightColors.krem,
+      borderRadius: BorderRadius.circular(16),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: itemList.map((item) {
+          return ListTile(
+            onTap: () {
+              // context.read<CatalogBloc>().add(
+              //       CatalogEventFetchFiltered(filter: Filter(
+              //         item.name,
+              //         isEqualTo: item.name,
+              //       )),
+              //     );
+              Navigator.of(context).pop();
+            },
+            title: Text(
+              item.toString(),
+              textAlign: TextAlign.center,
+            ),
+          );
+        }).toList(),
       ),
     );
   }

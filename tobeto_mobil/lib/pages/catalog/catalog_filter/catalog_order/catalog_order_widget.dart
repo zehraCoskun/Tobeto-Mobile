@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tobeto_mobil/api/bloc/catalog_blog/catalog_bloc.dart';
+import 'package:tobeto_mobil/api/bloc/catalog_blog/catalog_event.dart';
 import 'package:tobeto_mobil/constants/pages/catalog_text.dart';
+import 'package:tobeto_mobil/models/catalog/sort_by.dart';
 import 'package:tobeto_mobil/pages/catalog/catalog_filter/catalog_order/catalog_order_item.dart';
 import 'package:tobeto_mobil/utils/theme/theme_ios.dart';
 
@@ -16,6 +20,7 @@ class CatalogOrderWidget extends StatefulWidget {
 
 class _CatalogOrderWidgetState extends State<CatalogOrderWidget> {
   String? selectedItem;
+  
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -102,9 +107,20 @@ class _CatalogOrderWidgetState extends State<CatalogOrderWidget> {
         mainAxisSize: MainAxisSize.min,
         children: itemList.map((item) {
           return ListTile(
-              onTap: () {},
-              leading: const Icon(Icons.radio_button_off_outlined),
-              title: Text(item.toString()));
+            onTap: () {
+              context.read<CatalogBloc>().add(CatalogEventFetch(
+                  sortBy: SortBy(
+                      field: CatalogFields.values.firstWhere(
+                        (element) => element.field == item.field,
+                      ),
+                      ascending: true)));
+              Navigator.of(context).pop();
+            },
+            title: Text(
+              item.toString(),
+              textAlign: TextAlign.center,
+            ),
+          );
         }).toList(),
       ),
     );

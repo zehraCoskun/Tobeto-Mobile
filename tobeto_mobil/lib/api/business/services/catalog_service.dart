@@ -53,14 +53,14 @@ void _sort(SortBy sort, List<CatalogModel> catalogs) {
     case CatalogFields.startDate:
       catalogs.sort((a, b) => a.startDate.compareTo(b.startDate));
     case CatalogFields.language:
-      catalogs.sort((a, b) => a.language.compareTo(b.language));
+      catalogs.sort((a, b) => a.language.name.compareTo(b.language.name));
     case CatalogFields.category:
-      catalogs.sort((a, b) => a.category.compareTo(b.category));
+      catalogs.sort((a, b) => a.category.name.compareTo(b.category.name));
     case CatalogFields.education:
-      catalogs.sort((a, b) => a.education.compareTo(b.education));
+      catalogs.sort((a, b) => a.education.name.compareTo(b.education.name));
     case CatalogFields.level:
-      catalogs.sort((a, b) => a.level.compareTo(b.level));
+      catalogs.sort((a, b) => a.level.name.compareTo(b.level.name));
     case CatalogFields.trainer:
-      catalogs.sort((a, b) => a.trainer.compareTo(b.level));
+      catalogs.sort((a, b) => a.trainer.compareTo(b.trainer));
   }
 }

@@ -1,4 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tobeto_mobil/api/bloc/catalog_blog/catalog_bloc.dart';
+import 'package:tobeto_mobil/api/bloc/catalog_blog/catalog_event.dart';
+import 'package:tobeto_mobil/models/catalog/catalog_filter_option.dart';
 import 'package:tobeto_mobil/pages/catalog/catalog_filter/catalog_filter/catalog_filter_item.dart';
 import 'package:tobeto_mobil/utils/theme/theme_ios.dart';
 
@@ -8,7 +13,8 @@ class CatalogFilterOptionWidget extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<CatalogFilterOptionWidget> createState() => _CatalogFilterOptionWidgetState();
+  State<CatalogFilterOptionWidget> createState() =>
+      _CatalogFilterOptionWidgetState();
 }
 
 class _CatalogFilterOptionWidgetState extends State<CatalogFilterOptionWidget> {
@@ -32,7 +38,8 @@ class _CatalogFilterOptionWidgetState extends State<CatalogFilterOptionWidget> {
     );
   }
 
-  Widget buildFilterItem(CatalogFilterItem catalogFilterItem, BuildContext context) {
+  Widget buildFilterItem(
+      CatalogFilterItem catalogFilterItem, BuildContext context) {
     return GestureDetector(
       onTap: () {
         showModalBottomSheet<void>(
@@ -66,7 +73,7 @@ class _CatalogFilterOptionWidgetState extends State<CatalogFilterOptionWidget> {
   }
 
   Widget buildBottomSheet(CatalogFilterItem catalogFilterItem) {
-    List<String> itemList = catalogFilterItem.toList();
+    List<CatalogFilterOption> itemList = catalogFilterItem.toList();
 
     return Material(
       color: TobetoLightColors.krem,
@@ -75,23 +82,20 @@ class _CatalogFilterOptionWidgetState extends State<CatalogFilterOptionWidget> {
         mainAxisSize: MainAxisSize.min,
         children: itemList.map((item) {
           return ListTile(
-            title: Row(
-              children: [
-                Radio<String>(
-                  value: item,
-                  groupValue: selectedItem,
-                  onChanged: (value) {
-                    setState(() {
-                      selectedItem = value;
-                      //burada filtrelemeyi de yapması lazım
-                    });
-                    Navigator.pop(context);
-                  },
-                ),
-                Expanded(
-                  child: Text(item),
-                ),
-              ],
+            onTap: () {
+              if (item.title == "all") {
+                context.read<CatalogBloc>().add(const CatalogEventFetch());
+              }
+              context.read<CatalogBloc>().add(
+                    CatalogEventFetchFiltered(
+                        filter: Filter(catalogFilterItem.name,
+                            isEqualTo: item.title)),
+                  );
+              Navigator.of(context).pop();
+            },
+            title: Text(
+              item.title.toString(),
+              textAlign: TextAlign.center,
             ),
           );
         }).toList(),
