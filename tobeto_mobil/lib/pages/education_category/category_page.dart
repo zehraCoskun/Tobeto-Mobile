@@ -10,6 +10,7 @@ import 'package:tobeto_mobil/pages/home/education_view/education_category/educat
 class CategoryPage extends StatelessWidget {
   const CategoryPage({super.key, required this.category});
   final EducationCategoryItem category;
+  
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size.height;

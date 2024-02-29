@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:tobeto_mobil/constants/route_names.dart';
 import 'package:tobeto_mobil/core/widgets/shadows.dart';
 import 'package:tobeto_mobil/models/education/education_model.dart';
 
@@ -15,7 +16,7 @@ class EducationCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () => Navigator.of(context).pushNamed(
-        "/details",
+        Routes.EDUCATIONDETAILS,
         arguments: education,
       ),
       child: AspectRatio(

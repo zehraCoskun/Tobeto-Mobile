@@ -87,10 +87,6 @@ final androidLightTheme = ThemeData(
     backgroundColor: TobetoLightColors.beyaz,
   ),
 
-  dividerTheme: DividerThemeData(
-    color: TobetoLightColors.siyah,
-  ),
-
   cardTheme: CardTheme(
     color: TobetoLightColors.krem,
   ),
@@ -221,15 +217,11 @@ final androidDarkTheme = ThemeData(
 
   //Icon Ayarlari
   iconTheme: IconThemeData(
-    color: TobetoDarkColors.lacivert,
+    color: TobetoDarkColors.krem,
   ),
 
   bottomSheetTheme: BottomSheetThemeData(
     backgroundColor: TobetoDarkColors.lacivert,
-  ),
-
-  dividerTheme: DividerThemeData(
-    color: TobetoDarkColors.beyaz,
   ),
 
   cardTheme: CardTheme(

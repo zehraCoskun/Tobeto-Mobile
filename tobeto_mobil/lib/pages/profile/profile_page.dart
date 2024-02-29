@@ -108,7 +108,10 @@ class ProfilePage extends StatelessWidget {
           final userBloc = context.read<UserBloc>();
           pickFile(auth.user.uid, userBloc);
         },
-        child: Icon(Icons.add, color: Theme.of(context).iconTheme.copyWith(color: TobetoDarkColors.lacivert).color),
+        child: Icon(
+          Icons.add,
+          color: TobetoDarkColors.lacivert,
+        ),
       ),
       child: CertificatesListWidget(
         certificates: certificates,
@@ -135,7 +138,10 @@ class ProfilePage extends StatelessWidget {
             },
           );
         },
-        child: Icon(Icons.add, color: Theme.of(context).iconTheme.copyWith(color: TobetoDarkColors.lacivert).color),
+        child: Icon(
+          Icons.add,
+          color: TobetoDarkColors.lacivert,
+        ),
       ),
       child: TalentListWidget(
         talents: talents,

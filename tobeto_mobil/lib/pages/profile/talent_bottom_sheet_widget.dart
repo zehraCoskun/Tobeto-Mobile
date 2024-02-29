@@ -74,7 +74,9 @@ class _TalentBottomSheetWidgetState extends State<TalentBottomSheetWidget> {
             ],
           ),
           Divider(
-            color: Theme.of(context).dividerTheme.color,
+            color: MediaQuery.of(context).platformBrightness == Brightness.dark
+                ? TobetoLightColors.beyaz
+                : TobetoDarkColors.siyah,
             height: 10,
           ),
           Expanded(
@@ -103,7 +105,9 @@ class _TalentBottomSheetWidgetState extends State<TalentBottomSheetWidget> {
   }
 
   Color buildColor(TalentItem item) {
-    if (widget.data != null && widget.data!.contains(item) && itemsToAdd.contains(item)) {
+    if (widget.data != null &&
+        widget.data!.contains(item) &&
+        itemsToAdd.contains(item)) {
       return TobetoLightColors.yesil;
     }
     if (itemsToAdd.contains(item)) {

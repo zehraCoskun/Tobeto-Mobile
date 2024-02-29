@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tobeto_mobil/constants/route_names.dart';
 import 'package:tobeto_mobil/core/widgets/container_widget.dart';
 import 'package:tobeto_mobil/pages/home/education_view/education_category/education_category_item.dart';
 
@@ -6,7 +7,8 @@ class EducationCategoryHeader extends StatelessWidget {
   const EducationCategoryHeader({
     Key? key,
     required this.title,
-    this.isDown = true, required this.category,
+    this.isDown = true,
+    required this.category,
   }) : super(key: key);
 
   final String title;
@@ -21,7 +23,9 @@ class EducationCategoryHeader extends StatelessWidget {
         padding: EdgeInsets.zero,
         child: ListTile(
           leading: Icon(
-            isDown ? Icons.keyboard_arrow_right_outlined : Icons.keyboard_arrow_down_outlined,
+            isDown
+                ? Icons.keyboard_arrow_right_outlined
+                : Icons.keyboard_arrow_down_outlined,
             color: Theme.of(context).iconTheme.color,
           ),
           title: Text(
@@ -36,7 +40,10 @@ class EducationCategoryHeader extends StatelessWidget {
               color: Theme.of(context).iconTheme.color,
             ),
             onPressed: () {
-              Navigator.of(context).pushNamed("/category", arguments: category);
+              Navigator.of(context).pushNamed(
+                Routes.CATEGORY,
+                arguments: category,
+              );
             },
           ),
         ),
