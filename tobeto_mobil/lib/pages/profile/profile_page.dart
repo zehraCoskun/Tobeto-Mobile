@@ -32,6 +32,7 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: const BackButton(),
         centerTitle: true,
         title: Image.asset(
           logo,

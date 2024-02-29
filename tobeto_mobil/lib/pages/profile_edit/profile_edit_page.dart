@@ -140,7 +140,7 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
       ),
       ProfileEditFormDateField(
         initialValue: user?.birthDate,
-        onSaved: (value) {},
+        onSaved: (value) => request.birthDate = DateTime.tryParse(value!),
       ),
       ProfileEditFormField(
         initialValue: user?.email,
@@ -199,6 +199,7 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
     }
 
     _formKey.currentState!.save();
+
     context.read<UserBloc>().add(
           UserEventUpdate(request: request),
         );

@@ -7,42 +7,46 @@ class DateFieldWidget extends StatefulWidget {
     Key? key,
     this.initialValue,
     required this.onSaved,
+    this.formKey,
   }) : super(key: key);
 
+  final GlobalKey? formKey;
   final DateTime? initialValue;
-  final void Function(DateTime? value) onSaved;
+  final void Function(String? value) onSaved;
 
   @override
   State<DateFieldWidget> createState() => _DateFieldWidgetState();
 }
 
 class _DateFieldWidgetState extends State<DateFieldWidget> {
-  late DateTime? _selectedDate;
+  late TextEditingController controller;
 
   @override
   void initState() {
     super.initState();
-    _selectedDate = widget.initialValue;
-  }
-
-  void onSaved() {
-    widget.onSaved(_selectedDate);
+    controller = TextEditingController();
+    controller.text = widget.initialValue == null
+        ? "Doğum Tarihi"
+        : widget.initialValue.toString();
   }
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 4),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(
-            _selectedDate != null
-                ? DateFormat('dd/MM/yyyy').format(_selectedDate!)
-                : "Doğum Tarihi",
-            style: Theme.of(context).textTheme.bodyLarge,
-          ),
-          IconButton(
+      child: TextFormField(
+        key: widget.formKey,
+        readOnly: true,
+        controller: controller,
+        onSaved: widget.onSaved,
+        decoration: InputDecoration(
+          border: InputBorder.none,
+          errorBorder: InputBorder.none,
+          enabledBorder: InputBorder.none,
+          focusedBorder: InputBorder.none,
+          disabledBorder: InputBorder.none,
+          focusedErrorBorder: InputBorder.none,
+          suffixIcon: IconButton(
             onPressed: () {
               _selectDate(context);
             },
@@ -51,15 +55,15 @@ class _DateFieldWidgetState extends State<DateFieldWidget> {
               color: TobetoDarkColors.lacivert,
             ),
           ),
-        ],
+        ),
       ),
     );
   }
 
   Future<void> _selectDate(BuildContext context) async {
-    final DateTime? picked = await showDatePicker(
+    final date = await showDatePicker(
       context: context,
-      initialDate: _selectedDate,
+      initialDate: DateTime.tryParse(controller.text),
       firstDate: DateTime.now().subtract(
         const Duration(days: 36500),
       ), // 100 yıl önce
@@ -71,10 +75,9 @@ class _DateFieldWidgetState extends State<DateFieldWidget> {
         );
       },
     );
-    if (picked != null && picked != _selectedDate) {
-      setState(() {
-        _selectedDate = picked;
-      });
+
+    if (date != null) {
+      controller.text = DateFormat('dd/MM/yyyy').format(date);
     }
   }
 }

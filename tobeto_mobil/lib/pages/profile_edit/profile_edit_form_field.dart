@@ -10,16 +10,16 @@ class ProfileEditFormField extends StatelessWidget {
     this.validator,
     this.onSaved,
     this.onChanged,
-    this.child,
+    this.suffixIcon,
   }) : super(key: key);
 
   final String? initialValue;
   final Widget? label;
   final Widget? icon;
+  final Widget? suffixIcon;
   final String? Function(String? value)? validator;
   final void Function(String? value)? onSaved;
   final void Function(String newValue)? onChanged;
-  final Widget? child;
 
   @override
   Widget build(BuildContext context) {
@@ -33,17 +33,17 @@ class ProfileEditFormField extends StatelessWidget {
           containerBasicShadow(),
         ],
       ),
-      child: child ??
-          TextFormField(
-            initialValue: initialValue,
-            decoration: InputDecoration(
-              label: label,
-              icon: icon,
-            ),
-            validator: validator,
-            onSaved: onSaved,
-            onChanged: onChanged,
-          ),
+      child: TextFormField(
+        initialValue: initialValue,
+        decoration: InputDecoration(
+          label: label,
+          icon: icon,
+          suffixIcon: suffixIcon,
+        ),
+        validator: validator,
+        onSaved: onSaved,
+        onChanged: onChanged,
+      ),
     );
   }
 }
