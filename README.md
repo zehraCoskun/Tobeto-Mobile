@@ -67,7 +67,9 @@ Lütfen bu projenin `davranış kurallarına` uyun.
   
 ## Ekran Görüntüleri
 
-![Gif yüklenemedi](tobeto_mobil/assets/readme/login.gif)
+<img src="tobeto_mobil/assets/readme/login.gif" alt="App Icon" width="200" height="400">
+<img src="tobeto_mobil/assets/readme/main_page.png" alt="App Icon" width="200" height="400">
+
 
   
 

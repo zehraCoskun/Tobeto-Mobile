@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
@@ -104,7 +103,7 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
     } else {
       widget = Icon(
         Icons.person,
-        color: Theme.of(context).iconTheme.color,
+        color: Theme.of(context).iconTheme.copyWith(color: TobetoDarkColors.lacivert).color,
         size: 120,
       );
     }

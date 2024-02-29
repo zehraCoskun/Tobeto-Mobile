@@ -71,6 +71,18 @@ final iosLightTheme = ThemeData(
     backgroundColor: TobetoLightColors.krem,
   ),
 
+  bottomSheetTheme: BottomSheetThemeData(
+    backgroundColor: TobetoLightColors.beyaz,
+  ),
+
+  dividerTheme: DividerThemeData(
+    color: TobetoLightColors.krem,
+  ),
+
+  cardTheme: CardTheme(
+    color: TobetoLightColors.krem,
+  ),
+
   //ElevatedButton Ayarlari
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ButtonStyle(
@@ -180,10 +192,21 @@ final iosDarkTheme = ThemeData(
   ),
   //IconButton Ayarları
   iconButtonTheme: IconButtonThemeData(style: ButtonStyle(iconColor: MaterialStatePropertyAll(TobetoDarkColors.krem))),
-  iconTheme: IconThemeData(color: TobetoDarkColors.lacivert),
+  iconTheme: IconThemeData(color: TobetoDarkColors.krem),
   //Drawer ayarları
   drawerTheme: DrawerThemeData(
     backgroundColor: TobetoDarkColors.lacivert,
+  ),
+  bottomSheetTheme: BottomSheetThemeData(
+    backgroundColor: TobetoDarkColors.krem,
+  ),
+
+  dividerTheme: DividerThemeData(
+    color: TobetoDarkColors.lacivert,
+  ),
+
+  cardTheme: CardTheme(
+    color: TobetoDarkColors.lacivert,
   ),
 
   //ElevatedButton Ayarları

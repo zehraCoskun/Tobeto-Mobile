@@ -23,6 +23,7 @@ import 'package:tobeto_mobil/pages/profile/profile_container/social_media/social
 import 'package:tobeto_mobil/pages/profile/profile_container/talents/talent_list_widget.dart';
 import 'package:tobeto_mobil/pages/profile/profile_header.dart';
 import 'package:tobeto_mobil/core/widgets/drawer/drawer_widget.dart';
+import 'package:tobeto_mobil/utils/theme/theme_ios.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({
@@ -107,10 +108,7 @@ class ProfilePage extends StatelessWidget {
           final userBloc = context.read<UserBloc>();
           pickFile(auth.user.uid, userBloc);
         },
-        child: Icon(
-          Icons.add,
-          color: Theme.of(context).iconTheme.color,
-        ),
+        child: Icon(Icons.add, color: Theme.of(context).iconTheme.copyWith(color: TobetoDarkColors.lacivert).color),
       ),
       child: CertificatesListWidget(
         certificates: certificates,
@@ -137,10 +135,7 @@ class ProfilePage extends StatelessWidget {
             },
           );
         },
-        child: Icon(
-          Icons.add,
-          color: Theme.of(context).iconTheme.color,
-        ),
+        child: Icon(Icons.add, color: Theme.of(context).iconTheme.copyWith(color: TobetoDarkColors.lacivert).color),
       ),
       child: TalentListWidget(
         talents: talents,

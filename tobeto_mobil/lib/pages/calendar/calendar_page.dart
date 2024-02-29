@@ -25,7 +25,7 @@ class CalendarPage extends StatelessWidget {
       create: (context) => CalendarBloc(CalendarService.instance()),
       child: Scaffold(
         appBar: AppBar(
-          actions: buildAppBarActions(userState),
+          actions: buildAppBarActions(userState, context),
         ),
         drawer: CalendarDrawer(calendarController: calendarController),
         body: BlocBuilder<CalendarBloc, CalendarState>(
@@ -86,20 +86,17 @@ class CalendarPage extends StatelessWidget {
     );
   }
 
-  List<Widget> buildAppBarActions(UserState state) {
+  List<Widget> buildAppBarActions(UserState state, BuildContext context) {
     return [
       IconButton(
         onPressed: () {},
         icon: const Icon(Icons.search),
       ),
-      if (state is UserStateFetched)
-        buildUserAvatar(state.userModel.imageUrl)
-      else
-        buildUserAvatar(null)
+      if (state is UserStateFetched) buildUserAvatar(state.userModel.imageUrl, context) else buildUserAvatar(null, context)
     ];
   }
 
-  Widget buildUserAvatar(String? imageUrl) {
+  Widget buildUserAvatar(String? imageUrl, BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(right: 8),
       child: GestureDetector(
@@ -108,7 +105,7 @@ class CalendarPage extends StatelessWidget {
                 radius: 18,
                 backgroundImage: NetworkImage(imageUrl),
               )
-            : const Icon(Icons.person, size: 36),
+            : Icon(Icons.person, size: 36, color: Theme.of(context).iconTheme.color),
       ),
     );
   }
