@@ -169,6 +169,7 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
             height: 32,
             width: 32,
           ),
+          onSaved: (value) => saveSocial(item, value),
         );
       }),
     ];
@@ -204,6 +205,26 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
           UserEventUpdate(request: request),
         );
     Navigator.of(context).pop();
+  }
+
+  void saveSocial(SocialMediaItem item, String? value) {
+    if (value == null || value.isEmpty) return;
+    
+    if (!value.startsWith("https://")) {
+      value = "https://$value";
+    }
+    switch (item) {
+      case SocialMediaItem.facebook:
+        request.facebook = value;
+      case SocialMediaItem.github:
+        request.github = value;
+      case SocialMediaItem.instagram:
+        request.instagram = value;
+      case SocialMediaItem.linkedin:
+        request.linkedin = value;
+      case SocialMediaItem.twitter:
+        request.twitter = value;
+    }
   }
 
   void _pickImage() async {
