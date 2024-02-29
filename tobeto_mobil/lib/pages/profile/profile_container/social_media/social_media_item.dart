@@ -25,6 +25,21 @@ enum SocialMediaItem {
     }
   }
 
+  String toHint() {
+    switch (this) {
+      case SocialMediaItem.github:
+        return "github.com/example";
+      case SocialMediaItem.linkedin:
+        return "linkedin.com/in/example";
+      case SocialMediaItem.facebook:
+        return "facebook.com/example";
+      case SocialMediaItem.twitter:
+        return "twitter.com/example";
+      case SocialMediaItem.instagram:
+        return "instagram.com/example";
+    }
+  }
+
   String? toValue(UserModel? user) {
     if (user == null) return null;
 

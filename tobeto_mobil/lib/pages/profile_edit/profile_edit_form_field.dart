@@ -6,6 +6,7 @@ class ProfileEditFormField extends StatelessWidget {
     Key? key,
     this.initialValue,
     this.label,
+    this.hintText,
     this.icon,
     this.validator,
     this.onSaved,
@@ -15,6 +16,7 @@ class ProfileEditFormField extends StatelessWidget {
 
   final String? initialValue;
   final Widget? label;
+  final String? hintText;
   final Widget? icon;
   final Widget? suffixIcon;
   final String? Function(String? value)? validator;
@@ -37,6 +39,7 @@ class ProfileEditFormField extends StatelessWidget {
         initialValue: initialValue,
         decoration: InputDecoration(
           label: label,
+          hintText: hintText,
           icon: icon,
           suffixIcon: suffixIcon,
         ),

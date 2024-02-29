@@ -164,6 +164,7 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
           label: Text(
             item.toString(),
           ),
+          hintText: item.toHint(),
           icon: Image.asset(
             item.toIcon(),
             height: 32,
@@ -209,7 +210,7 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
 
   void saveSocial(SocialMediaItem item, String? value) {
     if (value == null || value.isEmpty) return;
-    
+
     if (!value.startsWith("https://")) {
       value = "https://$value";
     }
