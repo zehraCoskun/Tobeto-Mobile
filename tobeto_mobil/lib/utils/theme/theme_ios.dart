@@ -46,7 +46,7 @@ final iosLightTheme = ThemeData(
     headlineSmall: TextStyle(color: TobetoLightColors.acikSiyah, letterSpacing: 1.0, fontWeight: FontWeight.w700),
     headlineMedium: TextStyle(color: TobetoLightColors.mor, fontSize: 30, fontWeight: FontWeight.w700),
     titleSmall: TextStyle(color: TobetoLightColors.lacivert),
-    titleMedium: TextStyle(color: TobetoLightColors.lacivert), 
+    titleMedium: TextStyle(color: TobetoLightColors.lacivert),
     titleLarge: TextStyle(
       color: TobetoLightColors.lacivert,
       fontWeight: FontWeight.bold,
@@ -64,7 +64,8 @@ final iosLightTheme = ThemeData(
         backgroundColor: MaterialStatePropertyAll(Colors.transparent), textStyle: MaterialStatePropertyAll(TextStyle(fontWeight: FontWeight.bold))),
   ),
   //IconButton Ayarları
-  iconButtonTheme: IconButtonThemeData(style: ButtonStyle(iconColor: MaterialStatePropertyAll(TobetoLightColors.mor))),
+  iconButtonTheme: IconButtonThemeData(style: ButtonStyle(iconColor: MaterialStatePropertyAll(TobetoLightColors.lacivert))),
+  iconTheme: IconThemeData(color: TobetoLightColors.lacivert),
   //Drawer Ayarları
   drawerTheme: DrawerThemeData(
     backgroundColor: TobetoLightColors.krem,
@@ -179,6 +180,7 @@ final iosDarkTheme = ThemeData(
   ),
   //IconButton Ayarları
   iconButtonTheme: IconButtonThemeData(style: ButtonStyle(iconColor: MaterialStatePropertyAll(TobetoDarkColors.krem))),
+  iconTheme: IconThemeData(color: TobetoDarkColors.lacivert),
   //Drawer ayarları
   drawerTheme: DrawerThemeData(
     backgroundColor: TobetoDarkColors.lacivert,
