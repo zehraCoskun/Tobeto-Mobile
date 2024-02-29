@@ -12,7 +12,7 @@ import 'package:tobeto_mobil/api/business/requests/user_requests/user_update_req
 import 'package:tobeto_mobil/constants/image_text.dart';
 import 'package:tobeto_mobil/constants/pages/profile_text.dart';
 import 'package:tobeto_mobil/core/widgets/background/secondary_background.dart';
-import 'package:tobeto_mobil/models/user/talent_model.dart';
+import 'package:tobeto_mobil/models/enums/talent_item.dart';
 import 'package:tobeto_mobil/models/user/user_model.dart';
 import 'package:tobeto_mobil/pages/profile/profile_container/social_media/social_media_item.dart';
 import 'package:tobeto_mobil/pages/profile_edit/profile_edit_bottom_sheet.dart';
@@ -176,7 +176,7 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
 
   Future<dynamic> profileEditBottomSheet(
     BuildContext context,
-    List<TalentModel>? talents,
+    List<TalentItem>? talents,
   ) {
     return showModalBottomSheet(
       context: context,

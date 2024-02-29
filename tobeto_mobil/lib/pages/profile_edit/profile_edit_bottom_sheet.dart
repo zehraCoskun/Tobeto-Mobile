@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/core/widgets/shadows.dart';
-import 'package:tobeto_mobil/models/user/talent_model.dart';
+import 'package:tobeto_mobil/models/enums/talent_item.dart';
 import 'package:tobeto_mobil/utils/theme/theme_ios.dart';
 
 class ProfileEditBottomSheet extends StatelessWidget {
@@ -9,7 +9,7 @@ class ProfileEditBottomSheet extends StatelessWidget {
     this.talents,
   }) : super(key: key);
 
-  final List<TalentModel>? talents;
+  final List<TalentItem>? talents;
 
   @override
   Widget build(BuildContext context) {

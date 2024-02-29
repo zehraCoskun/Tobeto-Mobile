@@ -49,4 +49,8 @@ class StorageRepository {
   Future<String?> getFile(String url) async {
     return await _firebaseStorage.refFromURL(url).getDownloadURL();
   }
+
+  Reference getFileReference(String url) {
+    return _firebaseStorage.refFromURL(url);
+  }
 }

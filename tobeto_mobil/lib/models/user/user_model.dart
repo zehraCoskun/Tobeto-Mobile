@@ -1,9 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:tobeto_mobil/core/models/entity.dart';
 import 'package:tobeto_mobil/models/enums/classroom.dart';
+import 'package:tobeto_mobil/models/enums/talent_item.dart';
 import 'package:tobeto_mobil/models/user/badge_model.dart';
 import 'package:tobeto_mobil/models/user/certificate_model.dart';
-import 'package:tobeto_mobil/models/user/talent_model.dart';
 
 class UserModel extends Entity {
   final String? fullName;
@@ -14,7 +14,7 @@ class UserModel extends Entity {
 
   final Classroom? classroom;
 
-  final List<TalentModel>? talents;
+  final List<TalentItem>? talents;
   final List<CertificateModel>? certificates;
   final List<BadgeModel>? badges;
 
@@ -50,7 +50,8 @@ class UserModel extends Entity {
       phoneNumber: map["phone_number"] as String?,
       classroom: Classroom.getClassroom(map["classroom"] as String?),
       talents: (map["talents"] as List<dynamic>?)
-          ?.map((talent) => TalentModel.fromMap(talent))
+          ?.map((talent) =>
+              TalentItem.values.firstWhere((element) => element.name == talent))
           .toList(),
       certificates: (map["certificates"] as List<dynamic>?)
           ?.map((certificate) => CertificateModel.fromMap(certificate))
@@ -87,7 +88,7 @@ class UserModel extends Entity {
       "image_url": imageUrl,
       "phone_number": phoneNumber,
       "classroom": classroom,
-      "talents": talents?.map((talent) => talent.toMap()),
+      "talents": talents?.map((talent) => talent.name),
       "certificates": certificates?.map((certificate) => certificate.toMap()),
       "badges": badges?.map((badge) => badge.toMap()),
       "github": github,

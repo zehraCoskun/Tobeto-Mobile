@@ -36,7 +36,7 @@ class FormWidget extends StatelessWidget {
       decoration: InputDecoration(
         prefixIconColor: Theme.of(context).inputDecorationTheme.prefixIconColor,
         prefixIcon: prefixIcon,
-        labelText: labelText, //placeholder
+        labelText: labelText,
         hintText: hintText,
         suffixIconColor: Theme.of(context).inputDecorationTheme.suffixIconColor,
         suffixIcon: suffixIcon,

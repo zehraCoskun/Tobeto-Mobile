@@ -80,7 +80,19 @@ final androidLightTheme = ThemeData(
 
   //Icon Ayarlari
   iconTheme: IconThemeData(
-    color: TobetoDarkColors.siyah,
+    color: TobetoLightColors.siyah,
+  ),
+
+  bottomSheetTheme: BottomSheetThemeData(
+    backgroundColor: TobetoLightColors.beyaz,
+  ),
+
+  dividerTheme: DividerThemeData(
+    color: TobetoLightColors.siyah,
+  ),
+
+  cardTheme: CardTheme(
+    color: TobetoLightColors.krem,
   ),
 
   //Drawer Ayarları
@@ -210,6 +222,18 @@ final androidDarkTheme = ThemeData(
   //Icon Ayarlari
   iconTheme: IconThemeData(
     color: TobetoDarkColors.lacivert,
+  ),
+
+  bottomSheetTheme: BottomSheetThemeData(
+    backgroundColor: TobetoDarkColors.lacivert,
+  ),
+
+  dividerTheme: DividerThemeData(
+    color: TobetoDarkColors.beyaz,
+  ),
+
+  cardTheme: CardTheme(
+    color: TobetoDarkColors.siyah,
   ),
 
   //Drawer ayarları

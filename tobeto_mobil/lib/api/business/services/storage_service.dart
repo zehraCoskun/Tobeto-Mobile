@@ -31,4 +31,8 @@ class StorageService {
   Future<void> deleteFile(String url) async {
     await _storageRepository.deleteFile(url);
   }
+
+  Reference getFileReference(String url) {
+    return _storageRepository.getFileReference(url);
+  }
 }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tobeto_mobil/models/user/talent_model.dart';
+import 'package:tobeto_mobil/models/enums/talent_item.dart';
 import 'package:tobeto_mobil/pages/profile/profile_container/contents_widget.dart';
 
 class TalentListWidget extends StatelessWidget {
@@ -8,7 +8,7 @@ class TalentListWidget extends StatelessWidget {
     required this.talents,
   });
 
-  final List<TalentModel>? talents;
+  final List<TalentItem>? talents;
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
@@ -19,7 +19,7 @@ class TalentListWidget extends StatelessWidget {
         itemBuilder: (context, index) {
           return ContentsWidget(
             child: Text(
-               talents![index].name,
+               talents![index].toString(),
                style: Theme.of(context).textTheme.bodyLarge,
             ),
           );

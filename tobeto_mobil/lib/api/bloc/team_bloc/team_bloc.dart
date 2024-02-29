@@ -7,10 +7,10 @@ import 'package:tobeto_mobil/models/team_model.dart';
 class TeamBloc extends Bloc<TeamEvent, TeamState> {
   final TeamService _teamService;
   TeamBloc(this._teamService) : super(const TeamStateInitial()) {
-    on<TeamEventFetch>((event, emit) => _onFetchExams(event, emit));
+    on<TeamEventFetch>((event, emit) => _onFetchTeams(event, emit));
   }
 
-  Future<void> _onFetchExams(TeamEventFetch event, Emitter<TeamState> emit) async {
+  Future<void> _onFetchTeams(TeamEventFetch event, Emitter<TeamState> emit) async {
     emit(const TeamStateLoading(isLoading: false));
     try {
       final List<TeamModel> teams = await _teamService.getAllTeam();

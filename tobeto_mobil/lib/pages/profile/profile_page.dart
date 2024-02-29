@@ -12,8 +12,9 @@ import 'package:tobeto_mobil/api/business/requests/user_requests/user_update_req
 import 'package:tobeto_mobil/constants/image_text.dart';
 import 'package:tobeto_mobil/constants/route_names.dart';
 import 'package:tobeto_mobil/core/widgets/background/secondary_background.dart';
+import 'package:tobeto_mobil/pages/profile/talent_bottom_sheet_widget.dart';
+import 'package:tobeto_mobil/models/enums/talent_item.dart';
 import 'package:tobeto_mobil/models/user/certificate_model.dart';
-import 'package:tobeto_mobil/models/user/talent_model.dart';
 import 'package:tobeto_mobil/pages/profile/profile_container/badge/badges_list_widget.dart';
 import 'package:tobeto_mobil/pages/profile/profile_container/certificate/certificates_list_widget.dart';
 import 'package:tobeto_mobil/pages/profile/profile_container/personal_info/personal_info_column_widget.dart';
@@ -119,12 +120,23 @@ class ProfilePage extends StatelessWidget {
 
   Widget buildTalentField(
     BuildContext context,
-    List<TalentModel>? talents,
+    List<TalentItem>? talents,
   ) {
     return ProfileContainer(
       title: "Yetkinliklerim",
       trailing: GestureDetector(
-        onTap: () {},
+        onTap: () async {
+          showModalBottomSheet(
+            context: context,
+            backgroundColor: Theme.of(context).bottomSheetTheme.backgroundColor,
+            builder: (context) {
+              return TalentBottomSheetWidget(
+                title: "Yetenek Ekle",
+                data: talents,
+              );
+            },
+          );
+        },
         child: Icon(
           Icons.add,
           color: Theme.of(context).iconTheme.color,
