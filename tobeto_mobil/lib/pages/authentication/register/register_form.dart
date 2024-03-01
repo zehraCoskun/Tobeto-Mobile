@@ -46,21 +46,23 @@ class _RegisterFormState extends State<RegisterForm> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
 
-    return Form(
-      key: _formKey,
-      child: SizedBox(
-        width: size.width < 700 ? size.width * 0.9 : 700,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            buildNameField(),
-            buildSurnameField(),
-            buildEmailField(),
-            buildPasswordField(),
-            buildRepeatPasswordField(),
-            buildRegisterButton(),
-          ],
-        ).seperated(height: 10),
+    return Center(
+      child: Form(
+        key: _formKey,
+        child: SizedBox(
+          width: size.width < 700 ? size.width * 0.8 : 700,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              buildNameField(),
+              buildSurnameField(),
+              buildEmailField(),
+              buildPasswordField(),
+              buildRepeatPasswordField(),
+              buildRegisterButton(),
+            ],
+          ).seperated(height: 10),
+        ),
       ),
     );
   }

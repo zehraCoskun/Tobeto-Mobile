@@ -88,7 +88,11 @@ class ProfilePage extends StatelessWidget {
                   ],
                 );
               }
-              return Container();
+              return const SizedBox(
+                child: Center(
+                  child: CircularProgressIndicator(),
+                ),
+              );
             },
           ),
         ),

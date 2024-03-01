@@ -12,7 +12,7 @@ enum CatalogLevel implements CatalogFilterOption {
   }
 
   @override
-  String toString() {
+  String get displayName {
     switch (this) {
       case CatalogLevel.all:
         return "Tüm Seviyeler";

@@ -16,7 +16,7 @@ enum CatalogLanguage implements CatalogFilterOption {
   }
 
   @override
-  String toString() {
+  String get displayName {
     switch(this) {
       case CatalogLanguage.all:
         return "Tüm Diller";

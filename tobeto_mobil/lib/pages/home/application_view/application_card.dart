@@ -13,33 +13,24 @@ class ApplicationCard extends StatelessWidget {
   final ApplicationModel application;
   @override
   Widget build(BuildContext context) {
-    return AspectRatio(
-      aspectRatio: 1.5 / 1,
-      child: ContainerWidget(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            buildHeader(context),
-            buildBody(),
-            buildFooter(context),
-          ],
-        ),
+    return ContainerWidget(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          buildHeader(context),
+          buildBody(),
+          buildFooter(context),
+        ],
       ),
     );
   }
 
   Widget buildHeader(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(
-          application.title,
-          style: Theme.of(context).textTheme.titleLarge,
-          maxLines: 1,
-          overflow: TextOverflow.ellipsis,
-        ),
-      ],
+    return Text(
+      application.title,
+      style: Theme.of(context).textTheme.titleLarge,
+      overflow: TextOverflow.ellipsis,
     );
   }
 

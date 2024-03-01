@@ -94,7 +94,7 @@ class _CatalogFilterOptionWidgetState extends State<CatalogFilterOptionWidget> {
               Navigator.of(context).pop();
             },
             title: Text(
-              item.title.toString(),
+              item.displayName,
               textAlign: TextAlign.center,
             ),
           );

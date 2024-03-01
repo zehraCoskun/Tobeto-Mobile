@@ -12,18 +12,15 @@ class AnnouncementCard extends StatelessWidget {
   final AnnouncementModel announcement;
   @override
   Widget build(BuildContext context) {
-    return AspectRatio(
-      aspectRatio: 2.7 / 1,
-      child: ContainerWidget(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            buildHeader(context),
-            buildBody(context),
-            buildFooter(context),
-          ],
-        ),
+    return ContainerWidget(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          buildHeader(context),
+          buildBody(context),
+          buildFooter(context),
+        ],
       ),
     );
   }
@@ -37,7 +34,6 @@ class AnnouncementCard extends StatelessWidget {
           child: Text(
             announcement.type,
             style: Theme.of(context).textTheme.titleLarge,
-            maxLines: 1,
             overflow: TextOverflow.ellipsis,
           ),
         ),
@@ -46,7 +42,6 @@ class AnnouncementCard extends StatelessWidget {
           child: Text(
             announcement.organisation,
             style: Theme.of(context).textTheme.titleSmall,
-            maxLines: 1,
             overflow: TextOverflow.ellipsis,
           ),
         ),
@@ -58,7 +53,6 @@ class AnnouncementCard extends StatelessWidget {
     return Text(
       announcement.title,
       style: Theme.of(context).textTheme.titleMedium,
-      maxLines: 1,
       overflow: TextOverflow.ellipsis,
     );
   }
@@ -69,6 +63,7 @@ class AnnouncementCard extends StatelessWidget {
       children: [
         Text(
           _formatDate(announcement.date),
+          overflow: TextOverflow.fade,
           style: Theme.of(context).textTheme.titleSmall,
         ),
         TextButton(
@@ -77,7 +72,8 @@ class AnnouncementCard extends StatelessWidget {
               context: context,
               builder: (BuildContext context) {
                 return AlertDialog(
-                  backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
+                  backgroundColor:
+                      Theme.of(context).appBarTheme.backgroundColor,
                   title: Text(
                     announcement.title,
                     style: Theme.of(context).textTheme.titleLarge,
@@ -102,6 +98,7 @@ class AnnouncementCard extends StatelessWidget {
           },
           child: Text(
             announcementReadMore,
+            overflow: TextOverflow.fade,
             style: Theme.of(context).textTheme.bodySmall,
           ),
         )

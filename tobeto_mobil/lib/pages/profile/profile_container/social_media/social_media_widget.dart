@@ -14,16 +14,19 @@ class SocialMediaWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final state = context.watch<UserBloc>().state as UserStateFetched;
 
-    return Row(
-      children: <Widget>[
-        ...SocialMediaItem.values.map((item) {
-          return SocialMediaButton(
-            logo: item.toIcon(),
-            url: item.toUrl(state.userModel),
-            color: item.toColor(),
-          );
-        }),
-      ],
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+        children: <Widget>[
+          ...SocialMediaItem.values.map((item) {
+            return SocialMediaButton(
+              logo: item.toIcon(),
+              url: item.toUrl(state.userModel),
+              color: item.toColor(),
+            );
+          }),
+        ],
+      ),
     );
   }
 }

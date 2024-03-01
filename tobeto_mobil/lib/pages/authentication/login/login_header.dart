@@ -15,7 +15,7 @@ class LoginHeader extends StatelessWidget {
       alignment: Alignment.topCenter,
       child: Lottie.network(
         loginPageHeaderImage,
-        height: size.height * 0.4,
+        height: size.height * 0.35,
       ),
     );
   }

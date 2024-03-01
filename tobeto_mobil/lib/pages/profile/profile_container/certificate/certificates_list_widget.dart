@@ -22,7 +22,7 @@ class CertificatesListWidget extends StatelessWidget {
             onTap: () {},
             child: ContentsWidget(
               child: Text(
-                certificates![index].name,
+                certificates![index].name.split('.').first,
                 style: Theme.of(context).textTheme.bodyLarge,
               ),
             ),

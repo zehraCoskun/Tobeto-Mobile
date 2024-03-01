@@ -48,6 +48,7 @@ class MainTeamCard extends StatelessWidget {
           Text(
             teamModel.title,
             softWrap: true,
+            overflow: TextOverflow.ellipsis,
             style: Theme.of(context).textTheme.titleMedium!.copyWith(
                   fontSize: 14,
                 ),

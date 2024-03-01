@@ -8,14 +8,15 @@ class LoginFooter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(16),
-      child: Align(
-        alignment: Alignment.bottomLeft,
-        child: Image(
-          image: const AssetImage(logo),
-          color: Theme.of(context).colorScheme.onError,
-        ),
+    final size = MediaQuery.of(context).size;
+
+    return Container(
+      alignment: Alignment.bottomLeft,
+      width: size.width * 0.8,
+      padding: const EdgeInsets.only(left: 40, bottom: 20),
+      child: Image(
+        image: const AssetImage(logo),
+        color: Theme.of(context).colorScheme.onError,
       ),
     );
   }

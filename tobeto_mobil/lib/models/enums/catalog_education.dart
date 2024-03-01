@@ -12,7 +12,7 @@ enum CatalogEducation implements CatalogFilterOption {
   }
 
   @override
-  String toString() {
+  String get displayName {
     switch (this) {
       case CatalogEducation.all:
         return "Tüm Eğitimler";

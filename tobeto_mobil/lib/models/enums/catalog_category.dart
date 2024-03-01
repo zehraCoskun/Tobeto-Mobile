@@ -11,7 +11,7 @@ enum CatalogCategory implements CatalogFilterOption {
   }
 
   @override
-  String toString() {
+  String get displayName {
     switch (this) {
       case CatalogCategory.all:
         return "Tüm Eğitimler";

@@ -4,4 +4,8 @@ abstract class CatalogFilterOption {
   const CatalogFilterOption({
     required this.title,
   });
+
+  String get displayName {
+    return title;
+  }
 }
