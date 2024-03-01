@@ -6,6 +6,7 @@ import 'package:tobeto_mobil/constants/pages/auth_text.dart';
 import 'package:tobeto_mobil/constants/route_names.dart';
 import 'package:tobeto_mobil/core/widgets/form_field/form_widget.dart';
 import 'package:tobeto_mobil/core/widgets/form_field/password_form_widget.dart';
+import 'package:tobeto_mobil/utils/validators/auth_validator.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({
@@ -50,11 +51,13 @@ class _LoginFormState extends State<LoginForm> {
                 controller: emailController,
                 prefixIcon: const Icon(Icons.person_outline_outlined),
                 labelText: authEmailLabel,
+                validator: (value) => AuthValidator.validateEmail(value),
               ),
               const SizedBox(height: 5),
               PasswordFormWidget(
                 controller: passwordController,
                 labelText: authPasswordLabel,
+                validator: (value) => AuthValidator.validatePassword(value),
               ),
               const SizedBox(height: 10),
               Row(
@@ -108,13 +111,17 @@ class _LoginFormState extends State<LoginForm> {
     return Flexible(
       child: ElevatedButton(
         onPressed: () {
-          _formKey.currentState!.save();
-          context.read<AuthBloc>().add(
-                AuthEventLogIn(
-                  email: emailController.text.trim(),
-                  password: passwordController.text.trim(),
-                ),
-              );
+          final result = _formKey.currentState!.validate();
+
+          if (result) {
+            _formKey.currentState!.save();
+            context.read<AuthBloc>().add(
+                  AuthEventLogIn(
+                    email: emailController.text.trim(),
+                    password: passwordController.text.trim(),
+                  ),
+                );
+          }
         },
         style: Theme.of(context).elevatedButtonTheme.style,
         child: const Text(
