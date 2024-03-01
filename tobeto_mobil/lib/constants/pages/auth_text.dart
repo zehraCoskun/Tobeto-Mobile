@@ -12,7 +12,7 @@ const emailWrongFormatFieldText = "E-posta geçersiz; @ içermelidir";
 const emailLengthLessThanXFieldText = "Lütfen geçerli bir e-posta girin!";
 
 const passwordEmptyFieldText = "Lütfen şifre alanını boş bırakmayın";
-const passwordMismatchFieldText = "Şifreler uyuşmadı, lütfen tekrar deneyin!";
+const passwordMismatchFieldText = "Parolalar uyuşmadı, lütfen tekrar deneyin!";
 
 // LOGIN
 const loginForgotButtonText = "Parolamı Unuttum";
@@ -22,8 +22,8 @@ const loginButtonText = "Giriş Yap";
 const registerNameLabel = "İsim";
 const registerSurnameLabel = "Soyisim";
 const registerRepeatPasswordLabel = "Parola Tekrar";
-const registerRegisteredText = "Registration complete";
+const registerRegisteredText = "Kayıt tamamlandı !";
 
 // RECOVERY
 const recoverySendText = "Gönder";
-const recoveryLinkSentText = "Password Reset Email Sent";
+const recoveryLinkSentText = "Parola değiştirme linki gönderildi";

@@ -1,1 +1,1 @@
-const loadingStateWidgetLoadingText = "Loading...";
+const loadingStateWidgetLoadingText = "Yükleniyor...";

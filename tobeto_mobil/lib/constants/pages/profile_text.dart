@@ -22,13 +22,6 @@ const linkedinUrl = "https://www.linkedin.com/company/tobeto/";
 const twitterUrl = "https://twitter.com/tobeto_platform";
 const tobetoUrl = "https://tobeto.com";
 
-//profile page -activity map colors
-const rate0Color = Color(0xFFCACACA);
-const rate1Color = Color(0xFFB963F2);
-const rate2Color = Color(0xFF9857F2);
-const rate3Color = Color(0xFF4C2E8C);
-const rate4Color = Color(0xFF341959);
-
 //profil info text
 const profileFullName = "İsim Soyisim";
 const profileMail = "E-Posta Adresi";
@@ -42,3 +35,13 @@ const profileBadgeFieldTitle = "Yetkinlik Rozetlerim";
 const profileSocialMediaFieldTitle = "Sosyal Medya Hesaplarım";
 const profileBottomSheetSaveText = "Kaydet";
 const profileBottomSheetTitle = "Yetkinlik Ekle";
+
+
+
+
+/*profile page -activity map colors
+const rate0Color = Color(0xFFCACACA);
+const rate1Color = Color(0xFFB963F2);
+const rate2Color = Color(0xFF9857F2);
+const rate3Color = Color(0xFF4C2E8C);
+const rate4Color = Color(0xFF341959);*/
