@@ -34,3 +34,11 @@ const profileFullName = "İsim Soyisim";
 const profileMail = "E-Posta Adresi";
 const profilePhone = "Telefon Numarası";
 const profileBirthDate = "Doğum tarihi";
+
+const profilePersonalInfoFieldTitle = "Kişisel Bilgilerim";
+const profileTalentFieldTitle = "Yetkinliklerim";
+const profileCertificateFieldTitle = "Sertifikalarım";
+const profileBadgeFieldTitle = "Yetkinlik Rozetlerim";
+const profileSocialMediaFieldTitle = "Sosyal Medya Hesaplarım";
+const profileBottomSheetSaveText = "Kaydet";
+const profileBottomSheetTitle = "Yetkinlik Ekle";

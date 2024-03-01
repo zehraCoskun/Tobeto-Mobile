@@ -10,6 +10,7 @@ import 'package:tobeto_mobil/api/bloc/user_bloc/user_event.dart';
 import 'package:tobeto_mobil/api/bloc/user_bloc/user_state.dart';
 import 'package:tobeto_mobil/api/business/requests/user_requests/user_update_request.dart';
 import 'package:tobeto_mobil/constants/image_text.dart';
+import 'package:tobeto_mobil/constants/pages/profile_text.dart';
 import 'package:tobeto_mobil/constants/route_names.dart';
 import 'package:tobeto_mobil/core/widgets/background/secondary_background.dart';
 import 'package:tobeto_mobil/pages/profile/talent_bottom_sheet_widget.dart';
@@ -61,7 +62,7 @@ class ProfilePage extends StatelessWidget {
                       userImage: state.userModel.imageUrl,
                     ),
                     ProfileContainer(
-                      title: "Kişisel Bilgilerim",
+                      title: profilePersonalInfoFieldTitle,
                       child: PersonalInfoColumnWidget(
                         user: state.userModel,
                       ),
@@ -75,12 +76,12 @@ class ProfilePage extends StatelessWidget {
                       state.userModel.certificates,
                     ),
                     const ProfileContainer(
-                      title: "Sosyal Medya Hesaplarım",
+                      title: profileSocialMediaFieldTitle,
                       child: SocialMediaWidget(),
                     ),
                     if (state.userModel.badges != null)
                       ProfileContainer(
-                        title: "Yetkinlik Rozetlerim",
+                        title: profileBadgeFieldTitle,
                         child: BadgesListWidget(
                           badges: state.userModel.badges,
                         ),
@@ -105,7 +106,7 @@ class ProfilePage extends StatelessWidget {
     List<CertificateModel>? certificates,
   ) {
     return ProfileContainer(
-      title: "Sertifikalarım",
+      title: profileCertificateFieldTitle,
       trailing: GestureDetector(
         onTap: () {
           final auth = context.read<AuthBloc>().state as AuthStateLoggedIn;
@@ -128,7 +129,7 @@ class ProfilePage extends StatelessWidget {
     List<TalentItem>? talents,
   ) {
     return ProfileContainer(
-      title: "Yetkinliklerim",
+      title: profileTalentFieldTitle,
       trailing: GestureDetector(
         onTap: () async {
           showModalBottomSheet(
@@ -136,7 +137,7 @@ class ProfilePage extends StatelessWidget {
             backgroundColor: Theme.of(context).bottomSheetTheme.backgroundColor,
             builder: (context) {
               return TalentBottomSheetWidget(
-                title: "Yetenek Ekle",
+                title: profileBottomSheetTitle,
                 data: talents,
               );
             },

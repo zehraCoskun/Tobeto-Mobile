@@ -5,6 +5,7 @@ import 'package:tobeto_mobil/api/bloc/auth_bloc/auth_state.dart';
 import 'package:tobeto_mobil/api/bloc/user_bloc/user_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/user_bloc/user_event.dart';
 import 'package:tobeto_mobil/api/business/requests/user_requests/user_update_request.dart';
+import 'package:tobeto_mobil/constants/pages/profile_text.dart';
 import 'package:tobeto_mobil/models/enums/talent_item.dart';
 import 'package:tobeto_mobil/utils/theme/theme_ios.dart';
 
@@ -67,7 +68,7 @@ class _TalentBottomSheetWidgetState extends State<TalentBottomSheetWidget> {
                   Navigator.of(context).pop();
                 },
                 child: Text(
-                  "Kaydet",
+                  profileBottomSheetSaveText,
                   style: Theme.of(context).textTheme.titleMedium,
                 ),
               ),
