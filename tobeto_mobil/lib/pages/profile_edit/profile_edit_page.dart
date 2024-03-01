@@ -90,7 +90,7 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
     final size = MediaQuery.of(context).size;
     late Widget widget;
 
-    if (user?.imageUrl != null) {
+    if (user?.imageUrl != null && _selectedImage == null) {
       widget = CircleAvatar(
         backgroundImage: NetworkImage(user!.imageUrl!),
         radius: 60,

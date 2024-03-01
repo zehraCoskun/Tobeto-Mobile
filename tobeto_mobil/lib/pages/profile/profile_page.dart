@@ -89,7 +89,8 @@ class ProfilePage extends StatelessWidget {
                   ],
                 );
               }
-              return const SizedBox(
+              return SizedBox(
+                height: MediaQuery.of(context).size.height,
                 child: Center(
                   child: CircularProgressIndicator(),
                 ),
