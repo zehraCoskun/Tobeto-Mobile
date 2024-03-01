@@ -1,9 +1,13 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/auth_bloc/auth_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/auth_bloc/auth_event.dart';
 import 'package:tobeto_mobil/api/bloc/auth_bloc/auth_state.dart';
+import 'package:tobeto_mobil/api/bloc/user_bloc/user_bloc.dart';
+import 'package:tobeto_mobil/api/bloc/user_bloc/user_event.dart';
+import 'package:tobeto_mobil/api/bloc/user_bloc/user_state.dart';
 import 'package:tobeto_mobil/configuration/configuration.dart';
 import 'package:tobeto_mobil/constants/global_text.dart';
 import 'package:tobeto_mobil/constants/pages/auth_text.dart';
@@ -74,6 +78,7 @@ void main() async {
               return const NoConnectionPage();
             }
             if (state is AuthStateLoggedIn) {
+              _onDifferentAccount(context, state.user);
               return const HomePage();
             }
             return const LoginPage();
@@ -94,4 +99,15 @@ void _showOverlay(BuildContext context, String text) {
       LoadingStateWidget.instance().hide();
     },
   );
+}
+
+void _onDifferentAccount(BuildContext context, User user) {
+  final userBloc = context.read<UserBloc>();
+
+  if (userBloc.state is UserStateFetched) {
+    final userState = userBloc.state as UserStateFetched;
+    if (userState.userModel.email != user.email) {
+      userBloc.add(UserEventFetch(id: user.uid));
+    }
+  }
 }
