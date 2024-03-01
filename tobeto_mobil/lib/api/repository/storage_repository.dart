@@ -50,6 +50,14 @@ class StorageRepository {
     return await _firebaseStorage.refFromURL(url).getDownloadURL();
   }
 
+  Future<List<Reference>> getImages() {
+    return _firebaseStorage
+        .ref()
+        .child("teams")
+        .list()
+        .then((value) => value.items);
+  }
+
   Reference getFileReference(String url) {
     return _firebaseStorage.refFromURL(url);
   }

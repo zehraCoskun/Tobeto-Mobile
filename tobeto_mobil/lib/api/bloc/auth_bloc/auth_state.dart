@@ -1,9 +1,14 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart' show immutable;
+import 'package:tobeto_mobil/utils/exception/auth_error.dart';
 
 @immutable
 abstract class AuthState {
-  const AuthState();
+  final AuthError? authError;
+
+  const AuthState({
+    this.authError,
+  });
 }
 
 @immutable
@@ -42,15 +47,12 @@ class AuthStateRecoverLinkSent extends AuthState {
   const AuthStateRecoverLinkSent();
 }
 
-@immutable
-class AuthStateRecovered extends AuthState {
-  const AuthStateRecovered();
-}
-
 // LOGOUT
 @immutable
 class AuthStateLoggedOut extends AuthState {
-  const AuthStateLoggedOut();
+  const AuthStateLoggedOut({
+    AuthError? authError,
+  }) : super(authError: authError);
 }
 
 @immutable

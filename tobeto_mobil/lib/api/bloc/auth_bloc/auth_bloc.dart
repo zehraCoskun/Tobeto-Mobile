@@ -7,6 +7,7 @@ import 'package:tobeto_mobil/api/bloc/auth_bloc/auth_state.dart';
 import 'package:tobeto_mobil/api/business/requests/user_requests/user_create_request.dart';
 import 'package:tobeto_mobil/api/business/services/user_service.dart';
 import 'package:tobeto_mobil/api/repository/auth_repository.dart';
+import 'package:tobeto_mobil/utils/exception/auth_error.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final AuthRepository _authRepository;
@@ -51,8 +52,10 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         event.password,
       );
       emit(const AuthStateInitial());
-    } on FirebaseAuthException catch (_) {
-      emit(const AuthStateLoggedOut());
+    } on FirebaseAuthException catch (error) {
+      emit(AuthStateLoggedOut(
+        authError: AuthError.from(error),
+      ));
     }
   }
 
@@ -75,13 +78,17 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         ));
         emit(const AuthStateInitial());
       }
-    } on FirebaseAuthException catch (_) {
+    } on FirebaseAuthException catch (error) {
       await _authRepository.login(
         event.email,
         event.password,
       );
       await _authRepository.delete();
-      emit(const AuthStateInitial());
+      emit(AuthStateLoggedOut(
+        authError: AuthError.from(error),
+      ));
+    } on FirebaseException {
+      emit(const AuthStateLoggedOut());
     }
   }
 
@@ -92,7 +99,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     emit(const AuthStateLoading());
 
     await _authRepository.recover(event.email);
-    
+
     emit(const AuthStateRecoverLinkSent());
   }
 

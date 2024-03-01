@@ -7,6 +7,7 @@ import 'package:tobeto_mobil/api/bloc/auth_bloc/auth_state.dart';
 import 'package:tobeto_mobil/configuration/configuration.dart';
 import 'package:tobeto_mobil/constants/global_text.dart';
 import 'package:tobeto_mobil/constants/pages/auth_text.dart';
+import 'package:tobeto_mobil/core/widgets/dialogs/show_auth_error.dart';
 import 'package:tobeto_mobil/core/widgets/loading_widget/loading_state_widget.dart';
 import 'package:tobeto_mobil/firebase_options.dart';
 import 'package:tobeto_mobil/pages/authentication/login/login_page.dart';
@@ -52,6 +53,14 @@ void main() async {
               _showOverlay(context, recoveryLinkSentText);
             } else {
               LoadingStateWidget.instance().hide();
+            }
+
+            final authError = state.authError;
+            if (authError != null) {
+              showAuthError(
+                authError: authError,
+                context: context,
+              );
             }
           },
           builder: (context, state) {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:tobeto_mobil/core/widgets/shadows.dart';
 
 class ProfileEditFormField extends StatelessWidget {
@@ -6,6 +7,7 @@ class ProfileEditFormField extends StatelessWidget {
     Key? key,
     this.initialValue,
     this.label,
+    this.maxLength,
     this.hintText,
     this.icon,
     this.validator,
@@ -16,6 +18,7 @@ class ProfileEditFormField extends StatelessWidget {
 
   final String? initialValue;
   final Widget? label;
+  final int? maxLength;
   final String? hintText;
   final Widget? icon;
   final Widget? suffixIcon;
@@ -43,6 +46,8 @@ class ProfileEditFormField extends StatelessWidget {
           icon: icon,
           suffixIcon: suffixIcon,
         ),
+        maxLength: maxLength,
+        maxLengthEnforcement: MaxLengthEnforcement.enforced,
         validator: validator,
         onSaved: onSaved,
         onChanged: onChanged,
