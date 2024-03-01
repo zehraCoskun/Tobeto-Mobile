@@ -21,20 +21,20 @@ class _MainTobetoListState extends State<MainTobetoList>
     _currentIndex = 0;
   }
 
-  // void _startAnimation(BuildContext context, int itemCount) {
-  //   Future.delayed(const Duration(seconds: 5), () {
-  //     if (context.mounted) {
-  //       setState(() {
-  //         _currentIndex = ((_currentIndex + 1) % itemCount);
-  //       });
-  //     }
-  //   });
-  // }
+  void _startAnimation(BuildContext context, int itemCount) {
+    Future.delayed(const Duration(seconds: 5), () {
+      if (context.mounted) {
+        setState(() {
+          _currentIndex = ((_currentIndex + 1) % itemCount);
+        });
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     itemCount = tobetoNews.length;
-    //_startAnimation(context, itemCount);
+    _startAnimation(context, itemCount);
     return AspectRatio(
       aspectRatio: 2 / 1,
       child: MainTobetoCard(
