@@ -26,15 +26,20 @@ class CatalogService {
         catalogList.add(CatalogModel.fromMap(catalogData));
       }
     }
+
+    if (sortBy != null) {
+      _sort(sortBy, catalogList);
+    }
+
     return catalogList;
   }
 
-  Future<List<CatalogModel>> getFilteredCatalog(SortBy? sortBy, Filter filter) async {
+  Future<List<CatalogModel>> getFilteredCatalog(
+      SortBy? sortBy, Filter filter) async {
     final querySnapshot = await _catalogRepository.getFilteredCatalog(filter);
 
-    final catalogs = querySnapshot.docs
-        .map((e) => CatalogModel.fromMap(e.data()))
-        .toList();
+    final catalogs =
+        querySnapshot.docs.map((e) => CatalogModel.fromMap(e.data())).toList();
 
     if (sortBy != null) {
       _sort(sortBy, catalogs);
