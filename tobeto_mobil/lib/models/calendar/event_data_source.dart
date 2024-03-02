@@ -29,6 +29,6 @@ class EventDataSource extends CalendarDataSource {
 
   @override
   bool isAllDay(int index) {
-    return appointments![index].isAllDay as bool;
+    return false;
   }
 }

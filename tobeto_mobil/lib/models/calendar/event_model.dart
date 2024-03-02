@@ -7,7 +7,6 @@ class EventModel {
   final DateTime from;
   final DateTime to;
   final Color backgroundColor;
-  final bool isAllDay;
 
   EventModel({
     required this.title,
@@ -15,7 +14,6 @@ class EventModel {
     required this.from,
     required this.to,
     this.backgroundColor = Colors.lightGreen,
-    this.isAllDay = false,
   });
 
   factory EventModel.fromMap(Map<String, dynamic> map) {
@@ -25,7 +23,6 @@ class EventModel {
       from: (map["from"] as Timestamp).toDate(),
       to: (map["to"] as Timestamp).toDate(),
       backgroundColor: Color(int.parse(map["background_color"] as String)),
-      isAllDay: map["is_all_day"] as bool,
     );
   }
 
@@ -36,7 +33,6 @@ class EventModel {
       "from": from,
       "to": to,
       "background_color": backgroundColor.value.toString(),
-      "is_all_day": isAllDay,
     };
   }
 }
