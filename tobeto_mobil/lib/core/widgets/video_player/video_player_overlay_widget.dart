@@ -25,8 +25,9 @@ class VideoPlayerOverlayWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
-      onTap: () =>
-          controller.value.isPlaying ? controller.pause() : controller.play(),
+      onTap: () {
+        controller.value.isPlaying ? controller.pause() : controller.play();
+      },
       child: Stack(
         children: <Widget>[
           buildPlay(),
@@ -55,10 +56,21 @@ class VideoPlayerOverlayWidget extends StatelessWidget {
                   Expanded(child: buildIndicator()),
                   const SizedBox(width: 12),
                   GestureDetector(
+                    onTap: () {
+                      controller.setVolume(
+                          controller.value.volume == 0.0 ? 1.0 : 0.0);
+                    },
+                    child: Icon(
+                      controller.value.volume == 0
+                          ? Icons.volume_off
+                          : Icons.volume_up,
+                    ),
+                  ),
+                  GestureDetector(
                     onTap: onClickedFullScreen,
                     child: const Icon(
                       Icons.fullscreen,
-                      color: Colors.white,
+                      color: Color.fromARGB(255, 48, 45, 45),
                       size: 28,
                     ),
                   ),

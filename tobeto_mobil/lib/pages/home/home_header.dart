@@ -20,11 +20,16 @@ class HomeHeader extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: Image.asset(
-        height: kToolbarHeight,
-        Theme.of(context).brightness == Brightness.dark
-            ? ikLogoLight
-            : ikLogoDark,
+      title: GestureDetector(
+        onTap: () {
+          tabController.animateTo(0);
+        },
+        child: Image.asset(
+          height: kToolbarHeight,
+          Theme.of(context).brightness == Brightness.dark
+              ? ikLogoLight
+              : ikLogoDark,
+        ),
       ),
       bottom: TabBarWidget(
         isScrollable: true,

@@ -17,6 +17,11 @@ class UserStateInitial extends UserState {
 }
 
 @immutable
+class UserStateCreated extends UserState {
+  const UserStateCreated();
+}
+
+@immutable
 class UserStateUpdated extends UserState {
   const UserStateUpdated();
 }

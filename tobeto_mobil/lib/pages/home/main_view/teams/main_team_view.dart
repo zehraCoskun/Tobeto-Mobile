@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/team_bloc/team_bloc.dart';
@@ -18,20 +19,18 @@ class MainTeamList extends StatelessWidget {
           context.read<TeamBloc>().add(const TeamEventFetch());
         }
         if (state is TeamStateLoaded) {
-          state.teams.sort((a, b) => a.sortNumber.compareTo(b.sortNumber));
-          return AspectRatio(
-            aspectRatio: 1.65 / 1,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: state.teams.length,
-              itemBuilder: (context, index) {
-                return SizedBox(
-                  width: 180,
-                  child: MainTeamCard(
-                    teamModel: state.teams[index],
-                  ),
+          return CarouselSlider(
+            items: [
+              ...state.teams.map((item) {
+                return MainTeamCard(
+                  teamModel: item,
                 );
-              },
+              })
+            ],
+            options: CarouselOptions(
+              autoPlay: true,
+              autoPlayInterval: const Duration(seconds: 4),
+              viewportFraction: 0.33,
             ),
           );
         }

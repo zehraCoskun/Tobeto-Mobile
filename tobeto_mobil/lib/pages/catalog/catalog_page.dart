@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:tobeto_mobil/api/bloc/catalog_blog/catalog_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/catalog_blog/catalog_event.dart';
 import 'package:tobeto_mobil/api/bloc/catalog_blog/catalog_state.dart';
@@ -11,35 +10,15 @@ import 'package:tobeto_mobil/pages/catalog/catalog_category/catalog_search_bar.d
 import 'package:tobeto_mobil/pages/catalog/catalog_filter/catalog_filter_option/catalog_filter_option_body.dart';
 import 'package:tobeto_mobil/pages/catalog/catalog_filter/catalog_order_filter.dart';
 
-class CatalogPage extends StatefulWidget {
+class CatalogPage extends StatelessWidget {
   const CatalogPage({
     Key? key,
   }) : super(key: key);
 
   @override
-  State<CatalogPage> createState() => _CatalogPageState();
-}
-
-class _CatalogPageState extends State<CatalogPage> {
-  bool _isKeyboardVisible = false;
-  late KeyboardVisibilityController controller;
-
-  _CatalogPageState();
-  @override
-  void initState() {
-    super.initState();
-    controller = KeyboardVisibilityController();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    controller.onChange.listen((onData) {
-      setState(() {
-        _isKeyboardVisible = onData;
-      });
-    });
-
     return GlobalScaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: CatalogSearchBar(
           onChanged: (value) {},
@@ -57,9 +36,9 @@ class _CatalogPageState extends State<CatalogPage> {
           return Column(
             children: <Widget>[
               const SizedBox(height: 8),
-              if (!_isKeyboardVisible) const CatalogOrderAndFilter(),
+              const CatalogOrderAndFilter(),
               const SizedBox(height: 5),
-              if (!_isKeyboardVisible) const CatalogFilterOptionWidget(),
+              const CatalogFilterOptionWidget(),
               CatalogBody(catalogs: state.catalogs),
             ],
           );

@@ -4,6 +4,7 @@ import 'package:tobeto_mobil/api/business/services/storage_service.dart';
 import 'package:tobeto_mobil/api/repository/user_repository.dart';
 import 'package:tobeto_mobil/models/user/certificate_model.dart';
 import 'package:tobeto_mobil/models/user/user_model.dart';
+import 'package:tobeto_mobil/utils/exception/user_exception.dart';
 
 class UserService {
   final UserRepository _userRepository;
@@ -21,7 +22,12 @@ class UserService {
   }
 
   Future<void> create(UserCreateRequest request) async {
-    await _userRepository.create(request.id, request.toMap());
+    //throw const UserExceptionThereWasAnError();
+    await _userRepository
+        .create(request.id, request.toMap())
+        .onError((error, stackTrace) {
+      throw const UserExceptionThereWasAnError();
+    });
   }
 
   Future<void> update(UserUpdateRequest request) async {
@@ -40,6 +46,16 @@ class UserService {
     final snapshot = await _userRepository.getUser(id);
 
     return UserModel.fromMap(snapshot.data()!);
+  }
+
+  Future<UserModel> getWithEmail(String email) async {
+    final snapshot = await _userRepository.findWithEmail(email);
+
+    if (snapshot.size == 0) {
+      throw const UserExceptionNotFound();
+    }
+
+    return UserModel.fromMap(snapshot.docs.first.data());
   }
 
   Future<String> _processImageFile(

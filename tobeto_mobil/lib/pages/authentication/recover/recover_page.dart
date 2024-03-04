@@ -9,17 +9,24 @@ import 'package:tobeto_mobil/core/widgets/form_field/form_widget.dart';
 import 'package:tobeto_mobil/core/widgets/background/primary_background.dart';
 import 'package:tobeto_mobil/utils/validators/auth_validator.dart';
 
-class RecoveryPage extends StatefulWidget {
-  const RecoveryPage({
+class RecoverPage extends StatefulWidget {
+  const RecoverPage({
     Key? key,
   }) : super(key: key);
 
   @override
-  State<RecoveryPage> createState() => _RecoveryPageState();
+  State<RecoverPage> createState() => _RecoverPageState();
 }
 
-class _RecoveryPageState extends State<RecoveryPage> {
+class _RecoverPageState extends State<RecoverPage> {
+  late GlobalKey<FormState> _formKey;
   final emailController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    _formKey = GlobalKey<FormState>();
+  }
 
   @override
   void dispose() {
@@ -32,6 +39,12 @@ class _RecoveryPageState extends State<RecoveryPage> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
+        leading: IconButton(
+          onPressed: () {
+            context.read<AuthBloc>().add(const AuthEventInitialize());
+          },
+          icon: const Icon(Icons.arrow_back_outlined),
+        ),
         title: const Image(
           image: AssetImage(logo),
           width: kToolbarHeight * 2,
@@ -48,18 +61,22 @@ class _RecoveryPageState extends State<RecoveryPage> {
             ),
             Padding(
               padding: const EdgeInsets.all(12.0),
-              child: FormWidget(
-                controller: emailController,
-                labelText: authEmailLabel,
-                prefixIcon: const Icon(
-                  Icons.email_outlined,
+              child: Form(
+                key: _formKey,
+                child: FormWidget(
+                  controller: emailController,
+                  labelText: authEmailLabel,
+                  prefixIcon: const Icon(
+                    Icons.email_outlined,
+                  ),
+                  validator: (value) => AuthValidator.validateEmail(value),
+                  onSaved: (value) => emailController.text = value ?? "",
                 ),
-                validator: (value) => AuthValidator.validateEmail(value),
-                onChanged: (newValue) => emailController.text = newValue,
               ),
             ),
             ElevatedButton(
               onPressed: () {
+                _formKey.currentState!.save();
                 context.read<AuthBloc>().add(
                       AuthEventRecover(
                         email: emailController.text.trim(),

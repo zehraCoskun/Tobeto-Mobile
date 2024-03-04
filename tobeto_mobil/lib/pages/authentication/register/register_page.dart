@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tobeto_mobil/api/bloc/auth_bloc/auth_bloc.dart';
+import 'package:tobeto_mobil/api/bloc/auth_bloc/auth_event.dart';
 import 'package:tobeto_mobil/constants/image_text.dart';
 import 'package:tobeto_mobil/core/widgets/background/primary_background.dart';
 import 'package:tobeto_mobil/pages/authentication/register/register_form.dart';
@@ -12,7 +15,14 @@ class RegisterPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: AppBar(),
+      appBar: AppBar(
+        leading: IconButton(
+          onPressed: () {
+            context.read<AuthBloc>().add(const AuthEventInitialize());
+          },
+          icon: const Icon(Icons.arrow_back_outlined),
+        ),
+      ),
       body: Stack(
         alignment: Alignment.center,
         children: <Widget>[

@@ -25,35 +25,20 @@ enum SocialMediaItem {
     }
   }
 
-  String toHint() {
-    switch (this) {
-      case SocialMediaItem.github:
-        return "github.com/example";
-      case SocialMediaItem.linkedin:
-        return "linkedin.com/in/example";
-      case SocialMediaItem.facebook:
-        return "facebook.com/example";
-      case SocialMediaItem.twitter:
-        return "twitter.com/example";
-      case SocialMediaItem.instagram:
-        return "instagram.com/example";
-    }
-  }
-
   String? toValue(UserModel? user) {
     if (user == null) return null;
 
     switch (this) {
       case SocialMediaItem.github:
-        return user.github;
+        return user.github?.split("/").last;
       case SocialMediaItem.linkedin:
-        return user.linkedin;
+        return user.linkedin?.split("/").last;
       case SocialMediaItem.facebook:
-        return user.facebook;
+        return user.facebook?.split("/").last;
       case SocialMediaItem.twitter:
-        return user.twitter;
+        return user.twitter?.split("/").last;
       case SocialMediaItem.instagram:
-        return user.instagram;
+        return user.instagram?.split("/").last;
     }
   }
 

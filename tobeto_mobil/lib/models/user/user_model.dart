@@ -41,7 +41,10 @@ class UserModel extends Entity {
     this.instagram,
   });
 
-  factory UserModel.fromMap(Map<String, dynamic> map) {
+  factory UserModel.fromMap(Map<String, dynamic>? map) {
+    if (map == null) {
+      return UserModel();
+    }
     return UserModel(
       fullName: map["full_name"] as String?,
       email: map["email"] as String?,

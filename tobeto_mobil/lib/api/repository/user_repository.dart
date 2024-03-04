@@ -25,4 +25,8 @@ class UserRepository {
   Future<DocumentSnapshot<Map<String, dynamic>>> getUser(String docId) async {
     return await _collection.doc(docId).get();
   }
+
+  Future<QuerySnapshot<Map<String, dynamic>>> findWithEmail(String email) async {
+    return await _collection.where("email", isEqualTo: email).get();
+  }
 }

@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:tobeto_mobil/core/widgets/custom_image_network.dart';
 import 'package:tobeto_mobil/core/widgets/shadows.dart';
 import 'package:tobeto_mobil/models/team_model.dart';
 
 class MainTeamCard extends StatelessWidget {
-  const MainTeamCard({super.key, required this.teamModel});
+  const MainTeamCard({
+    super.key,
+    required this.teamModel,
+  });
+  
   final TeamModel teamModel;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -21,34 +27,18 @@ class MainTeamCard extends StatelessWidget {
         ],
       ),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Container(
-            width: 120,
-            height: 120,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              boxShadow: [containerBasicShadow(), purpleShadow()],
-            ),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(60),
-              child: Image.network(teamModel.imageUrl),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(top: 6),
-            child: Text(
-              teamModel.name,
-              softWrap: true,
-              style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                    fontSize: 15,
-                  ),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(60),
+            child: CustomImageNetwork(
+              url: teamModel.imageUrl,
             ),
           ),
           Text(
             teamModel.title,
-            softWrap: true,
             overflow: TextOverflow.ellipsis,
+            maxLines: 2,
             style: Theme.of(context).textTheme.titleMedium!.copyWith(
                   fontSize: 14,
                 ),

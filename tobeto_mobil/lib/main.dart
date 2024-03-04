@@ -15,6 +15,8 @@ import 'package:tobeto_mobil/core/widgets/dialogs/show_auth_error.dart';
 import 'package:tobeto_mobil/core/widgets/loading_widget/loading_state_widget.dart';
 import 'package:tobeto_mobil/firebase_options.dart';
 import 'package:tobeto_mobil/pages/authentication/login/login_page.dart';
+import 'package:tobeto_mobil/pages/authentication/recover/recover_page.dart';
+import 'package:tobeto_mobil/pages/authentication/register/register_page.dart';
 import 'package:tobeto_mobil/pages/home/home_page.dart';
 import 'package:tobeto_mobil/pages/no_connection/no_connection_page.dart';
 import 'package:tobeto_mobil/utils/router/route_generator.dart';
@@ -55,27 +57,56 @@ void main() async {
               );
             } else if (state is AuthStateRecoverLinkSent) {
               _showOverlay(context, recoveryLinkSentText);
+            } else if (state is AuthStateRegistered) {
+              _showOverlay(context, registerRegisteredText);
             } else {
               LoadingStateWidget.instance().hide();
             }
 
-            final authError = state.authError;
-            if (authError != null) {
+            final error = state.error;
+            if (error != null) {
               showAuthError(
-                authError: authError,
+                exception: error,
                 context: context,
               );
             }
+          },
+          buildWhen: (previous, current) {
+            if (current is AuthStateLoading) {
+              return false;
+            }
+
+            if (current is AuthStateLoggedOut && current.error != null) {
+              return false;
+            }
+
+            if (current is AuthStateRegistered) {
+              return false;
+            }
+
+            if (current is AuthStateRecoverLinkSent) {
+              return false;
+            }
+
+            return true;
           },
           builder: (context, state) {
             if (state is AuthStateInitial) {
               context.read<AuthBloc>().add(
                     const AuthEventInitialize(),
                   );
-              return Container();
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
             }
             if (state is AuthStateNoConnection) {
               return const NoConnectionPage();
+            }
+            if (state is AuthStateInRegisterView) {
+              return const RegisterPage();
+            }
+            if (state is AuthStateInRecoverView) {
+              return const RecoverPage();
             }
             if (state is AuthStateLoggedIn) {
               _onDifferentAccount(context, state.user);
@@ -95,7 +126,7 @@ void _showOverlay(BuildContext context, String text) {
     context: context,
     text: text,
     onClose: () {
-      Navigator.of(context).pushReplacementNamed("/login");
+      context.read<AuthBloc>().add(const AuthEventInitialize());
       LoadingStateWidget.instance().hide();
     },
   );

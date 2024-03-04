@@ -22,7 +22,7 @@ const loginButtonText = "Giriş Yap";
 const registerNameLabel = "İsim";
 const registerSurnameLabel = "Soyisim";
 const registerRepeatPasswordLabel = "Parola Tekrar";
-const registerRegisteredText = "Kayıt tamamlandı !";
+const registerRegisteredText = "Kayıt tamamlandı!";
 
 // RECOVERY
 const recoverySendText = "Gönder";

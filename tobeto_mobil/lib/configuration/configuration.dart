@@ -10,6 +10,7 @@ import 'package:tobeto_mobil/api/bloc/team_bloc/team_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/user_bloc/user_bloc.dart';
 import 'package:tobeto_mobil/api/business/services/announcement_service.dart';
 import 'package:tobeto_mobil/api/business/services/application_service.dart';
+import 'package:tobeto_mobil/api/business/services/auth_service.dart';
 import 'package:tobeto_mobil/api/business/services/catalog_service.dart';
 import 'package:tobeto_mobil/api/business/services/education_service.dart';
 import 'package:tobeto_mobil/api/business/services/exam_service.dart';
@@ -18,7 +19,6 @@ import 'package:tobeto_mobil/api/business/services/team_service.dart';
 import 'package:tobeto_mobil/api/business/services/user_service.dart';
 import 'package:tobeto_mobil/api/repository/announcement_repository.dart';
 import 'package:tobeto_mobil/api/repository/application_repository.dart';
-import 'package:tobeto_mobil/api/repository/auth_repository.dart';
 import 'package:tobeto_mobil/api/repository/education_repository.dart';
 import 'package:tobeto_mobil/api/repository/exam_repository.dart';
 import 'package:tobeto_mobil/api/repository/review_repository.dart';
@@ -26,15 +26,16 @@ import 'package:tobeto_mobil/api/repository/team_repository.dart';
 
 final authBlocProvider = BlocProvider(
   create: (context) => AuthBloc(
-    AuthRepository.instance(),
-    UserService.instance(),
+    AuthService.instance(),
   ),
 );
 
 final userBlocProvider = BlocProvider(
-  create: (context) => UserBloc(
-    UserService.instance(),
-  ),
+  create: (context) => userBloc,
+);
+
+final userBloc = UserBloc(
+  UserService.instance(),
 );
 
 final announcementBlocProvider = BlocProvider(

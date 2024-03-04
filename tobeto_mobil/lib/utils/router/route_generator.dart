@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tobeto_mobil/constants/route_names.dart';
 import 'package:tobeto_mobil/models/catalog/catalog_model.dart';
 import 'package:tobeto_mobil/models/education/education_model.dart';
-import 'package:tobeto_mobil/pages/authentication/recovery/recovery_page.dart';
+import 'package:tobeto_mobil/pages/authentication/recover/recover_page.dart';
 import 'package:tobeto_mobil/pages/authentication/register/register_page.dart';
 import 'package:tobeto_mobil/pages/calendar/calendar_page.dart';
 import 'package:tobeto_mobil/pages/catalog/catalog_detail/catalog_details_view.dart';
@@ -37,7 +37,7 @@ class RouteGenerator {
       case Routes.PROFILEEDIT:
         return defaultRouteTransition(const ProfileEditPage());
       case Routes.RECOVERY:
-        return defaultRouteTransition(const RecoveryPage());
+        return defaultRouteTransition(const RecoverPage());
       case Routes.REGISTER:
         return defaultRouteTransition(const RegisterPage());
       case Routes.EDUCATIONDETAILS:

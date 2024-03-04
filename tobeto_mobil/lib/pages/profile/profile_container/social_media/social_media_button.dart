@@ -16,7 +16,7 @@ class SocialMediaButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return IconButton(
       onPressed: () {
-        _launchUrl(Uri.parse(url));
+        launchUrl(Uri.parse(url));
       },
       icon: Container(
         padding: const EdgeInsets.all(8),
@@ -34,11 +34,5 @@ class SocialMediaButton extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  Future<void> _launchUrl(Uri url) async {
-    if (!await launchUrl(url)) {
-      throw Exception('Could not launch $url');
-    }
   }
 }

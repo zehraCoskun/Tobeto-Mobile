@@ -36,7 +36,7 @@ class _MainTobetoListState extends State<MainTobetoList>
     itemCount = tobetoNews.length;
     _startAnimation(context, itemCount);
     return AspectRatio(
-      aspectRatio: 2 / 1,
+      aspectRatio: 2.5 / 1,
       child: MainTobetoCard(
         tobetoNewsModel: tobetoNews[_currentIndex],
       ),

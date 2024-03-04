@@ -6,11 +6,13 @@ import 'package:flutter/material.dart';
 class GlobalScaffold extends StatelessWidget {
   const GlobalScaffold({
     Key? key,
+    this.resizeToAvoidBottomInset,
     this.appBar,
     this.body,
     this.drawer,
   }) : super(key: key);
 
+  final bool? resizeToAvoidBottomInset;
   final PreferredSizeWidget? appBar;
   final Widget? body;
   final Widget? drawer;
@@ -18,6 +20,7 @@ class GlobalScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: resizeToAvoidBottomInset,
       drawer: drawer,
       appBar: appBar ??
           AppBar(

@@ -13,7 +13,7 @@ import 'package:tobeto_mobil/constants/image_text.dart';
 import 'package:tobeto_mobil/constants/pages/profile_text.dart';
 import 'package:tobeto_mobil/constants/route_names.dart';
 import 'package:tobeto_mobil/core/widgets/background/secondary_background.dart';
-import 'package:tobeto_mobil/pages/profile/talent_bottom_sheet_widget.dart';
+import 'package:tobeto_mobil/pages/profile/profile_container/talents/talent_bottom_sheet_widget.dart';
 import 'package:tobeto_mobil/models/enums/talent_item.dart';
 import 'package:tobeto_mobil/models/user/certificate_model.dart';
 import 'package:tobeto_mobil/pages/profile/profile_container/badge/badges_list_widget.dart';

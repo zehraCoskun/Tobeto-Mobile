@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/auth_bloc/auth_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/auth_bloc/auth_event.dart';
+import 'package:tobeto_mobil/api/business/requests/auth_requests/auth_register_request.dart';
 import 'package:tobeto_mobil/constants/pages/auth_text.dart';
 import 'package:tobeto_mobil/core/widgets/form_field/form_widget.dart';
 import 'package:tobeto_mobil/core/widgets/form_field/password_form_widget.dart';
@@ -126,14 +127,14 @@ class _RegisterFormState extends State<RegisterForm> {
           _formKey.currentState!.save();
           context.read<AuthBloc>().add(
                 AuthEventRegister(
-                  fullName:
-                      "${nameController.text.trim()} ${surnameController.text.trim()}"
-                          .toTitleCase(),
-                  email: emailController.text.trim(),
-                  password: passwordController.text.trim(),
+                  request: AuthRegisterRequest(
+                    fullName:
+                        "${nameController.text.trim()} ${surnameController.text.trim()}",
+                    email: emailController.text.trim(),
+                    password: passwordController.text.trim(),
+                  ),
                 ),
               );
-          Navigator.of(context).pop();
         }
       },
       child: const Text(authRegisterButtonText),

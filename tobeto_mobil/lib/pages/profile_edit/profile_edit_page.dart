@@ -9,6 +9,7 @@ import 'package:tobeto_mobil/api/bloc/user_bloc/user_event.dart';
 import 'package:tobeto_mobil/api/bloc/user_bloc/user_state.dart';
 import 'package:tobeto_mobil/api/business/requests/user_requests/user_update_request.dart';
 import 'package:tobeto_mobil/constants/image_text.dart';
+import 'package:tobeto_mobil/constants/pages/profile_edit_text.dart';
 import 'package:tobeto_mobil/constants/pages/profile_text.dart';
 import 'package:tobeto_mobil/core/widgets/background/secondary_background.dart';
 import 'package:tobeto_mobil/models/enums/talent_item.dart';
@@ -55,7 +56,7 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
         actions: [
           TextButton(
             onPressed: () => save(),
-            child: const Text("Kaydet"),
+            child: const Text(profileEditSaveText),
           ),
         ],
       ),
@@ -78,7 +79,7 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
         children: <Widget>[
           buildProfileImage(context),
           const ProfileEditHeader(
-            title: "Profil Bilgilerim",
+            title: profileEditProfileInfoTitle,
           ),
           ...buildFields(),
         ],
@@ -103,7 +104,10 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
     } else {
       widget = Icon(
         Icons.person,
-        color: Theme.of(context).iconTheme.copyWith(color: TobetoDarkColors.lacivert).color,
+        color: Theme.of(context)
+            .iconTheme
+            .copyWith(color: TobetoDarkColors.lacivert)
+            .color,
         size: 120,
       );
     }
@@ -122,7 +126,7 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
                 Icons.add_a_photo_outlined,
                 color: TobetoDarkColors.lacivert,
               ),
-              onPressed: () => _pickImage(),
+              onPressed: () => _pickSource(),
             ),
           ),
         ],
@@ -163,7 +167,6 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
           label: Text(
             item.toString(),
           ),
-          hintText: item.toHint(),
           icon: Image.asset(
             item.toIcon(),
             height: 32,
@@ -207,28 +210,52 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
     Navigator.of(context).pop();
   }
 
-  void saveSocial(SocialMediaItem item, String? value) {
-    if (value == null || value.isEmpty) return;
+  void saveSocial(SocialMediaItem item, String? value) {}
 
-    if (!value.startsWith("https://")) {
-      value = "https://$value";
-    }
-    switch (item) {
-      case SocialMediaItem.facebook:
-        request.facebook = value;
-      case SocialMediaItem.github:
-        request.github = value;
-      case SocialMediaItem.instagram:
-        request.instagram = value;
-      case SocialMediaItem.linkedin:
-        request.linkedin = value;
-      case SocialMediaItem.twitter:
-        request.twitter = value;
-    }
+  void _pickSource() {
+    showModalBottomSheet(
+      context: context,
+      builder: (context) {
+        return Row(
+          children: <Widget>[
+            GestureDetector(
+              onTap: () {
+                Navigator.of(context).pop();
+                _pickImage(ImageSource.gallery);
+              },
+              child: Container(
+                decoration: const ShapeDecoration(
+                  shape: CircleBorder(),
+                ),
+                child: const Icon(
+                  Icons.insert_photo,
+                ),
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.of(context).pop();
+                _pickImage(ImageSource.camera);
+              },
+              child: Container(
+                decoration: const ShapeDecoration(
+                  shape: CircleBorder(),
+                ),
+                child: const Icon(
+                  Icons.camera_alt_rounded,
+                ),
+              ),
+            ),
+          ],
+        );
+      },
+    );
   }
 
-  void _pickImage() async {
-    final image = await ImagePicker().pickImage(source: ImageSource.gallery);
+  void _pickImage(ImageSource source) async {
+    final image = await ImagePicker().pickImage(
+      source: source,
+    );
 
     if (image != null) {
       setState(() {

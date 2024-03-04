@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/auth_bloc/auth_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/auth_bloc/auth_event.dart';
 import 'package:tobeto_mobil/constants/pages/auth_text.dart';
-import 'package:tobeto_mobil/constants/route_names.dart';
 import 'package:tobeto_mobil/core/widgets/form_field/form_widget.dart';
 import 'package:tobeto_mobil/core/widgets/form_field/password_form_widget.dart';
 import 'package:tobeto_mobil/utils/validators/auth_validator.dart';
@@ -79,7 +78,9 @@ class _LoginFormState extends State<LoginForm> {
     return Flexible(
       child: TextButton(
         onPressed: () {
-          Navigator.of(context).pushNamed(Routes.RECOVERY);
+          context.read<AuthBloc>().add(
+                const AuthEventToRecoverView(),
+              );
         },
         style: Theme.of(context).textButtonTheme.style,
         child: const Text(
@@ -95,7 +96,9 @@ class _LoginFormState extends State<LoginForm> {
     return Flexible(
       child: TextButton(
         onPressed: () {
-          Navigator.of(context).pushNamed(Routes.REGISTER);
+          context.read<AuthBloc>().add(
+                const AuthEventToRegisterView(),
+              );
         },
         style: Theme.of(context).textButtonTheme.style,
         child: const Text(

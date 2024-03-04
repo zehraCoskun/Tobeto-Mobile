@@ -1,25 +1,22 @@
 import 'dart:io';
 
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/auth_bloc/auth_event.dart';
 import 'package:tobeto_mobil/api/bloc/auth_bloc/auth_state.dart';
-import 'package:tobeto_mobil/api/business/requests/user_requests/user_create_request.dart';
-import 'package:tobeto_mobil/api/business/services/user_service.dart';
-import 'package:tobeto_mobil/api/repository/auth_repository.dart';
-import 'package:tobeto_mobil/utils/exception/auth_error.dart';
+import 'package:tobeto_mobil/api/business/services/auth_service.dart';
+import 'package:tobeto_mobil/utils/exception/custom_exception.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
-  final AuthRepository _authRepository;
-  final UserService _userService;
+  final AuthService _authService;
 
-  AuthBloc(this._authRepository, this._userService)
-      : super(const AuthStateInitial()) {
-    on<AuthEventInitialize>((event, emit) => _onInitialize(event, emit));
-    on<AuthEventLogIn>((event, emit) => _onLogin(event, emit));
-    on<AuthEventRegister>((event, emit) => _onRegister(event, emit));
-    on<AuthEventRecover>((event, emit) => _onRecover(event, emit));
-    on<AuthEventLogOut>((event, emit) => _onLogout(event, emit));
+  AuthBloc(this._authService) : super(const AuthStateInitial()) {
+    on<AuthEventInitialize>(_onInitialize);
+    on<AuthEventLogIn>(_onLogin);
+    on<AuthEventToRegisterView>(_onToRegisterView);
+    on<AuthEventRegister>(_onRegister);
+    on<AuthEventToRecoverView>(_onToRecoverView);
+    on<AuthEventRecover>(_onRecover);
+    on<AuthEventLogOut>(_onLogout);
   }
 
   Future<void> _onInitialize(
@@ -31,8 +28,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       return;
     }
 
-    final user = _authRepository.currentUser();
-
+    final user = _authService.currentUser();
     if (user != null) {
       emit(AuthStateLoggedIn(user: user));
     } else {
@@ -47,16 +43,21 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     emit(const AuthStateLoading());
 
     try {
-      await _authRepository.login(
+      await _authService.login(
         event.email,
         event.password,
       );
       emit(const AuthStateInitial());
-    } on FirebaseAuthException catch (error) {
+    } on CustomException catch (error) {
       emit(AuthStateLoggedOut(
-        authError: AuthError.from(error),
+        error: error,
       ));
     }
+  }
+
+  Future<void> _onToRegisterView(
+      AuthEventToRegisterView event, Emitter<AuthState> emit) async {
+    emit(const AuthStateInRegisterView());
   }
 
   Future<void> _onRegister(
@@ -64,32 +65,19 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     Emitter<AuthState> emit,
   ) async {
     emit(const AuthStateLoading());
-
+    
     try {
-      final credential = await _authRepository.register(
-        event.email,
-        event.password,
-      );
-      if (credential.user != null) {
-        await _userService.create(UserCreateRequest(
-          id: credential.user!.uid,
-          fullName: event.fullName,
-          email: event.email,
-        ));
-        emit(const AuthStateInitial());
-      }
-    } on FirebaseAuthException catch (error) {
-      await _authRepository.login(
-        event.email,
-        event.password,
-      );
-      await _authRepository.delete();
-      emit(AuthStateLoggedOut(
-        authError: AuthError.from(error),
-      ));
-    } on FirebaseException {
-      emit(const AuthStateLoggedOut());
+      await _authService.register(event.request);
+      await _authService.logout();
+      emit(const AuthStateRegistered());
+    } on CustomException catch (error) {
+      emit(AuthStateLoggedOut(error: error));
     }
+  }
+
+  Future<void> _onToRecoverView(
+      AuthEventToRecoverView event, Emitter<AuthState> emit) async {
+    emit(const AuthStateInRecoverView());
   }
 
   Future<void> _onRecover(
@@ -98,9 +86,12 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   ) async {
     emit(const AuthStateLoading());
 
-    await _authRepository.recover(event.email);
-
-    emit(const AuthStateRecoverLinkSent());
+    try {
+      await _authService.recover(event.email);
+      emit(const AuthStateRecoverLinkSent());
+    } on CustomException catch (error) {
+      emit(AuthStateLoggedOut(error: error));
+    }
   }
 
   Future<void> _onLogout(
@@ -109,9 +100,12 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   ) async {
     emit(const AuthStateLoading());
 
-    await _authRepository.logout();
-
-    emit(const AuthStateInitial());
+    try {
+      await _authService.logout();
+      emit(const AuthStateInitial());
+    } on CustomException catch (error) {
+      emit(AuthStateLoggedOut(error: error));
+    }
   }
 }
 
