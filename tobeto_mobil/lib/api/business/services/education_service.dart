@@ -3,7 +3,16 @@ import 'package:tobeto_mobil/models/education/education_model.dart';
 
 class EducationService {
   final EducationRepository _educationRepository;
-  const EducationService(this._educationRepository);
+
+  const EducationService._(this._educationRepository);
+
+  static final _instance = EducationService._(
+    EducationRepository.instance(),
+  );
+
+  factory EducationService.instance() {
+    return _instance;
+  }
 
   Future<List<EducationModel>> getAllEducation() async {
     final querSnapshot = await _educationRepository.getAllEducation();
@@ -17,5 +26,4 @@ class EducationService {
     }
     return educationList;
   }
-
 }

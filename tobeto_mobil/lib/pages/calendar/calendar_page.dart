@@ -88,11 +88,10 @@ class CalendarPage extends StatelessWidget {
 
   List<Widget> buildAppBarActions(UserState state, BuildContext context) {
     return [
-      IconButton(
-        onPressed: () {},
-        icon: const Icon(Icons.search),
-      ),
-      if (state is UserStateFetched) buildUserAvatar(state.userModel.imageUrl, context) else buildUserAvatar(null, context)
+      if (state is UserStateFetched)
+        buildUserAvatar(state.userModel.imageUrl, context)
+      else
+        buildUserAvatar(null, context)
     ];
   }
 
@@ -105,7 +104,8 @@ class CalendarPage extends StatelessWidget {
                 radius: 18,
                 backgroundImage: NetworkImage(imageUrl),
               )
-            : Icon(Icons.person, size: 36, color: Theme.of(context).iconTheme.color),
+            : Icon(Icons.person,
+                size: 36, color: Theme.of(context).iconTheme.color),
       ),
     );
   }

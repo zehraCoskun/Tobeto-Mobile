@@ -10,6 +10,7 @@ const Map<String, AuthException> authExceptionMapping = {
   'email-already-in-use': AuthExceptionEmailAlreadyInUse(),
   'requires-recent-login': AuthExceptionRequiresRecentLogin(),
   'no-current-user': AuthExceptionNoCurrentUser(),
+  'invalid-credential': AuthExceptionInvalidCredential(),
 };
 
 @immutable
@@ -35,6 +36,15 @@ class AuthExceptionUnknown extends AuthException {
           dialogTitle: 'Authentication error',
           dialogText: 'Unknown authentication error',
         );
+}
+
+// auth/invalid-credential
+@immutable
+class AuthExceptionInvalidCredential extends AuthException {
+  const AuthExceptionInvalidCredential() : super(
+    dialogTitle: "Invalid Credential",
+    dialogText: "Please check your credentials",
+  );
 }
 
 // auth/no-current-user

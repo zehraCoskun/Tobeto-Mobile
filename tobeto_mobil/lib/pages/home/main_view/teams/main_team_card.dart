@@ -8,7 +8,7 @@ class MainTeamCard extends StatelessWidget {
     super.key,
     required this.teamModel,
   });
-  
+
   final TeamModel teamModel;
 
   @override

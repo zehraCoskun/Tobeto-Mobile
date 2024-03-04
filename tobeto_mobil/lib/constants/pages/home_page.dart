@@ -4,9 +4,6 @@ const ok = "Tamam";
 
 //main page
 const mainHeaderTitle = "Hoşgeldin";
-const mainAnnouncementTitle = " İstanbul Kodluyor Son Duyurular";
-const mainTobetoNewsTitle = " Tobeto ile Geleceğini Keşfet";
-const mainTeamsTitle = " Biz Kimiz?";
 
 //education pages
 

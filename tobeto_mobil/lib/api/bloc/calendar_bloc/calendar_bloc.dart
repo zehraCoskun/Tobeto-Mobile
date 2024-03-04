@@ -13,10 +13,8 @@ class CalendarBloc extends Bloc<CalendarEvent, CalendarState> {
   void _onFetch(CalendarEventFetch event, Emitter<CalendarState> emit) async {
     emit(const CalendarStateLoading());
 
-    final events = _calendarService.stream();
+    final events = await _calendarService.fetchAll();
 
-    await emit.forEach(events, onData: (data) {
-      return CalendarStateFetched(events: data);
-    });
+    emit(CalendarStateFetched(events: events));
   }
 }

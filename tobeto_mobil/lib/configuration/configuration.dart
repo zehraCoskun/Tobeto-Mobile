@@ -19,7 +19,6 @@ import 'package:tobeto_mobil/api/business/services/team_service.dart';
 import 'package:tobeto_mobil/api/business/services/user_service.dart';
 import 'package:tobeto_mobil/api/repository/announcement_repository.dart';
 import 'package:tobeto_mobil/api/repository/application_repository.dart';
-import 'package:tobeto_mobil/api/repository/education_repository.dart';
 import 'package:tobeto_mobil/api/repository/exam_repository.dart';
 import 'package:tobeto_mobil/api/repository/review_repository.dart';
 import 'package:tobeto_mobil/api/repository/team_repository.dart';
@@ -72,9 +71,7 @@ final reviewBlocProvider = BlocProvider(
 
 final educationBlocProvider = BlocProvider(
   create: (context) => EducationBloc(
-    EducationService(
-      EducationRepository.instance(),
-    ),
+    EducationService.instance(),
   ),
 );
 

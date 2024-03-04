@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/user_bloc/user_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/user_bloc/user_state.dart';
-import 'package:tobeto_mobil/constants/pages/home_page.dart';
 import 'package:tobeto_mobil/core/widgets/background/secondary_background.dart';
 import 'package:tobeto_mobil/pages/home/main_view/announcement/main_annoucement_view.dart';
 import 'package:tobeto_mobil/pages/home/main_view/header/main_header_container.dart';
@@ -25,7 +24,7 @@ class _MainViewState extends State<MainView> {
 
     return SecondaryBackgroundWidget(
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           buildHeader(firstName),
           buildBody(),
@@ -39,18 +38,15 @@ class _MainViewState extends State<MainView> {
   }
 
   Flexible buildBody() {
-    return Flexible(
+    return const Flexible(
       flex: 6,
       child: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            MainBodyTitle(context: context, title: mainTobetoNewsTitle),
-            const MainTobetoList(),
-            MainBodyTitle(context: context, title: mainAnnouncementTitle),
-            const MainAnnouncementList(),
-            MainBodyTitle(context: context, title: mainTeamsTitle),
-            const MainTeamList(),
+            MainTobetoList(),
+            MainAnnouncementList(),
+            MainTeamList(),
           ],
         ),
       ),
