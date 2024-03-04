@@ -4,6 +4,7 @@ import 'package:tobeto_mobil/api/bloc/user_bloc/user_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/user_bloc/user_state.dart';
 import 'package:tobeto_mobil/constants/image_text.dart';
 import 'package:tobeto_mobil/constants/pages/drawer_text.dart';
+import 'package:tobeto_mobil/core/widgets/custom_image_network.dart';
 import 'package:tobeto_mobil/core/widgets/shadows.dart';
 import 'package:tobeto_mobil/models/user/user_model.dart';
 
@@ -49,9 +50,9 @@ class DrawerHead extends StatelessWidget {
         child: ClipRRect(
           borderRadius: BorderRadius.circular(60),
           child: user?.imageUrl != null
-              ? Image.network(
+              ? CustomImageNetwork(
+                  url: user!.imageUrl!,
                   fit: BoxFit.cover,
-                  user!.imageUrl!,
                   height: 120,
                   width: 120,
                 )

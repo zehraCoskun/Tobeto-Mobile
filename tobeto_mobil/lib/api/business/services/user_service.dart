@@ -22,7 +22,6 @@ class UserService {
   }
 
   Future<void> create(UserCreateRequest request) async {
-    //throw const UserExceptionThereWasAnError();
     await _userRepository
         .create(request.id, request.toMap())
         .onError((error, stackTrace) {

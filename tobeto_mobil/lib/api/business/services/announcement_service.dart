@@ -15,6 +15,7 @@ class AnnouncementService {
         announcementList.add(AnnouncementModel.fromMap(announcementData));
       }
     }
+    announcementList.sort((a, b) => b.date.compareTo(a.date));
     return announcementList;
   }
 }

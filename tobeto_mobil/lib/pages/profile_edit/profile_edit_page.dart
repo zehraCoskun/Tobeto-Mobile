@@ -167,6 +167,7 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
           label: Text(
             item.toString(),
           ),
+          hintText: item.toHint(),
           icon: Image.asset(
             item.toIcon(),
             height: 32,
@@ -210,7 +211,20 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
     Navigator.of(context).pop();
   }
 
-  void saveSocial(SocialMediaItem item, String? value) {}
+  void saveSocial(SocialMediaItem item, String? value) {
+    switch (item) {
+      case SocialMediaItem.github:
+        request.github = value;
+      case SocialMediaItem.facebook:
+        request.facebook = value;
+      case SocialMediaItem.instagram:
+        request.instagram = value;
+      case SocialMediaItem.twitter:
+        request.twitter = value;
+      case SocialMediaItem.linkedin:
+        request.linkedin = value;
+    }
+  }
 
   void _pickSource() {
     showModalBottomSheet(

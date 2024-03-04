@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
+import 'package:tobeto_mobil/constants/pages/catalog_text.dart';
 import 'package:tobeto_mobil/core/widgets/video_player/video_player_widget.dart';
 import 'package:tobeto_mobil/models/catalog/catalog_model.dart';
 import 'package:video_player/video_player.dart';
@@ -98,17 +99,20 @@ class _EducationDetailsPageState extends State<CatalogDetailsPage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(widget.catalog.title, style: Theme.of(context).textTheme.titleLarge),
                       Text(
-                        'Eğitmen : ${widget.catalog.trainer}',
+                        widget.catalog.title,
+                        style: Theme.of(context).textTheme.titleLarge,
+                      ),
+                      Text(
+                        '$catalogDetailsTrainerText : ${widget.catalog.trainer}',
                         style: Theme.of(context).textTheme.titleMedium,
                       ),
                       Text(
-                        'Yayınlanma Tarihi : ${DateFormat.yMd().format(widget.catalog.releaseDate)}',
+                        '$catalogDetailsReleaseDateText : ${DateFormat.yMd().format(widget.catalog.releaseDate)}',
                         style: Theme.of(context).textTheme.titleMedium,
                       ),
                       Text(
-                        'Eğitim Süresi : ${widget.catalog.totalDuration}',
+                        '$catalogDetailsTotalDurationText : ${widget.catalog.totalDuration}',
                         style: Theme.of(context).textTheme.titleMedium,
                       ),
                     ],

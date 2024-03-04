@@ -18,7 +18,6 @@ class AnnouncementView extends StatelessWidget {
           context.read<AnnouncementBloc>().add(const AnnouncementEventFetch());
         }
         if (state is AnnouncementStateLoaded) {
-          state.announcements.sort((a, b) => b.date.compareTo(a.date));
           return ListView.builder(
             itemCount: state.announcements.length,
             itemBuilder: (context, index) {

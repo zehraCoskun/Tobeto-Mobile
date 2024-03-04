@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:tobeto_mobil/constants/global_text.dart';
+import 'package:tobeto_mobil/constants/pages/profile_edit_text.dart';
 import 'package:tobeto_mobil/core/widgets/shadows.dart';
 import 'package:tobeto_mobil/utils/theme/theme_ios.dart';
 
@@ -26,8 +28,8 @@ class _ProfileEditFormDateFieldState extends State<ProfileEditFormDateField> {
     super.initState();
     controller = TextEditingController(
       text: widget.initialValue != null
-          ? DateFormat('yyyy-MM-dd').format(widget.initialValue!)
-          : "Doğum Tarihi",
+          ? DateFormat(yearMonthDateFormatText).format(widget.initialValue!)
+          : profileEditDateFieldTitle,
     );
   }
 
@@ -79,7 +81,7 @@ class _ProfileEditFormDateFieldState extends State<ProfileEditFormDateField> {
     );
 
     if (date != null) {
-      controller.text = DateFormat('yyyy-MM-dd').format(date);
+      controller.text = DateFormat(yearMonthDateFormatText).format(date);
     }
   }
 }

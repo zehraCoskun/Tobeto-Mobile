@@ -25,35 +25,50 @@ enum SocialMediaItem {
     }
   }
 
+  String toHint() {
+    switch (this) {
+      case SocialMediaItem.github:
+        return "github.com/{profile}";
+      case SocialMediaItem.linkedin:
+        return "linkedin.com/in/{profile}";
+      case SocialMediaItem.facebook:
+        return "facebook/{profile}";
+      case SocialMediaItem.twitter:
+        return "twitter/{profile}";
+      case SocialMediaItem.instagram:
+        return "instagram/{profile}";
+    }
+  }
+
   String? toValue(UserModel? user) {
     if (user == null) return null;
 
     switch (this) {
       case SocialMediaItem.github:
-        return user.github?.split("/").last;
+        return _processString(user.github);
       case SocialMediaItem.linkedin:
-        return user.linkedin?.split("/").last;
+        return _processString(user.linkedin);
       case SocialMediaItem.facebook:
-        return user.facebook?.split("/").last;
+        return _processString(user.facebook);
       case SocialMediaItem.twitter:
-        return user.twitter?.split("/").last;
+        return _processString(user.twitter);
       case SocialMediaItem.instagram:
-        return user.instagram?.split("/").last;
+        return _processString(user.instagram);
     }
   }
 
   String toUrl(UserModel user) {
     switch (this) {
       case SocialMediaItem.github:
-        return user.github ?? githubUrl;
+        return "$githubUrl${_processString(user.github)}";
       case SocialMediaItem.linkedin:
-        return user.linkedin ?? linkedinUrl;
+        return "$linkedinUrl${_processString(user.linkedin)}";
       case SocialMediaItem.facebook:
-        return user.facebook ?? facebookUrl;
+        return "$facebookUrl${_processString(user.facebook)}";
       case SocialMediaItem.twitter:
-        return user.twitter ?? twitterUrl;
+        return "$twitterUrl${_processString(user.twitter)}";
       case SocialMediaItem.instagram:
-        return user.instagram ?? instagramUrl;
+        return "$instagramUrl${_processString(user.instagram)}";
     }
   }
 
@@ -87,18 +102,25 @@ enum SocialMediaItem {
     }
   }
 
-    String toTobetoUrl() {
+  String toTobetoUrl() {
     switch (this) {
       case SocialMediaItem.github:
         return githubUrl;
       case SocialMediaItem.linkedin:
         return linkedinUrl;
       case SocialMediaItem.facebook:
-        return  facebookUrl;
+        return facebookUrl;
       case SocialMediaItem.twitter:
-        return  twitterUrl;
+        return twitterUrl;
       case SocialMediaItem.instagram:
-        return  instagramUrl;
+        return instagramUrl;
     }
+  }
+
+  String? _processString(String? str) {
+    if (str != null && str.contains("/")) {
+      return str.split("/").last;
+    }
+    return str;
   }
 }
