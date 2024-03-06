@@ -1,5 +1,5 @@
 class SortBy {
-  final CatalogFields field;
+  final CatalogField field;
   final bool ascending;
 
   const SortBy({
@@ -8,7 +8,7 @@ class SortBy {
   });
 }
 
-enum CatalogFields {
+enum CatalogField {
   title,
   totalDuration,
   startDate,
@@ -20,21 +20,21 @@ enum CatalogFields {
 
   String get field {
     switch (this) {
-      case CatalogFields.title:
+      case CatalogField.title:
         return "title";
-      case CatalogFields.totalDuration:
+      case CatalogField.totalDuration:
         return "total_duration";
-      case CatalogFields.startDate:
+      case CatalogField.startDate:
         return "start_date";
-      case CatalogFields.language:
+      case CatalogField.language:
         return "language";
-      case CatalogFields.category:
+      case CatalogField.category:
         return "category";
-      case CatalogFields.education:
+      case CatalogField.education:
         return "education";
-      case CatalogFields.level:
+      case CatalogField.level:
         return "level";
-      case CatalogFields.trainer:
+      case CatalogField.trainer:
         return "trainer";
     }
   }

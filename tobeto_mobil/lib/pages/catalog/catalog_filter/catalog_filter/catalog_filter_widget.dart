@@ -20,7 +20,7 @@ class CatalogFilterWidget extends StatelessWidget {
           showModalBottomSheet<void>(
             context: context,
             builder: (BuildContext context) {
-              return buildOrderBottomSheet();
+              return buildFilterBottomSheet();
             },
           );
         },
@@ -51,7 +51,7 @@ class CatalogFilterWidget extends StatelessWidget {
     );
   }
 
-  Widget buildOrderBottomSheet() {
+  Widget buildFilterBottomSheet() {
     const itemList = CatalogFilterItem.values;
 
     return Material(

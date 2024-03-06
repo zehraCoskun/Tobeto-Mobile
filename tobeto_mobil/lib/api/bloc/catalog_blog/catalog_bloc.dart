@@ -2,7 +2,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tobeto_mobil/api/bloc/catalog_blog/catalog_event.dart';
 import 'package:tobeto_mobil/api/bloc/catalog_blog/catalog_state.dart';
 import 'package:tobeto_mobil/api/business/services/catalog_service.dart';
-import 'package:tobeto_mobil/models/catalog/catalog_model.dart';
 
 class CatalogBloc extends Bloc<CatalogEvent, CatalogState> {
   final CatalogService _catalogService;
@@ -18,8 +17,9 @@ class CatalogBloc extends Bloc<CatalogEvent, CatalogState> {
   ) async {
     emit(const CatalogStateLoading());
     try {
-      final List<CatalogModel> catalogs =
-          await _catalogService.getCatalog(event.sortBy);
+      final catalogs = await _catalogService.getCatalog(
+        event.sortBy,
+      );
       emit(CatalogStateLoaded(catalogs));
     } catch (e) {
       emit(CatalogStateError(errorMessage: e.toString()));

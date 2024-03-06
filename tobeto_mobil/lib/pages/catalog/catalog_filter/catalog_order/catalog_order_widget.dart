@@ -110,10 +110,10 @@ class _CatalogOrderWidgetState extends State<CatalogOrderWidget> {
             onTap: () {
               context.read<CatalogBloc>().add(CatalogEventFetch(
                   sortBy: SortBy(
-                      field: CatalogFields.values.firstWhere(
+                      field: CatalogField.values.firstWhere(
                         (element) => element.field == item.field,
                       ),
-                      ascending: true)));
+                      ascending: false)));
               Navigator.of(context).pop();
             },
             title: Text(

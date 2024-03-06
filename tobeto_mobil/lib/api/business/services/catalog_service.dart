@@ -27,45 +27,18 @@ class CatalogService {
       }
     }
 
-    if (sortBy != null) {
-      _sort(sortBy, catalogList);
-    }
-
-    return catalogList;
+    return catalogList..sortBy(sortBy);
   }
 
   Future<List<CatalogModel>> getFilteredCatalog(
       SortBy? sortBy, Filter filter) async {
     final querySnapshot = await _catalogRepository.getFilteredCatalog(filter);
 
-    final catalogs =
-        querySnapshot.docs.map((e) => CatalogModel.fromMap(e.data())).toList();
-
-    if (sortBy != null) {
-      _sort(sortBy, catalogs);
-    }
+    final catalogs = querySnapshot.docs
+        .map((e) => CatalogModel.fromMap(e.data()))
+        .toList()
+        ..sortBy(sortBy);
 
     return catalogs;
-  }
-}
-
-void _sort(SortBy sort, List<CatalogModel> catalogs) {
-  switch (sort.field) {
-    case CatalogFields.title:
-      catalogs.sort((a, b) => a.title.compareTo(b.title));
-    case CatalogFields.totalDuration:
-      catalogs.sort((a, b) => a.totalDuration.compareTo(b.totalDuration));
-    case CatalogFields.startDate:
-      catalogs.sort((a, b) => a.startDate.compareTo(b.startDate));
-    case CatalogFields.language:
-      catalogs.sort((a, b) => a.language.name.compareTo(b.language.name));
-    case CatalogFields.category:
-      catalogs.sort((a, b) => a.category.name.compareTo(b.category.name));
-    case CatalogFields.education:
-      catalogs.sort((a, b) => a.education.name.compareTo(b.education.name));
-    case CatalogFields.level:
-      catalogs.sort((a, b) => a.level.name.compareTo(b.level.name));
-    case CatalogFields.trainer:
-      catalogs.sort((a, b) => a.trainer.compareTo(b.trainer));
   }
 }
